@@ -12,8 +12,8 @@ import { Router } from '@angular/router';
 })
 export class BuyerComponent implements OnInit {
 
-  buyer: Buyers[] = [];
-  buyerForm!: FormGroup;
+  buyer: Buyers[] = []
+  buyerForm!: FormGroup
   buyerModel: Buyers = new Buyers();
   title: string = "Buyers list";
   title2: string = "Buyers Entry Form";

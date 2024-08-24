@@ -1,163 +1,41 @@
-{  
-  "StyleCategories": [  
-    {  
+{
+"buyer":[  
+  {  
       "id": 1,  
-      "name": "Casual"  
-    },  
-    {  
+      "organization": "Example Corp",  
+      "contactPerson": "John Doe",  
+      "phone": "+1-234-567-8901",  
+      "email": "john.doe@example.com",  
+      "address": "1234 Elm Street, Springfield",  
+      "country": "USA"  
+  },  
+  {  
       "id": 2,  
-      "name": "Formal"  
-    }  
-  ],  
-  "Size": [  
-    {  
-      "id": 1,  
-      "name": "Small"  
-    },  
-    {  
-      "id": 2,  
-      "name": "Medium"  
-    },  
-    {  
+      "organization": "Acme Inc",  
+      "contactPerson": "Jane Smith",  
+      "phone": "+1-234-567-8902",  
+      "email": "jane.smith@acme.com",  
+      "address": "5678 Oak Avenue, Metropolis",  
+      "country": "USA"  
+  },  
+  {  
       "id": 3,  
-      "name": "Large"  
-    }  
-  ],  
-  "Trim": [  
-    {  
-      "id": 1,  
-      "name": "Zipper"  
-    },  
-    {  
-      "id": 2,  
-      "name": "Button"  
-    }  
-  ],  
-  "Fabric": [  
-    {  
-      "id": 1,  
-      "name": "Cotton",  
-      "description": "Soft and breathable fabric."  
-    },  
-    {  
-      "id": 2,  
-      "name": "Silk",  
-      "description": "Luxurious and smooth fabric."  
-    }  
-  ],  
-  "RawMaterialCat": [  
-    {  
-      "id": 1,  
-      "name": "Fabrics"  
-    },  
-    {  
-      "id": 2,  
-      "name": "Trims"  
-    }  
-  ],  
-  "Style": {  
-    "id": 1,  
-    "code": "ST001",  
-    "description": "Casual Summer Dress",  
-    "categoriesId": {  
-      "id": 1,  
-      "name": "Casual"  
-    }  
+      "organization": "Global Solutions",  
+      "contactPerson": "Michael Johnson",  
+      "phone": "+1-234-567-8903",  
+      "email": "michael.johnson@globalsol.com",  
+      "address": "9101 Pine Road, Gotham",  
+      "country": "USA"  
   },  
-  "MeasuremntDetails": {  
-    "id": 1,  
-    "description": "Chest Measurement",  
-    "tolerance": "± 2 cm",  
-    "small": "85 cm",  
-    "medium": "90 cm",  
-    "large": "95 cm",  
-    "styleId": {  
-      "id": 1,  
-      "code": "ST001",  
-      "description": "Casual Summer Dress",  
-      "categoriesId": {  
-        "id": 1,  
-        "name": "Casual"  
-      }  
-    }  
-  },  
-  "RawMaterial": {  
-    "id": 1,  
-    "name": "Cotton Fabric",  
-    "description": "High-quality cotton fabric.",  
-    "unitPrice": 10.0,  
-    "attachment": "link_to_attachment",  
-    "styleId": {  
-      "id": 1,  
-      "code": "ST001",  
-      "description": "Casual Summer Dress",  
-      "categoriesId": {  
-        "id": 1,  
-        "name": "Casual"  
-      }  
-    },  
-    "rawMaterialCatId": {  
-      "id": 1,  
-      "name": "Fabrics"  
-    },  
-    "uomId": {  
-      "id": 1,  
-      "name": "Meters"  
-    },  
-    "vendorId": {  
-      "id": 1,  
-      "company": "Fabric Co.",  
-      "contactPerson": "John Doe",  
-      "cell": "123-456-7890",  
-      "email": "john@example.com",  
-      "address": "123 Fabric St."  
-    }  
-  },  
-  "Purchase": {  
-    "id": 1,  
-    "purchaseDate": "2023-10-01T00:00:00.000Z",  
-    "deliveryDate": "2023-10-05T00:00:00.000Z",  
-    "price": 200.0,  
-    "quantity": 20,  
-    "paid": 200.0,  
-    "total": 4000.0,  
-    "vendorsId": {  
-      "id": 1,  
-      "company": "Fabric Co.",  
-      "contactPerson": "John Doe",  
-      "cell": "123-456-7890",  
-      "email": "john@example.com",  
-      "address": "123 Fabric St."  
-    },  
-    "statusId": {  
-      "id": 1,  
-      "name": "Completed"  
-    },  
-    "wareHouseId": {  
-      "id": 1,  
-      "name": "Main Warehouse",  
-      "city": "New York",  
-      "contact": "Warehouse Manager"  
-    },  
-    "rawMaterialId": {  
-      "id": 1,  
-      "name": "Cotton Fabric",  
-      "description": "High-quality cotton fabric.",  
-      "unitPrice": 10.0,  
-      "attachment": "link_to_attachment"  
-    }  
-  },  
-  "Stock": {  
-    "id": 1,  
-    "quantity": 100,  
-    "createDate": "2023-09-15T00:00:00.000Z",  
-    "updateDate": "2023-09-20T00:00:00.000Z",  
-    "rawMaterialId": {  
-      "id": 1,  
-      "name": "Cotton Fabric",  
-      "description": "High-quality cotton fabric.",  
-      "unitPrice": 10.0,  
-      "attachment": "link_to_attachment"  
-    }  
+  {  
+      "id": 4,  
+      "organization": "Tech Innovations",  
+      "contactPerson": "Emily Davis",  
+      "phone": "+1-234-567-8904",  
+      "email": "emily.davis@techinnov.com",  
+      "address": "1122 Maple Drive, Star City",  
+      "country": "USA"  
   }  
+]
+
 }

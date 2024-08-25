@@ -1,41 +1,46 @@
 {
-"buyer":[  
-  {  
-      "id": 1,  
-      "organization": "Example Corp",  
-      "contactPerson": "John Doe",  
-      "phone": "+1-234-567-8901",  
-      "email": "john.doe@example.com",  
-      "address": "1234 Elm Street, Springfield",  
-      "country": "USA"  
-  },  
-  {  
-      "id": 2,  
-      "organization": "Acme Inc",  
-      "contactPerson": "Jane Smith",  
-      "phone": "+1-234-567-8902",  
-      "email": "jane.smith@acme.com",  
-      "address": "5678 Oak Avenue, Metropolis",  
-      "country": "USA"  
-  },  
-  {  
-      "id": 3,  
-      "organization": "Global Solutions",  
-      "contactPerson": "Michael Johnson",  
-      "phone": "+1-234-567-8903",  
-      "email": "michael.johnson@globalsol.com",  
-      "address": "9101 Pine Road, Gotham",  
-      "country": "USA"  
-  },  
-  {  
-      "id": 4,  
-      "organization": "Tech Innovations",  
-      "contactPerson": "Emily Davis",  
-      "phone": "+1-234-567-8904",  
-      "email": "emily.davis@techinnov.com",  
-      "address": "1122 Maple Drive, Star City",  
-      "country": "USA"  
-  }  
-]
-
+  "product": [
+    {
+      "id": 1,
+      "name": "Product A",
+      "description": "Description for Product A",
+      "price": 25.5,
+      "quantity": 100
+    },
+    {
+      "id": 2,
+      "name": "Product B",
+      "description": "Description for Product B",
+      "price": 15.75,
+      "quantity": 200
+    },
+    {
+      "id": 3,
+      "name": "Product C",
+      "description": "Description for Product C",
+      "price": 30,
+      "quantity": 50
+    },
+    {
+      "id": 4,
+      "name": "Product D",
+      "description": "Description for Product D",
+      "price": 12,
+      "quantity": 150
+    },
+    {
+      "id": 5,
+      "name": "Product E",
+      "description": "Description for Product E",
+      "price": 45.99,
+      "quantity": 75
+    },
+    {
+      "id": 6,
+      "name": "T-shart",
+      "description": "cloth",
+      "price": 900,
+      "quantity": 10
+    }
+  ]
 }

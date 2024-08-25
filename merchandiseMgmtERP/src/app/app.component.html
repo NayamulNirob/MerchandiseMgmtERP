@@ -1,7 +1,12 @@
-<div class="container-scroller bg-gray-dark">
+<div class="container-scroller bg-dark">
   <app-sidebar></app-sidebar>
-  <app-navbar></app-navbar>
-  <router-outlet />
- 
+  <div class="container-fluid page-body-wrapper">
+    <app-navbar></app-navbar>
+    <div class="main-panel">
+      <div class="content-wrapper">
+        <router-outlet></router-outlet>
+      </div>
+      <app-footer></app-footer>
+    </div>
+  </div>
 </div>
-<app-footer></app-footer>

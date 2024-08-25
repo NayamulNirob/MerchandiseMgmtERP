@@ -1,17 +1,17 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { DashbordComponent } from './dashbord/dashbord.component';
-import { BuyerComponent } from './components/buyers/buyer/buyer.component';
-import { OrderDetails } from './model/sale.model';
-import { StyleComponent } from './components/buyers/style/style.component';
-import { ExComponent } from './components/try/ex/ex.component';
+import { LoginComponent } from './login/login.component';
+import { RegisterComponent } from './register/register.component';
+import { ProducmanagementComponent } from './businesscomponent/producmanagement/producmanagement.component';
+
 
 const routes: Routes = [
   {path:'dashbord',component:DashbordComponent},
-  {path:'buyer',component:BuyerComponent},
-  {path:"order",component:OrderDetails},
-  {path:"style",component:StyleComponent},
-  {path:"ex",component:ExComponent}
+  {path:'login',component:LoginComponent},
+  {path:'register',component:RegisterComponent},
+  {path:'product',component:ProducmanagementComponent}
+
 ];
 
 @NgModule({

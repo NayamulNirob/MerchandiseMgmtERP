@@ -7,12 +7,14 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { FooterComponent } from './footer/footer.component';
 import { DashbordComponent } from './dashbord/dashbord.component';
-import { BuyerComponent } from './components/buyers/buyer/buyer.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { HttpClient, HttpClientModule, provideHttpClient, withFetch } from '@angular/common/http';
-import { OrderDetailsComponent } from './components/buyers/order-details/order-details.component';
-import { StyleComponent } from './components/buyers/style/style.component';
-import { ExComponent } from './components/try/ex/ex.component';
+import { LoginComponent } from './login/login.component';
+import { RegisterComponent } from './register/register.component';
+import { ProducmanagementComponent } from './businesscomponent/producmanagement/producmanagement.component';
+import { FormsModule } from '@angular/forms';
+import { ProductService } from './services/product.service';
+
 
 
 @NgModule({
@@ -22,22 +24,23 @@ import { ExComponent } from './components/try/ex/ex.component';
     SidebarComponent,
     FooterComponent,
     DashbordComponent,
-    BuyerComponent,
-    OrderDetailsComponent,
-    StyleComponent,
-    ExComponent,
-  
+    LoginComponent,
+    RegisterComponent,
+    ProducmanagementComponent,
+
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FontAwesomeModule,
-    HttpClientModule
-    
+    HttpClientModule,
+    FormsModule 
+
   ],
   providers: [
     provideClientHydration(),
-    provideHttpClient(withFetch())
+    provideHttpClient(withFetch()),
+    ProductService
   ],
   bootstrap: [AppComponent]
 })

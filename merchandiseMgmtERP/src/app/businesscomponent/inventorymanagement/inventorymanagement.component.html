@@ -1,0 +1,22 @@
+<!-- inventory-management.component.html -->  
+<div>  
+    <h2>Inventory Management</h2>  
+    
+    <input type="text" [(ngModel)]="searchTerm" (input)="filterInventory()" placeholder="Search items..." />  
+    
+    <select [(ngModel)]="sortBy" (change)="sortInventory()">  
+      <option value="name">Sort by Name</option>  
+      <option value="stock">Sort by Stock</option>  
+      <option value="price">Sort by Price</option>  
+    </select>  
+    
+    <button (click)="addItem()">Add Item C</button>  
+  
+    <ul>  
+      <li *ngFor="let item of filteredInventory">  
+        {{ item.name }} - Stock: {{ item.stock }} - Location: {{ item.location }} - Price: {{ item.price }} - Description: {{ item.description }}  
+        <button (click)="updateStock(item.id, 1)">Add Stock</button>  
+        <button (click)="manageLocation(item.id, 'New Location')">Change Location</button>  
+      </li>  
+    </ul>  
+  </div>

@@ -14,6 +14,9 @@ import { RegisterComponent } from './register/register.component';
 import { ProducmanagementComponent } from './businesscomponent/producmanagement/producmanagement.component';
 import { FormsModule } from '@angular/forms';
 import { ProductService } from './services/product.service';
+import { InventoryManagementComponent } from './businesscomponent/inventorymanagement/inventorymanagement.component';
+import { OrdermanagementComponent } from './businesscomponent/ordermanagement/ordermanagement.component';
+
 
 
 
@@ -27,6 +30,9 @@ import { ProductService } from './services/product.service';
     LoginComponent,
     RegisterComponent,
     ProducmanagementComponent,
+    InventoryManagementComponent,
+    OrdermanagementComponent,
+ 
 
   ],
   imports: [

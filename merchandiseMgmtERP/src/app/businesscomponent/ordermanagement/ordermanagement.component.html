@@ -1,0 +1,29 @@
+<!-- order-management.component.html -->  
+<div>  
+    <h2>Order Management</h2>  
+  
+    <input type="text" [(ngModel)]="searchTerm" (input)="filterOrders()" placeholder="Search by Customer Name..." />  
+  
+    <select [(ngModel)]="sortBy" (change)="sortOrders()">  
+      <option value="customerName">Sort by Customer Name</option>  
+      <option value="orderDate">Sort by Order Date</option>  
+      <option value="totalPrice">Sort by Total Price</option>  
+    </select>  
+  
+    <h3>Create New Order</h3>  
+    <form (ngSubmit)="createOrder()">  
+      <input type="text" [(ngModel)]="newOrder.customerName" name="customerName" placeholder="Customer Name" required />  
+      <input type="text" [(ngModel)]="newOrder.product" name="product" placeholder="Product Name" required />  
+      <input type="number" [(ngModel)]="newOrder.quantity" name="quantity" placeholder="Quantity" required />  
+      <button type="submit">Create Order</button>  
+    </form>  
+  
+    <ul>  
+      <li *ngFor="let order of filteredOrders">  
+        <strong>{{ order.customerName }}</strong> - Product: {{ order.product }} - Quantity: {{ order.quantity }} - Status: {{ order.status }} - Total Price: {{ order.totalPrice | currency }}<br />  
+        <em>Order Date: {{ order.orderDate | date }}</em>  
+        <button (click)="updateOrder(order.id, 'Shipped')">Mark as Shipped</button>  
+        <button (click)="deleteOrder(order.id)">Delete Order</button>  
+      </li>  
+    </ul>  
+  </div>

@@ -1,0 +1,26 @@
+<!-- sales-management.component.html -->  
+<div>  
+    <h2>Sales Management</h2>  
+  
+    <input type="text" [(ngModel)]="searchTerm" (input)="filterSales()" placeholder="Search by product or customer name..." />  
+  
+    <h3>Record New Sale</h3>  
+    <form (ngSubmit)="recordSale()">  
+      <input type="text" [(ngModel)]="newSale.productName" name="productName" placeholder="Product Name" required />  
+      <input type="number" [(ngModel)]="newSale.quantity" name="quantity" placeholder="Quantity" required />  
+      <input type="number" [(ngModel)]="newSale.price" name="price" placeholder="Price" required />  
+      <input type="text" [(ngModel)]="newSale.customerName" name="customerName" placeholder="Customer Name" required />  
+      <button type="submit">Record Sale</button>  
+    </form>  
+  
+    <button (click)="generateSalesReport()">Generate Sales Report</button>  
+  
+    <ul>  
+      <li *ngFor="let sale of filteredSales">  
+        <strong>{{ sale.productName }}</strong> - Quantity: {{ sale.quantity }} - Price: {{ sale.price | currency }} - Total: {{ sale.totalAmount | currency }} - Customer: {{ sale.customerName }}<br />  
+        <em>Sale Date: {{ sale.saleDate | date }}</em>  
+        <button (click)="updateSale(sale.id)">Update</button>  
+        <button (click)="removeSale(sale.id)">Remove</button>  
+      </li>  
+    </ul>  
+  </div>

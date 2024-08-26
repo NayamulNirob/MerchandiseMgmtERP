@@ -1,4 +1,4 @@
-
+Merchandise Management Enterprise Resource Planning
 
 1.create a file : ng new merchandiseMgmtERP --no-standalone
 2.add frontAwsoem : ng add @fortawesome/angular-fontawesome
@@ -13,3 +13,7 @@
 11.ng update @angular/core@18 @angular/cli@18 
 12.npm install --save font-awesome angular-font-awesome
 13.npm install @fortawesome/angular-fontawesome-free
+
+
+ng add @angular/material  
+npm install ng2-charts chart.js --save

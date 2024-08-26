@@ -1,22 +1,9 @@
 import { Injectable, NgModule } from '@angular/core';
 import { Product } from '../model/sale.model';
-import { AppComponent } from '../app.component';
 import { HttpClient } from '@angular/common/http';
 import { map, Observable } from 'rxjs';
 
 
-@NgModule({
-  declarations: [
-    // your components  
-  ],
-  imports: [
-    // other modules  
-
-  ],
-  providers: [],
-  bootstrap: [AppComponent]
-})
-export class AppModule { }
 
 @Injectable({
   providedIn: 'root'

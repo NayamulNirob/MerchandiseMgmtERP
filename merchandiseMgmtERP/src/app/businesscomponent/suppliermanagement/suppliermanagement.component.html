@@ -1,0 +1,31 @@
+<!-- supplier-management.component.html -->  
+<div>  
+    <h2>Supplier Management</h2>  
+  
+    <input type="text" [(ngModel)]="searchTerm" (input)="filterSuppliers()" placeholder="Search by supplier name or contact person..." />  
+  
+    <select [(ngModel)]="sortBy" (change)="sortSuppliers()">  
+      <option value="name">Sort by Name</option>  
+      <option value="contactPerson">Sort by Contact Person</option>  
+      <option value="email">Sort by Email</option>  
+    </select>  
+  
+    <h3>Add New Supplier</h3>  
+    <form (ngSubmit)="addSupplier()">  
+      <input type="text" [(ngModel)]="newSupplier.name" name="name" placeholder="Supplier Name" required />  
+      <input type="text" [(ngModel)]="newSupplier.contactPerson" name="contactPerson" placeholder="Contact Person" required />  
+      <input type="email" [(ngModel)]="newSupplier.email" name="email" placeholder="Email" required />  
+      <input type="text" [(ngModel)]="newSupplier.phone" name="phone" placeholder="Phone" required />  
+      <input type="text" [(ngModel)]="newSupplier.address" name="address" placeholder="Address" required />  
+      <button type="submit">Add Supplier</button>  
+    </form>  
+  
+    <ul>  
+      <li *ngFor="let supplier of filteredSuppliers">  
+        <strong>{{ supplier.name }}</strong> - Contact: {{ supplier.contactPerson }} - Email: {{ supplier.email }} - Phone: {{ supplier.phone }} - Address: {{ supplier.address }}<br />  
+        <em>Created At: {{ supplier.createdAt | date }}</em>  
+        <button (click)="updateSupplier(supplier.id, 'Updated Contact Person', 'updated@example.com', 'New Phone')">Update</button>  
+        <button (click)="removeSupplier(supplier.id)">Remove</button>  
+      </li>  
+    </ul>  
+  </div>

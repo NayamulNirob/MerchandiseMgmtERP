@@ -1,6 +1,5 @@
 // order.service.ts  
 import { Injectable } from '@angular/core';  
- 
 import { HttpClient } from '@angular/common/http';  
 import { Observable } from 'rxjs';  
 import { tap } from 'rxjs/operators';  
@@ -10,7 +9,7 @@ import { OrderItem } from '../model/sale.model';
   providedIn: 'root'  
 })  
 export class OrderService {  
-  private baseUrl = "http://localhost:3000/orders"; // Adjust this URL to match your backend  
+  private baseUrl = "http://localhost:3000/orders"; 
   private orders: OrderItem[] = [];  
 
   constructor(private http: HttpClient) {}  

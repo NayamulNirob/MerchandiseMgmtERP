@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule, provideClientHydration } from '@angular/platform-browser';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './navbar/navbar.component';
@@ -16,6 +15,13 @@ import { FormsModule } from '@angular/forms';
 import { ProductService } from './services/product.service';
 import { InventoryManagementComponent } from './businesscomponent/inventorymanagement/inventorymanagement.component';
 import { OrdermanagementComponent } from './businesscomponent/ordermanagement/ordermanagement.component';
+import { SupplierManagementComponent } from './businesscomponent/suppliermanagement/suppliermanagement.component';
+import { SalesManagementComponent } from './businesscomponent/salesmanagement/salesmanagement.component';
+import { CustomerManagementComponent } from './businesscomponent/customermanagement/customermanagement.component';
+import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatTableModule } from '@angular/material/table';
+import { ReportsAnalyticsComponent } from './businesscomponent/reports-and-analytics/reports-and-analytics.component';
 
 
 
@@ -32,7 +38,11 @@ import { OrdermanagementComponent } from './businesscomponent/ordermanagement/or
     ProducmanagementComponent,
     InventoryManagementComponent,
     OrdermanagementComponent,
- 
+    SupplierManagementComponent,
+    SalesManagementComponent,
+    CustomerManagementComponent,
+    ReportsAnalyticsComponent
+  
 
   ],
   imports: [
@@ -40,13 +50,17 @@ import { OrdermanagementComponent } from './businesscomponent/ordermanagement/or
     AppRoutingModule,
     FontAwesomeModule,
     HttpClientModule,
-    FormsModule 
+    FormsModule,
+    BrowserAnimationsModule,
+    MatTableModule,  
+   
 
   ],
   providers: [
     provideClientHydration(),
     provideHttpClient(withFetch()),
-    ProductService
+    ProductService,
+    provideAnimationsAsync()
   ],
   bootstrap: [AppComponent]
 })

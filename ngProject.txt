@@ -17,3 +17,6 @@ Merchandise Management Enterprise Resource Planning
 
 ng add @angular/material  
 npm install ng2-charts chart.js --save
+
+rm -rf node_modules  
+npm install

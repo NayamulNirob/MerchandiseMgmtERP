@@ -26,6 +26,8 @@ export class ReportsAnalyticsComponent implements OnInit {
     });  
     this.reportsService.loadSuppliers().subscribe(suppliersData => {  
       this.suppliers = suppliersData;  
+
+      console.log(this.suppliers+"hello")
     });  
   }
 

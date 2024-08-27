@@ -76,3 +76,12 @@ export class Customer {
   ) {}  
 }
 
+
+// registration.model.ts  
+export interface RegistrationData {  
+  username: string;  
+  email: string;  
+  password: string;  
+  rememberMe: boolean;  
+}
+

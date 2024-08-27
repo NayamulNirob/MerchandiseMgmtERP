@@ -50,14 +50,7 @@
       "quantity": 8
     },
     {
-      "id": 8,
-      "name": "",
-      "description": "",
-      "price": 0,
-      "quantity": 0
-    },
-    {
-      "id": 9,
+      "id": "9",
       "name": "MD NAYAMUL ISLAM",
       "description": "dgfg",
       "price": 0,
@@ -217,5 +210,12 @@
       "createdAt": "2023-10-02T11:00:00Z",
       "updatedAt": "2023-10-02T11:00:00Z"
     }
-  ]
+  ],
+  "user":{  
+    "username": "john_doe",  
+    "email": "john.doe@example.com",  
+    "password": "SecurePassword123!",  
+    "confirmPassword": "SecurePassword123!",  
+    "rememberMe": true  
+  }
 }

@@ -60,7 +60,8 @@ import { ReportsAnalyticsComponent } from './businesscomponent/reports-and-analy
     provideClientHydration(),
     provideHttpClient(withFetch()),
     ProductService,
-    provideAnimationsAsync()
+    provideAnimationsAsync(),
+    provideClientHydration()
   ],
   bootstrap: [AppComponent]
 })

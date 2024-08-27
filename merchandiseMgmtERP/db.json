@@ -43,13 +43,6 @@
       "quantity": 10
     },
     {
-      "id": "7",
-      "name": "NAY",
-      "description": "dgfg",
-      "price": 869,
-      "quantity": 8
-    },
-    {
       "id": "9",
       "name": "MD NAYAMUL ISLAM",
       "description": "dgfg",
@@ -211,11 +204,11 @@
       "updatedAt": "2023-10-02T11:00:00Z"
     }
   ],
-  "user":{  
-    "username": "john_doe",  
-    "email": "john.doe@example.com",  
-    "password": "SecurePassword123!",  
-    "confirmPassword": "SecurePassword123!",  
-    "rememberMe": true  
+  "user": {
+    "username": "john_doe",
+    "email": "john.doe@example.com",
+    "password": "SecurePassword123!",
+    "confirmPassword": "SecurePassword123!",
+    "rememberMe": true
   }
 }

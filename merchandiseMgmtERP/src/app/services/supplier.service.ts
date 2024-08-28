@@ -17,7 +17,7 @@ export class SupplierService {
   constructor(private http: HttpClient) {}  
 
   loadSuppliers(): Observable<Supplier[]> {  
-    return this.http.get<Supplier[]>('../../../db.json').pipe(  
+    return this.http.get<Supplier[]>(this.baseUrl).pipe(  
       tap(data => this.suppliers = data)  
     );  
   }  

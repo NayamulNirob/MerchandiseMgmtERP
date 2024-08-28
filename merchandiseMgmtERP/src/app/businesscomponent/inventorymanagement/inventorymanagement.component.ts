@@ -11,6 +11,7 @@ import { InventoryService } from '../../services/inventory.service';
 })  
 export class InventoryManagementComponent implements OnInit {  
   inventory: InventoryItem[] = [];  
+  // inventories:any;
   filteredInventory: InventoryItem[] = [];  
   searchTerm: string = '';  
   sortBy: 'name' | 'stock' | 'price' = 'name';  
@@ -18,11 +19,20 @@ export class InventoryManagementComponent implements OnInit {
   constructor(private inventoryService: InventoryService) {}  
 
   ngOnInit(): void {  
+
+    // this.loadInventory();
+
     this.inventoryService.loadInventory().subscribe(data => {  
       this.inventory = data;  
       this.filteredInventory = data; // Initialize filtered inventory  
     });  
-  }  
+  } 
+  
+  
+  // loadInventory(){
+  //   this.inventories=this.inventoryService.getAllInventories();
+
+  // }
 
   addItem() {  
     const newItem = new InventoryItem(3, 'Item C', 20, 'Warehouse 1', 'Description of Item C', 30.0);  

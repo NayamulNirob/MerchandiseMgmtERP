@@ -19,19 +19,19 @@ export class ReportsService {
   constructor(private http: HttpClient) {}  
 
   loadInventory(): Observable<InventoryItem[]> {  
-    return this.http.get<InventoryItem[]>('assets/db.json').pipe(  
+    return this.http.get<InventoryItem[]>(this.baseUrl+"inventory").pipe(  
       tap(data => this.inventory = data)  
     );  
   }  
 
   loadSales(): Observable<Sale[]> {  
-    return this.http.get<Sale[]>('assets/db.json').pipe(  
+    return this.http.get<Sale[]>(this.baseUrl+"sales").pipe(  
       tap(data => this.sales = data)  
     );  
   }  
 
   loadSuppliers(): Observable<Supplier[]> {  
-    return this.http.get<Supplier[]>('assets/db.json').pipe(  
+    return this.http.get<Supplier[]>(this.baseUrl+"Supplier").pipe(  
       tap(data => this.suppliers = data)  
     );  
   }  

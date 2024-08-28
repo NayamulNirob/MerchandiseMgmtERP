@@ -20,7 +20,7 @@ export class SalesService {
   constructor(private http: HttpClient) {}  
 
   loadSales(): Observable<Sale[]> {  
-    return this.http.get<Sale[]>('assets/db.json').pipe(  
+    return this.http.get<Sale[]>(this.baseUrl).pipe(  
       tap(data => this.sales = data)  
     );  
   }  

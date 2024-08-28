@@ -17,7 +17,7 @@ export class CustomerService {
   constructor(private http: HttpClient) {}  
 
   loadCustomers(): Observable<Customer[]> {  
-    return this.http.get<Customer[]>('assets/customer.json').pipe(  
+    return this.http.get<Customer[]>(this.baseUrl).pipe(  
       tap(data => this.customers = data)  
     );  
   }  

@@ -16,10 +16,16 @@ export class InventoryService {
   constructor(private http: HttpClient) {}  
 
   loadInventory(): Observable<InventoryItem[]> {  
-    return this.http.get<InventoryItem[]>('assets/inventory.json').pipe(  
+    return this.http.get<InventoryItem[]>(this.baseUrl).pipe(  
       tap(data => this.inventory = data)  
     );  
   }  
+
+  // getAllInventories():Observable<any>{
+  //   return this.http.get(this.baseUrl);
+  // }
+
+
 
   getInventory(): InventoryItem[] {  
     return this.inventory;  

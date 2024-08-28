@@ -22,6 +22,7 @@ import { provideAnimationsAsync } from '@angular/platform-browser/animations/asy
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatTableModule } from '@angular/material/table';
 import { ReportsAnalyticsComponent } from './businesscomponent/reports-and-analytics/reports-and-analytics.component';
+import { UpdateproductmanagementComponent } from './businesscomponent/updateproductmanagement/updateproductmanagement.component';
 
 
 
@@ -41,7 +42,8 @@ import { ReportsAnalyticsComponent } from './businesscomponent/reports-and-analy
     SupplierManagementComponent,
     SalesManagementComponent,
     CustomerManagementComponent,
-    ReportsAnalyticsComponent
+    ReportsAnalyticsComponent,
+    UpdateproductmanagementComponent
   
 
   ],

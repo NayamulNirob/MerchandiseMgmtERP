@@ -15,7 +15,7 @@ export class OrderService {
   constructor(private http: HttpClient) {}  
 
   loadOrders(): Observable<OrderItem[]> {  
-    return this.http.get<OrderItem[]>('assets/orders.json').pipe(  
+    return this.http.get<OrderItem[]>('../../../db.json').pipe(  
       tap(data => this.orders = data)  
     );  
   }  

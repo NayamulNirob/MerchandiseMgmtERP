@@ -10,14 +10,14 @@ import { Customer } from '../model/sale.model';
 })  
 export class CustomerService { 
   
-  private baseUrl = "http://localhost:3000/orders"; 
+  private baseUrl = "http://localhost:3000/customer"; 
 
   private customers: Customer[] = [];  
 
   constructor(private http: HttpClient) {}  
 
   loadCustomers(): Observable<Customer[]> {  
-    return this.http.get<Customer[]>('assets/customers.json').pipe(  
+    return this.http.get<Customer[]>('assets/customer.json').pipe(  
       tap(data => this.customers = data)  
     );  
   }  

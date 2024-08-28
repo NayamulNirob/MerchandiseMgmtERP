@@ -35,7 +35,8 @@
                 "glob": "**/*",
                 "input": "public"
               },
-              "src/assets"
+              "src/assets",
+              "src/db.json"
             ],
             "styles": [
               "@angular/material/prebuilt-themes/magenta-violet.css",

@@ -83,5 +83,6 @@ export interface RegistrationData {
   email: string;  
   password: string;  
   rememberMe: boolean;  
+  
 }
 

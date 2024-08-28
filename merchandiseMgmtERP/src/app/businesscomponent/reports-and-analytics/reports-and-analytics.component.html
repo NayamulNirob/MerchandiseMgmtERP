@@ -48,7 +48,7 @@
 
     <!-- Bar Chart Visualization -->  
     <div class="bar-chart">  
-      <h4>Sales Revenue</h4>  
+      <h4 class="text-dark">Sales Revenue</h4>  
       <div *ngFor="let data of salesRevenueChartData.data; let i = index" class="bar" [style.height]="(data / maxRevenue * 100) + '%'">  
         <div class="bar-label">{{ salesRevenueChartData.labels[i] }}: {{ data | currency }}</div>  
       </div>  

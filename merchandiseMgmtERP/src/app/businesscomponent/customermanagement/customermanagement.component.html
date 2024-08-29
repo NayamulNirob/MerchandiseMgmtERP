@@ -1,5 +1,5 @@
 <!-- customer-management.component.html -->  
-<div>  
+<!-- <div>  
     <h2>Customer Management</h2>  
   
     <input type="text" [(ngModel)]="searchTerm" (input)="filterCustomers()" placeholder="Search by name or email..." />  
@@ -21,4 +21,53 @@
         <button (click)="removeCustomer(customer.id)">Remove</button>  
       </li>  
     </ul>  
-  </div>
+  </div> -->
+
+
+  <div>
+    <h2 class="text-xl font-bold mb-4">Customer Management</h2>
+
+    <input type="text" [(ngModel)]="searchTerm" (input)="filterCustomers()" 
+           placeholder="Search by name or email..." class="border rounded p-2 mb-4" />
+
+    <h3 class="text-lg font-semibold mb-2">Add New Customer</h3>
+    <form (ngSubmit)="addCustomer()" class="mb-4">
+        <input type="text" [(ngModel)]="newCustomer.name" name="name" 
+               placeholder="Name" required class="border rounded p-2 mr-2" />
+        <input type="email" [(ngModel)]="newCustomer.email" name="email" 
+               placeholder="Email" required class="border rounded p-2 mr-2" />
+        <input type="text" [(ngModel)]="newCustomer.phone" name="phone" 
+               placeholder="Phone" required class="border rounded p-2 mr-2" />
+        <input type="text" [(ngModel)]="newCustomer.address" name="address" 
+               placeholder="Address" required class="border rounded p-2 mr-2" />
+        <button type="submit" class="bg-blue-500 text-dark rounded p-2">Add Customer</button>
+    </form>
+
+    <table class="min-w-full border">
+        <thead>
+            <tr>
+                <th class="border p-2">Name</th>
+                <th class="border p-2">Email</th>
+                <th class="border p-2">Phone</th>
+                <th class="border p-2">Address</th>
+                <th class="border p-2">Created At</th>
+                <th class="border p-2">Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let customer of filteredCustomers">
+                <td class="border p-2">{{ customer.name }}</td>
+                <td class="border p-2">{{ customer.email }}</td>
+                <td class="border p-2">{{ customer.phone }}</td>
+                <td class="border p-2">{{ customer.address }}</td>
+                <td class="border p-2">{{ customer.createdAt | date }}</td>
+                <td class="border p-2">
+                    <button (click)="updateCustomer(customer.id)" 
+                            class="bg-yellow-500 text-dark rounded p-1 mr-1">Update</button>
+                    <button (click)="removeCustomer(customer.id)" 
+                            class="bg-red-500 text-dark rounded p-1">Remove</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

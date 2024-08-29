@@ -1,5 +1,6 @@
 <!-- order-management.component.html -->  
-<div>  
+
+  <div>  
     <h2>Order Management</h2>  
   
     <input type="text" [(ngModel)]="searchTerm" (input)="filterOrders()" placeholder="Search by Customer Name..." />  
@@ -18,12 +19,31 @@
       <button type="submit">Create Order</button>  
     </form>  
   
-    <ul>  
-      <li *ngFor="let order of filteredOrders">  
-        <strong>{{ order.customerName }}</strong> - Product: {{ order.product }} - Quantity: {{ order.quantity }} - Status: {{ order.status }} - Total Price: {{ order.totalPrice | currency }}<br />  
-        <em>Order Date: {{ order.orderDate | date }}</em>  
-        <button (click)="updateOrder(order.id, 'Shipped')">Mark as Shipped</button>  
-        <button (click)="deleteOrder(order.id)">Delete Order</button>  
-      </li>  
-    </ul>  
-  </div>
+    <table class="min-w-full border-collapse border border-gray-200 mt-4">  
+        <thead>  
+            <tr>  
+                <th class="border border-gray-300 p-2">Customer Name</th>  
+                <th class="border border-gray-300 p-2">Product</th>  
+                <th class="border border-gray-300 p-2">Quantity</th>  
+                <th class="border border-gray-300 p-2">Status</th>  
+                <th class="border border-gray-300 p-2">Total Price</th>  
+                <th class="border border-gray-300 p-2">Order Date</th>  
+                <th class="border border-gray-300 p-2">Actions</th>  
+            </tr>  
+        </thead>  
+        <tbody>  
+            <tr *ngFor="let order of filteredOrders">  
+                <td class="border border-gray-300 p-2">{{ order.customerName }}</td>  
+                <td class="border border-gray-300 p-2">{{ order.product }}</td>  
+                <td class="border border-gray-300 p-2">{{ order.quantity }}</td>  
+                <td class="border border-gray-300 p-2">{{ order.status }}</td>  
+                <td class="border border-gray-300 p-2">{{ order.totalPrice | currency }}</td>  
+                <td class="border border-gray-300 p-2">{{ order.orderDate | date }}</td>  
+                <td class="border border-gray-300 p-2">  
+                    <button (click)="updateOrder(order.id, 'Shipped')">Mark as Shipped</button>  
+                    <button (click)="deleteOrder(order.id)">Delete Order</button>  
+                </td>  
+            </tr>  
+        </tbody>  
+    </table>  
+</div>

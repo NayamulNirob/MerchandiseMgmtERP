@@ -10,6 +10,7 @@ import { SupplierManagementComponent } from './businesscomponent/suppliermanagem
 import { SalesManagementComponent } from './businesscomponent/salesmanagement/salesmanagement.component';
 import { CustomerManagementComponent } from './businesscomponent/customermanagement/customermanagement.component';
 import { ReportsAnalyticsComponent } from './businesscomponent/reports-and-analytics/reports-and-analytics.component';
+import { UpdateproductmanagementComponent } from './businesscomponent/updateproductmanagement/updateproductmanagement.component';
 
 
 const routes: Routes = [
@@ -22,7 +23,8 @@ const routes: Routes = [
   {path:'supplier',component:SupplierManagementComponent},
   {path:'sales',component:SalesManagementComponent},
   {path:'customer',component:CustomerManagementComponent},
-  {path:'reports',component:ReportsAnalyticsComponent}
+  {path:'reports',component:ReportsAnalyticsComponent},
+  {path:'product/:id/edit',component:UpdateproductmanagementComponent}
 
 ];
 

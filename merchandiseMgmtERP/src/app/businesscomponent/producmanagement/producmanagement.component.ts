@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Product } from '../../model/sale.model';
 import { ProductService } from '../../services/product.service';
 import { FormsModule } from '@angular/forms';
+import { Router } from '@angular/router';
+import { error } from 'console';
 @Component({
   selector: 'app-producmanagement',
   templateUrl: './producmanagement.component.html',
@@ -10,35 +12,53 @@ import { FormsModule } from '@angular/forms';
 export class ProducmanagementComponent implements OnInit {
 
   products: Product[] = [];
-  newProduct: Product = { id: 0, name: '', description: '', price: 0, quantity: 0 };
+  newProduct: Product = new Product();
 
-  constructor(private productService: ProductService) { }
+  constructor(private productService: ProductService,
+    private router: Router
+  ) { }
 
   ngOnInit(): void {
     this.loadProducts();
   }
 
   loadProducts(): void {
-    this.productService.loadProducts().subscribe((data: Product[]) => {
-      this.products = data;
+    this.productService.getProducts().subscribe({
+      next: res => {
+        this.products = res;
+      },
+      error: error => {
+        console.log(error);
+        alert(error);
+      }
     });
   }
+
 
   addProduct(): void {
-    this.productService.addProduct(this.newProduct).subscribe((product: Product) => {
-      this.products.push(product); // Update local product list  
-      this.newProduct = { id: 0, name: '', description: '', price: 0, quantity: 0 }; // Reset form  
+    this.productService.createProduct(this.newProduct).subscribe({
+      next: res => {
+        this.newProduct = new Product();
+        this.loadProducts();
+      },
+      error: error => {
+        console.log(error);
+        alert(error);
+      }
     });
   }
 
-  editProduct(productId: number): void {
-    const updatedProduct = this.products.find(p => p.id === productId);
-    if (updatedProduct) {
-      // Call editProduct from ProductService  
-      this.productService.editProduct(productId, updatedProduct).subscribe(success => {
+
+  editProduct(productId: string | undefined): void {
+    this.router.navigate([`/product/${productId}/edit`]);
+  }
+
+
+  deleteProduct(productId: string | undefined): void {
+    if (productId) {
+      this.productService.deleteProduct(productId).subscribe(success => {
         if (success) {
-          const index = this.products.findIndex(p => p.id === productId);
-          if (index !== -1) this.products[index] = { ...this.products[index], ...updatedProduct }; // Update local product  
+          this.products = this.products.filter(p => p.id !== productId); // Update local product list  
         }
       });
     }
@@ -47,16 +67,5 @@ export class ProducmanagementComponent implements OnInit {
 
 
 
-  deleteProduct(productId: number): void {
-    this.productService.deleteProduct(productId).subscribe(success => {
-      if (success) {
-        this.products = this.products.filter(p => p.id !== productId); // Update local product list  
-      }
-    });
-  }
-
-
-
-  
 
 }

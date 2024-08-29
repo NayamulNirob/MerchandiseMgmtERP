@@ -1,10 +1,10 @@
 // -----------------------------------product-------------------------------
-export interface Product {  
-  id: number;  
-  name: string;  
-  description: string;  
-  price: number;  
-  quantity: number;  
+export class Product {  
+  id?: string;  
+  name?: string;  
+  description?: string;  
+  price?: number;  
+  quantity?: number;  
 }
 
 // -----------------------------------product-------------------------------
@@ -78,11 +78,25 @@ export class Customer {
 
 
 // registration.model.ts  
-export interface RegistrationData {  
-  username: string;  
-  email: string;  
-  password: string;  
-  rememberMe: boolean;  
+export class UserModel
+{
+
+  id!: string;
+  name!: string;
+  email!: string;
+  password!: string;
+  photo!:string;
+  role!:string; 
+  rememberMe!: boolean;  
   
 }
+
+
+export interface AuthResponse {
+  token:string;
+  user:UserModel;
+
+
+}
+
 

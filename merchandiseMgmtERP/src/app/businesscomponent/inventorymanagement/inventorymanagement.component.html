@@ -2,13 +2,7 @@
   <h2 class="text-center mb-4">Inventory Management</h2>
   <div class="row mb-3">
     
-    <div class="col-md-3 d-flex container-fluid">
-      <input type="text" class="form-control me-2" [(ngModel)]="searchTerm" (input)="filterInventory()"
-        placeholder="Search items..." />
-    </div>
-
-
-    <div class="col-md-3 dropdown">
+    <div class="col-md-5 dropdown">
       <select class="dropdown-toggle btn btn-outline-light" [(ngModel)]="sortBy" (change)="sortInventory()"
         data-bs-toggle="dropdown" aria-expanded="false">
         <option value="name">Sort by Name</option>
@@ -16,7 +10,11 @@
         <option value="price">Sort by Price</option>
       </select>
     </div>
-
+    
+    <div class="col-md-5 d-flex container-fluid">
+      <input type="text" class="form-control me-2" [(ngModel)]="searchTerm" (input)="filterInventory()"
+        placeholder="Search items..." />
+    </div>
 
     <div class="col-md-2">
       <button class="btn btn-primary" (click)="addItem()">Add Item</button>

@@ -1,39 +1,25 @@
 {
   "product": [
     {
-      "id": "2",
-      "name": "Product B",
-      "description": "Description for Product B",
-      "price": 15.75,
+      "id": "1",
+      "name": "Pizza",
+      "description": "Pizza",
+      "price": 100,
       "quantity": 200
     },
     {
-      "id": "3",
-      "name": "Product C",
-      "description": "Description for Product C",
-      "price": 30,
-      "quantity": 50
-    },
-    {
-      "id": "4",
-      "name": "Product D",
-      "description": "Description for Product D",
-      "price": 12,
-      "quantity": 150
-    },
-    {
-      "id": 5,
-      "name": "Product A",
-      "description": "Description for Product A",
-      "price": 18,
+      "id": "db73",
+      "name": "T-shart",
+      "description": "coton",
+      "price": 250,
       "quantity": 200
     },
     {
-      "id": 6,
-      "name": "Product E",
-      "description": "Description for Product E",
-      "price": 15855,
-      "quantity": 4856552
+      "id": "5772",
+      "name": "Pant",
+      "description": "Normal",
+      "price": 800,
+      "quantity": 500
     }
   ],
   "inventory": [
@@ -190,11 +176,12 @@
       "updatedAt": "2023-10-02T11:00:00Z"
     }
   ],
-  "user": {
+  "user": [{
     "username": "john_doe",
     "email": "john.doe@example.com",
     "password": "SecurePassword123!",
     "confirmPassword": "SecurePassword123!",
     "rememberMe": true
   }
+  ]
 }

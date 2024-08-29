@@ -27,6 +27,13 @@
       "description": "Description for Product A",
       "price": 18,
       "quantity": 200
+    },
+    {
+      "id": 6,
+      "name": "Product E",
+      "description": "Description for Product E",
+      "price": 15855,
+      "quantity": 4856552
     }
   ],
   "inventory": [

@@ -22,11 +22,11 @@
       "quantity": 150
     },
     {
-      "id": 7,
-      "name": "Towhid",
-      "description": "fdghfhfghfg",
-      "price": 87478784875,
-      "quantity": 1
+      "id": 5,
+      "name": "Product A",
+      "description": "Description for Product A",
+      "price": 18,
+      "quantity": 200
     }
   ],
   "inventory": [

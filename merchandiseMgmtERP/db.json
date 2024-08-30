@@ -1,13 +1,6 @@
 {
   "product": [
     {
-      "id": "1",
-      "name": "Pizza",
-      "description": "Pizza",
-      "price": 100,
-      "quantity": 200
-    },
-    {
       "id": "db73",
       "name": "T-shart",
       "description": "coton",
@@ -20,6 +13,20 @@
       "description": "Normal",
       "price": 800,
       "quantity": 500
+    },
+    {
+      "id": "b4de",
+      "name": "Shart",
+      "description": "Description for Product Shart",
+      "price": 500,
+      "quantity": 150
+    },
+    {
+      "id": "712b",
+      "name": "Awamilig",
+      "description": "Politics",
+      "price": 999,
+      "quantity": 6
     }
   ],
   "inventory": [
@@ -176,12 +183,30 @@
       "updatedAt": "2023-10-02T11:00:00Z"
     }
   ],
-  "user": [{
-    "username": "john_doe",
-    "email": "john.doe@example.com",
-    "password": "SecurePassword123!",
-    "confirmPassword": "SecurePassword123!",
-    "rememberMe": true
-  }
+  "user": [
+    {
+      "id": "0410",
+      "name": "Neyamul",
+      "email": "nayamulislam@gmail.com",
+      "password": "123456",
+      "photo": "",
+      "role": "Admin"
+    },
+    {
+      "id": "4210",
+      "name": "Nirjash",
+      "email": "nirjash@gmail.com",
+      "password": "123456",
+      "photo": "",
+      "role": "user"
+    },
+    {
+      "id": "c948",
+      "name": "Shawon",
+      "email": "showon@gmail.com",
+      "password": "123456789",
+      "photo": "",
+      "role": "user"
+    }
   ]
 }

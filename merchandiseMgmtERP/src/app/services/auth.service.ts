@@ -56,15 +56,21 @@ export class AuthService {
             const token = btoa(`${user.email}:${user.password}`);
             this.storeToken(token);
             this.setCurrentUser(user);
+            this.currentUserSubject.next(user); 
             return { token, user } as AuthResponse;
           } else {
-            throw new Error('Invalid Password');
+            this.currentUserSubject.next(null); 
+            alert('Invalid Password');
+            throw new Error('Invalid Password'); 
           }
         } else {
+          this.currentUserSubject.next(null)
+          alert('User not found');
           throw new Error('User not found')
         }
       }),
       catchError(error => {
+        this.currentUserSubject.next(null)
         console.error('Login error', error);
         throw error;
       })
@@ -82,6 +88,7 @@ export class AuthService {
     if(this.isBrowser()){
       localStorage.removeItem('token');
     }
+    this.currentUserSubject.next(null);
   }
 
   private setCurrentUser(user: UserModel): void {

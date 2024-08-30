@@ -23,6 +23,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatTableModule } from '@angular/material/table';
 import { ReportsAnalyticsComponent } from './businesscomponent/reports-and-analytics/reports-and-analytics.component';
 import { UpdateproductmanagementComponent } from './businesscomponent/updateproductmanagement/updateproductmanagement.component';
+import { LogoutComponent } from './logout/logout.component';
+import { UserprofileComponent } from './userprofile/userprofile.component';
 
 
 
@@ -43,7 +45,9 @@ import { UpdateproductmanagementComponent } from './businesscomponent/updateprod
     SalesManagementComponent,
     CustomerManagementComponent,
     ReportsAnalyticsComponent,
-    UpdateproductmanagementComponent
+    UpdateproductmanagementComponent,
+    LogoutComponent,
+    UserprofileComponent
   
 
   ],

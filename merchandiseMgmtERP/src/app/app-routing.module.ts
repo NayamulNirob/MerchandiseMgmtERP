@@ -11,20 +11,31 @@ import { SalesManagementComponent } from './businesscomponent/salesmanagement/sa
 import { CustomerManagementComponent } from './businesscomponent/customermanagement/customermanagement.component';
 import { ReportsAnalyticsComponent } from './businesscomponent/reports-and-analytics/reports-and-analytics.component';
 import { UpdateproductmanagementComponent } from './businesscomponent/updateproductmanagement/updateproductmanagement.component';
+import { AuthguardGuard } from './guard/authguard.guard';
+import { UserprofileComponent } from './userprofile/userprofile.component';
+import { RoleGuard } from './guard/role.guard';
 
 
 const routes: Routes = [
   {path:'dashbord',component:DashbordComponent},
   {path:'login',component:LoginComponent},
   {path:'register',component:RegisterComponent},
-  {path:'product',component:ProducmanagementComponent},
-  {path:'inventory',component:InventoryManagementComponent},
-  {path:'orders',component:OrdermanagementComponent},
-  {path:'supplier',component:SupplierManagementComponent},
-  {path:'sales',component:SalesManagementComponent},
-  {path:'customer',component:CustomerManagementComponent},
-  {path:'reports',component:ReportsAnalyticsComponent},
-  {path:'product/:id/edit',component:UpdateproductmanagementComponent}
+  {path:'product',component:ProducmanagementComponent,canActivate:[AuthguardGuard]},
+  {path:'inventory',component:InventoryManagementComponent,canActivate:[AuthguardGuard]},
+  {path:'orders',component:OrdermanagementComponent,canActivate:[AuthguardGuard]},
+  {path:'supplier',component:SupplierManagementComponent,canActivate:[AuthguardGuard]},
+  {path:'sales',component:SalesManagementComponent,canActivate:[AuthguardGuard]},
+  {path:'customer',component:CustomerManagementComponent,canActivate:[AuthguardGuard]},
+  {path:'reports',component:ReportsAnalyticsComponent,canActivate:[AuthguardGuard]},
+  {path:'userProfile',component:UserprofileComponent,canActivate:[AuthguardGuard]},
+  {path:'product/:id/edit',component:UpdateproductmanagementComponent,canActivate:[AuthguardGuard]},
+  {path:"**", redirectTo:'login' , pathMatch:'full'},
+  {
+    path:'userProfile',
+    component:UserprofileComponent,
+    canActivate:[AuthguardGuard,RoleGuard],
+    data:{role:['Admin','user']}
+  },
 
 ];
 

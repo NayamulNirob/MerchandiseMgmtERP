@@ -14,7 +14,9 @@ export class ReportsAnalyticsComponent implements OnInit {
   suppliers: Supplier[] = [];  
   salesRevenueChartData: { labels: string[], data: number[] } = { labels: [], data: [] };  
 
-  constructor(private reportsService: ReportsService) {}  
+  constructor(private reportsService: ReportsService,
+    
+  ) {}  
 
   ngOnInit(): void {  
     this.reportsService.loadInventory().subscribe(inventoryData => {  
@@ -26,8 +28,6 @@ export class ReportsAnalyticsComponent implements OnInit {
     });  
     this.reportsService.loadSuppliers().subscribe(suppliersData => {  
       this.suppliers = suppliersData;  
-
-      console.log(this.suppliers+"hello")
     });  
   }
 

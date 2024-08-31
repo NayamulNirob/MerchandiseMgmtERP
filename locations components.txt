@@ -1,0 +1,113 @@
+json data----------------------------------------------
+{  
+  "warehouses": [  
+    {  
+      "id": 1,  
+      "name": "Warehouse A",  
+      "location": "City A",  
+      "capacity": 1000,  
+      "inventory": []  
+    },  
+    {  
+      "id": 2,  
+      "name": "Warehouse B",  
+      "location": "City B",  
+      "capacity": 2000,  
+      "inventory": []  
+    }  
+  ],  
+  "stores": [  
+    {  
+      "id": 1,  
+      "name": "Store A",  
+      "location": "City C",  
+      "inventory": []  
+    },  
+    {  
+      "id": 2,  
+      "name": "Store B",  
+      "location": "City D",  
+      "inventory": []  
+    }  
+  ],  
+  "products": [  
+    {  
+      "id": 1,  
+      "name": "Product A",  
+      "description": "Description of Product A",  
+      "price": 10.0,  
+      "stock": 100  
+    },  
+    {  
+      "id": 2,  
+      "name": "Product B",  
+      "description": "Description of Product B",  
+      "price": 15.0,  
+      "stock": 200  
+    }  
+  ],  
+  "inventoryItems": [  
+    {  
+      "id": 1,  
+      "productId": 1,  
+      "warehouseId": 1,  
+      "quantity": 50  
+    },  
+    {  
+      "id": 2,  
+      "productId": 2,  
+      "warehouseId": 1,  
+      "quantity": 30  
+    },  
+    {  
+      "id": 3,  
+      "productId": 1,  
+      "storeId": 1,  
+      "quantity": 20  
+    },  
+    {  
+      "id": 4,  
+      "productId": 2,  
+      "storeId": 2,  
+      "quantity": 10  
+    }  
+  ]  
+}
+json data-----------------------------------------------------------
+
+
+
+import { Injectable } from '@angular/core';  
+import { HttpClient } from '@angular/common/http';  
+import { Observable } from 'rxjs';  
+import { Warehouse } from './warehouse';  
+import { Store } from './store';  
+import { Product } from './product';  
+import { InventoryItem } from './inventory-item';  
+
+@Injectable({  
+    providedIn: 'root'  
+})  
+export class InventoryService {  
+    private apiUrl = 'http://localhost:3000'; // Adjust the URL as needed  
+
+    constructor(private http: HttpClient) {}  
+
+    getWarehouses(): Observable<Warehouse[]> {  
+        return this.http.get<Warehouse[]>(`${this.apiUrl}/warehouses`);  
+    }  
+
+    getStores(): Observable<Store[]> {  
+        return this.http.get<Store[]>(`${this.apiUrl}/stores`);  
+    }  
+
+    getProducts(): Observable<Product[]> {  
+        return this.http.get<Product[]>(`${this.apiUrl}/products`);  
+    }  
+
+    getInventoryItems(): Observable<InventoryItem[]> {  
+        return this.http.get<InventoryItem[]>(`${this.apiUrl}/inventoryItems`);  
+    }  
+
+    // Add methods for create, update, delete as needed  
+}

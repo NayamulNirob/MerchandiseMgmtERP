@@ -16,7 +16,8 @@ export class SupplierManagementComponent implements OnInit {
   sortBy: 'name' | 'contactPerson' | 'email' = 'name';  
   newSupplier: Supplier = new Supplier(0, '', '', '', '', '', new Date(), new Date());  
 
-  constructor(private supplierService: SupplierService) {}  
+  constructor(private supplierService: SupplierService
+  ) {}  
 
   ngOnInit(): void {  
     this.supplierService.loadSuppliers().subscribe(data => {  

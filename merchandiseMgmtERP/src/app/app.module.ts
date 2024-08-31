@@ -25,6 +25,7 @@ import { ReportsAnalyticsComponent } from './businesscomponent/reports-and-analy
 import { UpdateproductmanagementComponent } from './businesscomponent/updateproductmanagement/updateproductmanagement.component';
 import { LogoutComponent } from './logout/logout.component';
 import { UserprofileComponent } from './userprofile/userprofile.component';
+import { MultiLocationSupportComponent } from './businesscomponent/multi-location-support/multi-location-support.component';
 
 
 
@@ -47,7 +48,8 @@ import { UserprofileComponent } from './userprofile/userprofile.component';
     ReportsAnalyticsComponent,
     UpdateproductmanagementComponent,
     LogoutComponent,
-    UserprofileComponent
+    UserprofileComponent,
+    MultiLocationSupportComponent
   
 
   ],

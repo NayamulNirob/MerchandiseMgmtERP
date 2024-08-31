@@ -20,13 +20,6 @@
       "description": "Description for Product Shart",
       "price": 500,
       "quantity": 150
-    },
-    {
-      "id": "712b",
-      "name": "Awamilig",
-      "description": "Politics",
-      "price": 999,
-      "quantity": 6
     }
   ],
   "inventory": [

@@ -16,8 +16,8 @@
     },
     {
       "id": "b4de",
-      "name": "Shart",
-      "description": "Description for Product Shart",
+      "name": "Shirt",
+      "description": "Description for Product Shirt",
       "price": 500,
       "quantity": 150
     }
@@ -202,82 +202,76 @@
       "role": "user"
     }
   ],
-
-
-    
-    "warehouses": [  
-      {  
-        "id": 1,  
-        "name": "Warehouse A",  
-        "location": "City A",  
-        "capacity": 1000,  
-        "inventory": []  
-      },  
-      {  
-        "id": 2,  
-        "name": "Warehouse B",  
-        "location": "City B",  
-        "capacity": 2000,  
-        "inventory": []  
-      }  
-    ],  
-    "stores": [  
-      {  
-        "id": 1,  
-        "name": "Store A",  
-        "location": "City C",  
-        "inventory": []  
-      },  
-      {  
-        "id": 2,  
-        "name": "Store B",  
-        "location": "City D",  
-        "inventory": []  
-      }  
-    ],  
-    "products": [  
-      {  
-        "id": 1,  
-        "name": "Product A",  
-        "description": "Description of Product A",  
-        "price": 10.0,  
-        "stock": 100  
-      },  
-      {  
-        "id": 2,  
-        "name": "Product B",  
-        "description": "Description of Product B",  
-        "price": 15.0,  
-        "stock": 200  
-      }  
-    ],  
-    "inventoryItems": [  
-      {  
-        "id": 1,  
-        "productId": 1,  
-        "warehouseId": 1,  
-        "quantity": 50  
-      },  
-      {  
-        "id": 2,  
-        "productId": 2,  
-        "warehouseId": 1,  
-        "quantity": 30  
-      },  
-      {  
-        "id": 3,  
-        "productId": 1,  
-        "storeId": 1,  
-        "quantity": 20  
-      },  
-      {  
-        "id": 4,  
-        "productId": 2,  
-        "storeId": 2,  
-        "quantity": 10  
-      }  
-    ]  
-  
-
+  "warehouses": [
+    {
+      "id": "1",
+      "name": "Warehouse A",
+      "location": "City A",
+      "capacity": 1000,
+      "inventory": []
+    },
+    {
+      "id": "2",
+      "name": "Warehouse B",
+      "location": "City B",
+      "capacity": 2000,
+      "inventory": []
+    }
+  ],
+  "stores": [
+    {
+      "id": "1",
+      "name": "Store A",
+      "location": "City C",
+      "inventory": []
+    },
+    {
+      "id": "2",
+      "name": "Store B",
+      "location": "City D",
+      "inventory": []
+    }
+  ],
+  "products": [
+    {
+      "id": "1",
+      "name": "Product A",
+      "description": "Description of Product A",
+      "price": 10,
+      "stock": 100
+    },
+    {
+      "id": "2",
+      "name": "Product B",
+      "description": "Description of Product B",
+      "price": 15,
+      "stock": 200
+    }
+  ],
+  "inventoryItems": [
+    {
+      "id": "1",
+      "productId": 1,
+      "warehouseId": 1,
+      "quantity": 50
+    },
+    {
+      "id": "2",
+      "productId": 2,
+      "warehouseId": 1,
+      "quantity": 30
+    },
+    {
+      "id": "3",
+      "productId": 1,
+      "storeId": 1,
+      "quantity": 20
+    },
+    {
+      "id": "4",
+      "productId": 2,
+      "storeId": 2,
+      "quantity": 10
+    }
+  ]
 }
-

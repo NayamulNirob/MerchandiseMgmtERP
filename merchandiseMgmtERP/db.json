@@ -76,14 +76,6 @@
       "totalPrice": 260
     },
     {
-      "id": "4786",
-      "customerName": "Nafiz Shahariar",
-      "product": "Item C",
-      "quantity": 150,
-      "orderDate": "2024-09-01T10:47:12.252Z",
-      "totalPrice": 3000
-    },
-    {
       "id": "3f0b",
       "customerName": "Raju",
       "product": "Item D",

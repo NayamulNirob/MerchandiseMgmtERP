@@ -25,17 +25,22 @@ export class OrdermanagementComponent {
     });  
   }  
 
+
   createOrder() {  
-    // Assign a simple unique ID  
-    this.newOrder.id = this.orders.length + 1;   
+    // Assign a simple unique ID (optional, as the server should handle this)  
     this.newOrder.orderDate = new Date();  
-    // Calculate total price (let's assume a fixed price for simplicity)  
     this.newOrder.totalPrice = this.newOrder.quantity * 20; // Assuming each item costs 20  
-    
-    this.orderService.createOrder(this.newOrder);  
-    this.updateFilteredOrders();  
-    this.resetNewOrder();  
-  }  
+  
+    this.orderService.createOrder(this.newOrder).subscribe({  
+      next: () => {  
+        this.updateFilteredOrders(); // Refresh the displayed orders  
+        this.resetNewOrder(); // Reset the form  
+      },  
+      error: (err) => {  
+        console.error('Failed to create order: ', err); // Handle error  
+      }  
+    });  
+  }
 
   updateOrder(orderId: number, status: string) {  
     this.orderService.updateOrder(orderId, { status });  
@@ -46,6 +51,8 @@ export class OrdermanagementComponent {
     this.orderService.deleteOrder(orderId);  
     this.updateFilteredOrders();  
   }  
+
+
 
   filterOrders() {  
     this.filteredOrders = this.orderService.filterOrders(this.searchTerm);  

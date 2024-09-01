@@ -24,8 +24,10 @@ export class OrderService {
     return this.orders;  
   }  
 
-  createOrder(order: OrderItem) {  
-    this.orders.push(order);  
+  createOrder(order: OrderItem):Observable<OrderItem> {  
+    return this.http.post<OrderItem>(this.baseUrl,order).pipe(
+      tap(newOrder=>this.orders.push(newOrder))
+    )  
   }  
 
   updateOrder(orderId: number, updatedOrder: Partial<OrderItem>) {  
@@ -38,6 +40,12 @@ export class OrderService {
   deleteOrder(orderId: number) {  
     this.orders = this.orders.filter(o => o.id !== orderId);  
   }  
+
+  //  // Method to delete a product  
+  //  deleteOrder(orderId: number): Observable<boolean> {  
+  //   return this.http.delete<boolean>(`${this.baseUrl}/${orderId}`);  
+  // } 
+
 
   filterOrders(searchTerm: string): OrderItem[] {  
     return this.orders.filter(order => order.customerName.toLowerCase().includes(searchTerm.toLowerCase()));  

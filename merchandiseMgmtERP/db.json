@@ -20,6 +20,20 @@
       "description": "Description for Product A",
       "price": 30,
       "quantity": 25
+    },
+    {
+      "id": "593d",
+      "name": "Product N",
+      "description": "Description for Product N",
+      "price": 200,
+      "quantity": 15
+    },
+    {
+      "id": "519c",
+      "name": "Nirjash",
+      "description": "Description for Product A",
+      "price": 66,
+      "quantity": 66
     }
   ],
   "inventory": [
@@ -58,15 +72,6 @@
   ],
   "orders": [
     {
-      "id": "2",
-      "customerName": "Jane Smith",
-      "product": "Item B",
-      "quantity": 1,
-      "status": "Shipped",
-      "orderDate": "2023-10-02T11:00:00Z",
-      "totalPrice": 15
-    },
-    {
       "id": "3",
       "customerName": "Towhid",
       "product": "Shirt",
@@ -83,6 +88,24 @@
       "status": "Pending",
       "orderDate": "2024-09-01T10:51:56.144Z",
       "totalPrice": 1600
+    },
+    {
+      "id": "8127",
+      "customerName": "Nirob",
+      "product": "Item C",
+      "quantity": 125,
+      "status": "Pending",
+      "orderDate": "2024-09-01T12:47:56.071Z",
+      "totalPrice": 2500
+    },
+    {
+      "id": "ba01",
+      "customerName": "Nafiz Shahariar",
+      "product": "Item E",
+      "quantity": 21,
+      "status": "Pending",
+      "orderDate": "2024-09-01T12:48:36.799Z",
+      "totalPrice": 420
     }
   ],
   "Supplier": [
@@ -239,22 +262,6 @@
       "name": "Store B",
       "location": "City D",
       "inventory": []
-    }
-  ],
-  "products": [
-    {
-      "id": "1",
-      "name": "Product A",
-      "description": "Description of Product A",
-      "price": 10,
-      "stock": 100
-    },
-    {
-      "id": "2",
-      "name": "Product B",
-      "description": "Description of Product B",
-      "price": 15,
-      "stock": 200
     }
   ],
   "inventoryItems": [

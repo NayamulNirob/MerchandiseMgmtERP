@@ -30,21 +30,31 @@ export class OrderService {
     )  
   }  
 
-  updateOrder(orderId: number, updatedOrder: Partial<OrderItem>) {  
+  updateOrder(orderId: string, updatedOrder: Partial<OrderItem>) {  
     const order = this.orders.find(o => o.id === orderId);  
     if (order) {  
       Object.assign(order, updatedOrder);  
     }  
   }  
 
-  deleteOrder(orderId: number) {  
-    this.orders = this.orders.filter(o => o.id !== orderId);  
-  }  
+  // deleteOrder(orderId: number) {  
+  //   this.orders = this.orders.filter(o => o.id !== orderId);  
+  // }  
 
   //  // Method to delete a product  
-  //  deleteOrder(orderId: number): Observable<boolean> {  
-  //   return this.http.delete<boolean>(`${this.baseUrl}/${orderId}`);  
+  //  deleteOrder(orderId: string): Observable<OrderItem> {
+  //   console.log(`${this.baseUrl}/${orderId}`);
+  //   return this.http.delete<OrderItem>(`${this.baseUrl}/${orderId}`);  
   // } 
+
+  deleteOrder(orderId: string): Observable<OrderItem> {  
+    return this.http.delete<OrderItem>(`${this.baseUrl}/${orderId}`).pipe(  
+      tap(() => {  
+        // Remove the deleted order from local orders  
+        this.orders = this.orders.filter(o => o.id !== orderId);  
+      })  
+    );  
+}
 
 
   filterOrders(searchTerm: string): OrderItem[] {  

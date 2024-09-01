@@ -13,6 +13,13 @@
       "description": "Description for Product Shirt",
       "price": 500,
       "quantity": 150
+    },
+    {
+      "id": "ad44",
+      "name": "Product A",
+      "description": "Description for Product A",
+      "price": 30,
+      "quantity": 25
     }
   ],
   "inventory": [
@@ -51,16 +58,7 @@
   ],
   "orders": [
     {
-      "id": 1,
-      "customerName": "John Doe",
-      "product": "Item A",
-      "quantity": 2,
-      "status": "Processing",
-      "orderDate": "2023-10-01T10:00:00Z",
-      "totalPrice": 40
-    },
-    {
-      "id": 2,
+      "id": "2",
       "customerName": "Jane Smith",
       "product": "Item B",
       "quantity": 1,
@@ -69,7 +67,7 @@
       "totalPrice": 15
     },
     {
-      "id": 0,
+      "id": "3",
       "customerName": "Towhid",
       "product": "Shirt",
       "quantity": 13,
@@ -78,31 +76,21 @@
       "totalPrice": 260
     },
     {
-      "id": 0,
-      "customerName": "tdsjds",
-      "product": "etret",
-      "quantity": 5,
-      "status": "Pending",
-      "orderDate": "2024-09-01T07:08:19.721Z",
-      "totalPrice": 100
+      "id": "4786",
+      "customerName": "Nafiz Shahariar",
+      "product": "Item C",
+      "quantity": 150,
+      "orderDate": "2024-09-01T10:47:12.252Z",
+      "totalPrice": 3000
     },
     {
-      "id": 0,
-      "customerName": "Nirob",
-      "product": "etret",
-      "quantity": 1,
+      "id": "3f0b",
+      "customerName": "Raju",
+      "product": "Item D",
+      "quantity": 80,
       "status": "Pending",
-      "orderDate": "2024-09-01T07:23:58.263Z",
-      "totalPrice": 20
-    },
-    {
-      "id": 0,
-      "customerName": "tdsjds",
-      "product": "Shirt",
-      "quantity": 3,
-      "status": "Pending",
-      "orderDate": "2024-09-01T07:40:52.800Z",
-      "totalPrice": 60
+      "orderDate": "2024-09-01T10:51:56.144Z",
+      "totalPrice": 1600
     }
   ],
   "Supplier": [

@@ -1,10 +1,10 @@
 // -----------------------------------product-------------------------------
 export class Product {  
-  id?: string;  
-  name?: string;  
-  description?: string;  
-  price?: number;  
-  quantity?: number;  
+  id!: string;  
+  name!: string;  
+  description!: string;  
+  price!: number;  
+  quantity!: number;  
 }
 
 // -----------------------------------product-------------------------------
@@ -25,15 +25,15 @@ export class InventoryItem {
 
 // order-item.model.ts  
 export class OrderItem {  
-  constructor(  
-    public id: number,  
-    public customerName: string,  
-    public product: string,  
-    public quantity: number,  
-    public status: string,  
-    public orderDate: Date,  
-    public totalPrice: number  
-  ) {}  
+ 
+    id!: string; 
+    customerName!: string; 
+    product!: string;
+    quantity!: number;  
+    status!: string;  
+    orderDate!: Date;  
+    totalPrice!: number;  
+
 }
 
 // supplier.model.ts  

@@ -26,21 +26,46 @@ export class SupplierService {
     return this.suppliers;  
   }  
 
-  addSupplier(supplier: Supplier) {  
-    this.suppliers.push(supplier);  
-  }  
+  // addSupplier(supplier: Supplier) {  
+  //   this.suppliers.push(supplier);  
+  // }  
 
-  updateSupplier(supplierId: number, updatedSupplier: Partial<Supplier>) {  
-    const supplier = this.suppliers.find(s => s.id === supplierId);  
-    if (supplier) {  
-      Object.assign(supplier, updatedSupplier);  
-      supplier.updatedAt = new Date(); // Update timestamp  
-    }  
-  }  
+  addSupplier(supplier: Supplier): Observable<Supplier> {  
+    return this.http.post<Supplier>(this.baseUrl, supplier).pipe(  
+      tap(newSupplier => this.suppliers.push(newSupplier))  
+    );  
+  } 
 
-  removeSupplier(supplierId: number) {  
-    this.suppliers = this.suppliers.filter(s => s.id !== supplierId);  
-  }  
+  // updateSupplier(supplierId: number, updatedSupplier: Partial<Supplier>) {  
+  //   const supplier = this.suppliers.find(s => s.id === supplierId);  
+  //   if (supplier) {  
+  //     Object.assign(supplier, updatedSupplier);  
+  //     supplier.updatedAt = new Date(); // Update timestamp  
+  //   }  
+  // }  
+
+  updateSupplier(supplierId: number, updatedSupplier: Partial<Supplier>): Observable<Supplier> {  
+    return this.http.put<Supplier>(`${this.baseUrl}/${supplierId}`, updatedSupplier).pipe(  
+      tap(updated => {  
+        const index = this.suppliers.findIndex(s => s.id === supplierId);  
+        if (index !== -1) {  
+          this.suppliers[index] = { ...this.suppliers[index], ...updated };  
+        }  
+      })  
+    );  
+  }
+
+  // removeSupplier(supplierId: number) {  
+  //   this.suppliers = this.suppliers.filter(s => s.id !== supplierId);  
+  // }  
+
+  removeSupplier(supplierId: number): Observable<void> {  
+    return this.http.delete<void>(`${this.baseUrl}/${supplierId}`).pipe(  
+      tap(() => {  
+        this.suppliers = this.suppliers.filter(s => s.id !== supplierId);  
+      })  
+    );  
+  }
 
   filterSuppliers(searchTerm: string): Supplier[] {  
     return this.suppliers.filter(supplier =>  

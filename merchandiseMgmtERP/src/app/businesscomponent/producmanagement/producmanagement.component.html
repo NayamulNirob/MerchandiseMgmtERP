@@ -37,7 +37,7 @@
                 <th>Description</th>
                 <th>Price</th>
                 <th>Quantity</th>
-                <th>Actions</th>
+                <th>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Actions</th>
             </tr>
         </thead>
         <tbody>
@@ -48,7 +48,7 @@
                 <td>{{ product.price | currency }}</td>
                 <td>{{ product.quantity }}</td>
                 <td>
-                    <button class="btn btn-warning" (click)="editProduct(product.id)">Edit</button>
+                    <button class="btn btn-warning" (click)="editProduct(product.id)">Edit</button>&nbsp;&nbsp;
                     <button class="btn btn-danger" (click)="deleteProduct(product.id)">Delete</button>
                 </td>
             </tr>

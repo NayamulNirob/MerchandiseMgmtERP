@@ -37,15 +37,6 @@ export class OrderService {
     }  
   }  
 
-  // deleteOrder(orderId: number) {  
-  //   this.orders = this.orders.filter(o => o.id !== orderId);  
-  // }  
-
-  //  // Method to delete a product  
-  //  deleteOrder(orderId: string): Observable<OrderItem> {
-  //   console.log(`${this.baseUrl}/${orderId}`);
-  //   return this.http.delete<OrderItem>(`${this.baseUrl}/${orderId}`);  
-  // } 
 
   deleteOrder(orderId: string): Observable<OrderItem> {  
     return this.http.delete<OrderItem>(`${this.baseUrl}/${orderId}`).pipe(  

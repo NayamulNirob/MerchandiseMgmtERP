@@ -72,15 +72,6 @@
   ],
   "orders": [
     {
-      "id": "3",
-      "customerName": "Towhid",
-      "product": "Shirt",
-      "quantity": 13,
-      "status": "Pending",
-      "orderDate": "2024-09-01T06:47:34.809Z",
-      "totalPrice": 260
-    },
-    {
       "id": "3f0b",
       "customerName": "Raju",
       "product": "Item D",
@@ -106,6 +97,15 @@
       "status": "Pending",
       "orderDate": "2024-09-01T12:48:36.799Z",
       "totalPrice": 420
+    },
+    {
+      "id": "2c93",
+      "customerName": "Shabab",
+      "product": "Item A",
+      "quantity": 24,
+      "status": "Pending",
+      "orderDate": "2024-09-01T15:45:13.676Z",
+      "totalPrice": 480
     }
   ],
   "Supplier": [

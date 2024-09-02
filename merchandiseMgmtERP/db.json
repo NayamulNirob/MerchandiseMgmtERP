@@ -32,8 +32,8 @@
       "id": "519c",
       "name": "Nirjash",
       "description": "Description for Product A",
-      "price": 66,
-      "quantity": 66
+      "price": 50,
+      "quantity": 100
     }
   ],
   "inventory": [
@@ -110,44 +110,34 @@
   ],
   "Supplier": [
     {
-      "id": "1",
-      "name": "Supplier A",
-      "contactPerson": "Alice Johnson",
-      "email": "alice@supplierA.com",
-      "phone": "+123456789",
-      "address": "123 Supplier St, Supplier City",
-      "createdAt": "2023-10-01T10:00:00Z",
-      "updatedAt": "2023-10-01T10:00:00Z"
+      "id": 5,
+      "name": "Md Nayamul lslam",
+      "contactPerson": "Md Nayamul lslam",
+      "email": "nayamulislam@gmail.com",
+      "phone": "01784991229",
+      "address": "Purbo kallan, Kurigram sadar, Kurigram",
+      "createdAt": "2024-09-02T09:29:59.215Z",
+      "updatedAt": "2024-09-02T09:29:59.215Z"
     },
     {
-      "id": "2",
-      "name": "Supplier B",
-      "contactPerson": "Bob Smith",
-      "email": "bob@supplierB.com",
-      "phone": "+987654321",
-      "address": "456 Supplier Ave, Supplier City",
-      "createdAt": "2023-10-02T11:00:00Z",
-      "updatedAt": "2023-10-02T11:00:00Z"
+      "id": 5,
+      "name": "Shabab Ahamed",
+      "contactPerson": "Shabab Ahamed",
+      "email": "shabab@gamil.com",
+      "phone": "2524455454455",
+      "address": "7th Floor, House 5/C, Road 01,",
+      "createdAt": "2024-09-02T09:43:59.103Z",
+      "updatedAt": "2024-09-02T09:43:59.103Z"
     },
     {
-      "id": "3",
-      "name": "Supplier C",
-      "contactPerson": "Alice",
-      "email": "alice@supplier.com",
-      "phone": "+123456789",
-      "address": "123 Supplier St.",
-      "createdAt": "2023-10-01T10:00:00Z",
-      "updatedAt": "2023-10-01T10:00:00Z"
-    },
-    {
-      "id": "4",
-      "name": "Supplier D",
-      "contactPerson": "Bob",
-      "email": "bob@supplier.com",
-      "phone": "+987654321",
-      "address": "456 Supplier Ave.",
-      "createdAt": "2023-10-02T11:00:00Z",
-      "updatedAt": "2023-10-02T11:00:00Z"
+      "id": 3,
+      "name": "Nafiz Shahriar Nirjash",
+      "contactPerson": "Nirjash",
+      "email": "nirjash@gmail.com",
+      "phone": "14101322320",
+      "address": "Framget,Dhaka,Bangladesh",
+      "createdAt": "2024-09-02T09:46:17.376Z",
+      "updatedAt": "2024-09-02T09:46:17.376Z"
     }
   ],
   "sales": [

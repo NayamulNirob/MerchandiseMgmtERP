@@ -38,16 +38,15 @@ export class OrderItem {
 
 // supplier.model.ts  
 export class Supplier {  
-  constructor(  
-    public id: number,  
-    public name: string,  
-    public contactPerson: string,  
-    public email: string,  
-    public phone: string,  
-    public address: string,  
-    public createdAt: Date,  
-    public updatedAt: Date  
-  ) {}  
+   id!: number; 
+   name!: string;
+   contactPerson!: string; 
+   email!: string;  
+   phone!: string;  
+   address!: string;
+   createdAt!: Date;  
+   updatedAt!: Date ; 
+  
 }
 
 // sale.model.ts  

@@ -14,7 +14,7 @@ export class SupplierManagementComponent implements OnInit {
   filteredSuppliers: Supplier[] = [];  
   searchTerm: string = '';  
   sortBy: 'name' | 'contactPerson' | 'email' = 'name';  
-  newSupplier: Supplier = new Supplier(0, '', '', '', '', '', new Date(), new Date());  
+  newSupplier: Supplier = new Supplier();  
 
   constructor(private supplierService: SupplierService
   ) {}  
@@ -31,19 +31,32 @@ export class SupplierManagementComponent implements OnInit {
     this.newSupplier.createdAt = new Date();  
     this.newSupplier.updatedAt = new Date();  
 
-    this.supplierService.addSupplier(this.newSupplier);  
-    this.updateFilteredSuppliers();  
-    this.resetNewSupplier();  
+    this.supplierService.addSupplier(this.newSupplier).subscribe(() => {  
+      this.updateFilteredSuppliers();  
+      this.resetNewSupplier();  
+    }); 
   }  
 
+  // updateSupplier(supplierId: number, contactPerson: string, email: string, phone: string) {  
+  //   this.supplierService.updateSupplier(supplierId, { contactPerson, email, phone });  
+  //   this.updateFilteredSuppliers();  
+  // }  
+
+  // removeSupplier(supplierId: number) {  
+  //   this.supplierService.removeSupplier(supplierId);  
+  //   this.updateFilteredSuppliers();  
+  // }  
+
   updateSupplier(supplierId: number, contactPerson: string, email: string, phone: string) {  
-    this.supplierService.updateSupplier(supplierId, { contactPerson, email, phone });  
-    this.updateFilteredSuppliers();  
+    this.supplierService.updateSupplier(supplierId, { contactPerson, email, phone }).subscribe(() => {  
+      this.updateFilteredSuppliers();  
+    });  
   }  
 
   removeSupplier(supplierId: number) {  
-    this.supplierService.removeSupplier(supplierId);  
-    this.updateFilteredSuppliers();  
+    this.supplierService.removeSupplier(supplierId).subscribe(() => {  
+      this.updateFilteredSuppliers();  
+    });  
   }  
 
   filterSuppliers() {  
@@ -59,6 +72,6 @@ export class SupplierManagementComponent implements OnInit {
   }  
 
   private resetNewSupplier() {  
-    this.newSupplier = new Supplier(0, '', '', '', '', '', new Date(), new Date());  
+    this.newSupplier = new Supplier();  
   }  
 }

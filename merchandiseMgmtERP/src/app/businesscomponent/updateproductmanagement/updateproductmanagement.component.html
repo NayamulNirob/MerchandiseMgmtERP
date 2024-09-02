@@ -1,24 +1,24 @@
-<div class="container mx-auto p-4">  
-    <h2 class="text-2xl font-bold">Edit Product</h2>  
-    <div *ngIf="errorMessage" class="mt-4 text-red-500">{{ errorMessage }}</div>  
+  <div class="container mt-4">  
+    <h2 class="h2">Edit Product</h2>  
+    <div *ngIf="errorMessage" class="alert alert-danger mt-4">{{ errorMessage }}</div>  
     
     <form (ngSubmit)="updateProduct()" *ngIf="product">  
-      <div class="mb-4">  
-        <label for="name" class="block">Name</label>  
-        <input id="name" [(ngModel)]="product.name" name="name" class="border p-2 w-full" required />  
+      <div class="mb-3">  
+        <label for="name" class="form-label">Name</label>  
+        <input id="name" [(ngModel)]="product.name" name="name" class="form-control" required />  
       </div>  
-      <div class="mb-4">  
-        <label for="description" class="block">Description</label>  
-        <input id="description" [(ngModel)]="product.description" name="description" class="border p-2 w-full" />  
+      <div class="mb-3">  
+        <label for="description" class="form-label">Description</label>  
+        <input id="description" [(ngModel)]="product.description" name="description" class="form-control" />  
       </div>  
-      <div class="mb-4">  
-        <label for="price" class="block">Price</label>  
-        <input type="number" id="price" [(ngModel)]="product.price" name="price" class="border p-2 w-full" required />  
+      <div class="mb-3">  
+        <label for="price" class="form-label">Price</label>  
+        <input type="number" id="price" [(ngModel)]="product.price" name="price" class="form-control" required />  
       </div>  
-      <div class="mb-4">  
-        <label for="quantity" class="block">Quantity</label>  
-        <input type="number" id="quantity" [(ngModel)]="product.quantity" name="quantity" class="border p-2 w-full" required />  
+      <div class="mb-3">  
+        <label for="quantity" class="form-label">Quantity</label>  
+        <input type="number" id="quantity" [(ngModel)]="product.quantity" name="quantity" class="form-control" required />  
       </div>  
-      <button type="submit" class="bg-primary-500 text-black p-2">Update Product</button>  
+      <button type="submit" class="btn btn-primary">Update Product</button>  
     </form>  
-  </div>
+</div>

@@ -51,28 +51,28 @@ export class Supplier {
 
 // sale.model.ts  
 export class Sale {  
-  constructor(  
-    public id: number,  
-    public productName: string,  
-    public quantity: number,  
-    public price: number,  
-    public totalAmount: number,  
-    public customerName: string,  
-    public saleDate: Date  
-  ) {}  
+
+   id!: number;
+   productName!: string;  
+   quantity!: number;  
+   price!: number;  
+   totalAmount!: number;  
+   customerName!: string;  
+   saleDate!: Date;  
+  
 }
 
 // customer.model.ts  
 export class Customer {  
-  constructor(  
-    public id: number,  
-    public name: string,  
-    public email: string,  
-    public phone: string,  
-    public address: string,  
-    public createdAt: Date,  
-    public updatedAt: Date  
-  ) {}  
+  
+     id!: number; 
+     name!: string;  
+     email!: string;  
+     phone!: string;  
+     address!: string;  
+     createdAt!: Date;  
+     updatedAt!: Date; 
+ 
 }
 
 

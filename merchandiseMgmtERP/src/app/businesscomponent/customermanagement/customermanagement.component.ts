@@ -13,7 +13,7 @@ export class CustomerManagementComponent implements OnInit {
   customers: Customer[] = [];  
   filteredCustomers: Customer[] = [];  
   searchTerm: string = '';  
-  newCustomer: Customer = new Customer(0, '', '', '', '', new Date(), new Date());  
+  newCustomer: Customer = new Customer();  
 
   constructor(private customerService: CustomerService) {}  
 
@@ -57,6 +57,6 @@ export class CustomerManagementComponent implements OnInit {
   }  
 
   private resetNewCustomer() {  
-    this.newCustomer = new Customer(0, '', '', '', '', new Date(), new Date());  
+    this.newCustomer = new Customer();  
   }  
 }

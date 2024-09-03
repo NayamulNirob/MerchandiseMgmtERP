@@ -12,7 +12,7 @@ export class SalesManagementComponent implements OnInit {
   sales: Sale[] = [];  
   filteredSales: Sale[] = [];  
   searchTerm: string = '';  
-  newSale: Sale = new Sale(0, '', 0, 0, 0, '', new Date());  
+  newSale: Sale = new Sale();  
 
   constructor(private salesService: SalesService) {}  
 
@@ -59,6 +59,6 @@ export class SalesManagementComponent implements OnInit {
   }  
 
   private resetNewSale() {  
-    this.newSale = new Sale(0, '', 0, 0, 0, '', new Date());  
+    this.newSale = new Sale();  
   }  
 }

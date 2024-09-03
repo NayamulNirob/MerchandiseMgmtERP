@@ -1,8 +1,8 @@
 // supplier.service.ts  
 import { Injectable } from '@angular/core';  
 import { HttpClient } from '@angular/common/http';  
-import { Observable } from 'rxjs';  
-import { tap } from 'rxjs/operators';  
+import { Observable, throwError } from 'rxjs';  
+import { catchError, tap } from 'rxjs/operators';  
 import { Supplier } from '../model/sale.model';
 
 @Injectable({  
@@ -44,6 +44,18 @@ export class SupplierService {
   //   }  
   // }  
 
+  // updateSupplier(supplierId: number, updatedSupplier: Partial<Supplier>): Observable<Supplier> {  
+  //   return this.http.put<Supplier>(`${this.baseUrl}/${supplierId}`, updatedSupplier).pipe(  
+  //     tap(updated => {  
+  //       const index = this.suppliers.findIndex(s => s.id === supplierId);  
+  //       if (index !== -1) {  
+  //         this.suppliers[index] = { ...this.suppliers[index], ...updated };  
+  //       }  
+  //     })  
+  //   );  
+  // }
+
+
   updateSupplier(supplierId: number, updatedSupplier: Partial<Supplier>): Observable<Supplier> {  
     return this.http.put<Supplier>(`${this.baseUrl}/${supplierId}`, updatedSupplier).pipe(  
       tap(updated => {  
@@ -51,7 +63,8 @@ export class SupplierService {
         if (index !== -1) {  
           this.suppliers[index] = { ...this.suppliers[index], ...updated };  
         }  
-      })  
+      }),  
+      catchError(this.handleError)  
     );  
   }
 
@@ -59,13 +72,22 @@ export class SupplierService {
   //   this.suppliers = this.suppliers.filter(s => s.id !== supplierId);  
   // }  
 
+  // removeSupplier(supplierId: number): Observable<void> {  
+  //   return this.http.delete<void>(`${this.baseUrl}/${supplierId}`).pipe(  
+  //     tap(() => {  
+  //       this.suppliers = this.suppliers.filter(s => s.id !== supplierId);  
+  //     })  
+  //   );  
+  // }
+
   removeSupplier(supplierId: number): Observable<void> {  
     return this.http.delete<void>(`${this.baseUrl}/${supplierId}`).pipe(  
       tap(() => {  
         this.suppliers = this.suppliers.filter(s => s.id !== supplierId);  
-      })  
+      }),  
+      catchError(this.handleError)  
     );  
-  }
+  } 
 
   filterSuppliers(searchTerm: string): Supplier[] {  
     return this.suppliers.filter(supplier =>  
@@ -81,4 +103,12 @@ export class SupplierService {
       return 0;  
     });  
   }  
+
+
+
+  private handleError(error: any) {  
+    console.error('An error occurred', error); // Log the error to the console  
+    return throwError(() => new Error('Something went wrong; please try again later.'));  
+  }  
 }
+

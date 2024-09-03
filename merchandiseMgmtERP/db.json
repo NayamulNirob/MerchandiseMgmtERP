@@ -110,7 +110,7 @@
   ],
   "Supplier": [
     {
-      "id": 3,
+      "id": 1,
       "name": "NAYAMUL ISLAM",
       "contactPerson": "NAYAMUL ISLAM",
       "email": "nayamulislam@gmail.com",
@@ -120,7 +120,7 @@
       "updatedAt": "2024-09-03T08:55:29.240Z"
     },
     {
-      "id": 3,
+      "id": 2,
       "name": "MD Neyamul Isalm Nirob",
       "contactPerson": "MD Neyamul Isalm Nirob",
       "email": "1302neyamulislamnirob@gmail.com",
@@ -130,7 +130,7 @@
       "updatedAt": "2024-09-03T08:56:49.247Z"
     },
     {
-      "id": 3,
+      "id": 4,
       "name": "NAYAMUL ISLAM",
       "contactPerson": "NAYAMUL ISLAM",
       "email": "nayamulislam@gmail.com",
@@ -140,7 +140,7 @@
       "updatedAt": "2024-09-03T08:56:57.566Z"
     },
     {
-      "id": 3,
+      "id": 5,
       "name": "Shabab Ahamed",
       "contactPerson": "Shabab Ahamed",
       "email": "shabab@gamil.com",
@@ -148,6 +148,16 @@
       "address": "yersyere",
       "createdAt": "2024-09-03T08:57:50.102Z",
       "updatedAt": "2024-09-03T08:57:50.102Z"
+    },
+    {
+      "id": 5,
+      "name": "etrtret",
+      "contactPerson": "rewtt",
+      "email": "nayamulislam@gmail.com",
+      "phone": "01323276407",
+      "address": "7th floor, House 5/C, Road:1, PC Culture Housing Society limited,",
+      "createdAt": "2024-09-03T11:44:01.282Z",
+      "updatedAt": "2024-09-03T11:44:01.282Z"
     }
   ],
   "sales": [

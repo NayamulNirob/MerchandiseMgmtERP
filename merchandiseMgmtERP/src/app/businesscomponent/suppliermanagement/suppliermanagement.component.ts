@@ -37,6 +37,9 @@ export class SupplierManagementComponent implements OnInit {
     }); 
   }  
 
+
+  
+
   // updateSupplier(supplierId: number, contactPerson: string, email: string, phone: string) {  
   //   this.supplierService.updateSupplier(supplierId, { contactPerson, email, phone });  
   //   this.updateFilteredSuppliers();  
@@ -47,17 +50,41 @@ export class SupplierManagementComponent implements OnInit {
   //   this.updateFilteredSuppliers();  
   // }  
 
-  updateSupplier(supplierId: number, contactPerson: string, email: string, phone: string) {  
-    this.supplierService.updateSupplier(supplierId, { contactPerson, email, phone }).subscribe(() => {  
-      this.updateFilteredSuppliers();  
-    });  
-  }  
+  // updateSupplier(supplierId: number, contactPerson: string, email: string, phone: string) {  
+  //   this.supplierService.updateSupplier(supplierId, { contactPerson, email, phone }).subscribe(() => {  
+  //     this.updateFilteredSuppliers();  
+  //   });  
+  // }  
 
-  removeSupplier(supplierId: number) {  
-    this.supplierService.removeSupplier(supplierId).subscribe(() => {  
-      this.updateFilteredSuppliers();  
+  // removeSupplier(supplierId: number) {  
+  //   this.supplierService.removeSupplier(supplierId).subscribe(() => {  
+  //     this.updateFilteredSuppliers();  
+  //   });  
+  // }  
+
+
+  updateSupplier(supplierId: number, contactPerson: string, email: string, phone: string) {  
+    const updatedData = { contactPerson, email, phone }; // Prepare updated data  
+    this.supplierService.updateSupplier(supplierId, updatedData).subscribe({  
+      next: () => {  
+        this.updateFilteredSuppliers();  
+      },  
+      error: (err) => {  
+        console.error('Update failed', err); // Log the error  
+      }  
     });  
   }  
+  
+  removeSupplier(supplierId: number) {  
+    this.supplierService.removeSupplier(supplierId).subscribe({  
+      next: () => {  
+        this.updateFilteredSuppliers();  
+      },  
+      error: (err) => {  
+        console.error('Delete failed', err); // Log the error  
+      }  
+    });  
+  }
 
   filterSuppliers() {  
     this.filteredSuppliers = this.supplierService.filterSuppliers(this.searchTerm);  

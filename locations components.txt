@@ -670,7 +670,8 @@ export class Root {
 
 make a relation between those classes
 Sider Fusion
-To establish relationships between the classes you've defined, we can introduce references to related classes within each class. This will help in creating a more structured and interconnected model. Below is an updated version of your classes with relationships added:
+To establish relationships between the classes you've defined, we can introduce references to related classes within each class. 
+This will help in creating a more structured and interconnected model. Below is an updated version of your classes with relationships added:
 
 // -----------------------------------product-------------------------------  
 export class Product {  

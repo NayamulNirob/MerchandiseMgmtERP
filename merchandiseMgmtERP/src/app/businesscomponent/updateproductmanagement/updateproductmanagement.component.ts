@@ -11,8 +11,8 @@ import { HttpErrorResponse } from '@angular/common/http';
 })
 export class UpdateproductmanagementComponent implements OnInit {
 
-  productId!: string;
-  product!: Product | null;
+  productId!: number;
+  product:Product =new Product();
   errorMessage: string = '';
   
 

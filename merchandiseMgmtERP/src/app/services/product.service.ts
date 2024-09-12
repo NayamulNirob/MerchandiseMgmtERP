@@ -10,31 +10,34 @@ import { map, Observable } from 'rxjs';
 })
 export class ProductService {
 
-  private baseUrl = "http://localhost:3000/product";
+  private baseUrl = "http://localhost:8089/api/product";
+ 
 
   constructor(private http: HttpClient) {}  
+
+    // Method to get all products  
+    getProducts(): Observable<Product[]> {  
+      return this.http.get<Product[]>(this.baseUrl+"/");
+    }  
  
   createProduct(product: Product): Observable<Product> {  
-    return this.http.post<Product>(`${this.baseUrl}`, product);  
+    return this.http.post<Product>(this.baseUrl+"/save", product);  
   }  
 
   // Method to edit a product  
-  editProduct(productId: string, updatedProduct: Product): Observable<boolean> {  
-    return this.http.put<boolean>(`${this.baseUrl}/${productId}`, updatedProduct);  
+  editProduct(productId: number, updatedProduct: Product): Observable<boolean> {  
+    return this.http.put<boolean>(`${this.baseUrl}/update/${productId}`, updatedProduct);  
   }  
 
   // Method to delete a product  
-  deleteProduct(productId: string): Observable<boolean> {  
-    return this.http.delete<boolean>(`${this.baseUrl}/${productId}`);  
+  deleteProduct(productId: number): Observable<boolean> {  
+    return this.http.delete<boolean>(`${this.baseUrl}/delete/${productId}`);  
   }  
 
-  // Method to get all products  
-  getProducts(): Observable<Product[]> {  
-    return this.http.get<Product[]>(this.baseUrl);
-  }  
+
 
   // Method to get a product by ID  
-  getProductById(productId: string): Observable<Product> {  
+  getProductById(productId: number): Observable<Product> {  
     return this.http.get<Product>(`${this.baseUrl}/${productId}`); 
   }  
 }

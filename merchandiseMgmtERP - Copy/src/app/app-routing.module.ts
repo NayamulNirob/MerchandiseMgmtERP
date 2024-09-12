@@ -3,7 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { DashbordComponent } from './dashbord/dashbord.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
-import { ProducmanagementComponent } from './businesscomponent/producmanagement/producmanagement.component';
+import { ProducmanagementComponent } from './businesscomponent/productmanagement/producmanagement.component';
 import { InventoryManagementComponent } from './businesscomponent/inventorymanagement/inventorymanagement.component';
 import { OrdermanagementComponent } from './businesscomponent/ordermanagement/ordermanagement.component';
 import { SupplierManagementComponent } from './businesscomponent/suppliermanagement/suppliermanagement.component';
@@ -29,7 +29,7 @@ const routes: Routes = [
   {path:'reports',component:ReportsAnalyticsComponent,canActivate:[AuthguardGuard]},
   {path:'userProfile',component:UserprofileComponent,canActivate:[AuthguardGuard]},
   {path:'product/:id/edit',component:UpdateproductmanagementComponent,canActivate:[AuthguardGuard]},
-  {path:"**", redirectTo:'login' , pathMatch:'full'},
+  // {path:"**", redirectTo:'login' , pathMatch:'full'},
   {
     path:'userProfile',
     component:UserprofileComponent,

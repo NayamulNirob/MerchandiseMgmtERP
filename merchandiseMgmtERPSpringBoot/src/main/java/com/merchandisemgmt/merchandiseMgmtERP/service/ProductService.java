@@ -36,7 +36,7 @@ public class ProductService {
         );
     }
 
-    public void updateProduct(Product p, Long id) {
-        productRepository.save(p);
+    public Product updateProduct(Product p, Long id) {
+        return productRepository.save(p);
     }
 }

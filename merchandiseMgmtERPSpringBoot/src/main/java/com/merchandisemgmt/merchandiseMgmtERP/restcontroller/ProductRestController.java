@@ -9,35 +9,35 @@ import org.springframework.web.bind.annotation.*;
 import java.util.*;
 
 @RestController
-@RequestMapping("api/product/")
+@RequestMapping("api/product")
 @CrossOrigin("*")
 public class ProductRestController {
     @Autowired
     private ProductService productService;
 
-    @GetMapping("view")
-    public ResponseEntity<List<Product>> saveProduct() {
+    @GetMapping("/")
+    public ResponseEntity<List<Product>> getAllProduct() {
 
         List<Product> products = productService.getAllProduct();
         return new ResponseEntity<>(products, HttpStatus.OK);
     }
 
-    @PostMapping("save")
+    @PostMapping("/save")
     public ResponseEntity<Product> saveProduct(@RequestBody Product product) {
-        productService.saveProduct(product);
-        return new ResponseEntity<>(product, HttpStatus.OK);
+        Product saveProduct= productService.saveProduct(product);
+        return new ResponseEntity<>(saveProduct, HttpStatus.CREATED);
     }
 
-    @PutMapping("update/{id}")
-    public ResponseEntity<String> updateProduct(@RequestBody Product p, @PathVariable("id") long id) {
-        productService.updateProduct(p, id);
-        return new ResponseEntity<>("Product updated", HttpStatus.OK);
+    @PutMapping("/update/{id}")
+    public ResponseEntity<Product> updateProduct(@RequestBody Product p, @PathVariable("id") long id) {
+        Product updatedProduct= productService.updateProduct(p, id);
+        return new ResponseEntity<>(updatedProduct, HttpStatus.OK);
     }
 
-    @DeleteMapping("delete/{id}")
-    public ResponseEntity<String> deleteProduct(@PathVariable("id") long id) {
+    @DeleteMapping("/delete/{id}")
+    public ResponseEntity<Product> deleteProduct(@PathVariable("id") long id) {
 
         productService.deleteProductById(id);
-        return new ResponseEntity<>("Product deleted", HttpStatus.OK);
+        return new ResponseEntity<>( HttpStatus.OK);
     }
 }

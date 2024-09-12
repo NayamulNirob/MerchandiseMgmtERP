@@ -49,12 +49,12 @@ export class ProducmanagementComponent implements OnInit {
   }
 
 
-  editProduct(productId: string | undefined): void {
+  editProduct(productId: number | undefined): void {
     this.router.navigate([`/product/${productId}/edit`]);
   }
 
 
-  deleteProduct(productId: string | undefined): void {
+  deleteProduct(productId: number | undefined): void {
     if (productId) {
       this.productService.deleteProduct(productId).subscribe(success => {
         if (success) {

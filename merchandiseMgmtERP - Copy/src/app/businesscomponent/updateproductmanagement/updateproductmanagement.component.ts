@@ -11,9 +11,10 @@ import { HttpErrorResponse } from '@angular/common/http';
 })
 export class UpdateproductmanagementComponent implements OnInit {
 
-  productId!: string;
-  product!: Product | null;
+  productId!: number;
+  // product!: Product | null;
   errorMessage: string = '';
+  product:Product =new Product();
   
 
   constructor(

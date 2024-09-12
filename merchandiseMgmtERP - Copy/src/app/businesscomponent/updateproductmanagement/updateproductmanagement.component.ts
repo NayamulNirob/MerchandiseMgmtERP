@@ -25,6 +25,7 @@ export class UpdateproductmanagementComponent implements OnInit {
 
   ngOnInit(): void {
     this.productId = this.route.snapshot.params['id'];
+    console.log(this.productId)
     this.loadProduct();
 
   }
@@ -33,6 +34,7 @@ export class UpdateproductmanagementComponent implements OnInit {
     this.productService.getProductById(this.productId).subscribe({
       next: response => {
         this.product = response;
+        console.log(this.product);
       },
       error: error => {
         console.log(error)

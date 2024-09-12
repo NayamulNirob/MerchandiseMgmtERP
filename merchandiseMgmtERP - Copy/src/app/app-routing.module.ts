@@ -28,7 +28,7 @@ const routes: Routes = [
   {path:'customer',component:CustomerManagementComponent,canActivate:[AuthguardGuard]},
   {path:'reports',component:ReportsAnalyticsComponent,canActivate:[AuthguardGuard]},
   {path:'userProfile',component:UserprofileComponent,canActivate:[AuthguardGuard]},
-  {path:'product/:id/edit',component:UpdateproductmanagementComponent,canActivate:[AuthguardGuard]},
+  {path:'updateproduct/:id',component:UpdateproductmanagementComponent,canActivate:[AuthguardGuard]},
   // {path:"**", redirectTo:'login' , pathMatch:'full'},
   {
     path:'userProfile',

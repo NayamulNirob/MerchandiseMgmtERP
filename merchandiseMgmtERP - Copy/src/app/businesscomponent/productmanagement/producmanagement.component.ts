@@ -1,9 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Product } from '../../model/sale.model';
 import { ProductService } from '../../services/product.service';
-import { FormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
-import { error } from 'console';
+
 @Component({
   selector: 'app-producmanagement',
   templateUrl: './producmanagement.component.html',
@@ -49,16 +48,21 @@ export class ProducmanagementComponent implements OnInit {
   }
 
 
-  editProduct(productId: number | undefined): void {
-    this.router.navigate([`/product/${productId}/edit`]);
+  editProduct(productId: number ) {
+    this.router.navigate(['updateproduct',productId]);
+  
   }
 
 
-  deleteProduct(productId: number | undefined): void {
+  deleteProduct(productId: number): void {
     if (productId) {
       this.productService.deleteProduct(productId).subscribe(success => {
         if (success) {
-          this.products = this.products.filter(p => p.id !== productId); // Update local product list  
+          this.products = this.products.filter(p => p.id !== productId); 
+          this.router.navigate(['product']);
+        }
+        else{
+          this.router.navigate(['product']);
         }
       });
     }

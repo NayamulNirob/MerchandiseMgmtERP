@@ -35,9 +35,18 @@ public class ProductRestController {
     }
 
     @DeleteMapping("/delete/{id}")
-    public ResponseEntity<Product> deleteProduct(@PathVariable("id") long id) {
+    public ResponseEntity<String> deleteProduct(@PathVariable("id") long id) {
 
         productService.deleteProductById(id);
-        return new ResponseEntity<>( HttpStatus.OK);
+        return new ResponseEntity<>( "Product Deleted",HttpStatus.OK);
     }
+
+    @GetMapping("/{id}")
+    public ResponseEntity<Product> getProductById(@PathVariable("id") long id) {
+
+    Product product= productService.findProductById(id);
+        return ResponseEntity.ok(product);
+    }
+
+
 }

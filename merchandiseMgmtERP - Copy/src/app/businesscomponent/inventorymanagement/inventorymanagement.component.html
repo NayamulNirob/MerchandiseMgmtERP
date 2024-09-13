@@ -37,11 +37,11 @@
     </thead>
     <tbody>
       <tr *ngFor="let item of filteredInventory">
-        <td>{{ item.name }}</td>
-        <td>{{ item.stock }}</td>
+        <td>{{ item.product.name }}</td>
+        <td>{{ item.product.quantity }}</td>
         <td>{{ item.location }}</td>
-        <td>{{ item.price }}</td>
-        <td>{{ item.description }}</td>
+        <td>{{ item.product.price }}</td>
+        <td>{{ item.product.description }}</td>
         <td>
           <!-- <button (click)="updateStock(item.id, 1)"  >Add Stock</button>
           <button (click)="manageLocation(item.id, 'New Location')">

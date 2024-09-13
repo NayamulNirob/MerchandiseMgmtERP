@@ -2,17 +2,17 @@ package com.merchandisemgmt.merchandiseMgmtERP.service;
 
 import com.merchandisemgmt.merchandiseMgmtERP.entity.Product;
 import com.merchandisemgmt.merchandiseMgmtERP.repository.ProductRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import java.util.List;
 
 @Service
 public class ProductService {
 
-    private final ProductRepository productRepository;
+    @Autowired
+    private  ProductRepository productRepository;
 
-    public ProductService(ProductRepository productRepository) {
-        this.productRepository = productRepository;
-    }
+
 
     public Product saveProduct(Product p) {
         try {

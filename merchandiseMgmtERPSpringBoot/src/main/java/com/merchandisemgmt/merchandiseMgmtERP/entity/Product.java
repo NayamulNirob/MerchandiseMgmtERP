@@ -5,6 +5,8 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.List;
+
 @Entity
 @Data
 @AllArgsConstructor
@@ -19,12 +21,28 @@ public class Product {
 
     @Column(nullable = false)
     private String name;
+
     @Column(nullable = false)
     private String description;
-    @Column(nullable = false)
-    private Long price;
-    @Column(nullable = false)
-    private Long quantity;
 
+    @Column(nullable = false)
+    private long price;
+
+    @Column(nullable = false)
+    private long quantity;
+
+//    id!: number;
+//    name!: string;
+//    description!: string;
+//    price!: number;
+//    quantity!: number;
+
+
+//    @OneToMany(mappedBy = "product",cascade = CascadeType.ALL)
+//    private List<OrderItem> orderItems;
+//
+//    @ManyToOne
+//    @JoinColumn(name = "supplier_id",nullable = false)
+//    private Supplier supplier;
 
 }

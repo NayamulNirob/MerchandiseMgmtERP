@@ -11,17 +11,17 @@ export class Product {
 
 // inventory-item.model.ts--------------------------------------------------  
 export class InventoryItem {  
-  constructor(  
-    public id: number,  
-    public name: string,  
-    public stock: number,  
-    public location: string,  
-    public description: string,  
-    public price: number  
-  ) {}  
+  
+     id!: number;  
+     name!: string;  
+     stock!: number;  
+     location!: string;  
+     description!: string;  
+     price!: number; 
+     product:Product=new Product();
 }
 
-// inventory-item.model.ts--------------------------------------------------  
+// inventory-item.model.ts---------------------------------------------------  
 
 // order-item.model.ts  
 export class OrderItem {  
@@ -33,7 +33,6 @@ export class OrderItem {
     status!: string;  
     orderDate!: Date;  
     totalPrice!: number;  
-
 }
 
 // supplier.model.ts  
@@ -46,25 +45,21 @@ export class Supplier {
    address!: string;
    createdAt!: Date;  
    updatedAt!: Date ; 
-  
 }
 
 // sale.model.ts  
 export class Sale {  
-
    id!: number;
    productName!: string;  
    quantity!: number;  
    price!: number;  
    totalAmount!: number;  
    customerName!: string;  
-   saleDate!: Date;  
-  
+   saleDate!: Date;   
 }
 
 // customer.model.ts  
 export class Customer {  
-  
      id!: number; 
      name!: string;  
      email!: string;  
@@ -72,14 +67,12 @@ export class Customer {
      address!: string;  
      createdAt!: Date;  
      updatedAt!: Date; 
- 
 }
 
 
 // registration.model.ts  
 export class UserModel
 {
-
   id!: string;
   name!: string;
   email!: string;

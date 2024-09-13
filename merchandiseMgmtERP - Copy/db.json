@@ -97,15 +97,6 @@
       "status": "Pending",
       "orderDate": "2024-09-01T12:48:36.799Z",
       "totalPrice": 420
-    },
-    {
-      "id": "2c93",
-      "customerName": "Shabab",
-      "product": "Item A",
-      "quantity": 24,
-      "status": "Pending",
-      "orderDate": "2024-09-01T15:45:13.676Z",
-      "totalPrice": 480
     }
   ],
   "Supplier": [
@@ -138,16 +129,6 @@
       "address": "7th floor, House 5/C, Road:1, PC Culture Housing Society limited,",
       "createdAt": "2024-09-03T08:56:57.566Z",
       "updatedAt": "2024-09-03T08:56:57.566Z"
-    },
-    {
-      "id": "5",
-      "name": "etrtret",
-      "contactPerson": "rewtt",
-      "email": "nayamulislam@gmail.com",
-      "phone": "01323276407",
-      "address": "7th floor, House 5/C, Road:1, PC Culture Housing Society limited,",
-      "createdAt": "2024-09-03T11:44:01.282Z",
-      "updatedAt": "2024-09-03T11:44:01.282Z"
     }
   ],
   "sales": [

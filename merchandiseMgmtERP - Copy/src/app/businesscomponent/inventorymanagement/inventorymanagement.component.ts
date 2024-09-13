@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 
 import { InventoryItem, Product } from '../../model/sale.model';
 import { InventoryService } from '../../services/inventory.service';
+import { ProductService } from '../../services/product.service';
 
 @Component({
   selector: 'app-inventory-management',
@@ -17,7 +18,10 @@ export class InventoryManagementComponent implements OnInit {
   searchTerm: string = '';
   sortBy: 'name' | 'stock' | 'price' = 'name';
 
-  constructor(private inventoryService: InventoryService) { }
+  constructor(
+    private inventoryService: InventoryService,
+   
+  ) { }
 
   ngOnInit(): void {
 

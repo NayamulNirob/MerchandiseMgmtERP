@@ -24,7 +24,7 @@ public class InventoryItemsService {
 
     public InventoryItem findInventoryById(Long id) {
         return inventoryItemRepository.findById(id).orElseThrow(
-                () -> new RuntimeException("No Faculty found with id: " + id)
+                () -> new RuntimeException("No InventoryItem found with id: " + id)
         );
     }
 

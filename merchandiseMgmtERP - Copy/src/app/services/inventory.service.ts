@@ -10,7 +10,6 @@ import { InventoryItem, Product } from '../model/sale.model';
 })  
 export class InventoryService {  
 
-  // private baseUrl = "http://localhost:3000/inventory";  
   private baseUrl = "http://localhost:8089/api/inventory";  
 
   private inventory: InventoryItem[] = [];

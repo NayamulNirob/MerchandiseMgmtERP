@@ -38,7 +38,7 @@ public class InventoryItem {
 //    description!: string;
 //    price!: number;
 
-    @ManyToOne(optional = false)
+    @ManyToOne(optional = false,cascade = CascadeType.ALL,fetch = FetchType.EAGER)
     @JoinColumn(name = "product_id",nullable = false)
     private Product product;
 }

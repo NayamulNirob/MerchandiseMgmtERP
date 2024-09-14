@@ -30,8 +30,8 @@ export class ProductService {
   }  
 
   // Method to delete a product  
-  deleteProduct(productId: number): Observable<boolean> {  
-    return this.http.delete<boolean>(`${this.baseUrl}/delete/${productId}`);  
+  deleteProduct(productId: number) {  
+    return this.http.delete(`${this.baseUrl}/delete/${productId}`, { responseType: 'text' });  
   }  
  
 

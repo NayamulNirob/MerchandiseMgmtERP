@@ -5,7 +5,7 @@
         <h2 class="text">Add Product</h2>
         <form (ngSubmit)="addProduct()" #productForm="ngForm">
             <div class="row">
-                <div class="col-md-3">
+                <div class="col-md-2">
 
                     <input type="text" [(ngModel)]="newProduct.name" name="name" class="form-control"
                         placeholder="Product Name" required />
@@ -15,14 +15,23 @@
                     <input type="text" [(ngModel)]="newProduct.description" name="description" class="form-control"
                         placeholder="Description" required />
                 </div>
-                <div class="col-md-3">
+                <div class="col-md-2">
                     <input type="number" [(ngModel)]="newProduct.price" name="price" class="form-control"
                         placeholder="Price" required min="0" />
                 </div>
-                <div class="col-md-3">
+
+              
+                <div class="col-md-2">
                     <input type="number" [(ngModel)]="newProduct.quantity" name="quantity" class="form-control"
                         placeholder="Quantity" required min="0" />
                 </div>
+
+                <div class="col-md-3">
+                    <input type="text" [(ngModel)]="newProduct.inventoryItem.werehouse.name" name="name" class="form-control"
+                        placeholder="WareHouse" required min="0" />
+                </div>
+
+
             </div>
             <button type="submit" class="btn btn-success mt-3">Add Product</button>
         </form>
@@ -37,6 +46,9 @@
                 <th>Description</th>
                 <th>Price</th>
                 <th>Quantity</th>
+                <th>WareHouse</th>
+               
+
                 <th>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Actions</th>
             </tr>
         </thead>
@@ -47,6 +59,10 @@
                 <td>{{ product.description }}</td>
                 <td>{{ product.price | currency }}</td>
                 <td>{{ product.quantity }}</td>
+                <td>{{ product.inventoryItem.werehouse.name}}</td>
+              
+
+
                 <td>
                     <button class="btn btn-warning" (click)="editProduct(product.id)">Edit</button>&nbsp;&nbsp;
                     <button class="btn btn-danger" (click)="deleteProduct(product.id)">Delete</button>

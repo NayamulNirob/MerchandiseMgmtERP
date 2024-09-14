@@ -5,6 +5,7 @@ export class Product {
   description!: string;  
   price!: number;  
   quantity!: number;  
+  inventoryItem:InventoryItem=new InventoryItem;
 }
 
 // -----------------------------------product-------------------------------
@@ -18,7 +19,8 @@ export class InventoryItem {
      location!: string;  
      description!: string;  
      price!: number; 
-     product:Product=new Product();
+     
+     werehouse:WareHouse=new WareHouse();
 }
 
 // inventory-item.model.ts---------------------------------------------------  
@@ -67,6 +69,16 @@ export class Customer {
      address!: string;  
      createdAt!: Date;  
      updatedAt!: Date; 
+}
+
+
+export class WareHouse{
+
+  id!:number;
+  name!:string;
+  location!:string;
+  capacity!:number;
+ 
 }
 
 

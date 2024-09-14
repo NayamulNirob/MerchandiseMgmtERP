@@ -26,6 +26,8 @@ import { UpdateproductmanagementComponent } from './businesscomponent/updateprod
 import { LogoutComponent } from './logout/logout.component';
 import { UserprofileComponent } from './userprofile/userprofile.component';
 import { MultiLocationSupportComponent } from './businesscomponent/multi-location-support/multi-location-support.component';
+import { WarehouseviewComponent } from './businesscomponent/warehouseview/warehouseview.component';
+import { WarehouseupdateComponent } from './businesscomponent/warehouseupdate/warehouseupdate.component';
 
 
 
@@ -49,7 +51,9 @@ import { MultiLocationSupportComponent } from './businesscomponent/multi-locatio
     UpdateproductmanagementComponent,
     LogoutComponent,
     UserprofileComponent,
-    MultiLocationSupportComponent
+    MultiLocationSupportComponent,
+    WarehouseviewComponent,
+    WarehouseupdateComponent
   
 
   ],

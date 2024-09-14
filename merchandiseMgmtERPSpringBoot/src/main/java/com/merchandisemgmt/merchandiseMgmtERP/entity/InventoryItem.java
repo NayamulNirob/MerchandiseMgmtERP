@@ -5,6 +5,8 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.List;
+
 @Entity
 @Data
 @NoArgsConstructor
@@ -21,8 +23,8 @@ public class InventoryItem {
 //    @Column(nullable = false)
 //    private long stock;
 
-    @Column(nullable = false)
-    private String location;
+//    @Column(nullable = false)
+//    private String location;
 
 //    @Column(nullable = false)
 //    private String description;
@@ -38,7 +40,10 @@ public class InventoryItem {
 //    description!: string;
 //    price!: number;
 
-    @ManyToOne(optional = false,cascade = CascadeType.ALL,fetch = FetchType.EAGER)
-    @JoinColumn(name = "product_id",nullable = false)
-    private Product product;
+
+
+
+
+
+
 }

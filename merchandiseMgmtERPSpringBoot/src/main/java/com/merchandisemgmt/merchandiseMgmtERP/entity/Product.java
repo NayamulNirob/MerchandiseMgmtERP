@@ -45,4 +45,9 @@ public class Product {
 //    @JoinColumn(name = "supplier_id",nullable = false)
 //    private Supplier supplier;
 
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "inventoryId")
+    private InventoryItem inventoryItem;
+
+
 }

@@ -38,12 +38,11 @@ public class ProductRestController {
     public ResponseEntity<String> deleteProduct(@PathVariable("id") long id) {
 
         productService.deleteProductById(id);
-        return new ResponseEntity<>( "Product Deleted",HttpStatus.OK);
+        return new ResponseEntity<>( "Product Deleted",HttpStatus.OK );
     }
 
     @GetMapping("/{id}")
     public ResponseEntity<Product> getProductById(@PathVariable("id") long id) {
-
     Product product= productService.findProductById(id);
         return ResponseEntity.ok(product);
     }

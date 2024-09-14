@@ -4,6 +4,7 @@ import { Component, OnInit } from '@angular/core';
 import { InventoryItem, Product } from '../../model/sale.model';
 import { InventoryService } from '../../services/inventory.service';
 import { ProductService } from '../../services/product.service';
+import { WarehouseService } from '../../services/warehouse.service';
 
 @Component({
   selector: 'app-inventory-management',
@@ -20,6 +21,8 @@ export class InventoryManagementComponent implements OnInit {
 
   constructor(
     private inventoryService: InventoryService,
+    private wareHouseService:WarehouseService,
+    private productService:ProductService
    
   ) { }
 

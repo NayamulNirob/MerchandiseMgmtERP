@@ -14,6 +14,7 @@ import { UpdateproductmanagementComponent } from './businesscomponent/updateprod
 import { AuthguardGuard } from './guard/authguard.guard';
 import { UserprofileComponent } from './userprofile/userprofile.component';
 import { RoleGuard } from './guard/role.guard';
+import { WarehouseviewComponent } from './businesscomponent/warehouseview/warehouseview.component';
 
 
 const routes: Routes = [
@@ -29,6 +30,7 @@ const routes: Routes = [
   {path:'reports',component:ReportsAnalyticsComponent,canActivate:[AuthguardGuard]},
   {path:'userProfile',component:UserprofileComponent,canActivate:[AuthguardGuard]},
   {path:'updateproduct/:id',component:UpdateproductmanagementComponent,canActivate:[AuthguardGuard]},
+  {path:'warehouseview',component:WarehouseviewComponent},
   // {path:"**", redirectTo:'login' , pathMatch:'full'},
   {
     path:'userProfile',

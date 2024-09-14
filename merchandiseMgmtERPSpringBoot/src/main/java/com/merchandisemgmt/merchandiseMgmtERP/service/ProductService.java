@@ -18,7 +18,8 @@ public class ProductService {
         try {
             return productRepository.save(p);
         } catch (Exception e) {
-            return null;
+            System.err.println("Error saving product: " + e.getMessage());
+            throw new RuntimeException("Failed to save product", e);
         }
     }
 

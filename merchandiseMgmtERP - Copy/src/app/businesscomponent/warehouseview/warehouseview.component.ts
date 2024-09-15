@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
-import { WareHouse } from '../../model/sale.model';
+
 import { Router } from '@angular/router';
 import { WarehouseService } from '../../services/warehouse.service';
+import { WareHouse } from '../../model/warehouse.model';
 
 @Component({
   selector: 'app-warehouseview',
@@ -60,10 +61,10 @@ export class WarehouseviewComponent {
       this.wareHousetService.deleteWarehouses(WareHouseId).subscribe(success => {
         if (success) {
           this.wareHouses = this.wareHouses.filter(p => p.id !== WareHouseId); 
-          this.router.navigate(['product']);
+          this.router.navigate(['/warehouseview']);
         }
         else{
-          this.router.navigate(['product']);
+          this.router.navigate(['/warehouseview']);
         }
       });
     }

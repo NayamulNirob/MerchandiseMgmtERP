@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';  
-import { InventoryItem, Sale, Supplier } from '../../model/sale.model';
+import {  Sale, Supplier } from '../../model/sale.model';
 import { ReportsService } from '../../services/reportsandanalytics.service';
+import { InventoryItem } from '../../model/inventory.item.model';
 
 @Component({  
   selector: 'app-reports-analytics',  

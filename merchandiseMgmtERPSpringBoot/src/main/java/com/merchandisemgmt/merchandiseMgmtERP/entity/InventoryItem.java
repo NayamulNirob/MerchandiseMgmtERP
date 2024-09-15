@@ -18,9 +18,6 @@ public class InventoryItem {
     private Long id;
 
 //    @Column(nullable = false)
-//    private String name;
-
-//    @Column(nullable = false)
 //    private long stock;
 
 //    @Column(nullable = false)
@@ -28,10 +25,9 @@ public class InventoryItem {
 
 //    @Column(nullable = false)
 //    private String description;
-//
+
 //    @Column(nullable = false)
 //    private long price;
-
 
 //    id!: number;
 //    name!: string;
@@ -40,10 +36,14 @@ public class InventoryItem {
 //    description!: string;
 //    price!: number;
 
+    @Column(nullable = false)
+    private Integer stock;
 
+    @ManyToOne
+    @JoinColumn(nullable = false)
+    private Warehouse warehouse;
 
-
-
-
+    @OneToOne(fetch = FetchType.EAGER)
+    private Product product;
 
 }

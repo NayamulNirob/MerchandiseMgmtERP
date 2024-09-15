@@ -1,10 +1,13 @@
 // inventory-management.component.ts  
 import { Component, OnInit } from '@angular/core';
 
-import { InventoryItem, Product } from '../../model/sale.model';
+import { Product } from '../../model/sale.model';
 import { InventoryService } from '../../services/inventory.service';
 import { ProductService } from '../../services/product.service';
 import { WarehouseService } from '../../services/warehouse.service';
+import { InventoryItem } from '../../model/inventory.item.model';
+import { WareHouse } from '../../model/warehouse.model';
+import { error } from 'console';
 
 @Component({
   selector: 'app-inventory-management',
@@ -12,8 +15,10 @@ import { WarehouseService } from '../../services/warehouse.service';
   styleUrls: ['./inventorymanagement.component.css']
 })
 export class InventoryManagementComponent implements OnInit {
-  inventory: InventoryItem[] = [];
-  product: Product = new Product();
+  inventories: InventoryItem[] = [];
+  warehouses: WareHouse[] = [];
+  products: Product[] = [];
+  inventory: InventoryItem = new InventoryItem();
 
   filteredInventory: InventoryItem[] = [];
   searchTerm: string = '';
@@ -21,49 +26,60 @@ export class InventoryManagementComponent implements OnInit {
 
   constructor(
     private inventoryService: InventoryService,
-    private wareHouseService:WarehouseService,
-    private productService:ProductService
-   
+    private wareHouseService: WarehouseService,
+    private productService: ProductService
+
   ) { }
 
   ngOnInit(): void {
 
-    // this.loadInventory();
+    this.loadInventories();
 
-    this.inventoryService.loadInventory().subscribe(data => {
-   
-      this.inventory = data;
+    this.wareHouseService.getWarehouses().subscribe(data => {
+      this.warehouses = data;
+    });
+
+    this.productService.getProducts().subscribe(data => {
+      this.products = data;
+    });
+
+  }
+
+  loadInventories() {
+    this.inventoryService.loadInventories().subscribe(data => {
+      this.inventories = data;
       this.filteredInventory = data; // Initialize filtered inventory  
     });
   }
 
-
-
-  addItem() {
-    const newItem = new InventoryItem();
-    this.inventoryService.addInventoryItem(newItem);
-    this.updateFilteredInventory();
+  addInventory() {
+    this.inventoryService.addInventoryItem(this.inventory).subscribe({
+      next: res => {
+        this.loadInventories();
+      },
+      error: error => {
+        console.log(error);
+      }
+    });
   }
 
-  updateStock(productId: number, quantity: number) {
-    this.inventoryService.updateStock(productId, quantity);
-    this.updateFilteredInventory();
-  }
+  // updateStock(productId: number, quantity: number) {
+  //   this.inventoryService.updateStock(productId, quantity);
+  //   this.updateFilteredInventory();
+  // }
 
-  manageLocation(productId: number, location: string) {
-    this.inventoryService.manageLocation(productId, location);
-    this.updateFilteredInventory();
-  }
+  // manageLocation(productId: number, location: string) {
+  //   this.inventoryService.manageLocation(productId, location);
+  //   this.updateFilteredInventory();
+  // }
 
   filterInventory() {
-    this.filteredInventory = this.inventoryService.filterInventory(this.searchTerm);
+    this.filteredInventory = this.inventories.filter(item =>
+      item.product.name.toLowerCase().includes(this.searchTerm.toLowerCase())
+    );
   }
 
-  sortInventory() {
-    this.filteredInventory = this.inventoryService.sortInventory(this.sortBy);
-  }
-
-  private updateFilteredInventory() {
-    this.filteredInventory = this.inventoryService.getInventory();
-  }
+  // private updateFilteredInventory() {
+  //   this.filteredInventory = this.inventoryService.getInventory();
+  // }
 }

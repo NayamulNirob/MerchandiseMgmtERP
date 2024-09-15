@@ -26,11 +26,4 @@ public class Warehouse {
     private long capacity;
 
 
-
-
-    @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "inventoryid")
-    private InventoryItem inventoryItem;
-
-
 }

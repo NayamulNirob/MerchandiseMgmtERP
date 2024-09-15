@@ -28,9 +28,6 @@ public class Product {
     @Column(nullable = false)
     private long price;
 
-    @Column(nullable = false)
-    private long quantity;
-
 //    id!: number;
 //    name!: string;
 //    description!: string;
@@ -44,10 +41,5 @@ public class Product {
 //    @ManyToOne
 //    @JoinColumn(name = "supplier_id",nullable = false)
 //    private Supplier supplier;
-
-    @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "inventoryId")
-    private InventoryItem inventoryItem;
-
 
 }

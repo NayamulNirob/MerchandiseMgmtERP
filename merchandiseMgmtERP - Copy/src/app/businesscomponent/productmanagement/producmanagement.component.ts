@@ -58,11 +58,7 @@ export class ProducmanagementComponent implements OnInit {
     if (productId) {
       this.productService.deleteProduct(productId).subscribe(success => {
         if (success) {
-          this.products = this.products.filter(p => p.id !== productId); 
-          this.router.navigate(['product']);
-        }
-        else{
-          this.router.navigate(['product']);
+          this.loadProducts();
         }
       });
     }

@@ -31,11 +31,6 @@ public class InventoryItemRestController {
         return ResponseEntity.ok(inventory);
     }
 
-//    @PostMapping("/save")
-//    public ResponseEntity<InventoryItem> save(@RequestBody InventoryItem inventoryItem) {
-//        inventoryItemsService.save(inventoryItem);
-//        return ResponseEntity.ok(inventoryItem);
-//    }
 
     @PostMapping("/save")
     public ResponseEntity<InventoryItem> saveProduct(@RequestBody InventoryItem inventoryItem) {

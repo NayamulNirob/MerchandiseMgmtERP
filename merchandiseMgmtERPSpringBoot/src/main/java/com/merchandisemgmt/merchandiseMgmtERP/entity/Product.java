@@ -28,13 +28,6 @@ public class Product {
     @Column(nullable = false)
     private long price;
 
-//    id!: number;
-//    name!: string;
-//    description!: string;
-//    price!: number;
-//    quantity!: number;
-
-
 //    @OneToMany(mappedBy = "product",cascade = CascadeType.ALL)
 //    private List<OrderItem> orderItems;
 //

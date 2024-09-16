@@ -43,6 +43,8 @@ public class WarehouseRestController {
 
     }
 
+
+
     @GetMapping("/{id}")
     public ResponseEntity<Warehouse> getWarehouseById(@PathVariable("id") Long id) {
         Warehouse warehouse = wereHouseService.getWarehouseById(id);

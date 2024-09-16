@@ -1,7 +1,8 @@
 package com.merchandisemgmt.merchandiseMgmtERP.service;
 
-import com.merchandisemgmt.merchandiseMgmtERP.entity.Product;
+import com.merchandisemgmt.merchandiseMgmtERP.entity.InventoryItem;
 import com.merchandisemgmt.merchandiseMgmtERP.entity.Warehouse;
+import com.merchandisemgmt.merchandiseMgmtERP.repository.InventoryItemRepository;
 import com.merchandisemgmt.merchandiseMgmtERP.repository.WareHouseRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -13,6 +14,8 @@ public class WereHouseService {
 
     @Autowired
     private WareHouseRepository wareHouseRepository;
+    @Autowired
+    private InventoryItemRepository inventoryItemRepository;
 
     public List<Warehouse> getAllWarehouses() {
         return wareHouseRepository.findAll();
@@ -39,6 +42,13 @@ public class WereHouseService {
     }
 
     public void deleteWarehouseById(Long id) {
+
+        List<InventoryItem> items = inventoryItemRepository.findByWarehouseId(id);
+        for (InventoryItem item : items) {
+            item.setWarehouse(null);
+            inventoryItemRepository.save(item);
+        }
+
         wareHouseRepository.deleteById(id);
     }
 

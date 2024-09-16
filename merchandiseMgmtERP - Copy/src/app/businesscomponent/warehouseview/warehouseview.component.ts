@@ -51,7 +51,7 @@ export class WarehouseviewComponent {
 
 
   editWareHouse(WareHouseId: number ) {
-    this.router.navigate(['updateproduct',WareHouseId]);
+    this.router.navigate(['updatewarehouse',WareHouseId]);
   
   }
 

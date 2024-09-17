@@ -2,6 +2,8 @@
 import { Component, OnInit } from '@angular/core';  
 import { Supplier } from '../../model/sale.model';
 import { SupplierService } from '../../services/supplier.service';
+import { Router } from '@angular/router';
+import { error } from 'console';
 
 
 @Component({  
@@ -16,7 +18,8 @@ export class SupplierManagementComponent implements OnInit {
   sortBy: 'name' | 'contactPerson' | 'email' = 'name';  
   newSupplier: Supplier = new Supplier();  
 
-  constructor(private supplierService: SupplierService
+  constructor(private supplierService: SupplierService,
+    private router:Router
   ) {}  
 
   ngOnInit(): void {  
@@ -38,53 +41,24 @@ export class SupplierManagementComponent implements OnInit {
   }  
 
 
-  
 
-  // updateSupplier(supplierId: number, contactPerson: string, email: string, phone: string) {  
-  //   this.supplierService.updateSupplier(supplierId, { contactPerson, email, phone });  
-  //   this.updateFilteredSuppliers();  
-  // }  
-
-  // removeSupplier(supplierId: number) {  
-  //   this.supplierService.removeSupplier(supplierId);  
-  //   this.updateFilteredSuppliers();  
-  // }  
-
-  // updateSupplier(supplierId: number, contactPerson: string, email: string, phone: string) {  
-  //   this.supplierService.updateSupplier(supplierId, { contactPerson, email, phone }).subscribe(() => {  
-  //     this.updateFilteredSuppliers();  
-  //   });  
-  // }  
-
-  // removeSupplier(supplierId: number) {  
-  //   this.supplierService.removeSupplier(supplierId).subscribe(() => {  
-  //     this.updateFilteredSuppliers();  
-  //   });  
-  // }  
-
-
-  updateSupplier(supplierId: number, contactPerson: string, email: string, phone: string) {  
-    const updatedData = { contactPerson, email, phone }; // Prepare updated data  
-    this.supplierService.updateSupplier(supplierId, updatedData).subscribe({  
-      next: () => {  
-        this.updateFilteredSuppliers();  
-      },  
-      error: (err) => {  
-        console.error('Update failed', err); // Log the error  
-      }  
-    });  
-  }  
+  updateSupplier(supplierId: number, ) {  
+    this.router.navigate(['updatesupplier',supplierId]);
+}
   
   removeSupplier(supplierId: number) {  
     this.supplierService.removeSupplier(supplierId).subscribe({  
       next: () => {  
-        this.updateFilteredSuppliers();  
+        this.updateFilteredSuppliers();
+        this.router.navigate(['/supplier'])  
       },  
       error: (err) => {  
         console.error('Delete failed', err); // Log the error  
       }  
     });  
   }
+
+
 
   filterSuppliers() {  
     this.filteredSuppliers = this.supplierService.filterSuppliers(this.searchTerm);  

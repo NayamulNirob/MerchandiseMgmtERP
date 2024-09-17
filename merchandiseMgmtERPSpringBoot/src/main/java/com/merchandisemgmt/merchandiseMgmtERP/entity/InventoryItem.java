@@ -24,7 +24,7 @@ public class InventoryItem {
     @JoinColumn
     private Warehouse warehouse;
 
-    @OneToOne(fetch = FetchType.EAGER)
+    @ManyToOne(fetch = FetchType.EAGER)
     private Product product;
 
 }

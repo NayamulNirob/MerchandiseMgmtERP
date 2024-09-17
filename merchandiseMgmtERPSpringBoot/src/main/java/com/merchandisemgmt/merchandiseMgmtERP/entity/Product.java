@@ -28,11 +28,16 @@ public class Product {
     @Column(nullable = false)
     private long price;
 
-//    @OneToMany(mappedBy = "product",cascade = CascadeType.ALL)
+    //    @OneToMany(mappedBy = "product",cascade = CascadeType.ALL)
 //    private List<OrderItem> orderItems;
 //
-//    @ManyToOne
-//    @JoinColumn(name = "supplier_id",nullable = false)
-//    private Supplier supplier;
+//    @ManyToMany(mappedBy = "product")
+//    private List<Supplier> supplier;
+
+    @ManyToMany(mappedBy = "products", cascade = CascadeType.ALL) // Removed JoinTable
+    private List<Supplier> suppliers;
+
+    @OneToMany(fetch = FetchType.EAGER)
+    private List<InventoryItem> inventoryItemList;
 
 }

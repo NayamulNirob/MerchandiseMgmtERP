@@ -75,7 +75,7 @@
                 <td class="border border-gray-300 p-2">{{ supplier.address }}</td>  
                 <td class="border border-gray-300 p-2">{{ supplier.createdAt | date }}</td>  
                 <td class="border border-gray-300 p-2">  
-                    <button (click)="updateSupplier(supplier.id, 'Updated Contact Person', 'updated@example.com', 'New Phone')">Update</button>  
+                    <button (click)="updateSupplier(supplier.id)">Update</button>  
                     <button (click)="removeSupplier(supplier.id)">Remove</button>  
                 </td>  
             </tr>  

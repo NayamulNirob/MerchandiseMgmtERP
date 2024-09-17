@@ -28,9 +28,14 @@ public class Supplier {
     private Date createdAt;
     private Date updatedAt;
 
-
-//    @OneToMany(mappedBy = "supplier",cascade = CascadeType.ALL)
+//
+//    @ManyToMany
+//    @JoinColumn(name = "product_id")
 //    private List<Product> products;
+
+    @ManyToMany(cascade = CascadeType.ALL) // removed the Join
+    private List<Product> products;
+
 
 //    id!: number;
 //    name!: string;

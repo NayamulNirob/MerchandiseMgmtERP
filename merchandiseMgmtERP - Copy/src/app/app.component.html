@@ -1,8 +1,8 @@
 <div *ngIf="(authService.currentUser$ | async) as user; else loggedOut" class="container-scroller bg-dark text-white bg-dark">
   <app-sidebar></app-sidebar>
-  <div class="container-fluid page-body-wrapper">
+  <div class="page-body-wrapper">
     <app-navbar></app-navbar>
-    <div class="content-wrapper p-2 mr-4 mt-2">
+    <div class="content-wrapper">
       <div class="main-panel">
         <router-outlet></router-outlet>
       </div>

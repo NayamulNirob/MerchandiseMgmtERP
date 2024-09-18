@@ -20622,7 +20622,7 @@ div.tagsinput {
 
 /* Sidebar */
 .sidebar {
-  min-height: calc(100vh - 70px);
+  min-height: calc(100% );
   background: #191c24;
   font-weight: normal;
   padding: 0;

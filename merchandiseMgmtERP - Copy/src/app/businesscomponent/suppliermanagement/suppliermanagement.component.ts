@@ -3,7 +3,6 @@ import { Component, OnInit } from '@angular/core';
 import { Supplier } from '../../model/sale.model';
 import { SupplierService } from '../../services/supplier.service';
 import { Router } from '@angular/router';
-import { error } from 'console';
 
 
 @Component({  
@@ -23,9 +22,10 @@ export class SupplierManagementComponent implements OnInit {
   ) {}  
 
   ngOnInit(): void {  
-    this.supplierService.loadSuppliers().subscribe(data => {  
+    this.supplierService.loadSuppliers().subscribe(
+      data => {  
       this.suppliers = data;  
-      this.filteredSuppliers = data; // Initialize filtered suppliers  
+      this.filteredSuppliers = data; 
     });  
   }  
 
@@ -46,17 +46,22 @@ export class SupplierManagementComponent implements OnInit {
     this.router.navigate(['updatesupplier',supplierId]);
 }
   
+
   removeSupplier(supplierId: number) {  
     this.supplierService.removeSupplier(supplierId).subscribe({  
       next: () => {  
-        this.updateFilteredSuppliers();
-        this.router.navigate(['/supplier'])  
+        this.supplierService.loadSuppliers().subscribe(data => {  
+          this.suppliers = data;  
+          this.filteredSuppliers = data;  
+        });  
       },  
       error: (err) => {  
-        console.error('Delete failed', err); // Log the error  
+        console.error('Delete failed', err); 
       }  
     });  
   }
+
+
 
 
 

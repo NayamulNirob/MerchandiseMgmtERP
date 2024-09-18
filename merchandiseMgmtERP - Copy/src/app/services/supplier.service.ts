@@ -12,7 +12,7 @@ export class SupplierService {
 
 
 
-  private baseUrl = "http://localhost:8089/api/supplier/";
+  private baseUrl = "http://localhost:8089/api/supplier";
 
   private suppliers: Supplier[] = [];
 
@@ -22,7 +22,7 @@ export class SupplierService {
   constructor(private http: HttpClient) { }
 
   loadSuppliers(): Observable<Supplier[]> {
-    return this.http.get<Supplier[]>(this.baseUrl).pipe(
+    return this.http.get<Supplier[]>(this.baseUrl+"/").pipe(
       tap(data => this.suppliers = data)
     );
   }
@@ -38,7 +38,7 @@ export class SupplierService {
 
 
   addSupplier(supplier: Supplier): Observable<Supplier> {
-    return this.http.post<Supplier>(this.baseUrl + "save", supplier).pipe(
+    return this.http.post<Supplier>(this.baseUrl + "/save", supplier).pipe(
       tap(newSupplier => this.suppliers.push(newSupplier))
     );
   }
@@ -46,12 +46,12 @@ export class SupplierService {
 
 
   updateSupplier(supplierId: number, updatedSupplier: Supplier): Observable<Supplier> {
-    return this.http.put<Supplier>(`${this.baseUrl}update/${supplierId}`, updatedSupplier);
+    return this.http.put<Supplier>(`${this.baseUrl}/update/${supplierId}`, updatedSupplier);
 
   }
 
   removeSupplier(supplierId: number) {
-    return this.http.delete(`${this.baseUrl}delete/${supplierId}`, { responseType: 'text' });
+    return this.http.delete(`${this.baseUrl}/delete/${supplierId}`, { responseType: 'text' });
   }
 
   filterSuppliers(searchTerm: string): Supplier[] {

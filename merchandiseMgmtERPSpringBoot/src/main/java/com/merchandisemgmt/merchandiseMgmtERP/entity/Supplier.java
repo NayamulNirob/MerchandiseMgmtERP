@@ -27,6 +27,7 @@ public class Supplier {
     private String address;
     private Date createdAt;
     private Date updatedAt;
+    private String status;
 
 //
 //    @ManyToMany

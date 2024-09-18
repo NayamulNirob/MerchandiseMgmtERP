@@ -63,6 +63,7 @@
                 <th class="border border-gray-300 p-2">Phone</th>  
                 <th class="border border-gray-300 p-2">Address</th>  
                 <th class="border border-gray-300 p-2">Created At</th>  
+                <th class="border border-gray-300 p-2">Status</th>  
                 <th class="border border-gray-300 p-2">Actions</th>  
             </tr>  
         </thead>  
@@ -74,6 +75,7 @@
                 <td class="border border-gray-300 p-2">{{ supplier.phone }}</td>  
                 <td class="border border-gray-300 p-2">{{ supplier.address }}</td>  
                 <td class="border border-gray-300 p-2">{{ supplier.createdAt | date }}</td>  
+                <td class="border border-gray-300 p-2">{{ supplier.status}}</td>  
                 <td class="border border-gray-300 p-2">  
                     <button (click)="updateSupplier(supplier.id)">Update</button>  
                     <button (click)="removeSupplier(supplier.id)">Remove</button>  

@@ -6,6 +6,7 @@ export class Product {
   name!: string;
   description!: string;
   price!: number;
+  
 }
 
 // -----------------------------------product-------------------------------
@@ -32,6 +33,8 @@ export class Supplier {
   address!: string;
   createdAt!: Date;
   updatedAt!: Date;
+  status!:string;
+  product: Product = new Product();
 }
 
 // sale.model.ts  

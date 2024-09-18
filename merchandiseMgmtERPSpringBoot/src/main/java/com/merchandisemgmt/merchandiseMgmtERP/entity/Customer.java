@@ -6,6 +6,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.sql.Date;
+import java.util.List;
 
 @Entity
 @Data
@@ -39,8 +40,8 @@ public class Customer {
 
 
 
-//    @OneToMany(mappedBy = "customer" , fetch = FetchType.EAGER,cascade = CascadeType.ALL)
-//    private List<OrderItem> orders;
+    @OneToMany(mappedBy = "customer" , fetch = FetchType.EAGER,cascade = CascadeType.ALL)
+    private List<OrderItem> orders;
 
 
 }

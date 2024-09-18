@@ -21,6 +21,7 @@ export class OrderItem {
   status!: string;
   orderDate!: Date;
   totalPrice!: number;
+  customer:Customer=new Customer();
 }
 
 // supplier.model.ts  

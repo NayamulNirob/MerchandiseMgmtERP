@@ -29,22 +29,10 @@ public class Supplier {
     private Date updatedAt;
     private String status;
 
-//
-//    @ManyToMany
-//    @JoinColumn(name = "product_id")
-//    private List<Product> products;
 
-    @ManyToMany(cascade = CascadeType.ALL) // removed the Join
+    @ManyToMany(cascade = CascadeType.ALL)
     private List<Product> products;
 
 
-//    id!: number;
-//    name!: string;
-//    contactPerson!: string;
-//    email!: string;
-//    phone!: string;
-//    address!: string;
-//    createdAt!: Date;
-//    updatedAt!: Date ;
 
 }

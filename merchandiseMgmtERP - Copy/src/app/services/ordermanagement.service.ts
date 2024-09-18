@@ -9,13 +9,14 @@ import { OrderItem } from '../model/sale.model';
   providedIn: 'root'  
 })  
 export class OrderService {  
-  private baseUrl = "http://localhost:3000/orders"; 
+  private baseUrl = "http://localhost:8089/api/order"; 
   private orders: OrderItem[] = [];  
+  private order:OrderItem=new OrderItem();
 
   constructor(private http: HttpClient) {}  
 
   loadOrders(): Observable<OrderItem[]> {  
-    return this.http.get<OrderItem[]>(this.baseUrl).pipe(  
+    return this.http.get<OrderItem[]>(this.baseUrl+"/").pipe(  
       tap(data => this.orders = data)  
     );  
   }  
@@ -25,7 +26,7 @@ export class OrderService {
   }  
 
   createOrder(order: OrderItem):Observable<OrderItem> {  
-    return this.http.post<OrderItem>(this.baseUrl,order).pipe(
+    return this.http.post<OrderItem>(this.baseUrl+"/save",order).pipe(
       tap(newOrder=>this.orders.push(newOrder))
     )  
   }  
@@ -36,6 +37,8 @@ export class OrderService {
       Object.assign(order, updatedOrder);  
     }  
   }  
+
+  
 
 
   deleteOrder(orderId: string): Observable<OrderItem> {  

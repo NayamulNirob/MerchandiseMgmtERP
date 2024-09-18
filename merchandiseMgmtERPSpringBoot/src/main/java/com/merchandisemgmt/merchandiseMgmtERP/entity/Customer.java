@@ -6,7 +6,6 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.sql.Date;
-import java.util.List;
 
 @Entity
 @Data
@@ -38,13 +37,6 @@ public class Customer {
     @Column(nullable = false)
     private Date updatedAt;
 
-//    id!: number;
-//    name!: string;
-//    email!: string;
-//    phone!: string;
-//    address!: string;
-//    createdAt!: Date;
-//    updatedAt!: Date;
 
 
 //    @OneToMany(mappedBy = "customer" , fetch = FetchType.EAGER,cascade = CascadeType.ALL)

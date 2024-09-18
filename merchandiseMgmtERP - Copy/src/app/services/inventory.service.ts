@@ -12,7 +12,9 @@ export class InventoryService {
 
   private baseUrl = "http://localhost:8089/api/inventory";
 
-  private product: Product = new Product();
+  private inventories:InventoryItem=new InventoryItem();
+  private newInventories:InventoryItem[]=[]
+
 
   constructor(private http: HttpClient) { }
 
@@ -36,10 +38,12 @@ export class InventoryService {
   //   throw new Error('Product not found');  
   // } 
 
-  updateStock(productId: number, updatedInventory: InventoryItem): Observable<InventoryItem> {
-    return this.http.put<InventoryItem>(`${this.baseUrl}/update/${productId}`, updatedInventory);
+   updateInventoryies(inventoryId: number, updatedInventories: InventoryItem): Observable<InventoryItem> {
+    return this.http.put<InventoryItem>(`${this.baseUrl}/update/${inventoryId}`, updatedInventories);
 
   }
+
+ 
 
   getInventoriesById(inventoryId: number):Observable<any> {  
     return this.http.get<any>(`${this.baseUrl}/${inventoryId}`); 

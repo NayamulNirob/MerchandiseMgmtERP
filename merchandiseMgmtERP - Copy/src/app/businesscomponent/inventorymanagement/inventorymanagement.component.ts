@@ -68,8 +68,8 @@ export class InventoryManagementComponent implements OnInit {
   }
 
   
-  updateStock(productId: number, ) {  
-    this.router.navigate(['Updateinventory',productId]);
+  updateInventoryies(InventoryId: number, ) {  
+    this.router.navigate(['Updateinventory',InventoryId]);
 }
 
 

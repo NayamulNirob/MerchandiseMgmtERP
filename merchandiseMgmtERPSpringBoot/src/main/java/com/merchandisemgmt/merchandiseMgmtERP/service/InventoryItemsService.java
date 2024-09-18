@@ -52,6 +52,10 @@ public class InventoryItemsService {
         return inventoryItemRepository.save(inventoryItem);
     }
 
+    public void deleteInvetory(long id) {
+        inventoryItemRepository.deleteById(id);
+    }
+
 
 
 

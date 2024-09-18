@@ -26,7 +26,7 @@ export class UpdateInventoryComponent implements OnInit{
   ngOnInit(): void {
     this.inventoryId = this.route.snapshot.params['id'];
     console.log(this.inventoryId)
-    this.loadInventories;
+    this.loadInventories();
 
   }
 
@@ -47,8 +47,8 @@ export class UpdateInventoryComponent implements OnInit{
 
   updateinventory(): void {
     if (this.inventory) {
-      this.inventoryService.updateStock(this.inventoryId, this.inventory).subscribe({
-        next: () => this.router.navigate(['/inventory']),  // Redirect after successful update  
+      this.inventoryService.updateInventoryies(this.inventoryId, this.inventory).subscribe({
+        next: () => this.router.navigate(['/inventory']), 
         error: (error: HttpErrorResponse) => {
           this.errorMessage = 'An error occurred while updating the supplier';
         }

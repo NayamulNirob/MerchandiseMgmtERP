@@ -28,13 +28,11 @@ public class Product {
     @Column(nullable = false)
     private long price;
 
-    //    @OneToMany(mappedBy = "product",cascade = CascadeType.ALL)
+//    @OneToMany(mappedBy = "product")
 //    private List<OrderItem> orderItems;
-//
-//    @ManyToMany(mappedBy = "product")
-//    private List<Supplier> supplier;
 
-    @ManyToMany(mappedBy = "products", cascade = CascadeType.ALL) // Removed JoinTable
+
+    @ManyToMany(mappedBy = "products")
     private List<Supplier> suppliers;
 
     @OneToMany(fetch = FetchType.EAGER)

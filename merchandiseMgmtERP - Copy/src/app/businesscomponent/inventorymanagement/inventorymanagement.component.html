@@ -1,77 +1,3 @@
-<!-- <div class="container mt-2">
-   <h2 class="text-center mb-4">Inventory Management</h2> 
- 
-
-  <div class=" row mb-4">
-    <form (ngSubmit)="addInventory()">
-      <div class="row">
-
-        <div class="col-md-3">
-          <label for="product">Select Product:</label>
-          <select class="form-control" id="product" [(ngModel)]="inventory.product.id" name="product" required>
-            <option *ngFor="let product of products" [value]="product.id">{{ product.name }}</option>
-          </select>
-        </div>
-
-        <div class="col-md-2">
-          <label for="warehouse">Warehouse:</label>
-          <select class="form-control" id="warehouse" [(ngModel)]="inventory.warehouse.id" name="warehouse" required>
-            <option *ngFor="let warehouse of warehouses" [value]="warehouse.id">{{ warehouse.name }}</option>
-          </select>
-        </div>
-
-        <div class="col-md-2">
-          <label>Enter Stock:</label>
-          <input type="number" [(ngModel)]="inventory.stock" name="name" class="form-control" placeholder="Stock"
-            required min="0" />
-        </div>
-
-      </div>
-      <button type="submit" class="btn btn-success mt-3">Add Inventory Item</button>
-    </form>
-
-  </div>
-
-
- <div class="col-md-5 d-flex position-end container-fluid mb-3 justify-content-end">
-    <input type="text" class="form-control me-2" [(ngModel)]="searchTerm" (input)="filterInventory()"
-      placeholder="Search items..." />
-  </div>
-  <table class="table table-dark table-striped">
-    <thead>
-      <tr>
-        <th>Name</th>
-        <th>Stock</th>
-        <th>Location</th>
-        <th>Price</th>
-        <th>Description</th>
-        <th>Actions</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="let item of filteredInventory">
-        <td>{{ item.product.name }}</td>
-        <td>{{ item.stock }}</td>
-        <td>{{ item.warehouse.name}}</td>
-        <td>{{ item.product.price }}</td>
-        <td>{{ item.product.description }}</td>
-
-        <td>
-          <!-- <button (click)="updateStock(item.id, 1)"  >Add Stock</button>
-          <button (click)="manageLocation(item.id, 'New Location')">
-            Change Location
-          </button> -->
-          <!-- <div class="btn-group" role="group" aria-label="Basic example">
-            <button type="button" class="btn btn-primary" (click)="updateStock(item.id, 1)">Add Stock</button>
-            <button type="button" class="btn btn-primary" (click)="manageLocation(item.id,'New Location')">Change Location</button>
-          </div>
-        </td>
-      </tr>
-    </tbody>
-  </table>
-
-</div> -->
-
 
 
 <div class="container mt-2">  
@@ -139,7 +65,7 @@
             <button type="button" class="btn btn-primary" (click)="updateStock(item.id, 1)">Add Stock</button>  
             <button type="button" class="btn btn-primary" (click)="manageLocation(item.id,'New Location')">Change Location</button>  
           </div> -->  
-          <button type="button" class="btn btn-primary" (click)="updateStock(item.id)">Add Stock</button>  
+          <button type="button" class="btn btn-primary" (click)="updateInventoryies(item.id)">Edit</button>  
         </td>  
       </tr>  
     </tbody>  

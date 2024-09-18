@@ -10,14 +10,15 @@ import { Customer } from '../model/sale.model';
 })  
 export class CustomerService { 
   
-  private baseUrl = "http://localhost:3000/customer"; 
+  private baseUrl = "http://localhost:8089/api/customer"; 
 
-  private customers: Customer[] = [];  
+  private customers: Customer[] = []; 
+  private customer:Customer=new Customer(); 
 
   constructor(private http: HttpClient) {}  
 
   loadCustomers(): Observable<Customer[]> {  
-    return this.http.get<Customer[]>(this.baseUrl).pipe(  
+    return this.http.get<Customer[]>(this.baseUrl+"/").pipe(  
       tap(data => this.customers = data)  
     );  
   }  
@@ -26,9 +27,9 @@ export class CustomerService {
     return this.customers;  
   }  
 
-  addCustomer(customer: Customer) {  
-    this.customers.push(customer);  
-  }  
+  // addCustomer(customer: Customer) {  
+  //   this.customers.push(customer);  
+  // }  
 
   updateCustomer(customerId: number, updatedCustomer: Partial<Customer>) {  
     const customer = this.customers.find(c => c.id === customerId);  
@@ -36,10 +37,18 @@ export class CustomerService {
       Object.assign(customer, updatedCustomer);  
       customer.updatedAt = new Date(); // Update the timestamp  
     }  
-  }  
+  } 
+  
+  
+  addCustomer(customer: Customer): Observable<Customer> {
+    console.log(customer);
+    return this.http.post<Customer>(this.baseUrl + "/save", customer);
+  }
+  
 
   removeCustomer(customerId: number) {  
-    this.customers = this.customers.filter(c => c.id !== customerId);  
+    return this.http.delete(`${this.baseUrl}/delete/${customerId}`, { responseType: 'text' });
+       
   }  
 
   filterCustomers(searchTerm: string): Customer[] {  

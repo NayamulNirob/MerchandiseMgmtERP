@@ -23,13 +23,6 @@ public class InventoryItemRestController {
         return new ResponseEntity<>(inventory, HttpStatus.OK);
     }
 
-    @GetMapping("/{id}")
-    public ResponseEntity<InventoryItem> getInventoryItemById(@PathVariable("id") long id) {
-
-        InventoryItem inventory= inventoryItemsService.findInventoryById(id);
-        return ResponseEntity.ok(inventory);
-    }
-
 
     @PostMapping("/save")
     public ResponseEntity<InventoryItem> saveProduct(@RequestBody InventoryItem inventoryItem) {
@@ -41,5 +34,17 @@ public class InventoryItemRestController {
         InventoryItem saveInventories= inventoryItemsService.update(inventoryItem,id);
         return new ResponseEntity<>(saveInventories, HttpStatus.OK);
     }
+
+    @GetMapping("/{id}")
+    public ResponseEntity<InventoryItem> getInventoryById(@PathVariable("id") Long id) {
+        InventoryItem  inventoryItem = inventoryItemsService.findInventoryById(id);
+        return new ResponseEntity<>(inventoryItem,HttpStatus.OK);
+    }
+    @DeleteMapping("/delete/{id}")
+    public ResponseEntity<String> deleteInventoryById(@PathVariable("id") Long id) {
+        inventoryItemsService.deleteInvetory(id);
+        return new ResponseEntity<>("Deleted",HttpStatus.OK);
+    }
+
 
 }

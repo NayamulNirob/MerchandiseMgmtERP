@@ -18,13 +18,13 @@ public class OrderItem {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-//    @ManyToOne
-//    @JoinColumn(name = "customer_id", nullable = false)
-//    private Customer customer;
-//
-//    @ManyToOne
-//    @JoinColumn(name = "product_id", nullable = false)
-//    private Product product;
+    @ManyToOne
+    @JoinColumn(name = "customer_id", nullable = false)
+    private Customer customer;
+
+    @ManyToOne
+    @JoinColumn(name = "product_id", nullable = false)
+    private Product product;
 
     @Column(nullable = false)
     private long quantity;
@@ -43,13 +43,6 @@ public class OrderItem {
 
 
 
-// id!: string;
-// customerName!: string;
-// product!: string;
-// quantity!: number;
-// status!: string;
-// orderDate!: Date;
-// totalPrice!: number;
 
 
 }

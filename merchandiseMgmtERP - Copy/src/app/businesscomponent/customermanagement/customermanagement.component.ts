@@ -24,6 +24,8 @@ export class CustomerManagementComponent implements OnInit {
     });  
   }  
 
+  
+
   addCustomer() {  
     this.newCustomer.id = this.customers.length + 1; // Simple ID generation  
     this.newCustomer.createdAt = new Date();  

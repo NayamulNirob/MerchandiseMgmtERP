@@ -1,7 +1,6 @@
 package com.merchandisemgmt.merchandiseMgmtERP.restcontroller;
 
 import com.merchandisemgmt.merchandiseMgmtERP.entity.InventoryItem;
-import com.merchandisemgmt.merchandiseMgmtERP.entity.Product;
 import com.merchandisemgmt.merchandiseMgmtERP.service.InventoryItemsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -37,6 +36,10 @@ public class InventoryItemRestController {
         InventoryItem saveInventories= inventoryItemsService.save(inventoryItem);
         return new ResponseEntity<>(saveInventories, HttpStatus.CREATED);
     }
-
+    @PutMapping("/update/{id}")
+    public ResponseEntity<InventoryItem> updateProduct(@RequestBody InventoryItem inventoryItem,@PathVariable("id") long id) {
+        InventoryItem saveInventories= inventoryItemsService.update(inventoryItem,id);
+        return new ResponseEntity<>(saveInventories, HttpStatus.OK);
+    }
 
 }

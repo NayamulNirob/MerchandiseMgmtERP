@@ -29,6 +29,7 @@ import { MultiLocationSupportComponent } from './businesscomponent/multi-locatio
 import { WarehouseviewComponent } from './businesscomponent/warehouseview/warehouseview.component';
 import { WarehouseupdateComponent } from './businesscomponent/warehouseupdate/warehouseupdate.component';
 import { SupplierUpdateComponent } from './businesscomponent/supplier-update/supplier-update.component';
+import { UpdateInventoryComponent } from './businesscomponent/update-inventory/update-inventory.component';
 
 
 
@@ -55,7 +56,8 @@ import { SupplierUpdateComponent } from './businesscomponent/supplier-update/sup
     MultiLocationSupportComponent,
     WarehouseviewComponent,
     WarehouseupdateComponent,
-    SupplierUpdateComponent
+    SupplierUpdateComponent,
+    UpdateInventoryComponent
   
 
   ],

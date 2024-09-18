@@ -7,4 +7,15 @@ import { Component } from '@angular/core';
 })
 export class FooterComponent {
 
+  email: string = '';
+  currentYear: number = new Date().getFullYear();
+
+  subscribeToNewsletter() {
+    if (this.email) {
+      console.log('Subscribed with email:', this.email);
+      // Add your logic to subscribe to the newsletter
+      alert(`Thanks for subscribing, ${this.email}!`);
+      this.email = ''; // Clear the input after subscription
+    }
+  }
 }

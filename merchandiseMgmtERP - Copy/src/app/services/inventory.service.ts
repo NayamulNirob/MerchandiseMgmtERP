@@ -24,6 +24,7 @@ export class InventoryService {
   addInventoryItem(item: InventoryItem): Observable<InventoryItem> {
     return this.http.post<InventoryItem>(this.baseUrl + "/save", item);
   }
+  
 
 
   // updateStock(productId: number, quantity: number): Observable<InventoryItem> {  
@@ -34,6 +35,15 @@ export class InventoryService {
   //   }  
   //   throw new Error('Product not found');  
   // } 
+
+  updateStock(productId: number, updatedInventory: InventoryItem): Observable<InventoryItem> {
+    return this.http.put<InventoryItem>(`${this.baseUrl}/update/${productId}`, updatedInventory);
+
+  }
+
+  getInventoriesById(inventoryId: number):Observable<any> {  
+    return this.http.get<any>(`${this.baseUrl}/${inventoryId}`); 
+  } 
 
 
 
@@ -66,4 +76,8 @@ export class InventoryService {
   //     })  
   //   );  
   // }  
+
+ 
+
+
 }

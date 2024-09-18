@@ -8,6 +8,7 @@ import { WarehouseService } from '../../services/warehouse.service';
 import { InventoryItem } from '../../model/inventory.item.model';
 import { WareHouse } from '../../model/warehouse.model';
 import { error } from 'console';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-inventory-management',
@@ -27,7 +28,8 @@ export class InventoryManagementComponent implements OnInit {
   constructor(
     private inventoryService: InventoryService,
     private wareHouseService: WarehouseService,
-    private productService: ProductService
+    private productService: ProductService,
+    private router:Router
 
   ) { }
 
@@ -55,13 +57,22 @@ export class InventoryManagementComponent implements OnInit {
   addInventory() {
     this.inventoryService.addInventoryItem(this.inventory).subscribe({
       next: res => {
+        console.log('Inventory saved successfully:', res);
+        alert('Inventory saved successfully!');
         this.loadInventories();
       },
       error: error => {
-        console.log(error);
+        console.log('Error saving inventory:',error);
       }
     });
   }
+
+  
+  updateStock(productId: number, ) {  
+    this.router.navigate(['Updateinventory',productId]);
+}
+
+
 
   // updateStock(productId: number, quantity: number) {
   //   this.inventoryService.updateStock(productId, quantity);

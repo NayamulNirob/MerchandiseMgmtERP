@@ -1,17 +1,4 @@
-<!-- <div class="content-wrapper badge-success inline-flex items-center px-2 py-0.5 rounded-full text-sm font-medium text-green-800 bg-green-100 border border-danger">  
-
-    <footer class="footer">
-        <div class="d-sm-flex justify-content-center justify-content-sm-between">
-            <span class="text-white d-block text-center text-sm-left d-sm-inline-block">Copyright ©
-                marchmanage_erp.com
-                2024</span>
-            <span class="float-none float-sm-right d-block mt-1 mt-sm-0 text-center text-white"> Authers <a href=""
-                    target="_blank">marchmanage_erp admin
-                    </a> marchmanage_erp.com</span>
-        </div>
-    </footer>
-</div> -->
-
+<!-- 
 <div class="content-wrapper badge-success inline-flex items-center px-2 py-0.5 rounded-full text-sm font-medium text-green-800 bg-green-100">  
     <footer class="footer">  
         <div class="container">  
@@ -50,4 +37,53 @@
             </div>  
         </div>  
     </footer>  
-</div>
+</div> -->
+
+<footer class="footer">
+    <div class="footer-content">
+      <div class="footer-section about">
+        <h3>About Us</h3>
+        <p>
+          We are a team of passionate developers providing the best tech solutions.
+          Contact us for any inquiries or collaborations!
+        </p>
+        <div class="socials">
+          <a href="#"><i class="fab fa-facebook"></i></a>
+          <a href="#"><i class="fab fa-twitter"></i></a>
+          <a href="#"><i class="fab fa-instagram"></i></a>
+          <a href="#"><i class="fab fa-linkedin"></i></a>
+        </div>
+      </div>
+  
+      <div class="footer-section links">
+        <h3>Quick Links</h3>
+        <ul>
+          <li><a routerLink="/home">Home</a></li>
+          <li><a routerLink="/services">Services</a></li>
+          <li><a routerLink="/about">About Us</a></li>
+          <li><a routerLink="/contact">Contact Us</a></li>
+          <li><a routerLink="/blog">Blog</a></li>
+        </ul>
+      </div>
+  
+      <div class="footer-section contact-form">
+        <h3>Newsletter</h3>
+        <form (submit)="subscribeToNewsletter()">
+          <input type="email" [(ngModel)]="email" placeholder="Your Email" required />
+          <button type="submit">Subscribe</button>
+        </form>
+      </div>
+  
+      <div class="footer-section contact">
+        <h3>Contact Us</h3>
+        <p><i class="fas fa-phone"></i> +123-456-7890</p>
+        <p><i class="fas fa-envelope"></i> infocompany.com</p>
+        <p><i class="fas fa-map-marker-alt"></i> 123, Tech Street, NY, USA</p>
+      </div>
+    </div>
+  
+    <div class="footer-bottom">
+      &copy; {{ currentYear }} | Designed by YourCompany
+    </div>
+  </footer>
+  

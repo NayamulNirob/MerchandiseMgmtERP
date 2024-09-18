@@ -17,6 +17,7 @@ import { RoleGuard } from './guard/role.guard';
 import { WarehouseviewComponent } from './businesscomponent/warehouseview/warehouseview.component';
 import { WarehouseupdateComponent } from './businesscomponent/warehouseupdate/warehouseupdate.component';
 import { SupplierUpdateComponent } from './businesscomponent/supplier-update/supplier-update.component';
+import { UpdateInventoryComponent } from './businesscomponent/update-inventory/update-inventory.component';
 
 
 const routes: Routes = [
@@ -35,7 +36,9 @@ const routes: Routes = [
   {path:'warehouseview',component:WarehouseviewComponent},
   {path:'updatewarehouse/:id',component:WarehouseupdateComponent},
   {path:'updatesupplier/:id',component:SupplierUpdateComponent},
+  {path:'Updateinventory/:id',component:UpdateInventoryComponent},
   {path:"**", redirectTo:'login' , pathMatch:'full'},
+  
   {
     path:'userProfile',
     component:UserprofileComponent,

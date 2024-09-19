@@ -25,6 +25,7 @@ public class OrderItemService {
 
     public OrderItem saveOrderItem(OrderItem orderItem) {
         try{
+            orderItem.setTotalPrice(orderItem.getQuantity() * orderItem.getProduct().getPrice());
             return orderItemRepository.save(orderItem);
         }
         catch(Exception e){

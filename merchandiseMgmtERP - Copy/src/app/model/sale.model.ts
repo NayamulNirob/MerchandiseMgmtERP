@@ -1,3 +1,4 @@
+import { InventoryItem } from "./inventory.item.model";
 
 
 // -----------------------------------product-------------------------------
@@ -47,6 +48,9 @@ export class Sale {
   totalAmount!: number;
   customerName!: string;
   saleDate!: Date;
+  product:Product=new Product();
+  customer:Customer=new Customer();
+  inventory:InventoryItem=new InventoryItem();
 }
 
 // customer.model.ts  

@@ -28,8 +28,6 @@ public class Product {
     @Column(nullable = false)
     private long price;
 
-//    @OneToMany(mappedBy = "product")
-//    private List<OrderItem> orderItems;
 
 
     @ManyToMany(mappedBy = "products")

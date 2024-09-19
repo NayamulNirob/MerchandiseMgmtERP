@@ -1,9 +1,12 @@
 package com.merchandisemgmt.merchandiseMgmtERP.service;
 
+import com.merchandisemgmt.merchandiseMgmtERP.entity.InventoryItem;
 import com.merchandisemgmt.merchandiseMgmtERP.entity.Product;
+import com.merchandisemgmt.merchandiseMgmtERP.repository.InventoryItemRepository;
 import com.merchandisemgmt.merchandiseMgmtERP.repository.ProductRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
 import java.util.List;
 
 @Service
@@ -11,6 +14,8 @@ public class ProductService {
 
     @Autowired
     private  ProductRepository productRepository;
+    @Autowired
+    private InventoryItemRepository inventoryItemRepository;
 
 
 
@@ -28,8 +33,14 @@ public class ProductService {
     }
 
     public void deleteProductById(Long id) {
+        List<InventoryItem> items=inventoryItemRepository.getByProductId(id);
+        for(InventoryItem item:items){
+            item.setProduct(null);
+            inventoryItemRepository.save(item);
+        }
         productRepository.deleteById(id);
     }
+
 
     public Product findProductById(Long id) {
         return productRepository.findById(id).orElseThrow(

@@ -59,13 +59,10 @@
         <td>{{ item.product.description }}</td>  
 
         <td>  
-          <!-- <button (click)="updateStock(item.id, 1)">Add Stock</button>  
-          <button (click)="manageLocation(item.id, 'New Location')">Change Location</button> -->  
-          <!-- <div class="btn-group" role="group" aria-label="Basic example">  
-            <button type="button" class="btn btn-primary" (click)="updateStock(item.id, 1)">Add Stock</button>  
-            <button type="button" class="btn btn-primary" (click)="manageLocation(item.id,'New Location')">Change Location</button>  
-          </div> -->  
-          <button type="button" class="btn btn-primary" (click)="updateInventoryies(item.id)">Edit</button>  
+          
+          <button type="button" class="btn btn-primary" (click)="updateInventoryies(item.id)">Edit Stock</button>&nbsp;&nbsp;&nbsp; 
+          <button type="button" class="btn btn-primary" (click)="deleteInventory(item.id)">Delete</button> 
+
         </td>  
       </tr>  
     </tbody>  

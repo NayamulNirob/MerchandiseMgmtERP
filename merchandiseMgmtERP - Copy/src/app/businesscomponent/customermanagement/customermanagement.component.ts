@@ -55,7 +55,7 @@ export class CustomerManagementComponent implements OnInit {
   }  
 
   private updateFilteredCustomers() {  
-    this.filteredCustomers = this.customerService.getCustomers();  
+    // this.filteredCustomers = this.customerService.getCustomers();  
   }  
 
   private resetNewCustomer() {  

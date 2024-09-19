@@ -17,9 +17,9 @@ public class Sale {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-//    @ManyToOne
-//    @JoinColumn(name = "product_id",nullable = false)
-//    private Product product;
+    @ManyToOne
+    @JoinColumn(name = "product_id",nullable = false)
+    private Product product;
 
 
     private long quantity;
@@ -33,11 +33,5 @@ public class Sale {
     private Date saleDate;
 
 
-//    id!: number;
-//    productName!: string;
-//    quantity!: number;
-//    price!: number;
-//    totalAmount!: number;
-//    customerName!: string;
-//    saleDate!: Date;
+
 }

@@ -13,35 +13,46 @@ import { Sale } from '../model/sale.model';
 })  
 export class SalesService {  
   
-  baseUrl = "http://localhost:3000/sales"
+  baseUrl = "http://localhost:8089/api/sale"
   
-  private sales: Sale[] = [];  
+  private sales: Sale[] = []; 
+  private newSale:Sale=new Sale(); 
 
   constructor(private http: HttpClient) {}  
 
   loadSales(): Observable<Sale[]> {  
-    return this.http.get<Sale[]>(this.baseUrl).pipe(  
-      tap(data => this.sales = data)  
-    );  
+    return this.http.get<Sale[]>(this.baseUrl+"/");
   }  
+
+  addSales(item: Sale): Observable<Sale> {
+    return this.http.post<Sale>(this.baseUrl + "/save", item);
+  }
+
 
   getSales(): Sale[] {  
     return this.sales;  
   }  
 
-  recordSale(sale: Sale) {  
-    this.sales.push(sale);  
+  recordSale(sale: Sale) : Observable<Sale> {
+    return this.http.post<Sale>(this.baseUrl + "/save", sale); 
   }  
 
-  updateSale(saleId: number, updatedSale: Partial<Sale>) {  
-    const sale = this.sales.find(s => s.id === saleId);  
-    if (sale) {  
-      Object.assign(sale, updatedSale);  
-    }  
-  }  
+  // updateSale(saleId: number, updatedSale: Partial<Sale>) {  
+  //   const sale = this.sales.find(s => s.id === saleId);  
+  //   if (sale) {  
+  //     Object.assign(sale, updatedSale);  
+  //   }  
+  // }  
+
+  updateSale(saleId: number, updatedSale: Sale): Observable<Sale> {
+    return this.http.put<Sale>(`${this.baseUrl}/update/${saleId}`, updatedSale);
+
+  }
+
+
 
   removeSale(saleId: number) {  
-    this.sales = this.sales.filter(s => s.id !== saleId);  
+    return this.http.delete(`${this.baseUrl}/delete/${saleId}`, {responseType:'text'});
   }  
 
   generateSalesReport() {  
@@ -58,5 +69,10 @@ export class SalesService {
       sale.productName.toLowerCase().includes(searchTerm.toLowerCase()) ||  
       sale.customerName.toLowerCase().includes(searchTerm.toLowerCase())  
     );  
+  } 
+  
+  getSalesById(saleid:number): Observable<any> {  
+    return this.http.get<any>(`${this.baseUrl}/${saleid}`);
   }  
+  
 }

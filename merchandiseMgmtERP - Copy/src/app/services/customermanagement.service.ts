@@ -23,9 +23,11 @@ export class CustomerService {
     );  
   }  
 
-  getCustomers(): Customer[] {  
-    return this.customers;  
-  }  
+  getCustomers():Observable <Customer[]> {  
+    return this.http.get<Customer[]>(this.baseUrl+"/").pipe(  
+      tap(data => this.customers = data) );  
+  } 
+  
 
   // addCustomer(customer: Customer) {  
   //   this.customers.push(customer);  

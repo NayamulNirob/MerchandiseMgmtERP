@@ -68,21 +68,10 @@ export class InventoryManagementComponent implements OnInit {
   }
 
   
-  updateInventoryies(InventoryId: number, ) {  
-    this.router.navigate(['Updateinventory',InventoryId]);
+  updateInventoryies(inventoryId: number, ) {  
+    this.router.navigate(['Updateinventory',inventoryId]);
 }
 
-
-
-  // updateStock(productId: number, quantity: number) {
-  //   this.inventoryService.updateStock(productId, quantity);
-  //   this.updateFilteredInventory();
-  // }
-
-  // manageLocation(productId: number, location: string) {
-  //   this.inventoryService.manageLocation(productId, location);
-  //   this.updateFilteredInventory();
-  // }
 
   filterInventory() {
     this.filteredInventory = this.inventories.filter(item =>
@@ -90,7 +79,16 @@ export class InventoryManagementComponent implements OnInit {
     );
   }
 
-  // private updateFilteredInventory() {
-  //   this.filteredInventory = this.inventoryService.getInventory();
-  // }
+  deleteInventory(inventoryId: number,): void {
+    if (inventoryId) {
+      this.inventoryService.deleteInventoryItem(inventoryId).subscribe(success => {
+        if (success) {
+          this.loadInventories();
+        }
+      });
+    }
+  }
+
+
+
 }

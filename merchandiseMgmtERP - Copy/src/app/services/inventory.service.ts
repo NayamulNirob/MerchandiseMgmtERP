@@ -4,6 +4,7 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Product } from '../model/sale.model';
 import { InventoryItem } from '../model/inventory.item.model';
+import test from 'node:test';
 
 @Injectable({
   providedIn: 'root'
@@ -12,8 +13,8 @@ export class InventoryService {
 
   private baseUrl = "http://localhost:8089/api/inventory";
 
-  private inventories:InventoryItem=new InventoryItem();
-  private newInventories:InventoryItem[]=[]
+  private inventories: InventoryItem = new InventoryItem();
+  private newInventories: InventoryItem[] = []
 
 
   constructor(private http: HttpClient) { }
@@ -26,29 +27,28 @@ export class InventoryService {
   addInventoryItem(item: InventoryItem): Observable<InventoryItem> {
     return this.http.post<InventoryItem>(this.baseUrl + "/save", item);
   }
-  
 
 
-  // updateStock(productId: number, quantity: number): Observable<InventoryItem> {  
-  //   const product = this.inventory.find(p => p.id === productId);  
-  //   if (product) {  
-  //     product.stock += quantity;  
-  //     return this.http.put<InventoryItem>(`${this.baseUrl}/${productId}`, product);  
-  //   }  
-  //   throw new Error('Product not found');  
-  // } 
 
-   updateInventoryies(inventoryId: number, updatedInventories: InventoryItem): Observable<InventoryItem> {
+  updateInventoryies(inventoryId: number, updatedInventories: InventoryItem): Observable<InventoryItem> {
     return this.http.put<InventoryItem>(`${this.baseUrl}/update/${inventoryId}`, updatedInventories);
 
   }
 
+
+
+  getInventoriesById(inventoryId: number): Observable<any> {
+    return this.http.get<any>(`${this.baseUrl}/${inventoryId}`);
+  }
+
+
+
+  deleteInventoryItem(inventoryId: number) {
+    return this.http.delete(`${this.baseUrl}/delete/${inventoryId}`, {responseType:'text'});
+    
+  }
  
-
-  getInventoriesById(inventoryId: number):Observable<any> {  
-    return this.http.get<any>(`${this.baseUrl}/${inventoryId}`); 
-  } 
-
+ 
 
 
   // manageLocation(productId: number, location: string): Observable<InventoryItem> {  
@@ -81,7 +81,7 @@ export class InventoryService {
   //   );  
   // }  
 
- 
+
 
 
 }

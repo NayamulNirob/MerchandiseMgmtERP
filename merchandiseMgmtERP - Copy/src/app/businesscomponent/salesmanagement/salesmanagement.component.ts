@@ -1,7 +1,10 @@
 // sales-management.component.ts  
 import { Component, OnInit } from '@angular/core';  
-import { Sale } from '../../model/sale.model';
+import { Customer, Product, Sale } from '../../model/sale.model';
 import { SalesService } from '../../services/sale.service';
+import { ProductService } from '../../services/product.service';
+import { CustomerService } from '../../services/customermanagement.service';
+import { Router } from '@angular/router';
 
 @Component({  
   selector: 'app-sales-management',  
@@ -13,31 +16,61 @@ export class SalesManagementComponent implements OnInit {
   filteredSales: Sale[] = [];  
   searchTerm: string = '';  
   newSale: Sale = new Sale();  
+  products: Product[] =[];
+  customers:Customer[]=[];
 
-  constructor(private salesService: SalesService) {}  
+
+
+  constructor(private salesService: SalesService,
+    private productService:ProductService,
+    private customerService:CustomerService,
+    private router:Router
+  ) {}  
 
   ngOnInit(): void {  
-    this.salesService.loadSales().subscribe(data => {  
-      this.sales = data;  
-      this.filteredSales = data; // Initialize filtered sales  
-    });  
+  this.loadSaless();
+
+  this.productService.getProducts().subscribe(data => {
+    this.products = data;
+  });
+
+  this.customerService.getCustomers().subscribe(data=>{
+    this.customers=data;
+  });
   }  
 
+
+  loadSaless() {
+    this.salesService.loadSales().subscribe(data => {
+      this.sales = data;
+      this.filteredSales = data; 
+    });
+  }
+
   recordSale() {  
-    this.newSale.id = this.sales.length + 1; // Simple ID generation  
+    
     this.newSale.totalAmount = this.newSale.quantity * this.newSale.price; // Calculate total amount  
     this.newSale.saleDate = new Date();  
 
-    this.salesService.recordSale(this.newSale);  
-    this.updateFilteredSales();  
+    this.salesService.recordSale(this.newSale).subscribe({
+      next: res => {
+        console.log('Inventory saved successfully:', res);
+        alert('Inventory saved successfully!');
+        this.updateFilteredSales();  
+      },
+      error: error => {
+        console.log('Error saving inventory:',error);
+      }
+    });;  
+    
     this.resetNewSale();  
   }  
 
-  updateSale(saleId: number) {  
-    const updatedSale: Partial<Sale> = { quantity: 5, price: 30 }; // Example updates  
-    this.salesService.updateSale(saleId, updatedSale);  
-    this.updateFilteredSales();  
-  }  
+  // updateSale(saleId: number) {  
+  //   const updatedSale: Partial<Sale> = { quantity: 5, price: 30 }; // Example updates  
+  //   this.salesService.updateSale(saleId, updatedSale);  
+  //   this.updateFilteredSales();  
+  // }  
 
   removeSale(saleId: number) {  
     this.salesService.removeSale(saleId);  

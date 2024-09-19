@@ -13,7 +13,7 @@
   
     <h3>Create New Order</h3>  
     <form (ngSubmit)="createOrder()">  
-      <input type="text" [(ngModel)]="newOrder.customerName" name="customerName" placeholder="Customer Name" required />  
+      <input type="text" [(ngModel)]="newOrder.customer.name" name="customerName" placeholder="Customer Name" required />  
       <input type="text" [(ngModel)]="newOrder.product" name="product" placeholder="Product Name" required />  
       <input type="number" [(ngModel)]="newOrder.quantity" name="quantity" placeholder="Quantity" required />  
       <button type="submit">Create Order</button>  

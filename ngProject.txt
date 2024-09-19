@@ -20,3 +20,15 @@ npm install ng2-charts chart.js --save
 
 rm -rf node_modules  
 npm install
+
+npm update @angular/core @angular/cli @angular/compiler-cli
+npm install
+
+ng cache clean
+ng build --prod
+
+rm -rf node_modules
+npm install
+
+node --max_old_space_size=4096 node_modules/@angular/cli/bin/ng build
+

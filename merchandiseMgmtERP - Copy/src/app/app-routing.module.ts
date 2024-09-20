@@ -18,6 +18,7 @@ import { WarehouseviewComponent } from './businesscomponent/warehouseview/wareho
 import { WarehouseupdateComponent } from './businesscomponent/warehouseupdate/warehouseupdate.component';
 import { SupplierUpdateComponent } from './businesscomponent/supplier-update/supplier-update.component';
 import { UpdateInventoryComponent } from './businesscomponent/update-inventory/update-inventory.component';
+import { UpdatecustomerComponent } from './businesscomponent/updatecustomer/updatecustomer.component';
 
 
 const routes: Routes = [
@@ -37,6 +38,7 @@ const routes: Routes = [
   {path:'updatewarehouse/:id',component:WarehouseupdateComponent},
   {path:'updatesupplier/:id',component:SupplierUpdateComponent},
   {path:'Updateinventory/:id',component:UpdateInventoryComponent},
+  {path:'updatecustomer/:id',component:UpdatecustomerComponent},
   {path:"**", redirectTo:'login' , pathMatch:'full'},
   
   {

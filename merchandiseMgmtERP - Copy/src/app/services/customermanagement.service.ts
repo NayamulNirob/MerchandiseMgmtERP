@@ -24,16 +24,8 @@ export class CustomerService {
   } 
   
 
-  // updateCustomer(customerId: number, updatedCustomer: Partial<Customer>) {  
-  //   const customer = this.customers.find(c => c.id === customerId);  
-  //   if (customer) {  
-  //     Object.assign(customer, updatedCustomer);  
-  //     customer.updatedAt = new Date(); 
-  //   }  
-  // } 
-
   updateCustomer(customerId:number,updatedCustomer:Customer):Observable<Customer>{
-    return this.http.put<Customer>(`${this.baseUrl}/delete/${customerId}`,updatedCustomer);
+    return this.http.put<Customer>(`${this.baseUrl}/update/${customerId}`,updatedCustomer);
   }
   
   
@@ -46,6 +38,10 @@ export class CustomerService {
   removeCustomer(customerId: number) {  
     return this.http.delete(`${this.baseUrl}/delete/${customerId}`, { responseType: 'text' });
        
+  }
+  
+  getcustomerById(customerId: number):Observable<any> {  
+    return this.http.get<any>(`${this.baseUrl}/${customerId}`); 
   }  
 
   filterCustomers(searchTerm: string): Customer[] {  

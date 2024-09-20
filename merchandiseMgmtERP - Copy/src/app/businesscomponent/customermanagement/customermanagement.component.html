@@ -51,6 +51,7 @@
                 <th class="border p-2">Phone</th>
                 <th class="border p-2">Address</th>
                 <th class="border p-2">Created At</th>
+                <th class="border p-2">Updated At</th>
                 <th class="border p-2">Actions</th>
             </tr>
         </thead>
@@ -61,6 +62,7 @@
                 <td class="border p-2">{{ customer.phone }}</td>
                 <td class="border p-2">{{ customer.address }}</td>
                 <td class="border p-2">{{ customer.createdAt | date }}</td>
+                <td>{{ customer.updatedAt | date: 'd MMM, y  HH:mm:ss a' }}</td>
                 <td class="border p-2">
                     <button (click)="updateCustomer(customer.id)" 
                             class="bg-yellow-500 text-dark rounded p-1 mr-1">Update</button>

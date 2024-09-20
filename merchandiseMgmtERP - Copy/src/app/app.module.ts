@@ -30,6 +30,8 @@ import { WarehouseviewComponent } from './businesscomponent/warehouseview/wareho
 import { WarehouseupdateComponent } from './businesscomponent/warehouseupdate/warehouseupdate.component';
 import { SupplierUpdateComponent } from './businesscomponent/supplier-update/supplier-update.component';
 import { UpdateInventoryComponent } from './businesscomponent/update-inventory/update-inventory.component';
+import { UpdatecustomerComponent } from './businesscomponent/updatecustomer/updatecustomer.component';
+import { DatePipe } from '@angular/common';
 
 
 
@@ -57,7 +59,8 @@ import { UpdateInventoryComponent } from './businesscomponent/update-inventory/u
     WarehouseviewComponent,
     WarehouseupdateComponent,
     SupplierUpdateComponent,
-    UpdateInventoryComponent
+    UpdateInventoryComponent,
+    UpdatecustomerComponent
   
 
   ],
@@ -77,7 +80,7 @@ import { UpdateInventoryComponent } from './businesscomponent/update-inventory/u
     provideHttpClient(withFetch()),
     ProductService,
     provideAnimationsAsync(),
-    provideClientHydration()
+    provideClientHydration(),
   ],
   bootstrap: [AppComponent]
 })

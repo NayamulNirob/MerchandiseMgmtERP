@@ -2,12 +2,15 @@
 import { Component, OnInit } from '@angular/core';
 import { Customer } from '../../model/sale.model';
 import { CustomerService } from '../../services/customermanagement.service';
+import { Router } from '@angular/router';
+import { DatePipe } from '@angular/common';
 
 
 @Component({
   selector: 'app-customer-management',
   templateUrl: './customermanagement.component.html',
-  styleUrls: ['./customermanagement.component.css']
+  styleUrls: ['./customermanagement.component.css'],
+  providers: [DatePipe]
 })
 export class CustomerManagementComponent implements OnInit {
   customers: Customer[] = [];
@@ -15,7 +18,17 @@ export class CustomerManagementComponent implements OnInit {
   searchTerm: string = '';
   newCustomer: Customer = new Customer();
 
-  constructor(private customerService: CustomerService) { }
+  constructor(private customerService: CustomerService,
+    private router: Router,
+    private datePipe: DatePipe
+  ) { }
+
+  
+  formatDateTime(date: string | Date) {
+    return this.datePipe.transform(date, 'd MMM, y HH:mm:ss a');
+  }
+
+  
 
   ngOnInit(): void {
     this.loadCustomer();
@@ -52,7 +65,7 @@ export class CustomerManagementComponent implements OnInit {
 
   updateCustomer(customerId: number) {
 
-    this.updateFilteredCustomers();
+    this.router.navigate(['updatecustomer',customerId]);
   }
 
   removeCustomer(customerId: number) {

@@ -17,11 +17,6 @@ export class CustomerService {
 
   constructor(private http: HttpClient) {}  
 
-  loadCustomers(): Observable<Customer[]> {  
-    return this.http.get<Customer[]>(this.baseUrl+"/").pipe(  
-      tap(data => this.customers = data)  
-    );  
-  }  
 
   getCustomers():Observable <Customer[]> {  
     return this.http.get<Customer[]>(this.baseUrl+"/").pipe(  
@@ -29,21 +24,21 @@ export class CustomerService {
   } 
   
 
-  // addCustomer(customer: Customer) {  
-  //   this.customers.push(customer);  
-  // }  
+  // updateCustomer(customerId: number, updatedCustomer: Partial<Customer>) {  
+  //   const customer = this.customers.find(c => c.id === customerId);  
+  //   if (customer) {  
+  //     Object.assign(customer, updatedCustomer);  
+  //     customer.updatedAt = new Date(); 
+  //   }  
+  // } 
 
-  updateCustomer(customerId: number, updatedCustomer: Partial<Customer>) {  
-    const customer = this.customers.find(c => c.id === customerId);  
-    if (customer) {  
-      Object.assign(customer, updatedCustomer);  
-      customer.updatedAt = new Date(); // Update the timestamp  
-    }  
-  } 
+  updateCustomer(customerId:number,updatedCustomer:Customer):Observable<Customer>{
+    return this.http.put<Customer>(`${this.baseUrl}/delete/${customerId}`,updatedCustomer);
+  }
   
   
   addCustomer(customer: Customer): Observable<Customer> {
-    console.log(customer);
+    
     return this.http.post<Customer>(this.baseUrl + "/save", customer);
   }
   

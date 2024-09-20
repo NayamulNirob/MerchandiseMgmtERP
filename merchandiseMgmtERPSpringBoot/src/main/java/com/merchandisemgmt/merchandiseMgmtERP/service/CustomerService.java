@@ -6,6 +6,7 @@ import com.merchandisemgmt.merchandiseMgmtERP.repository.OrderItemRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 @Service
@@ -22,6 +23,8 @@ public class CustomerService {
 
     public Customer saveCustomer(Customer customer) {
         try{
+            customer.setCreatedAt(LocalDateTime.now());
+            customer.setUpdatedAt(LocalDateTime.now());
             return customerRepository.save(customer);
         }
         catch(Exception e){
@@ -42,7 +45,18 @@ public class CustomerService {
         );
     }
 
-    public Customer updateCustomer(Customer c, Long id) {
-        return customerRepository.save(c);
+
+
+    public Customer updateCustomer(Customer customer, Long id) {
+        try{
+            customer.setCreatedAt(LocalDateTime.now());
+            customer.setUpdatedAt(LocalDateTime.now());
+            return customerRepository.save(customer);
+        }
+        catch(Exception e){
+            System.err.println("Error saving customer: " + e.getMessage());
+            throw new RuntimeException("Failed to save customer", e);
+        }
     }
+
 }

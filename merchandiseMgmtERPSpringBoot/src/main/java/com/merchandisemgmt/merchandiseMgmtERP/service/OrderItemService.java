@@ -1,6 +1,7 @@
 package com.merchandisemgmt.merchandiseMgmtERP.service;
 
 import com.merchandisemgmt.merchandiseMgmtERP.entity.OrderItem;
+import com.merchandisemgmt.merchandiseMgmtERP.entity.Product;
 import com.merchandisemgmt.merchandiseMgmtERP.repository.OrderItemRepository;
 import com.merchandisemgmt.merchandiseMgmtERP.repository.ProductRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,6 +26,7 @@ public class OrderItemService {
 
     public OrderItem saveOrderItem(OrderItem orderItem) {
         try{
+            Product product = orderItem.getProduct();
             orderItem.setTotalPrice(orderItem.getQuantity() * orderItem.getProduct().getPrice());
             return orderItemRepository.save(orderItem);
         }

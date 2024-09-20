@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
-import { OrderItem } from '../../model/sale.model';
+import { Customer, OrderItem, Product } from '../../model/sale.model';
 import { OrderService } from '../../services/ordermanagement.service';
+import { ProductService } from '../../services/product.service';
+import { CustomerService } from '../../services/customermanagement.service';
 
 @Component({
   selector: 'app-ordermanagement',
@@ -15,14 +17,28 @@ export class OrdermanagementComponent {
   searchTerm: string = '';
   sortBy: 'customerName' | 'orderDate' | 'totalPrice' = 'customerName';
   newOrder: OrderItem = new OrderItem();
+  products:Product[]=[];
+  customers:Customer[]=[];
 
-  constructor(private orderService: OrderService) { }
+  constructor(private orderService: OrderService,
+    private productService:ProductService,
+    private customerService:CustomerService
+  ) { }
 
   ngOnInit(): void {
     this.orderService.loadOrders().subscribe(data => {
       this.orders = data;
       this.filteredOrders = data; // Initialize filtered orders  
     });
+    
+    
+  this.productService.getProducts().subscribe(data => {
+    this.products  = data;
+  });
+
+  this.customerService.getCustomers().subscribe(data=>{
+    this.customers=data;
+  });
   }
 
 
@@ -65,13 +81,13 @@ export class OrdermanagementComponent {
 }
 
 
-  filterOrders() {
-    this.filteredOrders = this.orderService.filterOrders(this.searchTerm);
-  }
+  // filterOrders() {
+  //   this.filteredOrders = this.orderService.filterOrders(this.searchTerm);
+  // }
 
-  sortOrders() {
-    this.filteredOrders = this.orderService.sortOrders(this.sortBy);
-  }
+  // sortOrders() {
+  //   this.filteredOrders = this.orderService.sortOrders(this.sortBy);
+  // }
 
   private updateFilteredOrders() {
     this.filteredOrders = this.orderService.getOrders();

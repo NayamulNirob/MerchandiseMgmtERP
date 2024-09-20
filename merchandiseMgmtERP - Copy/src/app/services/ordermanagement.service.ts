@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';  
 import { Observable } from 'rxjs';  
 import { tap } from 'rxjs/operators';  
-import { OrderItem } from '../model/sale.model';
+import { Customer, OrderItem, Product } from '../model/sale.model';
 
 @Injectable({  
   providedIn: 'root'  
@@ -12,6 +12,8 @@ export class OrderService {
   private baseUrl = "http://localhost:8089/api/order"; 
   private orders: OrderItem[] = [];  
   private order:OrderItem=new OrderItem();
+  private products:Product =new Product()
+  private customers:Customer =new Customer();
 
   constructor(private http: HttpClient) {}  
 
@@ -51,15 +53,15 @@ export class OrderService {
 }
 
 
-  filterOrders(searchTerm: string): OrderItem[] {  
-    return this.orders.filter(order => order.customerName.toLowerCase().includes(searchTerm.toLowerCase()));  
-  }  
+  // filterOrders(searchTerm: string): OrderItem[] {  
+  //   return this.orders.filter(order => order.customerName.toLowerCase().includes(searchTerm.toLowerCase()));  
+  // }  
 
-  sortOrders(by: 'customerName' | 'orderDate' | 'totalPrice'): OrderItem[] {  
-    return this.orders.sort((a, b) => {  
-      if (a[by] < b[by]) return -1;  
-      if (a[by] > b[by]) return 1;  
-      return 0;  
-    });  
-  }  
+  // sortOrders(by: 'customerName' | 'orderDate' | 'totalPrice'): OrderItem[] {  
+  //   return this.orders.sort((a, b) => {  
+  //     if (a[by] < b[by]) return -1;  
+  //     if (a[by] > b[by]) return 1;  
+  //     return 0;  
+  //   });  
+  // }  
 }

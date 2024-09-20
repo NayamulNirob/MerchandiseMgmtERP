@@ -16,13 +16,12 @@ export class Product {
 export class OrderItem {
 
   id!: string;
-  customerName!: string;
-  product!: string;
   quantity!: number;
   status!: string;
   orderDate!: Date;
   totalPrice!: number;
   customer:Customer=new Customer();
+  product:Product=new Product();
 }
 
 // supplier.model.ts  

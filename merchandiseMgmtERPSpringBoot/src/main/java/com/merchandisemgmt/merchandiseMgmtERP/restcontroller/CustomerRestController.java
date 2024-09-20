@@ -41,7 +41,6 @@ public class CustomerRestController {
         return new ResponseEntity<>(customers, HttpStatus.OK);
     }
 
-
     @GetMapping("/{id}")
     public ResponseEntity<Customer> getCustomerById(@PathVariable long id) {
         Customer customer= customerService.findCustomerById(id);

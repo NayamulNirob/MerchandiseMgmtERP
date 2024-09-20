@@ -1,6 +1,9 @@
 package com.merchandisemgmt.merchandiseMgmtERP.restcontroller;
 
 import com.merchandisemgmt.merchandiseMgmtERP.entity.Customer;
+import com.merchandisemgmt.merchandiseMgmtERP.repository.CustomerRepository;
+import com.merchandisemgmt.merchandiseMgmtERP.repository.OrderItemRepository;
+import com.merchandisemgmt.merchandiseMgmtERP.repository.SaleRepository;
 import com.merchandisemgmt.merchandiseMgmtERP.service.CustomerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -15,6 +18,12 @@ import java.util.List;
 public class CustomerRestController {
     @Autowired
     private CustomerService customerService;
+    @Autowired
+    private CustomerRepository customerRepository;
+    @Autowired
+    private OrderItemRepository orderItemRepository;
+    @Autowired
+    private SaleRepository saleRepository;
 
     @GetMapping("/")
     public ResponseEntity<List<Customer>>getAllCustomers() {
@@ -31,17 +40,29 @@ public class CustomerRestController {
         Customer customers=customerService.updateCustomer(customer,id);
         return new ResponseEntity<>(customers, HttpStatus.OK);
     }
-    @DeleteMapping("/delete/{id}")
-    public ResponseEntity<String> deleteCustomer(@PathVariable long id) {
-        customerService.deleteCustomerById(id);
-        return new ResponseEntity<>("Customer deleted", HttpStatus.OK);
-    }
+
 
     @GetMapping("/{id}")
     public ResponseEntity<Customer> getCustomerById(@PathVariable long id) {
         Customer customer= customerService.findCustomerById(id);
         return new ResponseEntity<>(customer, HttpStatus.OK);
     }
+
+    @DeleteMapping("/delete/{id}")
+    public ResponseEntity<String> deleteCustomerById(@PathVariable Long id) {
+
+        Customer customer = customerRepository.findById(id).orElseThrow(
+                () -> new RuntimeException("No customer found with id: " + id)
+        );
+
+        try {
+            customerRepository.delete(customer);
+            return ResponseEntity.ok("Customer deleted successfully.");
+        } catch (Exception e) {
+            throw new RuntimeException("Failed to delete customer", e);
+        }
+    }
+
 
 
 

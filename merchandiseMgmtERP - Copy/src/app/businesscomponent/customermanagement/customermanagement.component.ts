@@ -68,10 +68,23 @@ export class CustomerManagementComponent implements OnInit {
     this.router.navigate(['updatecustomer',customerId]);
   }
 
+
   removeCustomer(customerId: number) {
-    this.customerService.removeCustomer(customerId);
-    this.updateFilteredCustomers();
+    if (confirm('Are you sure you want to delete this customer?')) {
+      this.customerService.removeCustomer(customerId).subscribe({
+        next: (response) => {
+          alert(response); 
+          this.loadCustomer();
+        },
+        error: (error) => {
+          alert('Error deleting customer: ' + error.error);
+          console.log('Error deleting customer:', error);
+        }
+      });
+    }
   }
+  
+
 
   filterCustomers() {
     this.filteredCustomers = this.customerService.filterCustomers(this.searchTerm);

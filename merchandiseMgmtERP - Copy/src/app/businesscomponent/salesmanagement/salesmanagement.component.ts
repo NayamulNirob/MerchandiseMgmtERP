@@ -40,6 +40,18 @@ export class SalesManagementComponent implements OnInit {
   }  
 
 
+
+
+  onProductChange() {
+    if (this.newSale.product) {
+      const selectedProduct = this.products.find(p => p.id === this.newSale.product.id);
+      if (selectedProduct) {
+        this.newSale.product.price = selectedProduct.price;
+      }
+    }
+  }
+
+
   loadSaless() {
     this.salesService.loadSales().subscribe(data => {
       this.sales = data;
@@ -49,7 +61,7 @@ export class SalesManagementComponent implements OnInit {
 
   recordSale() {  
     
-    this.newSale.totalAmount = this.newSale.quantity * this.newSale.price; // Calculate total amount  
+
     this.newSale.saleDate = new Date();  
 
     this.salesService.recordSale(this.newSale).subscribe({
@@ -57,6 +69,7 @@ export class SalesManagementComponent implements OnInit {
         console.log('Inventory saved successfully:', res);
         alert('Inventory saved successfully!');
         this.updateFilteredSales();  
+        this.loadSaless();
       },
       error: error => {
         console.log('Error saving inventory:',error);
@@ -94,4 +107,9 @@ export class SalesManagementComponent implements OnInit {
   private resetNewSale() {  
     this.newSale = new Sale();  
   }  
+
+
+
+
+
 }

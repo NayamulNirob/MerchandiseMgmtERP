@@ -25,7 +25,7 @@ export class CustomerManagementComponent implements OnInit {
 
   
   formatDateTime(date: string | Date) {
-    return this.datePipe.transform(date, 'd MMM, y HH:mm:ss a');
+    return this.datePipe.transform(date, 'd MMM, y hh:mm:ss a');
   }
 
   

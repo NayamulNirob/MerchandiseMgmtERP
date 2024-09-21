@@ -17,10 +17,16 @@
     <h3>Record New Sale</h3>
     <form (ngSubmit)="recordSale()">
       <div class="row">
-        <div class="col-md-3">
+        <!-- <div class="col-md-3">
           <label for="product">Select Product Name:</label>
           <select class="form-control" id="product" [(ngModel)]="newSale.product.id" name="productName" required>
             <option *ngFor="let product of products" [value]="product.id">{{ product.name }}</option>
+          </select>
+        </div> -->
+        <div class="col-md-3">
+          <label for="product">Select Product Name:</label>
+          <select class="form-control" id="product" [(ngModel)]="newSale.product" name="productName" (change)="onProductChange()" required>
+            <option *ngFor="let product of products" [ngValue]="product">{{ product.name }}</option>
           </select>
         </div>
 
@@ -30,12 +36,18 @@
         </div>
 
 
-        <div class="col-md-3">
+        <!-- <div class="col-md-3">
           <label for="product"> Price:</label>
           <select class="form-control" id="product" [(ngModel)]="newSale.product.id" name="product" required>
             <option *ngFor="let product of products" [value]="product.id">{{product.price}}</option>
           </select>
+        </div> -->
+
+        <div class="col-md-3">
+          <label for="price">Price:</label>
+          <input type="text" [(ngModel)]="newSale.product.price" name="price" placeholder="Price" readonly />
         </div>
+      
 
         <div class="col-md-2">
           <label for="warehouse">Customer Name:</label>
@@ -73,7 +85,7 @@
         <td class="border border-gray-300 p-2">{{ sale.product.name}}</td>
         <td class="border border-gray-300 p-2">{{ sale.quantity }}</td>
         <td class="border border-gray-300 p-2">{{ sale.product.price| currency }}</td>
-        <td class="border border-gray-300 p-2">{{ sale.totalAmount| currency }}</td>
+        <td class="border border-gray-300 p-2">{{ sale.totalPrice| currency }}</td>
         <td class="border border-gray-300 p-2">{{ sale.customer.name}}</td>
         <td class="border border-gray-300 p-2">{{ sale.saleDate | date }}</td>
         <td class="border border-gray-300 p-2">

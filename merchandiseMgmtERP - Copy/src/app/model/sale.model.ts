@@ -44,7 +44,7 @@ export class Sale {
   productName!: string;
   quantity!: number;
   price!: number;
-  totalAmount!: number;
+  totalPrice!: number;
   customerName!: string;
   saleDate!: Date;
   product:Product=new Product();

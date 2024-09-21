@@ -22,7 +22,8 @@ public class SaleService {
 
     public Sale saveSale(Sale sale) {
         try {
-            sale.setTotalPrice(sale.getQuantity() * sale.getProduct().getPrice());
+            double totalPrice = sale.getQuantity() * sale.getProduct().getPrice();
+            sale.setTotalPrice(totalPrice);
             return saleRepository.save(sale);
         } catch (Exception e) {
             System.err.println("Error saving Sale: " + e.getMessage());

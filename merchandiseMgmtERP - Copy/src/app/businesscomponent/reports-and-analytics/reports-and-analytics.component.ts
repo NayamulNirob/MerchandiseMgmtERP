@@ -43,7 +43,7 @@ export class ReportsAnalyticsComponent implements OnInit {
   private prepareChartData(): void {  
     // Assuming this.sales has already loaded  
     this.salesRevenueChartData.labels = this.sales.map(sale => sale.productName);  
-    this.salesRevenueChartData.data = this.sales.map(sale => sale.totalAmount);  
+    this.salesRevenueChartData.data = this.sales.map(sale => sale.totalPrice);  
   }  
 
   get maxRevenue(): number {  

@@ -51,7 +51,7 @@ export class ReportsService {
 
   getSalesRevenueChartData(): { labels: string[], data: number[] } {  
     const labels = this.sales.map(sale => sale.productName);  
-    const data = this.sales.map(sale => sale.totalAmount);  
+    const data = this.sales.map(sale => sale.totalPrice);  
     return { labels, data };  
   }  
 }

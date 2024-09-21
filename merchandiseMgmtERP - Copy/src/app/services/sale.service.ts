@@ -56,7 +56,7 @@ export class SalesService {
   }  
 
   generateSalesReport() {  
-    const totalSales = this.sales.reduce((sum, sale) => sum + sale.totalAmount, 0);  
+    const totalSales = this.sales.reduce((sum, sale) => sum + sale.totalPrice, 0);  
     const report = {  
       totalSalesCount: this.sales.length,  
       totalRevenue: totalSales  

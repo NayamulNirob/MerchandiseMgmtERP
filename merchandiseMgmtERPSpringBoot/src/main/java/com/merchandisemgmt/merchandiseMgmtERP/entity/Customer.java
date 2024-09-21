@@ -5,6 +5,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import javax.xml.stream.Location;
 import java.time.LocalDateTime;
 
 @Entity
@@ -37,6 +38,14 @@ public class Customer {
     @Column(nullable = false)
     private LocalDateTime updatedAt;
 
+    @Column(nullable = false)
+    private String contactPerson;
+
+    @Column(nullable = false)
+    private String country;
+
+    @Column(nullable = false)
+    private String organigation;
 
 
 }

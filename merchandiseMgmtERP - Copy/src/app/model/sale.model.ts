@@ -61,6 +61,9 @@ export class Customer {
   address!: string;
   createdAt!: Date;
   updatedAt!: Date;
+  contactPerson!:string;
+  country!:string;
+  organigation!:string;
 }
 
 // registration.model.ts  

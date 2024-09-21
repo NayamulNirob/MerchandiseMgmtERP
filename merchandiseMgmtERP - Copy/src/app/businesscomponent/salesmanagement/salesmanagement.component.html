@@ -4,25 +4,13 @@
   <input type="text" [(ngModel)]="searchTerm" (input)="filterSales()"
     placeholder="Search by product or customer name..." />
 
-  <!-- <h3>Record New Sale</h3>
-  <form (ngSubmit)="recordSale()">
-    <input type="text" [(ngModel)]="newSale.productName" name="productName" placeholder="Product Name" required />
-    <input type="number" [(ngModel)]="newSale.quantity" name="quantity" placeholder="Quantity" required />
-    <input type="number" [(ngModel)]="newSale.price" name="price" placeholder="Price" required />
-    <input type="text" [(ngModel)]="newSale.customerName" name="customerName" placeholder="Customer Name" required />
-    <button type="submit" class="bg-blue-500 text-dark py-2 px-4 rounded">Record Sale</button>
-  </form> -->
+
 
   <div class="row mb-4">
     <h3>Record New Sale</h3>
     <form (ngSubmit)="recordSale()">
       <div class="row">
-        <!-- <div class="col-md-3">
-          <label for="product">Select Product Name:</label>
-          <select class="form-control" id="product" [(ngModel)]="newSale.product.id" name="productName" required>
-            <option *ngFor="let product of products" [value]="product.id">{{ product.name }}</option>
-          </select>
-        </div> -->
+       
         <div class="col-md-3">
           <label for="product">Select Product Name:</label>
           <select class="form-control" id="product" [(ngModel)]="newSale.product" name="productName" (change)="onProductChange()" required>
@@ -35,13 +23,6 @@
           <input type="number" [(ngModel)]="newSale.quantity" name="quantity" placeholder="Quantity" required />
         </div>
 
-
-        <!-- <div class="col-md-3">
-          <label for="product"> Price:</label>
-          <select class="form-control" id="product" [(ngModel)]="newSale.product.id" name="product" required>
-            <option *ngFor="let product of products" [value]="product.id">{{product.price}}</option>
-          </select>
-        </div> -->
 
         <div class="col-md-3">
           <label for="price">Price:</label>

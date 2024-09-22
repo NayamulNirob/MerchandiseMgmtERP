@@ -48,7 +48,7 @@
                 <td class="border p-1">{{ customer.country }}</td>
                 <td class="border p-1">{{ customer.organigation }}</td>
                 <td class="border p-1">{{ customer.createdAt | date }}</td>
-                <td>{{ customer.updatedAt | date: 'd MMM, y hh:mm:ss a' }}</td>
+                <td class="border p-1">{{ customer.updatedAt | date: 'd MMM, y hh:mm:ss a' }}</td>
                 <td class="border p-1">
                     <button (click)="updateCustomer(customer.id)"
                         class="bg-yellow-500 text-dark rounded p-1 mr-1">Update</button>

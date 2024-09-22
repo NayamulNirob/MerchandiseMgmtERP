@@ -5,24 +5,28 @@
         <h2 class="text">Add Product</h2>
         <form (ngSubmit)="addProduct()">
             <div class="row">
-                <div class="col-md-2">
+                <div class="col-md-3">
                     <input type="text" [(ngModel)]="newProduct.name" name="name" class="form-control"
                         placeholder="Product Name" required />
 
                 </div>
 
-                <div class="col-md-3">
+                <div class="col-md-4">
                     <input type="text" [(ngModel)]="newProduct.description" name="description" class="form-control"
                         placeholder="Description" required />
                 </div>
 
-                <div class="col-md-2">
+                <div class="col-md-3">
                     <input type="number" [(ngModel)]="newProduct.price" name="price" class="form-control"
                         placeholder="Price" required min="0" />
                 </div>
 
+                <div class="col-md-2">
+                    <button type="submit" class="btn btn-success">Add Product</button>
+                </div>
+
             </div>
-            <button type="submit" class="btn btn-success mt-3">Add Product</button>
+            
         </form>
     </div>
 

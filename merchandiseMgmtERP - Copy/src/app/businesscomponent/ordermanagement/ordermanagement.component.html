@@ -1,27 +1,19 @@
+
 <div>
     <h2>Order Management</h2>
-
-    <!-- <input type="text" [(ngModel)]="searchTerm" (input)="filterOrders()" placeholder="Search by Customer Name..." />
-
-    <select [(ngModel)]="sortBy" (change)="sortOrders()">
-        <option value="customerName">Sort by Customer Name</option>
-        <option value="orderDate">Sort by Order Date</option>
-        <option value="totalPrice">Sort by Total Price</option>
-    </select> -->
 
     <h3>Create New Order</h3>
     <form (ngSubmit)="createOrder()">
         <div class="row">
-
-            <div class="col-md-3">
-                <label for="warehouse">Customer Name:</label>
-                <select class="form-control" id="warehouse" [(ngModel)]="newOrder.customer.name" name="warehouse"
+            <div class="col-md-3 form-group">
+                <label for="customer">Customer Name:</label>
+                <select class="form-control" id="customer" [(ngModel)]="newOrder.customer.name" name="customer"
                     required>
                     <option *ngFor="let customers of customers" [value]="customers.id">{{ customers.name }}</option>
                 </select>
             </div>
 
-            <div class="col-md-3">
+            <div class="col-md-3 form-group">
                 <label for="product">Select Product Name:</label>
                 <select class="form-control" id="product" [(ngModel)]="newOrder.product.name" name="productName"
                     required>
@@ -29,52 +21,46 @@
                 </select>
             </div>
 
-            <div class="col-md-3">
-                <label for="product">Select Product Quantity:</label>
-                <input type="number" [(ngModel)]="newOrder.quantity" name="quantity" placeholder="Quantity" required />
+            <div class="col-md-3 form-group">
+                <label for="quantity">Select Product Quantity:</label>
+                <input type="number" class="form-control" id="quantity" [(ngModel)]="newOrder.quantity" name="quantity"
+                    placeholder="Quantity" required />
             </div>
 
-
-            <div class="col-md-2">
-                <label for="product">Create Here:</label>
-                <button type="submit">Create Order</button>
+            <div class="col-md-3 form-group d-flex align-items-end">
+                <button type="submit" class="btn btn-primary">Create Order</button>
             </div>
-
-
         </div>
-        <!-- <input type="text" [(ngModel)]="newOrder.customer.name" name="customerName" placeholder="Customer Name"
-            required />
-        <input type="text" [(ngModel)]="newOrder.product.name" name="product" placeholder="Product Name" required />
-        <input type="number" [(ngModel)]="newOrder.quantity" name="quantity" placeholder="Quantity" required /> -->
-      
-       
     </form>
 
-    <table class="min-w-full border-collapse border border-gray-200 mt-4">
+    <table class="table table-bordered table-hover mt-4">
         <thead>
             <tr>
-                <th class="border border-gray-300 p-2">Customer Name</th>
-                <th class="border border-gray-300 p-2">Product</th>
-                <th class="border border-gray-300 p-2">Quantity</th>
-                <th class="border border-gray-300 p-2">Status</th>
-                <th class="border border-gray-300 p-2">Total Price</th>
-                <th class="border border-gray-300 p-2">Order Date</th>
-                <th class="border border-gray-300 p-2">Actions</th>
+                <th>Customer Name</th>
+                <th>Product</th>
+                <th>Quantity</th>
+                <th>Status</th>
+                <th>Total Price</th>
+                <th>Order Date</th>
+                <th>Actions</th>
             </tr>
         </thead>
         <tbody>
             <tr *ngFor="let order of filteredOrders">
-                <td class="border border-gray-300 p-2">{{ order.customer.name }}</td>
-                <td class="border border-gray-300 p-2">{{ order.product.name}}</td>
-                <td class="border border-gray-300 p-2">{{ order.quantity }}</td>
-                <td class="border border-gray-300 p-2">{{ order.status }}</td>
-                <td class="border border-gray-300 p-2">{{ order.totalPrice | currency }}</td>
-                <td class="border border-gray-300 p-2">{{ order.orderDate | date }}</td>
-                <td class="border border-gray-300 p-2">
-                    <button (click)="updateOrder(order.id, 'Shipped')">Mark as Shipped</button>
-                    <button (click)="deleteOrder(order.id)">Delete Order</button>
+                <td>{{ order.customer.name }}</td>
+                <td>{{ order.product.name }}</td>
+                <td>{{ order.quantity }}</td>
+                <td>{{ order.status }}</td>
+                <td>{{ order.totalPrice | currency }}</td>
+                <td>{{ order.orderDate | date }}</td>
+                <td>
+                    <button class="btn btn-success btn-sm" (click)="updateOrder(order.id, 'Shipped')">Mark as Shipped</button>&nbsp;&nbsp;
+                    <button class="btn btn-danger btn-sm" (click)="deleteOrder(order.id)">Delete Order</button>
                 </td>
             </tr>
         </tbody>
     </table>
 </div>
+
+
+

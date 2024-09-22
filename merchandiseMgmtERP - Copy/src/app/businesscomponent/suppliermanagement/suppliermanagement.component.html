@@ -1,7 +1,6 @@
 
-<div>
+ <div>
     <h2>Supplier Management</h2>
-
 
     <div style="display: flex; align-items: center; justify-content: space-evenly;">  
         <input type="text" [(ngModel)]="searchTerm" (input)="filterSuppliers()"  
@@ -50,10 +49,19 @@
                 <td class="border border-gray-300 p-2">{{ supplier.createdAt | date }}</td>
                 <td class="border border-gray-300 p-2">{{ supplier.status}}</td>
                 <td class="border border-gray-300 p-2">
-                    <button (click)="updateSupplier(supplier.id)">Update</button>
-                    <button (click)="removeSupplier(supplier.id)">Remove</button>
+                 
+                        <a class="btn btn-outline-success btn-sm" (click)="updateSupplier(supplier.id)" data-toggle="modal" data-target="#exampleModal">
+                            <i class="fa-solid fa-pen-to-square" style="--fa-primary-color: #05812a; --fa-secondary-color: #bbfdbe;"></i>
+                        </a>
+                    
+                        <a class="btn btn-outline-danger btn-sm" (click)="removeSupplier(supplier.id)" data-toggle="modal" data-target="#exampleModal">
+                            <i class="fa-solid fa-trash-can" style="color: #fd0101;"></i>
+                        </a>
+                    
                 </td>
             </tr>
         </tbody>
     </table>
-</div>
+</div> 
+
+

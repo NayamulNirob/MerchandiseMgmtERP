@@ -5,22 +5,36 @@
         <h2>Add WareHouse</h2>
         <form (ngSubmit)="addWareHouse()" #productForm="ngForm">
             <div class="row">
-                <div class="col-md-4">
+                <div class="col-md-2">
 
                     <input type="text" [(ngModel)]="newWareHouse.name" name="name" class="form-control"
-                        placeholder="WareHouse Name" required />
+                        placeholder=" WareHouse Name" required />
 
                 </div>
                 <div class="col-md-4">
                     <input type="text" [(ngModel)]="newWareHouse.location" name="location" class="form-control"
-                        placeholder="WareHouse Location" required />
+                        placeholder="Enter Address" required />
                 </div>
-                <div class="col-md-4">
+
+                <div class="col-md-2">
+                    <input type="text" [(ngModel)]="newWareHouse.contact" name="contact" class="form-control"
+                        placeholder="Contact Number" required />
+                </div>
+
+
+                <div class="col-md-2">
                     <input type="number" [(ngModel)]="newWareHouse.capacity" name="capacity" class="form-control"
-                        placeholder="WareHouse Capacity" required min="0" />
+                        placeholder="Capacity" required min="0" />
+                </div>
+
+                <div class="col-md-2">
+                    <button type="submit" class="btn btn-success">Add New</button>
                 </div>
             </div>
-            <button type="submit" class="btn btn-success mt-3">Add new WareHouse</button>
+
+
+
+            
         </form>
     </div>
 
@@ -31,8 +45,9 @@
                 <th>ID</th>
                 <th> WareHouse Name</th>
                 <th> WareHous Location</th>
+                <th> WareHous Contact</th>
                 <th>WareHouse Capacity</th>
-               
+
 
 
                 <th>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Actions</th>
@@ -43,14 +58,31 @@
                 <td>{{ w.id }}</td>
                 <td>{{ w.name }}</td>
                 <td>{{ w.location }}</td>
-                <td>{{  w.capacity }}</td>
-        
+                <td>{{ w.contact }}</td>
+                <td>{{ w.capacity }}</td>
+
 
                 <td>
-                    <button class="btn btn-warning" (click)="editWareHouse(w.id)">Edit</button>&nbsp;&nbsp;
-                    <button class="btn btn-danger" (click)="deleteWareHouse(w.id)">Delete</button>
+                    <a class="btn" (click)="editWareHouse(w.id)" data-toggle="modal" data-target="#exampleModal"><i
+                            class="fa-duotone fa-solid fa-pen-to-square"
+                            style="--fa-primary-color: #05812a; --fa-secondary-color: #bbfdbe;"></i>
+                    </a>
+
+                    <a class="btn" (click)="deleteWareHouse(w.id)" data-toggle="modal" data-target="#exampleModal"><i
+                            class="fa-solid fa-trash-can" style="color: #fd0101;"></i>
+
+
+                    </a>
+
+
                 </td>
             </tr>
+
+
+
+
+
+
         </tbody>
     </table>
 

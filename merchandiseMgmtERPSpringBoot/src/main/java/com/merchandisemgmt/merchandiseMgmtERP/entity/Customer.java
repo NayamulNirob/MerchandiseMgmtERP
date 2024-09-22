@@ -5,7 +5,6 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import javax.xml.stream.Location;
 import java.time.LocalDateTime;
 
 @Entity

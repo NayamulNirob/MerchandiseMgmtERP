@@ -24,6 +24,8 @@ public class Warehouse {
     private String location;
 
     private long capacity;
+    
+    private String contact;
 
 
 }

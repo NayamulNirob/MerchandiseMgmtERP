@@ -4,5 +4,6 @@ export class WareHouse {
     name!: string;
     location!: string;
     capacity!: number;
+    contact!:string;
 
 }

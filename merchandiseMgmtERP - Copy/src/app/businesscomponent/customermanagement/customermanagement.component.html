@@ -4,23 +4,24 @@
     <input type="text" [(ngModel)]="searchTerm" (input)="filterCustomers()" placeholder="Search by name or email..."
         class="border rounded p-1 mb-4" />
 
-    <h3 class="text-lg font-semibold mb-2">Add New Customer</h3>
+    <h3 class="text-lg font-semibold mb-3">Add New Customer</h3>
     <form (ngSubmit)="addCustomer()" class="mb-4">
         <input type="text" [(ngModel)]="newCustomer.name" name="name" placeholder="Name" required
-            class="border rounded p-1 mr-1" />
+            class="border rounded p-1 mr-3" />
         <input type="email" [(ngModel)]="newCustomer.email" name="email" placeholder="Email" required
-            class="border rounded p-1 mr-1" />
+            class="border rounded p-1 mr-3" />
         <input type="text" [(ngModel)]="newCustomer.phone" name="phone" placeholder="Phone" required
-            class="border rounded p-1 mr-1" />
+            class="border rounded p-1 mr-3" />
         <input type="text" [(ngModel)]="newCustomer.address" name="address" placeholder="Address" required
-            class="border rounded p-1 mr-1" />
+            class="border rounded p-1 mr-4" />
         <input type="text" [(ngModel)]="newCustomer.contactPerson" name="contactPerson" placeholder="contactPerson"
-            required class="border rounded p-1 mr-1" />
+            required class="border rounded p-1 mr-3" />
         <input type="text" [(ngModel)]="newCustomer.country" name="country" placeholder="country" required
-            class="border rounded p-1 mr-1" />
-        <input type="text" [(ngModel)]="newCustomer.organigation" name="organigation" placeholder="organigation" required
-            class="border rounded p-1 mr-1" />
-        <button type="submit" class="bg-blue-500 text-dark rounded p-2">Add Customer</button>
+            class="border rounded p-1 mr-3" />
+        <input type="text" [(ngModel)]="newCustomer.organigation" name="organigation" placeholder="organigation"
+            required class="border rounded p-1 mr-3 mt-2" />
+        <button type="submit" class="btn btn-outline-light btn-fw p-2 mt-2">Add Customer</button>
+
     </form>
 
     <table class="min-w-full border">
@@ -50,12 +51,17 @@
                 <td class="border p-1">{{ customer.createdAt | date }}</td>
                 <td class="border p-1">{{ customer.updatedAt | date: 'd MMM, y hh:mm:ss a' }}</td>
                 <td class="border p-1">
-                    <button (click)="updateCustomer(customer.id)"
-                        class="bg-yellow-500 text-dark rounded p-1 mr-1">Update</button>
-                    <button (click)="removeCustomer(customer.id)"
-                        class="bg-red-500 text-dark rounded p-1">Remove</button>
+                    <button type="button" class="btn btn-dark btn-icon-text  rounded p-1 mb-2 mt-2 me-1" (click)="updateCustomer(customer.id)"> Update <i
+                            class="mdi mdi-file-check btn-icon-append"></i>
+                    </button>
+
+                    <button type="button" class="btn btn-dark btn-icon-text  rounded p-1" (click)="removeCustomer(customer.id)"> Remove 
+                       <i class="mdi mdi-alert btn-icon-prepend"></i> 
+                     </button>
+
                 </td>
             </tr>
         </tbody>
     </table>
 </div>
+

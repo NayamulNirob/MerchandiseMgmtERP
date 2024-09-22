@@ -28,22 +28,22 @@ public class Customer {
     @Column(nullable = false)
     private String phone;
 
-    @Column(nullable = false)
+
     private String address;
 
-    @Column(nullable = false)
+
     private LocalDateTime createdAt;
 
-    @Column(nullable = false)
+
     private LocalDateTime updatedAt;
 
-    @Column(nullable = false)
+
     private String contactPerson;
 
-    @Column(nullable = false)
+
     private String country;
 
-    @Column(nullable = false)
+   
     private String organigation;
 
 

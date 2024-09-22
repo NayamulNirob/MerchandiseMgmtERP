@@ -1,71 +1,84 @@
+<div class="container mt-2">
+  <h2 class="text-center mb-4">Inventory Management</h2>
+
+  <div class="row mb-4">
+    <form (ngSubmit)="addInventory()">
+      <div class="row">
+
+        <div class="col-md-3">
+          <label for="product">Select Product:</label>
+          <select class="form-control" id="product" [(ngModel)]="inventory.product.id" name="product" required>
+            <option *ngFor="let product of products" [value]="product.id">{{ product.name }}</option>
+          </select>
+        </div>
+
+        <div class="col-md-3">
+          <label for="warehouse">Select Warehouse:</label>
+          <select class="form-control" id="warehouse" [(ngModel)]="inventory.warehouse.id" name="warehouse" required>
+            <option *ngFor="let warehouse of warehouses" [value]="warehouse.id">{{ warehouse.name }}</option>
+          </select>
+        </div>
+
+        <div class="col-md-3">
+          <label>Enter Stock:</label>
+          <input type="number" [(ngModel)]="inventory.stock" name="stock" class="form-control" placeholder="Stock"
+            required min="0" />
+        </div>
 
 
-<div class="container mt-2">  
-  <h2 class="text-center mb-4">Inventory Management</h2>  
+        <div class="col-md-3">
+          <label>Add Item Here </label>
+          <button type="submit" class="btn btn-success">Add Inventory Item</button>
+        </div>
 
-  <div class="row mb-4">  
-    <form (ngSubmit)="addInventory()">  
-      <div class="row">  
-        <div class="col-md-3">  
-          <label for="product">Select Product:</label>  
-          <select class="form-control" id="product" [(ngModel)]="inventory.product.id" name="product" required>  
-            <option *ngFor="let product of products" [value]="product.id">{{ product.name }}</option>  
-          </select>  
-        </div>  
+      </div>
 
-        <div class="col-md-2">  
-          <label for="warehouse">Select Warehouse:</label>  
-          <select class="form-control" id="warehouse" [(ngModel)]="inventory.warehouse.id" name="warehouse" required>  
-            <option *ngFor="let warehouse of warehouses" [value]="warehouse.id">{{ warehouse.name }}</option>  
-          </select>  
-        </div>  
+    </form>
+  </div>
 
-        <div class="col-md-2">  
-          <label>Enter Stock:</label>  
-          <input type="number" [(ngModel)]="inventory.stock" name="stock" class="form-control" placeholder="Stock"  
-            required min="0" />  
-        </div>  
-      </div>  
-      <button type="submit" class="btn btn-success mt-3">Add Inventory Item</button>  
-    </form>  
-  </div>  
+  <div class="row mb-3 mt-5">
+    <label class="col-md-10 d-flex justify-content-start"> Search Here</label>
+    <div class="col-md-12 d-flex justify-content-start">
 
-  <div class="row mb-3">  
-    <label class="col-md-10 d-flex justify-content-end" > Search Here</label>
-    <div class="col-md-12 d-flex justify-content-end">  
-      
-      <input type="text" class="form-control" style="max-width: 300px;" [(ngModel)]="searchTerm" (input)="filterInventory()"  
-        placeholder="Search items..." />  
-    </div>  
-  </div>  
+      <input type="text" class="form-control" style="max-width: 300px;" [(ngModel)]="searchTerm"
+        (input)="filterInventory()" placeholder="Search items..." />
+    </div>
+  </div>
 
-  <table class="table table-dark table-striped">  
-    <thead>  
-      <tr>  
-        <th>Name</th>  
-        <th>Stock</th>  
-        <th>Location</th>  
-        <th>Price</th>  
-        <th>Description</th>  
-        <th>Actions</th>  
-      </tr>  
-    </thead>  
-    <tbody>  
-      <tr *ngFor="let item of filteredInventory">  
-        <td>{{ item.product.name }}</td>  
-        <td>{{ item.stock }}</td>  
-        <td>{{ item.warehouse.name}}</td>  
-        <td>{{ item.product.price }}</td>  
-        <td>{{ item.product.description }}</td>  
+  <table class="table table-dark table-striped">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Stock</th>
+        <th>Location</th>
+        <th>Price</th>
+        <th>Description</th>
+        <th >Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of filteredInventory">
+        <td>{{ item.product.name }}</td>
+        <td>{{ item.stock }}</td>
+        <td>{{ item.warehouse.name}}</td>
+        <td>{{ item.product.price }}</td>
+        <td>{{ item.product.description }}</td>
 
-        <td>  
-          
-          <button type="button" class="btn btn-primary" (click)="updateInventoryies(item.id)">Edit Stock</button>&nbsp;&nbsp;&nbsp; 
-          <button type="button" class="btn btn-primary" (click)="deleteInventory(item.id)">Delete</button> 
+        <td>
 
-        </td>  
-      </tr>  
-    </tbody>  
-  </table>  
+          <a class="btn text-white" (click)="updateInventoryies(item.id)" data-toggle="modal" data-target="#exampleModal">
+            <i class="fa-solid fa-pen-to-square fa-fade" style="color: #4000ff;"></i>Stock
+          </a>
+
+          <a class="btn" (click)="deleteInventory(item.id)" data-toggle="modal" data-target="#exampleModal"><i
+              class="fa-solid fa-trash-can fa-fade" style="color: #fd0101;"></i>
+
+
+          </a>
+
+        </td>
+      </tr>
+    </tbody>
+  </table>
 
 </div>

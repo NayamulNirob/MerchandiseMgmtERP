@@ -20,7 +20,7 @@
             class="border rounded p-1 mr-3" />
         <input type="text" [(ngModel)]="newCustomer.organigation" name="organigation" placeholder="organigation"
             required class="border rounded p-1 mr-3 mt-2" />
-        <button type="submit" class="btn btn-outline-light btn-fw p-2 mt-2">Add Customer</button>
+        <button type="submit" class="btn btn-outline-info btn-fw p-2 mt-2">Add Customer</button>
 
     </form>
 
@@ -51,11 +51,11 @@
                 <td class="border p-1">{{ customer.createdAt | date }}</td>
                 <td class="border p-1">{{ customer.updatedAt | date: 'd MMM, y hh:mm:ss a' }}</td>
                 <td class="border p-1">
-                    <button type="button" class="btn btn-dark btn-icon-text  rounded p-1 mb-2 mt-2 me-1" (click)="updateCustomer(customer.id)"> Update <i
+                    <button type="button" class="btn btn-success btn-icon-text btn-sm mb-2 mt-2 ms-3" (click)="updateCustomer(customer.id)"> Update <i
                             class="mdi mdi-file-check btn-icon-append"></i>
                     </button>
 
-                    <button type="button" class="btn btn-dark btn-icon-text  rounded p-1" (click)="removeCustomer(customer.id)"> Remove 
+                    <button type="button" class="btn btn-danger btn-icon-text ms-3 btn-sm " (click)="removeCustomer(customer.id)"> Remove 
                        <i class="mdi mdi-alert btn-icon-prepend"></i> 
                      </button>
 

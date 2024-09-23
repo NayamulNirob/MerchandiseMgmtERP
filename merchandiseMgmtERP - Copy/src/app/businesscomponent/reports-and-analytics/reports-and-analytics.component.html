@@ -10,7 +10,7 @@
 
     <ng-container matColumnDef="name">
       <th mat-header-cell *matHeaderCellDef>Name</th>
-      <td mat-cell *matCellDef="let item">{{item.name}}</td>
+      <td mat-cell *matCellDef="let item">{{item.product.name}}</td>
     </ng-container>
 
     <ng-container matColumnDef="stock">
@@ -20,27 +20,19 @@
 
     <ng-container matColumnDef="location">
       <th mat-header-cell *matHeaderCellDef>Location</th>
-      <td mat-cell *matCellDef="let item">{{item.location}}</td>
+      <td mat-cell *matCellDef="let item">{{item.warehouse.location}}</td>
     </ng-container>
 
     <ng-container matColumnDef="price">
       <th mat-header-cell *matHeaderCellDef>Price</th>
-      <td mat-cell *matCellDef="let item">{{item.price | currency}}</td>
+      <td mat-cell *matCellDef="let item">{{item.product.price | currency}}</td>
     </ng-container>
 
     <tr mat-header-row *matHeaderRowDef="['id', 'name', 'stock', 'location', 'price']"></tr>
     <tr mat-row *matRowDef="let row; columns: ['id', 'name', 'stock', 'location', 'price'];"></tr>
   </table>
 
-  <!-- <h3>Sales Report</h3>  
-    <div>  
-      <canvas baseChart   
-        [datasets]="[ { data: salesRevenueChartData.data, label: 'Sales Revenue' } ]"  
-        [labels]="salesRevenueChartData.labels"  
-        [options]="{ responsive: true }"  
-        [chartType]="'bar'">  
-      </canvas>  
-    </div>   -->
+  
 
 
 
@@ -89,17 +81,17 @@
 
     <ng-container matColumnDef="productName">
       <th mat-header-cell *matHeaderCellDef>Product Name</th>
-      <td mat-cell *matCellDef="let sale">{{ sale.productName }}</td>
+      <td mat-cell *matCellDef="let sale">{{ sale.product.name }}</td>
     </ng-container>
 
     <ng-container matColumnDef="totalAmount">
       <th mat-header-cell *matHeaderCellDef>Total Amount</th>
-      <td mat-cell *matCellDef="let sale">{{ sale.totalAmount | currency }}</td>
+      <td mat-cell *matCellDef="let sale">{{ sale.totalPrice | currency }}</td>
     </ng-container>
 
     <ng-container matColumnDef="date">
       <th mat-header-cell *matHeaderCellDef>Date</th>
-      <td mat-cell *matCellDef="let sale">{{ sale.date }}</td>
+      <td mat-cell *matCellDef="let sale">{{ sale.saleDate }}</td>
     </ng-container>
 
     <tr mat-header-row *matHeaderRowDef="['id', 'productName', 'totalAmount', 'date']"></tr>

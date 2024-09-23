@@ -11,7 +11,10 @@ import { InventoryItem } from '../model/inventory.item.model';
 })  
 export class ReportsService {  
 
-  private baseUrl="http://localhost:3000/"
+  // private baseUrl="http://localhost:3000/"
+
+ 
+  private baseUrl="http://localhost:8089/api/"
 
   private inventory: InventoryItem[] = [];  
   private sales: Sale[] = [];  
@@ -20,19 +23,19 @@ export class ReportsService {
   constructor(private http: HttpClient) {}  
 
   loadInventory(): Observable<InventoryItem[]> {  
-    return this.http.get<InventoryItem[]>(this.baseUrl+"inventory").pipe(  
+    return this.http.get<InventoryItem[]>(this.baseUrl+"inventory/").pipe(  
       tap(data => this.inventory = data)  
     );  
   }  
 
   loadSales(): Observable<Sale[]> {  
-    return this.http.get<Sale[]>(this.baseUrl+"sales").pipe(  
+    return this.http.get<Sale[]>(this.baseUrl+"sale/").pipe(  
       tap(data => this.sales = data)  
     );  
   }  
 
   loadSuppliers(): Observable<Supplier[]> {  
-    return this.http.get<Supplier[]>(this.baseUrl+"Supplier").pipe(  
+    return this.http.get<Supplier[]>(this.baseUrl+"supplier/").pipe(  
       tap(data => this.suppliers = data)  
     );  
   }  

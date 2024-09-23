@@ -5,7 +5,8 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.sql.Date;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 
 @Entity
@@ -18,11 +19,11 @@ public class OrderItem {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @ManyToOne(cascade = CascadeType.PERSIST)
+    @ManyToOne
     @JoinColumn(name = "customer_id", nullable = false)
     private Customer customer;
 
-    @ManyToOne(cascade = CascadeType.PERSIST)
+    @ManyToOne
     @JoinColumn(name = "product_id", nullable = false)
     private Product product;
 
@@ -33,10 +34,10 @@ public class OrderItem {
     private String status;
 
     @Column(nullable = false)
-    private Date orderDate;
+    private LocalDateTime orderDate;
 
-    @Column(nullable = false)
-    private Date deliveryDate;
+
+    private LocalDate deliveryDate;
 
     @Column(nullable = false)
     private double totalPrice ;

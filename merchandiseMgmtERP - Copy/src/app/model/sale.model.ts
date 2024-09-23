@@ -19,6 +19,7 @@ export class OrderItem {
   quantity!: number;
   status!: string;
   orderDate!: Date;
+  deliveryDate!:Date;
   totalPrice!: number;
   customer:Customer=new Customer();
   product:Product=new Product();
@@ -50,6 +51,7 @@ export class Sale {
   product:Product=new Product();
   customer:Customer=new Customer();
   inventory:InventoryItem=new InventoryItem();
+  orderItem:OrderItem=new OrderItem();
 }
 
 // customer.model.ts  

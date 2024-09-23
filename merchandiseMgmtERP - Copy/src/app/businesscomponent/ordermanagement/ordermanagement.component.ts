@@ -96,5 +96,18 @@ export class OrdermanagementComponent {
   private resetNewOrder() {
     this.newOrder = new OrderItem();
   }
+
+  
+  // onProductChange() {
+  //   if (this.newOrder.product) {
+  //     const selectedProduct = this.products.find(p => p.id === this.newOrder.product.id);
+  //     if (selectedProduct) {
+  //       this.newOrder.product.price = selectedProduct.price;
+  //     }
+  //   }
+  // }
+
+
+
 }
 

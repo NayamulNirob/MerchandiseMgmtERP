@@ -5,29 +5,34 @@
     <h3>Create New Order</h3>
     <form (ngSubmit)="createOrder()">
         <div class="row">
-            <div class="col-md-3 form-group">
+            <div class="col-md-3">
                 <label for="customer">Customer Name:</label>
-                <select class="form-control" id="customer" [(ngModel)]="newOrder.customer.name" name="customer"
-                    required>
+                <select class="form-control" id="customer" [(ngModel)]="newOrder.customer.id" name="customer" required >
                     <option *ngFor="let customers of customers" [value]="customers.id">{{ customers.name }}</option>
                 </select>
             </div>
 
-            <div class="col-md-3 form-group">
+            <div class="col-md-2">
                 <label for="product">Select Product Name:</label>
-                <select class="form-control" id="product" [(ngModel)]="newOrder.product.name" name="productName"
-                    required>
-                    <option *ngFor="let product of products" [value]="product.id">{{ product.name }}</option>
+                <select class="form-control" id="product" [(ngModel)]="newOrder.product" name="productName"  required>
+                  <option *ngFor="let product of products" [ngValue]="product">{{ product.name }}</option>
                 </select>
-            </div>
+              </div>
 
-            <div class="col-md-3 form-group">
+            <div class="col-md-3">
                 <label for="quantity">Select Product Quantity:</label>
                 <input type="number" class="form-control" id="quantity" [(ngModel)]="newOrder.quantity" name="quantity"
                     placeholder="Quantity" required />
             </div>
 
-            <div class="col-md-3 form-group d-flex align-items-end">
+            
+            <div class="col-md-2">
+                <label for="quantity">Dalivary Date:</label>
+                <input type="date" class="form-control" id="quantity" [(ngModel)]="newOrder.deliveryDate" name="quantity"
+                    placeholder="Dalivary Date" required />
+            </div>
+
+            <div class="col-md-2 d-flex align-items-end">
                 <button type="submit" class="btn btn-primary">Create Order</button>
             </div>
         </div>
@@ -42,6 +47,7 @@
                 <th>Status</th>
                 <th>Total Price</th>
                 <th>Order Date</th>
+                <th>Dalivary Date</th>
                 <th>Actions</th>
             </tr>
         </thead>
@@ -52,7 +58,8 @@
                 <td>{{ order.quantity }}</td>
                 <td>{{ order.status }}</td>
                 <td>{{ order.totalPrice | currency }}</td>
-                <td>{{ order.orderDate | date }}</td>
+                <td>{{ order.orderDate |  date: 'd MMM, y hh:mm:ss a'  }}</td>
+                <td>{{ order.deliveryDate | date }}</td>
                 <td>
                     <button class="btn btn-success btn-sm" (click)="updateOrder(order.id, 'Shipped')">Mark as Shipped</button>&nbsp;&nbsp;
                     <button class="btn btn-danger btn-sm" (click)="deleteOrder(order.id)">Delete Order</button>

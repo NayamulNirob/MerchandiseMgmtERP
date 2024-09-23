@@ -30,7 +30,7 @@ public class Supplier {
     private String status;
 
 
-    @ManyToMany(cascade = CascadeType.ALL)
+    @ManyToMany
     private List<Product> products;
 
 

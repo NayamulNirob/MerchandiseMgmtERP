@@ -1,10 +1,11 @@
 // sales-management.component.ts  
 import { Component, OnInit } from '@angular/core';  
-import { Customer, Product, Sale } from '../../model/sale.model';
+import { Customer, OrderItem, Product, Sale } from '../../model/sale.model';
 import { SalesService } from '../../services/sale.service';
 import { ProductService } from '../../services/product.service';
 import { CustomerService } from '../../services/customermanagement.service';
 import { Router } from '@angular/router';
+import { OrderService } from '../../services/ordermanagement.service';
 
 @Component({  
   selector: 'app-sales-management',  
@@ -18,13 +19,15 @@ export class SalesManagementComponent implements OnInit {
   newSale: Sale = new Sale();  
   products: Product[] =[];
   customers:Customer[]=[];
+  orders:OrderItem=new OrderItem;
 
 
 
   constructor(private salesService: SalesService,
     private productService:ProductService,
     private customerService:CustomerService,
-    private router:Router
+    private router:Router,
+    private orderItemService:OrderService
   ) {}  
 
   ngOnInit(): void {  
@@ -66,13 +69,13 @@ export class SalesManagementComponent implements OnInit {
 
     this.salesService.recordSale(this.newSale).subscribe({
       next: res => {
-        console.log('Inventory saved successfully:', res);
-        alert('Inventory saved successfully!');
+        console.log('Sales saved successfully:', res);
+        alert('Sales saved successfully!');
         this.updateFilteredSales();  
         this.loadSaless();
       },
       error: error => {
-        console.log('Error saving inventory:',error);
+        console.log('Error saving Sales:',error);
       }
     });;  
     

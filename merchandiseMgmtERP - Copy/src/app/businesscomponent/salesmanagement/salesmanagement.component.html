@@ -13,20 +13,20 @@
        
         <div class="col-md-3">
           <label for="product">Select Product Name:</label>
-          <select class="form-control" id="product" [(ngModel)]="newSale.product" name="productName" (change)="onProductChange()" required>
+          <select class="form-control" id="product" [(ngModel)]="newSale.product" name="productName" (change)="onProductChange()" required >
             <option *ngFor="let product of products" [ngValue]="product">{{ product.name }}</option>
           </select>
         </div>
 
         <div class="col-md-3">
-          <label for="product">Select Product Quantity:</label>
-          <input type="number" [(ngModel)]="newSale.quantity" name="quantity" placeholder="Quantity" required />
+          <label for="product" >Select Product Quantity:</label>
+          <input type="number" [(ngModel)]="newSale.quantity" name="quantity" placeholder="Quantity" required  class="form-control"/>
         </div>
 
 
-        <div class="col-md-3">
+        <div class="col-md-2">
           <label for="price">Price:</label>
-          <input type="text" [(ngModel)]="newSale.product.price" name="price" placeholder="Price" readonly />
+          <input type="text" [(ngModel)]="newSale.product.price" name="price" placeholder="Price" readonly class="form-control"/>
         </div>
       
 
@@ -37,16 +37,21 @@
           </select>
         </div>
 
+        <div class="col-md-2">
+          <br>
+          <button type="submit" class=" btn btn-success rounded mt-2 ">Record Sale</button>
+        </div>
+
 
       </div>
-      <button type="submit" class="mt-3 bg-blue-500 text-dark py-2 px-4 rounded">Record Sale</button>
+     
     </form>
   </div>
 
 
 
 
-  <button (click)="generateSalesReport()" class="bg-green-500 text-dark py-2 px-4 rounded mt-4">Generate Sales
+  <button (click)="generateSalesReport()" class="bg-green-500 text-dark py-2 px-4 rounded mt-4 mb-2">Generate Sales
     Report</button>
 
   <table class="table table-striped">
@@ -70,7 +75,7 @@
         <td class="border border-gray-300 p-2">{{ sale.customer.name}}</td>
         <td class="border border-gray-300 p-2">{{ sale.saleDate | date }}</td>
         <td class="border border-gray-300 p-2">
-          <button (click)="customers" class="bg-yellow-500 text-dark py-2 px-3 rounded">Update</button>
+          <button (click)="customers" class="bg-yellow-500 text-dark py-2 px-3 rounded">Update</button>&nbsp;&nbsp;
           <button (click)="removeSale(sale.id)" class="bg-red-500 text-dark py-2 px-3 rounded">Remove</button>
         </td>
       </tr>

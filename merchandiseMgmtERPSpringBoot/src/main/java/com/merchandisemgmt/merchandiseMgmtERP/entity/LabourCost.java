@@ -9,21 +9,20 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-@Table(name = "InventoryItems")
-public class InventoryItem {
+public class LabourCost {
+
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy =  GenerationType.IDENTITY)
     private Long id;
+    
+    private String departmentName;
 
-    @Column(nullable = false)
-    private long stock;
+    private double unitCost;
 
+    private double hour;
+    
 
     @ManyToOne
     @JoinColumn
-    private Warehouse warehouse;
-
-    @ManyToOne(fetch = FetchType.EAGER)
-    private Product product;
-
+    private StyleCategories styleCategory;
 }

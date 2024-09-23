@@ -51,12 +51,11 @@
                 <td class="border p-1">{{ customer.createdAt | date }}</td>
                 <td class="border p-1">{{ customer.updatedAt | date: 'd MMM, y hh:mm:ss a' }}</td>
                 <td class="border p-1">
-                    <button type="button" class="btn btn-success btn-icon-text btn-sm mb-2 mt-2 ms-3" (click)="updateCustomer(customer.id)"> Update <i
+                    <button type="button" class="btn btn-success btn-icon-text btn-sm mb-2 mt-2" (click)="updateCustomer(customer.id)"> Update <i
                             class="mdi mdi-file-check btn-icon-append"></i>
                     </button>
 
-                    <button type="button" class="btn btn-danger btn-icon-text ms-3 btn-sm " (click)="removeCustomer(customer.id)"> Remove 
-                       <i class="mdi mdi-alert btn-icon-prepend"></i> 
+                    <button type="button" class="btn btn-danger btn-icon-text btn-sm ms-1 mb-3" (click)="removeCustomer(customer.id)">Remove<i class="mdi mdi-alert btn-icon-prepend"></i> 
                      </button>
 
                 </td>

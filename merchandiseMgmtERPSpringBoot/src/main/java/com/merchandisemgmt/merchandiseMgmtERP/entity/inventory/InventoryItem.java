@@ -1,4 +1,4 @@
-package com.merchandisemgmt.merchandiseMgmtERP.entity;
+package com.merchandisemgmt.merchandiseMgmtERP.entity.inventory;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;

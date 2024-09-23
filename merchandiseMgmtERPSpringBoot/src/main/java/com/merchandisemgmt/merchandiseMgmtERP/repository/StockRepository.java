@@ -1,9 +1,9 @@
 package com.merchandisemgmt.merchandiseMgmtERP.repository;
 
-import com.merchandisemgmt.merchandiseMgmtERP.entity.inventory.Warehouse;
+import com.merchandisemgmt.merchandiseMgmtERP.entity.inventory.Stock;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface WareHouseRepository extends JpaRepository<Warehouse, Long> {
+public interface StockRepository extends JpaRepository<Stock, Long> {
 }

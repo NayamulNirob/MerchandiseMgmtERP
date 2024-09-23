@@ -23,9 +23,18 @@ public class Stock {
 
     private LocalDateTime updatedAt;
 
-    private String stockAdjustment;
+    private String catagoryName;
 
     @ManyToOne
     @JoinColumn
     private RawMateriaes rawMateriaes;
+
+    @ManyToOne
+    @JoinColumn
+    private Product product;
+
+    @ManyToOne
+    @JoinColumn
+    private Warehouse warehouse;
+
 }

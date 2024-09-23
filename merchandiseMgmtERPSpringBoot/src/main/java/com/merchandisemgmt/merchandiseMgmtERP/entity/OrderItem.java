@@ -1,5 +1,6 @@
 package com.merchandisemgmt.merchandiseMgmtERP.entity;
 
+import com.merchandisemgmt.merchandiseMgmtERP.entity.inventory.Product;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;

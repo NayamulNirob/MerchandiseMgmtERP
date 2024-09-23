@@ -1,8 +1,6 @@
 package com.merchandisemgmt.merchandiseMgmtERP.service;
 
-import com.merchandisemgmt.merchandiseMgmtERP.entity.Product;
-import com.merchandisemgmt.merchandiseMgmtERP.entity.Supplier;
-import com.merchandisemgmt.merchandiseMgmtERP.repository.CustomerRepository;
+import com.merchandisemgmt.merchandiseMgmtERP.entity.inventory.Supplier;
 import com.merchandisemgmt.merchandiseMgmtERP.repository.ProductRepository;
 import com.merchandisemgmt.merchandiseMgmtERP.repository.SupplierRepository;
 import org.springframework.beans.factory.annotation.Autowired;

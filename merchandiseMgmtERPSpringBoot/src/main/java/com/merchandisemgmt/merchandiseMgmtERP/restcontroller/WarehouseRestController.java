@@ -1,6 +1,6 @@
 package com.merchandisemgmt.merchandiseMgmtERP.restcontroller;
 
-import com.merchandisemgmt.merchandiseMgmtERP.entity.Warehouse;
+import com.merchandisemgmt.merchandiseMgmtERP.entity.inventory.Warehouse;
 import com.merchandisemgmt.merchandiseMgmtERP.service.WereHouseService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;

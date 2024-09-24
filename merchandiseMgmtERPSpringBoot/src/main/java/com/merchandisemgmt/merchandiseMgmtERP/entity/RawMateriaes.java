@@ -17,7 +17,7 @@ public class RawMateriaes {
     private String rawMetarialName;
     private String description;
     private double unitPrice;
-    private String image;
+    private String attachment;
 
     @ManyToOne
     @JoinColumn

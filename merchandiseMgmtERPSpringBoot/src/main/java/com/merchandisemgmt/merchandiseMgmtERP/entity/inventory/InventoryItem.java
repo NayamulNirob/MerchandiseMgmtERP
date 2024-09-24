@@ -1,5 +1,6 @@
 package com.merchandisemgmt.merchandiseMgmtERP.entity.inventory;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -23,7 +24,10 @@ public class InventoryItem {
     @JoinColumn
     private Warehouse warehouse;
 
+    @JsonBackReference
     @ManyToOne(fetch = FetchType.EAGER)
     private Product product;
+
+
 
 }

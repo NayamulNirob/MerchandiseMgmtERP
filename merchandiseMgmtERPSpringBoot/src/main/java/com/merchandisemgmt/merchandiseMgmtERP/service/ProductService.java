@@ -21,6 +21,10 @@ public class ProductService {
 
     public Product saveProduct(Product p) {
         try {
+            double totalPrice = (p.getQuantity() * p.getPrice()* p.getTax())/100;
+            p.setTotalPrice(totalPrice);
+            p.setSupplier(null);
+            p.setWarehouse(null);
             return productRepository.save(p);
         } catch (Exception e) {
             System.err.println("Error saving product: " + e.getMessage());

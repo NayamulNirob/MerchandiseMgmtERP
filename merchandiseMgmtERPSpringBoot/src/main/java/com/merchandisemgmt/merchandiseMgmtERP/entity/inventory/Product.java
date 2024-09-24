@@ -1,10 +1,14 @@
 package com.merchandisemgmt.merchandiseMgmtERP.entity.inventory;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+import com.merchandisemgmt.merchandiseMgmtERP.entity.RawMateriaes;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 @Entity
@@ -28,11 +32,32 @@ public class Product {
     @Column(nullable = false)
     private double price;
 
+    private String puchaseStatus;
+
+    private LocalDateTime purchaseDate;
+
+    private LocalDateTime dalivaryDate;
+
+    private int quantity;
+
+    private double tax;
+
+    private double paid;
+
+    private double totalPrice;
 
 
-    @ManyToMany(mappedBy = "products")
-    private List<Supplier> suppliers;
 
+    @ManyToOne
+    @JoinColumn
+    private Warehouse warehouse;
+
+    @JsonBackReference
+    @ManyToOne
+    @JoinColumn
+    private Supplier supplier;
+
+    @JsonManagedReference
     @OneToMany(fetch = FetchType.EAGER)
     private List<InventoryItem> inventoryItemList;
 

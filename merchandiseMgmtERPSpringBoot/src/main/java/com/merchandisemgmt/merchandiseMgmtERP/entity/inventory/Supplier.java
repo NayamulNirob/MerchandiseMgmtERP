@@ -1,5 +1,6 @@
 package com.merchandisemgmt.merchandiseMgmtERP.entity.inventory;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -30,7 +31,8 @@ public class Supplier {
     private String status;
 
 
-    @ManyToMany
+    @JsonManagedReference
+    @OneToMany(mappedBy = "supplier",fetch = FetchType.LAZY)
     private List<Product> products;
 
 

@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { Product } from '../../model/sale.model';
+import { Product, Supplier } from '../../model/sale.model';
 import { ProductService } from '../../services/product.service';
 import { Router } from '@angular/router';
+import { WareHouse } from '../../model/warehouse.model';
+import { InventoryItem } from '../../model/inventory.item.model';
 
 @Component({
   selector: 'app-producmanagement',
@@ -12,6 +14,9 @@ export class ProducmanagementComponent implements OnInit {
 
   products: Product[] = [];
   newProduct: Product = new Product();
+  supplier:Supplier[]=[];
+  wareHouse:WareHouse[]=[];
+  inventory:InventoryItem[]=[];
 
   constructor(private productService: ProductService,
     private router: Router
@@ -35,6 +40,7 @@ export class ProducmanagementComponent implements OnInit {
 
 
   addProduct(): void {
+    console.log(this.newProduct)
     this.productService.createProduct(this.newProduct).subscribe({
       next: res => {
         this.newProduct = new Product();

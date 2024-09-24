@@ -1,4 +1,5 @@
 import { InventoryItem } from "./inventory.item.model";
+import { WareHouse } from "./warehouse.model";
 
 
 // -----------------------------------product-------------------------------
@@ -7,6 +8,16 @@ export class Product {
   name!: string;
   description!: string;
   price!: number;
+  puchaseStatus!:string;
+  purchaseDate!:Date;
+  dalivaryDate!:Date;
+  quantity!:number;
+  tax!:number;
+  paid!:number;
+  totalPrice!:number;
+  supplier:Supplier=new Supplier();
+  warehouse:WareHouse=new WareHouse();
+  inventories:InventoryItem[]=[];
   
 }
 
@@ -36,7 +47,7 @@ export class Supplier {
   createdAt!: Date;
   updatedAt!: Date;
   status!:string;
-  product: Product = new Product();
+  products: Product[] = [];
 }
 
 // sale.model.ts  

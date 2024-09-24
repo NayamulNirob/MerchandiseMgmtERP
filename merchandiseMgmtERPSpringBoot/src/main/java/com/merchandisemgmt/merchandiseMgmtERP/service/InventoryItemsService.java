@@ -62,11 +62,4 @@ public class InventoryItemsService {
         inventoryItemRepository.deleteById(id);
     }
 
-
-
-
-
-
-
-
 }

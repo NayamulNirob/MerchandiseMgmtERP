@@ -1,0 +1,343 @@
+Here’s a refined version of your service and entity classes with the appropriate business logic and relationships. I've made adjustments to entity relationships and added relevant services as requested:
+
+Entities
+java
+Copy code
+@Entity
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
+@Table(name = "AdjustmentMaterial")
+public class AdjustmentMaterial {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
+    private String remarks;
+    private double quantity;
+    private double price;
+
+    @ManyToOne
+    @JoinColumn(name = "stock_id")
+    private Stock stock;
+
+    @ManyToOne
+    @JoinColumn(name = "warehouse_id")
+    private Warehouse warehouse;
+
+    @ManyToOne
+    @JoinColumn(name = "raw_material_id")
+    private RawMaterials rawMaterials;
+
+    @ManyToOne
+    @JoinColumn(name = "order_item_id")
+    private OrderItem orderItem;
+}
+
+@Entity
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
+@Table(name = "InventoryItem")
+public class InventoryItem {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
+    private long stock;
+
+    @ManyToOne
+    @JoinColumn(name = "warehouse_id")
+    private Warehouse warehouse;
+
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "product_id")
+    private Product product;
+}
+
+@Entity
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
+@Table(name = "Product")
+public class Product {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
+    private String name;
+    private String description;
+    private double price;
+
+    @ManyToMany(mappedBy = "products")
+    private List<Supplier> suppliers;
+
+    @OneToMany(mappedBy = "product", fetch = FetchType.EAGER)
+    private List<InventoryItem> inventoryItems;
+}
+
+@Entity
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
+@Table(name = "Purchase")
+public class Purchase {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
+    private String purchaseStatus;
+    private LocalDateTime purchaseDate;
+    private LocalDateTime deliveryDate;
+    private double price;
+    private int quantity;
+    private double tax;
+    private double paid;
+    private double total;
+
+    @ManyToOne
+    @JoinColumn(name = "supplier_id")
+    private Supplier supplier;
+
+    @ManyToOne
+    @JoinColumn(name = "warehouse_id")
+    private Warehouse warehouse;
+
+    @ManyToOne
+    @JoinColumn(name = "raw_material_id")
+    private RawMaterials rawMaterials;
+}
+
+@Entity
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
+@Table(name = "Stock")
+public class Stock {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
+    private double quantity;
+    private LocalDateTime createdAt;
+    private LocalDateTime updatedAt;
+    private String categoryName;
+
+    @ManyToOne
+    @JoinColumn(name = "raw_material_id")
+    private RawMaterials rawMaterials;
+
+    @ManyToOne
+    @JoinColumn(name = "product_id")
+    private Product product;
+
+    @ManyToOne
+    @JoinColumn(name = "warehouse_id")
+    private Warehouse warehouse;
+}
+
+@Entity
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
+@Table(name = "Supplier")
+public class Supplier {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
+    private String name;
+    private String contactPerson;
+    private String email;
+    private String phone;
+    private String address;
+    private Date createdAt;
+    private Date updatedAt;
+    private String status;
+
+    @ManyToMany
+    @JoinTable(name = "supplier_product",
+               joinColumns = @JoinColumn(name = "supplier_id"),
+               inverseJoinColumns = @JoinColumn(name = "product_id"))
+    private List<Product> products;
+}
+
+@Entity
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
+@Table(name = "Warehouse")
+public class Warehouse {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
+    private String name;
+    private String location;
+    private long capacity;
+    private String contact;
+}
+
+@Entity
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
+@Table(name = "RawMaterials")
+public class RawMaterials {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
+    private String rawCategoryName;
+    private String rawMaterialName;
+    private String description;
+    private double unitPrice;
+    private String attachment;
+
+    @ManyToOne
+    @JoinColumn(name = "style_category_id")
+    private StyleCategories styleCategories;
+
+    @ManyToOne
+    @JoinColumn(name = "customer_id")
+    private Customer customer;
+}
+
+@Entity
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
+@Table(name = "StyleCategories")
+public class StyleCategories {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
+    private String name;
+    private String code;
+    private String description;
+    private String size;
+    private String trimName;
+    private double materialQuantity;
+
+    private LocalDateTime createdAt;
+    private LocalDateTime updatedAt;
+}
+
+@Entity
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
+@Table(name = "OrderItem")
+public class OrderItem {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
+    @ManyToOne
+    @JoinColumn(name = "customer_id", nullable = false)
+    private Customer customer;
+
+    @ManyToOne
+    @JoinColumn(name = "product_id", nullable = false)
+    private Product product;
+
+    private long quantity;
+    private String status;
+    private LocalDateTime orderDate;
+    private LocalDate deliveryDate;
+    private double totalPrice;
+}
+Services
+java
+Copy code
+@Service
+public class CustomerService {
+
+    @Autowired
+    private CustomerRepository customerRepository;
+
+    @Autowired
+    private OrderItemRepository orderItemRepository;
+
+    @Autowired
+    private SaleRepository saleRepository;
+
+    public List<Customer> getAllCustomers() {
+        return customerRepository.findAll();
+    }
+
+    public Customer saveCustomer(Customer customer) {
+        customer.setCreatedAt(LocalDateTime.now());
+        customer.setUpdatedAt(LocalDateTime.now());
+        return customerRepository.save(customer);
+    }
+
+    public Customer findCustomerById(Long id) {
+        return customerRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("No customer found with id: " + id));
+    }
+
+    public Customer updateCustomer(Customer customer, Long id) {
+        customer.setUpdatedAt(LocalDateTime.now());
+        return customerRepository.save(customer);
+    }
+
+    public void deleteCustomerById(Long id) {
+        long orderCount = orderItemRepository.countByCustomerId(id);
+        long saleCount = saleRepository.countByCustomerId(id);
+
+        if (orderCount > 0 || saleCount > 0) {
+            throw new RuntimeException("Cannot delete customer with associated orders or sales.");
+        }
+
+        customerRepository.deleteById(id);
+    }
+}
+
+@Service
+public class ProductService {
+
+    @Autowired
+    private ProductRepository productRepository;
+
+    @Autowired
+    private InventoryItemRepository inventoryItemRepository;
+
+    public Product saveProduct(Product product) {
+        return productRepository.save(product);
+    }
+
+    public List<Product> getAllProducts() {
+        return productRepository.findAll();
+    }
+
+    public Product findProductById(Long id) {
+        return productRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("No product found with id: " + id));
+    }
+
+    public Product updateProduct(Product product, Long id) {
+        return productRepository.save(product);
+    }
+
+    public void deleteProductById(Long id) {
+        List<InventoryItem> inventoryItems = inventoryItemRepository.getByProductId(id);
+        for (InventoryItem item : inventoryItems) {
+            item.setProduct(null);
+            inventoryItemRepository.save(item);
+        }
+        productRepository.deleteById(id);
+    }
+}
+Key Points:
+Relationships: Established ManyToOne, OneToMany, and ManyToMany relationships between entities like Product, Supplier, OrderItem, Warehouse, etc.
+Services: Implemented key business logic for CRUD operations with appropriate error handling, including logic for associating entities like Customer, Product, Stock, and InventoryItem.

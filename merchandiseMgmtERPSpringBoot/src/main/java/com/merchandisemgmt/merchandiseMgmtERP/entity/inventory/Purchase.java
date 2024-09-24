@@ -45,4 +45,8 @@ public class Purchase {
     @ManyToOne
     @JoinColumn
     private RawMateriaes rawMateriaes;
+
+    @ManyToOne
+    @JoinColumn
+    private InventoryItem inventoryItem;
 }

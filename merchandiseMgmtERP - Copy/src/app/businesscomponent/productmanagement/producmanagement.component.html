@@ -5,23 +5,72 @@
         <h2 class="text">Add Product</h2>
         <form (ngSubmit)="addProduct()">
             <div class="row">
-                <div class="col-md-3">
+                <div class="col-md-1">
+                    <label>Name:</label>
                     <input type="text" [(ngModel)]="newProduct.name" name="name" class="form-control"
                         placeholder="Product Name" required />
 
                 </div>
 
-                <div class="col-md-4">
+                <div class="col-md-1">
+                    <label>Discription:</label>
                     <input type="text" [(ngModel)]="newProduct.description" name="description" class="form-control"
                         placeholder="Description" required />
                 </div>
 
-                <div class="col-md-3">
+                <div class="col-md-1">
+                    <label>Price:</label>
                     <input type="number" [(ngModel)]="newProduct.price" name="price" class="form-control"
                         placeholder="Price" required min="0" />
                 </div>
 
-                <div class="col-md-2">
+                <div class="col-md-1">
+                    <label>Quantity:</label>
+                    <input type="number" [(ngModel)]="newProduct.quantity" name="quantity" class="form-control"
+                        placeholder="quantity" required min="0" />
+                </div>
+
+                <div class="col-md-1">
+                    <label>purchaseDate:</label>
+                    <input type="datetime-local" [(ngModel)]="newProduct.purchaseDate" name="purchaseDate" class="form-control"
+                        placeholder="purchaseDate" required min="0" />
+                </div>
+
+
+                <div class="col-md-1">
+                    <label>dalivaryDate:</label>
+                    <input type="datetime-local" [(ngModel)]="newProduct.dalivaryDate" name="dalivaryDate" class="form-control"
+                        placeholder="dalivaryDate" required min="0" />
+                </div>
+
+                <div class="col-md-1">
+                    <label>purchaseDate:</label>
+                    <input type="text" [(ngModel)]="newProduct.puchaseStatus" name="puchaseStatus" class="form-control"
+                        placeholder="puchaseStatus" required min="0" />
+                </div>
+
+                <div class="col-md-1">
+                    <label>Paid:</label>
+                    <input type="number" [(ngModel)]="newProduct.paid" name="paid" class="form-control"
+                        placeholder="paid" required min="0" />
+                </div>
+
+                <div class="col-md-1">
+                    <label>Tax:</label>
+                    <input type="number" [(ngModel)]="newProduct.tax" name="tax" class="form-control"
+                        placeholder="tax" required min="0" />
+                </div>
+
+                <div class="col-md-1">
+                    <label>Total price:</label>
+                    <input type="number" [(ngModel)]="newProduct.totalPrice" name="totalPrice" class="form-control"
+                        placeholder="totalPrice" required min="0" />
+                </div>
+
+                
+
+
+                <div class="col-md-1">
                     <button type="submit" class="btn btn-success">Add Product</button>
                 </div>
 
@@ -38,6 +87,13 @@
                 <th>Name</th>
                 <th>Description</th>
                 <th>Price</th>
+                <th>quantity</th>
+                <th>purchaseDate</th>
+                <th>dalivaryDate</th>
+                <th>puchaseStatus</th>
+                <th>tax</th>
+                <th>totalPrice</th>
+                <th>paid</th>
                 <th>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Actions</th>
             </tr>
         </thead>
@@ -47,6 +103,13 @@
                 <td>{{ product.name }}</td>
                 <td>{{ product.description }}</td>
                 <td>{{ product.price | currency }}</td>
+                <td>{{ product.quantity }}</td>
+                <td>{{ product.purchaseDate | date }}</td>
+                <td>{{ product.dalivaryDate | date }}</td>
+                <td>{{ product.puchaseStatus }}</td>
+                <td>{{ product.tax  }}</td>
+                <td>{{ product.paid | currency }}</td>
+                <td>{{ product.totalPrice | currency }}</td>
                 <td>
                     <button class="btn btn-warning" (click)="editProduct(product.id)">Edit</button>&nbsp;&nbsp;
                     <button class="btn btn-danger" (click)="deleteProduct(product.id)">Delete</button>

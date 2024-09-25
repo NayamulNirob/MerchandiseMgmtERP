@@ -22,7 +22,7 @@ public class ProductCategory {
 
     private String categoryCode;
 
-    @Column(nullable = false)
+
     private String name;
 
     private String description;
@@ -45,11 +45,5 @@ public class ProductCategory {
         }
         return sb.toString();
     }
-
-
-    @ManyToOne
-    @JoinColumn
-    private Product product;
-
 
 }

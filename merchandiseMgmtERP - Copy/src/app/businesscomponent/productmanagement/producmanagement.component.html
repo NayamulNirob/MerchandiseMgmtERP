@@ -220,7 +220,7 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr *ngFor="let product of products ,let i = index">
+                        <tr *ngFor="let product of filteredProducts ,let i = index">
                             <td>{{ i+1 }}</td>
                             <td>{{ product.name }}</td>
                             <td>{{ product.description }}</td>

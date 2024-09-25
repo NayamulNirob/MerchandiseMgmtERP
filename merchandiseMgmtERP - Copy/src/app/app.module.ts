@@ -32,6 +32,7 @@ import { SupplierUpdateComponent } from './businesscomponent/supplier-update/sup
 import { UpdateInventoryComponent } from './businesscomponent/update-inventory/update-inventory.component';
 import { UpdatecustomerComponent } from './businesscomponent/updatecustomer/updatecustomer.component';
 import { DatePipe } from '@angular/common';
+import { ProductcategoryComponent } from './businesscomponent/productcategory/productcategory.component';
 
 
 
@@ -60,7 +61,8 @@ import { DatePipe } from '@angular/common';
     WarehouseupdateComponent,
     SupplierUpdateComponent,
     UpdateInventoryComponent,
-    UpdatecustomerComponent
+    UpdatecustomerComponent,
+    ProductcategoryComponent
   
 
   ],

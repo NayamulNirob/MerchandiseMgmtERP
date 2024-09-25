@@ -12,6 +12,11 @@ export class ProductService {
 
   private baseUrl = "http://localhost:8089/api/product";
 
+  
+  private products: Product[] = [];
+
+  private newProducts:Product=new Product();
+
   constructor(private http: HttpClient) {}  
 
   
@@ -39,6 +44,33 @@ export class ProductService {
   getProductById(productId: number):Observable<any> {  
     return this.http.get<any>(`${this.baseUrl}/${productId}`); 
   }  
+
+
+  getByProducts(): Product[] {
+    return this.products;
+  }
+
+  getByProduct():Product{
+    return this.newProducts;
+  }
+
+  filterProducts(searchTerm: string): Product[] {
+    return this.products.filter(product =>
+      product.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      product.productCode.toLowerCase().includes(searchTerm.toLowerCase())
+    );
+  }
+
+  sortProducts(by: 'name' | 'productCode' | 'description'): Product[] {
+    return this.products.sort((a, b) => {
+      if (a[by] < b[by]) return -1;
+      if (a[by] > b[by]) return 1;
+      return 0;
+    });
+  }
+
+
+  
 
   
 }

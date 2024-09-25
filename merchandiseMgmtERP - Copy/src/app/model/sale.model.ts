@@ -8,17 +8,15 @@ export class Product {
   name!: string;
   description!: string;
   price!: number;
-  puchaseStatus!:string;
+  productCode!:string;
   purchaseDate!:Date;
   dalivaryDate!:Date;
   quantity!:number;
   tax!:number;
   paid!:number;
+  due!:number;
   totalPrice!:number;
   supplier:Supplier=new Supplier();
-  warehouse:WareHouse=new WareHouse();
-  inventories:InventoryItem[]=[];
-  
 }
 
 // -----------------------------------product-------------------------------

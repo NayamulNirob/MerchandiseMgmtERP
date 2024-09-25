@@ -1,15 +1,13 @@
 package com.merchandisemgmt.merchandiseMgmtERP.entity.inventory;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
-import com.fasterxml.jackson.annotation.JsonManagedReference;
-import com.merchandisemgmt.merchandiseMgmtERP.entity.RawMateriaes;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.time.LocalDateTime;
-import java.util.List;
+import java.security.SecureRandom;
+import java.sql.Date;
 
 @Entity
 @Data
@@ -32,11 +30,11 @@ public class Product {
     @Column(nullable = false)
     private double price;
 
-    private String puchaseStatus;
+    private String productCode;
 
-    private LocalDateTime purchaseDate;
+    private Date purchaseDate;
 
-    private LocalDateTime dalivaryDate;
+    private Date dalivaryDate;
 
     private int quantity;
 
@@ -44,21 +42,40 @@ public class Product {
 
     private double paid;
 
+    private double due;
+
     private double totalPrice;
 
 
 
-    @ManyToOne
-    @JoinColumn
-    private Warehouse warehouse;
+    private static final String CHARACTERS = "hijklmnopqrstuvwxyz456789";
+    private static final int CODE_LENGTH = 5;
+    private static final SecureRandom RANDOM = new SecureRandom();
+
+    @PrePersist
+    private void generateProductCode() {
+        this.productCode = generateRandomCode(CODE_LENGTH);
+    }
+
+    private String generateRandomCode(int length) {
+        StringBuilder sb = new StringBuilder(length);
+        for (int i = 0; i < length; i++) {
+            int index = RANDOM.nextInt(CHARACTERS.length());
+            sb.append(CHARACTERS.charAt(index));
+        }
+        return sb.toString();
+    }
+
+
+
 
     @JsonBackReference
     @ManyToOne
     @JoinColumn
     private Supplier supplier;
 
-    @JsonManagedReference
-    @OneToMany(fetch = FetchType.EAGER)
-    private List<InventoryItem> inventoryItemList;
+//    @JsonManagedReference
+//    @OneToMany(fetch = FetchType.EAGER)
+//    private List<InventoryItem> inventoryItemList;
 
 }

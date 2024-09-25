@@ -21,10 +21,19 @@ public class ProductService {
 
     public Product saveProduct(Product p) {
         try {
-            double totalPrice = (p.getQuantity() * p.getPrice()* p.getTax())/100;
+
+            double totalPriceWithoutTax = p.getQuantity() * p.getPrice();
+
+
+            double taxAmount = totalPriceWithoutTax * (p.getTax() / 100);
+
+
+            double totalPrice = totalPriceWithoutTax + taxAmount;
+
+            double due= p.getPaid()-totalPrice;
+            p.setDue(due);
             p.setTotalPrice(totalPrice);
             p.setSupplier(null);
-            p.setWarehouse(null);
             return productRepository.save(p);
         } catch (Exception e) {
             System.err.println("Error saving product: " + e.getMessage());

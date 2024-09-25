@@ -1,124 +1,240 @@
-<div class="container  text-color-light">
-    <h1 class="text-center color-light">Product Management</h1><br>
+<div class="col-12 grid-margin ">
+    <div class="card bg-dark text-white">
+        <div class="card-body ">
+            <h4 class="card-title">Purchase new Product</h4>
+            <form class="form-sample" (ngSubmit)="addProduct()">
 
-    <div class="mb-4">
-        <h2 class="text">Add Product</h2>
-        <form (ngSubmit)="addProduct()">
-            <div class="row">
-                <div class="col-md-1">
-                    <label>Name:</label>
-                    <input type="text" [(ngModel)]="newProduct.name" name="name" class="form-control"
-                        placeholder="Product Name" required />
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group row">
+                            <label class="col-sm-3 col-form-label">Product Name:</label>
+                            <div class="col-sm-9">
+                                <input type="text" [(ngModel)]="newProduct.name" name="name" class="form-control"
+                                    placeholder="Product Name" required />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group row">
+                            <label class="col-sm-3 col-form-label">Discription:</label>
+                            <div class="col-sm-9">
+                                <input type="text" [(ngModel)]="newProduct.description" name="description"
+                                    class="form-control" placeholder="Description" required />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group row">
+                            <label class="col-sm-3 col-form-label">Price</label>
+                            <div class="col-sm-9">
+                                <input type="number" [(ngModel)]="newProduct.price" name="price" class="form-control"
+                                    placeholder="Price" required min="0" />
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6">
+                        <div class="form-group row">
+                            <label class="col-sm-3 col-form-label">Quantity</label>
+                            <div class="col-sm-9">
+                                <input type="number" [(ngModel)]="newProduct.quantity" name="quantity"
+                                    class="form-control" placeholder="Quantity" required min="0" />
+                            </div>
+                        </div>
+                    </div>
 
                 </div>
 
-                <div class="col-md-1">
-                    <label>Discription:</label>
-                    <input type="text" [(ngModel)]="newProduct.description" name="description" class="form-control"
-                        placeholder="Description" required />
+                <div class="row">
+                    <!-- <div class="col-md-6">
+                                <div class="form-group row">
+                                    <label class="col-sm-3 col-form-label">Category</label>
+                                    <div class="col-sm-9">
+                                        <select class="form-control">
+                                            <option>Category1</option>
+                                            <option>Category2</option>
+                                            <option>Category3</option>
+                                            <option>Category4</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div> -->
+                    <!-- <div class="col-md-6">
+                                <div class="form-group row">
+                                     <label class="col-sm-3 col-form-label">Membership</label>
+                                    <div class="col-sm-4">
+                                        <div class="form-check">
+                                            <label class="form-check-label">
+                                                <input type="radio" class="form-check-input" name="membershipRadios"
+                                                    id="membershipRadios1" value="" checked> Free </label>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-5">
+                                        <div class="form-check">
+                                            <label class="form-check-label">
+                                                <input type="radio" class="form-check-input" name="membershipRadios"
+                                                    id="membershipRadios2" value="option2"> Professional </label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div> -->
                 </div>
 
-                <div class="col-md-1">
-                    <label>Price:</label>
-                    <input type="number" [(ngModel)]="newProduct.price" name="price" class="form-control"
-                        placeholder="Price" required min="0" />
+                <div class="row">
+
+
+                    <div class="col-md-6">
+                        <div class="form-group row">
+                            <label class="col-sm-3 col-form-label">Date of Purchase</label>
+                            <div class="col-sm-9">
+                                <input type="date" [(ngModel)]="newProduct.purchaseDate" name="purchaseDate"
+                                    class="form-control" placeholder="purchaseDate" required min="0" />
+                            </div>
+                        </div>
+                    </div>
+
+
+
+                    <div class="col-md-6">
+                        <div class="form-group row">
+                            <label class="col-sm-3 col-form-label">Date of Dalivary</label>
+                            <div class="col-sm-9">
+                                <input type="date" [(ngModel)]="newProduct.dalivaryDate" name="dalivaryDate"
+                                    class="form-control" placeholder="Dalivary Date" required min="0" />
+                            </div>
+                        </div>
+                    </div>
                 </div>
-
-                <div class="col-md-1">
-                    <label>Quantity:</label>
-                    <input type="number" [(ngModel)]="newProduct.quantity" name="quantity" class="form-control"
-                        placeholder="quantity" required min="0" />
+                <div class="row">
+                    <!-- <div class="col-md-6">
+                        <div class="form-group row">
+                            <label class="col-sm-3 col-form-label">Trace Code</label>
+                            <div class="col-sm-9">
+                                <input type="text" [(ngModel)]="newProduct.productCode" name="puchaseStatus"
+                                    class="form-control" placeholder="Product Code" required min="0" />
+                            </div>
+                        </div>
+                    </div> -->
+                    <div class="col-md-6">
+                        <div class="form-group row">
+                            <label class="col-sm-3 col-form-label">Paid Amount</label>
+                            <div class="col-sm-9">
+                                <input type="number" [(ngModel)]="newProduct.paid" name="paid" class="form-control"
+                                    [placeholder]="calculateTotalAmount() | currency:'USD':true:'1.2-2'" required
+                                    min="0" />
+                            </div>
+                        </div>
+                    </div>
                 </div>
-
-                <div class="col-md-1">
-                    <label>purchaseDate:</label>
-                    <input type="datetime-local" [(ngModel)]="newProduct.purchaseDate" name="purchaseDate" class="form-control"
-                        placeholder="purchaseDate" required min="0" />
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group row">
+                            <label class="col-sm-3 col-form-label">Tax Percentage</label>
+                            <div class="col-sm-9">
+                                <input type="number" [(ngModel)]="newProduct.tax" name="tax" class="form-control"
+                                    placeholder="Tax" required min="0" />
+                            </div>
+                        </div>
+                    </div>
+                    <!-- <div class="col-md-6">
+                                <div class="form-group row">
+                                    <label class="col-sm-3 col-form-label">Country</label>
+                                    <div class="col-sm-9">
+                                        <select class="form-control">
+                                            <option>America</option>
+                                            <option>Italy</option>
+                                            <option>Russia</option>
+                                            <option>Britain</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div> -->
                 </div>
+                <button type="submit" class="btn btn-success">Add Product</button>
+            </form>
+        </div>
+    </div>
+</div>
 
 
-                <div class="col-md-1">
-                    <label>dalivaryDate:</label>
-                    <input type="datetime-local" [(ngModel)]="newProduct.dalivaryDate" name="dalivaryDate" class="form-control"
-                        placeholder="dalivaryDate" required min="0" />
-                </div>
 
-                <div class="col-md-1">
-                    <label>purchaseDate:</label>
-                    <input type="text" [(ngModel)]="newProduct.puchaseStatus" name="puchaseStatus" class="form-control"
-                        placeholder="puchaseStatus" required min="0" />
-                </div>
+<div class="row">  
+    <div class="col-md-12 d-flex justify-content-between align-items-start">  
+        <input type="text" class="form-control ms-3 " style="max-width: 250px;" [(ngModel)]="searchTerm"  
+               (input)="filterProducts()" placeholder="Search by Product name or code..." />  
 
-                <div class="col-md-1">
-                    <label>Paid:</label>
-                    <input type="number" [(ngModel)]="newProduct.paid" name="paid" class="form-control"
-                        placeholder="paid" required min="0" />
-                </div>
-
-                <div class="col-md-1">
-                    <label>Tax:</label>
-                    <input type="number" [(ngModel)]="newProduct.tax" name="tax" class="form-control"
-                        placeholder="tax" required min="0" />
-                </div>
-
-                <div class="col-md-1">
-                    <label>Total price:</label>
-                    <input type="number" [(ngModel)]="newProduct.totalPrice" name="totalPrice" class="form-control"
-                        placeholder="totalPrice" required min="0" />
-                </div>
-
-                
+        <div class="d-flex align-items-center">  
+            <label>Short by <span class="" (click)="toggleSortBy()" style="cursor: pointer;">&#9662;</span></label> 
+            
+            <select [(ngModel)]="sortBy" (change)="sortProducts()" class="form-control mb-1 me-3" style="max-width: 150px;">  
+                <option value="name">Name</option>  
+                <option value="productCode">Code</option>  
+                <option value="description">Description</option>  
+            </select>  
+             <!-- Down arrow -->  
+        </div>  
+    </div>  
+</div>
 
 
-                <div class="col-md-1">
-                    <button type="submit" class="btn btn-success">Add Product</button>
-                </div>
+
+<div class="col-lg-12 grid-margin stretch-card">
+
+    <div class="card bg-dark text-white">
+        <div class="card-body ">
+            <h4 class="card-title">Purchase List</h4>
+
+
+            <div class="table-responsive">
+                <table class="table table table-dark table-striped">
+
+                    <thead>
+
+                        <tr>
+                            <th>SL</th>
+                            <th>Name</th>
+                            <th>Description</th>
+                            <th>Price</th>
+                            <th>Quantity</th>
+                            <th>PurchaseDate</th>
+                            <th>DalivaryDate</th>
+                            <th>Code</th>
+                            <th>Tax</th>
+                            <th>Paid</th>
+                            <th>Due</th>
+                            <th>TotalPrice</th>
+                            <th>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Actions
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let product of products ,let i = index">
+                            <td>{{ i+1 }}</td>
+                            <td>{{ product.name }}</td>
+                            <td>{{ product.description }}</td>
+                            <td>{{ product.price | currency }}</td>
+                            <td>{{ product.quantity }}</td>
+                            <td>{{ product.purchaseDate | date }}</td>
+                            <td>{{ product.dalivaryDate | date }}</td>
+                            <td>{{ product.productCode }}</td>
+                            <td>{{ product.tax }}</td>
+                            <td>{{ product.paid | currency }}</td>
+                            <td>{{ product.due| currency }}</td>
+                            <td>{{ product.totalPrice | currency }}</td>
+                            <td>
+                                <button class="btn btn-warning"
+                                    (click)="editProduct(product.id)">Edit</button>&nbsp;&nbsp;
+                                <button class="btn btn-danger" (click)="deleteProduct(product.id)">Delete</button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+
+
 
             </div>
-            
-        </form>
+        </div>
     </div>
-
-    <h2>Product List</h2>
-    <table class="table table-bordered mt-3">
-        <thead class="thead-dark">
-            <tr>
-                <th>ID</th>
-                <th>Name</th>
-                <th>Description</th>
-                <th>Price</th>
-                <th>quantity</th>
-                <th>purchaseDate</th>
-                <th>dalivaryDate</th>
-                <th>puchaseStatus</th>
-                <th>tax</th>
-                <th>totalPrice</th>
-                <th>paid</th>
-                <th>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Actions</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr *ngFor="let product of products">
-                <td>{{ product.id }}</td>
-                <td>{{ product.name }}</td>
-                <td>{{ product.description }}</td>
-                <td>{{ product.price | currency }}</td>
-                <td>{{ product.quantity }}</td>
-                <td>{{ product.purchaseDate | date }}</td>
-                <td>{{ product.dalivaryDate | date }}</td>
-                <td>{{ product.puchaseStatus }}</td>
-                <td>{{ product.tax  }}</td>
-                <td>{{ product.paid | currency }}</td>
-                <td>{{ product.totalPrice | currency }}</td>
-                <td>
-                    <button class="btn btn-warning" (click)="editProduct(product.id)">Edit</button>&nbsp;&nbsp;
-                    <button class="btn btn-danger" (click)="deleteProduct(product.id)">Delete</button>
-                </td>
-            </tr>
-        </tbody>
-    </table>
-
-
-
-
 </div>

@@ -1,21 +1,116 @@
-  <div class="container mt-4">  
-    <h2 class="h2">Edit Product</h2>  
-    <div *ngIf="errorMessage" class="alert alert-danger mt-4">{{ errorMessage }}</div>  
-    
-    <form (ngSubmit)="updateProduct()" *ngIf="product">  
-      <div class="mb-3">  
-        <label for="name" class="form-label">Name</label>  
-        <input id="name" [(ngModel)]="product.name" name="name" class="form-control" required />  
-      </div>  
-      <div class="mb-3">  
-        <label for="description" class="form-label">Description</label>  
-        <input id="description" [(ngModel)]="product.description" name="description" class="form-control" />  
-      </div>  
-      <div class="mb-3">  
-        <label for="price" class="form-label">Price</label>  
-        <input type="number" id="price" [(ngModel)]="product.price" name="price" class="form-control" required />  
-      </div>  
-     
-      <button type="submit" class="btn btn-primary">Update Product</button>  
-    </form>  
+<!-- <div class="container mt-4">
+  <h2 class="h2">Edit Product</h2>
+  <div *ngIf="errorMessage" class="alert alert-danger mt-4">{{ errorMessage }}</div>
+
+  <form (ngSubmit)="updateProduct()" *ngIf="product">
+    <div class="mb-3">
+      <label for="name" class="form-label">Name</label>
+      <input id="name" [(ngModel)]="product.name" name="name" class="form-control" required />
+    </div>
+    <div class="mb-3">
+      <label for="description" class="form-label">Description</label>
+      <input id="description" [(ngModel)]="product.description" name="description" class="form-control" />
+    </div>
+    <div class="mb-3">
+      <label for="price" class="form-label">Price</label>
+      <input type="number" id="price" [(ngModel)]="product.price" name="price" class="form-control" required />
+    </div>
+
+    <button type="submit" class="btn btn-primary">Update Product</button>
+  </form>
+</div> -->
+
+<div class="col-12 grid-margin stretch-card">
+  <div class="card bg-dark text-white">
+    <div class="card-body">
+      <h4 class="card-title">Edit Product From List</h4>
+      <p class="card-description"> Update if any Correcton needed </p>
+      <div *ngIf="errorMessage" class="alert alert-danger mt-4">{{ errorMessage }}</div>
+      <form class="forms-sample" (ngSubmit)="updateProduct()" *ngIf="product">
+        
+        <div class="form-group">
+          <label for="name">Product Name</label>
+          <input id="name" [(ngModel)]="product.name" name="name" class="form-control" required />
+        </div>
+       
+
+        <div class="form-group">
+          <label for="description">Product Description</label>
+          <textarea class="form-control" id="description" rows="2" [(ngModel)]="product.description" name="description"></textarea>
+        </div>
+
+        <div class="form-group">
+          <label for="exampleInputPassword4">Product Price</label>
+          <input type="number" id="price" [(ngModel)]="product.price" name="price" class="form-control" required />
+        </div>
+        <!-- <div class="form-group">
+          <label for="exampleSelectGender">Gender</label>
+          <select class="form-control" id="exampleSelectGender">
+            <option>Male</option>
+            <option>Female</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>File upload</label>
+          <input type="file" name="img[]" class="file-upload-default">
+          <div class="input-group col-xs-12">
+            <input type="text" class="form-control file-upload-info" disabled placeholder="Upload Image">
+            <span class="input-group-append">
+              <button class="file-upload-browse btn btn-primary" type="button">Upload</button>
+            </span>
+          </div>
+        </div> -->
+        <div class="form-group">
+          <label for="quantity">Quantity</label>
+          <input type="number" class="form-control" id="quantity" placeholder="Quantity"  [(ngModel)]="product.quantity" name="quantity">
+        </div>
+
+        <div class="form-group">
+          <label for="purchaseDate">Purchase Date</label>
+          <input type="date" class="form-control" id="purchaseDate" placeholder="Purchase Date"  [(ngModel)]="product.purchaseDate" name="purchaseDate" disabled>
+        </div>
+
+        <div class="form-group">
+          <label for="dalivaryDate">Dalivary Date</label>
+          <input type="date" class="form-control" id="dalivaryDate" placeholder="Dalivary Date"  [(ngModel)]="product.dalivaryDate" name="dalivaryDate">
+        </div>
+
+
+        
+        <div class="form-group">
+          <label for="productCode">Product Code</label>
+          <input type="text" class="form-control" id="productCode" placeholder="Product Code"  [(ngModel)]="product.productCode" name="productCode">
+        </div>
+
+
+        <div class="form-group">
+          <label for="tax">Tax</label>
+          <input type="number" class="form-control" id="tax" placeholder="Tax"  [(ngModel)]="product.tax" name="tax" disabled>
+        </div>
+
+        <div class="form-group">
+          <label for="paid">Paid Amount</label>
+          <input type="number" class="form-control" id="paid" placeholder="paid"  [(ngModel)]="product.paid" name="paid" >
+        </div>
+
+        
+        <div class="form-group">
+          <label for="due">Due Amount</label>
+          <input type="number" class="form-control" id="due" placeholder="due"  [(ngModel)]="product.due" name="due" >
+        </div>
+
+
+        <div class="form-group">
+          <label for="totalPrice">Total Amount</label>
+          <input type="number" class="form-control" id="totalPrice" placeholder="totalPrice"  [(ngModel)]="product.totalPrice" name="totalPrice" >
+        </div>
+
+
+       
+       
+        <button type="submit" class="btn btn-primary mr-2">Submit</button>
+        <button class="btn btn-dark">Cancel</button>
+      </form>
+    </div>
+  </div>
 </div>

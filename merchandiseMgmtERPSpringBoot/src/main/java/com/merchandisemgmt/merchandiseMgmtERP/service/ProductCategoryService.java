@@ -54,7 +54,7 @@ public class ProductCategoryService {
 
         Files.copy(file.getInputStream(), filePath);
 
-        return fileName; 
+        return fileName;
     }
 
 

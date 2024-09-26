@@ -6,4 +6,5 @@ export class ProductCategory{
     categoryCode!:string;
     name!:string;
     description!:string;
+    image!:string;
 }

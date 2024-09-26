@@ -1,6 +1,5 @@
 package com.merchandisemgmt.merchandiseMgmtERP.entity;
 
-import com.merchandisemgmt.merchandiseMgmtERP.entity.inventory.Product;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -26,6 +25,8 @@ public class ProductCategory {
     private String name;
 
     private String description;
+
+    private String image;
 
 
     private static final String CHARACTERS = "0123ABCDEFG";

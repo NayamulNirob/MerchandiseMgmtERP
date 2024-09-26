@@ -9,24 +9,43 @@
                     <div class="form-group">
                         <label for="name">Category Name</label>
                         <input type="text" class="form-control" id="name" placeholder="Category Name"
-                            [(ngModel)]="newCategory.name"  name="name">
+                            [(ngModel)]="newCategory.name" name="name">
                     </div>
-                    <!-- <div class="form-group">
-                        <label for="description">Description</label>
-                        <input type="description" class="form-control" id="description"
-                            placeholder="Category Description" [(ngModel)]="newCategory.description"  name="description">
-                    </div> -->
 
                     <div class="form-group">
                         <label for="description">Description</label>
-                        <textarea class="form-control" id="description" rows="2" [(ngModel)]="newCategory.description" name="description"></textarea>
-                      </div>
+                        <textarea class="form-control" id="description" rows="2" [(ngModel)]="newCategory.description"
+                            name="description"></textarea>
+                    </div>
 
                     <div class="form-group">
                         <label for="categoryCode">Category Code</label>
-                        <input type="categoryCode" class="form-control" id="categoryCode" placeholder="Category Code" 
+                        <input type="text" class="form-control" id="categoryCode" placeholder="Category Code"
                             [(ngModel)]="newCategory.categoryCode" name="categoryCode" disabled>
                     </div>
+
+                    <div class="form-group">
+                        <label for="categoryCode">Attachment</label>
+                        <input type="file" class="form-control" id="formFileMultiple"
+                            (change)="onFileSelected($event)" accept="image/*" required>
+
+
+                    </div>
+
+                    <!-- <div class="form-group">
+                        <label>File upload</label>
+                        <input type="file" name="img[]" class="file-upload-default" accept="image/*"
+                            id="formFileMultiple">
+                        <div class="input-group col-xs-12">
+                            <input type="text" class="form-control file-upload-info" disabled
+                                placeholder="Upload Image">
+                            <span class="input-group-append">
+                                <button class="file-upload-browse btn btn-primary" type="button">Upload</button>
+                            </span>
+                        </div>
+                    </div> -->
+
+
                     <button type="submit" class="btn btn-primary mr-2">Submit</button>
                     <button class="btn btn-dark">Cancel</button>
                 </form>
@@ -47,7 +66,8 @@
                                 <th> Category</th>
                                 <th> Description</th>
                                 <th> Code </th>
-                            
+                                <th> Attachment</th>
+
                             </tr>
                         </thead>
                         <tbody>
@@ -127,7 +147,8 @@
                                 <td>{{ cat.name }}</td>
                                 <td>{{ cat.description }}</td>
                                 <td>{{ cat.categoryCode}}</td>
-                                
+                                <td>{{ cat.image}}</td>
+
                             </tr>
 
                         </tbody>

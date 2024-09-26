@@ -3,24 +3,51 @@ package com.merchandisemgmt.merchandiseMgmtERP.service;
 import com.merchandisemgmt.merchandiseMgmtERP.entity.ProductCategory;
 import com.merchandisemgmt.merchandiseMgmtERP.repository.ProductCategoryRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.web.multipart.MultipartFile;
 
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.List;
+import java.util.UUID;
 
 @Service
-@Transactional
+
 public class ProductCategoryService {
     @Autowired
     private ProductCategoryRepository productCategoryRepository;
+
+    @Value("${image.upload.dir}")
+    private String uploadDir;
 
 
     public List<ProductCategory> viewAllCategories() {
         return productCategoryRepository.findAll();
     }
 
-    public ProductCategory saveCategory(ProductCategory productCategory) {
-        return productCategoryRepository.save(productCategory);
+    @Transactional
+    public ProductCategory saveCategory(ProductCategory category, MultipartFile imageFile) throws IOException {
+        if(imageFile!=null && !imageFile.isEmpty()){
+            String imageFileName=saveImage(imageFile);
+            category.setImage(imageFileName);
+        }
+        return productCategoryRepository.save(category);
+    }
+
+    private String saveImage(MultipartFile imageFile) throws IOException {
+        Path uploadPath= Paths.get(uploadDir);
+        if(!Files.exists(uploadPath)){
+            Files.createDirectory(uploadPath);
+        }
+        String fileName = UUID.randomUUID()+"_"+imageFile.getOriginalFilename().toString();
+        Path filePath = uploadPath.resolve(fileName);
+        Files.copy(imageFile.getInputStream(), filePath);
+
+        return fileName;
     }
 
 

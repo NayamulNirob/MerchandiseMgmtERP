@@ -14,7 +14,8 @@ export class ProductcategoryComponent implements OnInit {
   categories: ProductCategory[] = [];
   newCategory: ProductCategory = new ProductCategory();
 
-  product: Product = new Product();
+  selectedFile: File | null = null;
+
 
   constructor(private categoriesService: ProductcategoryService,
     private router: Router
@@ -38,18 +39,29 @@ export class ProductcategoryComponent implements OnInit {
     });
   }
 
+  onFileSelected(event: any) {
+    this.selectedFile = event.target.files[0];
+  }
 
-  addProductCategories(): void {
-    this.categoriesService.createProductCategory(this.newCategory).subscribe({
-      next: res => {
-        this.newCategory = new ProductCategory();
-        this.loadCategories();
-      },
-      error: error => {
-        console.log(error);
-        alert(error);
-      }
-    });
+
+  addProductCategories() {
+    if (this.selectedFile) {
+      this.categoriesService.createProductCategory(this.newCategory,this.selectedFile).subscribe({
+        next: res => {
+          console.log(this.newCategory);
+          this.newCategory = new ProductCategory();
+          this.loadCategories();
+        },
+        error: error => {
+          console.log(error);
+          alert(error);
+        }
+      });
+    }
+    else{
+      alert('Please Select an image');
+    }
+
   }
 
 

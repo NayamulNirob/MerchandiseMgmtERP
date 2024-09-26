@@ -147,7 +147,10 @@
                                 <td>{{ cat.name }}</td>
                                 <td>{{ cat.description }}</td>
                                 <td>{{ cat.categoryCode}}</td>
-                                <td>{{ cat.image}}</td>
+                                <!-- <td> <img [src]="cat.image" alt="image"/></td> -->
+                                <td >
+                                    <img [src]="'http://localhost:8089/images' + cat.image"  alt="{{ cat.name }}">
+                                </td>
 
                             </tr>
 
@@ -157,4 +160,9 @@
             </div>
         </div>
     </div>
+    
 </div>
+
+
+
+    

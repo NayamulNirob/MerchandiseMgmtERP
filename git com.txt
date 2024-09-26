@@ -4,14 +4,32 @@ git config --global http.postBuffer 2147483648
 
 git config --global http.postBuffer 4294967296
 
+git config http.postBuffer 524288000
 
 git config --global --get http.postBuffer
 
 git clone https://github.com/NayamulNirob/MerchandiseMgmtERP.git
 
+git pull origin main
+
 
 CODE FOR PC HIDEEN SETTING
 {ED7BA470-8E54-465E-825C-99712043E01C}
+
+
+Check for Large File Issues:
+If you are trying to push a large file, GitHub has specific size limits. If you include any large files, see if they are within the size limitations. You may need to use Git LFS (Large File Storage) if you are handling large files:
+
+git lfs install  
+git lfs track "*.psd"  # example for a Photoshop file  
+git add .gitattributes  
+
+
+
+Verbose Output for Debugging:
+You can obtain more information about the push command by using the verbose flag:
+
+GIT_CURL_VERBOSE=1 git push origin main  
 
 
 Step 2: Increase the http.postBuffer

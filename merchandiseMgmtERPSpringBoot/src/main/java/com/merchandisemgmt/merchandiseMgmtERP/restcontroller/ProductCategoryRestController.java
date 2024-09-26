@@ -28,11 +28,10 @@ public class ProductCategoryRestController {
 
     @PostMapping("/save")
     public ResponseEntity<ProductCategory> saveProductCategory(
-            @RequestPart ProductCategory category,
-            @RequestParam(value = "image", required = false)
-            MultipartFile imageFile) {
+            @RequestPart(value = "category") ProductCategory category,
+            @RequestParam(value = "image", required = false) MultipartFile imageFile) {
         try {
-             productCategoryService.saveCategory(category, imageFile);
+            productCategoryService.saveCategory(category, imageFile);
             return new ResponseEntity<>(category, HttpStatus.CREATED);
         } catch (IOException e) {
             return new ResponseEntity<>(category, HttpStatus.INTERNAL_SERVER_ERROR);

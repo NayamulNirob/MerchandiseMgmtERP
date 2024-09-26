@@ -38,16 +38,38 @@ public class ProductCategoryService {
         return productCategoryRepository.save(category);
     }
 
-    private String saveImage(MultipartFile imageFile) throws IOException {
-        Path uploadPath= Paths.get(uploadDir);
-        if(!Files.exists(uploadPath)){
-            Files.createDirectory(uploadPath);
-        }
-        String fileName = UUID.randomUUID()+"_"+imageFile.getOriginalFilename().toString();
-        Path filePath = uploadPath.resolve(fileName);
-        Files.copy(imageFile.getInputStream(), filePath);
+//    private String saveImage(MultipartFile imageFile) throws IOException {
+//        Path uploadPath= Paths.get(uploadDir);
+//        if(!Files.exists(uploadPath)){
+//            Files.createDirectory(uploadPath);
+//        }
+//        String fileName = UUID.randomUUID()+"_"+imageFile.getOriginalFilename().toString();
+//        Path filePath = uploadPath.resolve(fileName);
+//        Files.copy(imageFile.getInputStream(), filePath);
+//
+//        return fileName;
+//    }
 
-        return fileName;
+
+
+
+    private String saveImage(MultipartFile file) throws IOException {
+        Path uploadPath = Paths.get(uploadDir+"/productcategory");
+        System.out.println("************************************");
+        System.out.println("Saving file to: " + uploadPath.toString());
+
+        if (!Files.exists(uploadPath)) {
+            Files.createDirectories(uploadPath);
+            System.out.println("************************************");
+        }
+
+        String fileName = UUID.randomUUID() +"_"+file.getOriginalFilename().toString();
+        Path filePath = uploadPath.resolve(fileName);
+
+        // Save the file
+        Files.copy(file.getInputStream(), filePath);
+
+        return fileName; // Return the filename for storing in the database
     }
 
 

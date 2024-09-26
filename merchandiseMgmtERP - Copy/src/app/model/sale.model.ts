@@ -16,6 +16,7 @@ export class Product {
   paid!:number;
   due!:number;
   totalPrice!:number;
+  image!:string;
   supplier:Supplier=new Supplier();
 }
 

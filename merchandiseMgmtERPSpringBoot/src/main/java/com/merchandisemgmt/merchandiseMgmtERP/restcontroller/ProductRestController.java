@@ -6,6 +6,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
+
+import java.io.IOException;
 import java.util.*;
 
 @RestController
@@ -23,9 +26,16 @@ public class ProductRestController {
     }
 
     @PostMapping("/save")
-    public ResponseEntity<Product> saveProduct(@RequestBody Product product) {
-        Product saveProduct= productService.saveProduct(product);
-        return new ResponseEntity<>(saveProduct, HttpStatus.CREATED);
+    public ResponseEntity<Product> saveProduct(
+            @RequestPart Product product,
+            @RequestParam(value = "image", required = false) MultipartFile imageFile) {
+        try {
+        productService.saveProduct(product,imageFile);
+        return new ResponseEntity<>(product, HttpStatus.CREATED);
+        } catch (IOException e) {
+            return new ResponseEntity<>(product, HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+
     }
 
     @PutMapping("/update/{id}")

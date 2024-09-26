@@ -46,6 +46,8 @@ public class Product {
 
     private double totalPrice;
 
+    private String image;
+
 
 
     private static final String CHARACTERS = "hijklmnopqrstuvwxyz456789";

@@ -16,8 +16,13 @@ export class ProductService {
     return this.http.get<Product[]>(this.baseUrl+"/");
   } 
  
-  createProduct(product: Product): Observable<Product> {  
-    return this.http.post<Product>(this.baseUrl+"/save", product);  
+
+
+  createProduct(product: Product, image: File): Observable<any> { 
+    const fromData = new FormData();
+    fromData.append('product', new Blob([JSON.stringify(product)], { type: 'application/json' }));
+    fromData.append('image', image); 
+    return this.http.post(this.baseUrl+"/save", fromData);  
   }  
   
   editProduct(productId: number, updatedProduct: Product): Observable<Product> {  

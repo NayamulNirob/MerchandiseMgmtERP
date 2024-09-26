@@ -44,6 +44,7 @@ export class ProductcategoryComponent implements OnInit {
   }
 
 
+
   addProductCategories() {
     if (this.selectedFile) {
       this.categoriesService.createProductCategory(this.newCategory,this.selectedFile).subscribe({

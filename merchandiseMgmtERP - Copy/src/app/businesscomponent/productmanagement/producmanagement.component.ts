@@ -23,8 +23,14 @@ export class ProducmanagementComponent implements OnInit {
   wareHouse: WareHouse[] = [];
   inventory: InventoryItem[] = [];
 
+
+  selectedFile: File | null = null;
+
+
+
+
   constructor(private productService: ProductService,
-              private router: Router) { }
+    private router: Router) { }
 
   ngOnInit(): void {
     this.loadProducts();
@@ -62,27 +68,57 @@ export class ProducmanagementComponent implements OnInit {
     this.filteredProducts.sort((a, b) => {
       const aValue = a[this.sortBy as keyof Product];
       const bValue = b[this.sortBy as keyof Product];
-  
+
       if (aValue < bValue) return -1;
       if (aValue > bValue) return 1;
       return 0;
     });
   }
-  
+
+
+  // addProductCategories() {
+  //   if (this.selectedFile) {
+  //     this.categoriesService.createProductCategory(this.newCategory,this.selectedFile).subscribe({
+  //       next: res => {
+  //         console.log(this.newCategory);
+  //         this.newCategory = new ProductCategory();
+  //         this.loadCategories();
+  //       },
+  //       error: error => {
+  //         console.log(error);
+  //         alert(error);
+  //       }
+  //     });
+  //   }
+  //   else{
+  //     alert('Please Select an image');
+  //   }
+
+  // }  
+
+  onFileSelected(event: any) {
+    this.selectedFile = event.target.files[0];
+  }
+
+
 
   addProduct(): void {
-    console.log(this.newProduct)
-    this.productService.createProduct(this.newProduct).subscribe({
-      next: res => {
-        this.newProduct = new Product();
-        this.loadProducts();
-        this.resetNewProducts();
-      },
-      error: error => {
-        console.log(error);
-        alert(error);
-      }
-    });
+    if (this.selectedFile) {
+      this.productService.createProduct(this.newProduct, this.selectedFile).subscribe({
+        next: res => {
+          this.newProduct = new Product();
+          this.loadProducts();
+          this.resetNewProducts();
+        },
+        error: error => {
+          console.log(error);
+          alert(error);
+        }
+      });
+    }
+    else{
+          alert('Please Select an image');
+        }
   }
 
   editProduct(productId: number) {

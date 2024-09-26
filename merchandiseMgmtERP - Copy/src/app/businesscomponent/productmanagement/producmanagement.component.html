@@ -47,40 +47,6 @@
 
                 </div>
 
-                <div class="row">
-                    <!-- <div class="col-md-6">
-                                <div class="form-group row">
-                                    <label class="col-sm-3 col-form-label">Category</label>
-                                    <div class="col-sm-9">
-                                        <select class="form-control">
-                                            <option>Category1</option>
-                                            <option>Category2</option>
-                                            <option>Category3</option>
-                                            <option>Category4</option>
-                                        </select>
-                                    </div>
-                                </div>
-                            </div> -->
-                    <!-- <div class="col-md-6">
-                                <div class="form-group row">
-                                     <label class="col-sm-3 col-form-label">Membership</label>
-                                    <div class="col-sm-4">
-                                        <div class="form-check">
-                                            <label class="form-check-label">
-                                                <input type="radio" class="form-check-input" name="membershipRadios"
-                                                    id="membershipRadios1" value="" checked> Free </label>
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-5">
-                                        <div class="form-check">
-                                            <label class="form-check-label">
-                                                <input type="radio" class="form-check-input" name="membershipRadios"
-                                                    id="membershipRadios2" value="option2"> Professional </label>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div> -->
-                </div>
 
                 <div class="row">
 
@@ -108,15 +74,7 @@
                     </div>
                 </div>
                 <div class="row">
-                    <!-- <div class="col-md-6">
-                        <div class="form-group row">
-                            <label class="col-sm-3 col-form-label">Trace Code</label>
-                            <div class="col-sm-9">
-                                <input type="text" [(ngModel)]="newProduct.productCode" name="puchaseStatus"
-                                    class="form-control" placeholder="Product Code" required min="0" />
-                            </div>
-                        </div>
-                    </div> -->
+      
 
                     <div class="col-md-6">
                         <div class="form-group row">
@@ -127,6 +85,18 @@
                             </div>
                         </div>
                     </div>
+
+
+                    <div class="form-group col-md-6">
+                        <label for="categoryCode">Attachment</label>
+                        <input type="file" class="form-control" id="formFileMultiple" (change)="onFileSelected($event)"
+                            accept="image/*" required>
+
+
+                    </div>
+
+
+
 
                 </div>
                 <div class="row">
@@ -142,19 +112,20 @@
                         </div>
                     </div>
 
-                    <!-- <div class="col-md-6">
-                                <div class="form-group row">
-                                    <label class="col-sm-3 col-form-label">Country</label>
-                                    <div class="col-sm-9">
-                                        <select class="form-control">
-                                            <option>America</option>
-                                            <option>Italy</option>
-                                            <option>Russia</option>
-                                            <option>Britain</option>
-                                        </select>
-                                    </div>
-                                </div>
-                            </div> -->
+                    <!-- <div class="form-group">
+                        <label>File upload</label>
+                        <input type="file" name="img[]" class="file-upload-default">
+                        <div class="input-group col-xs-12">
+                          <input type="text" class="form-control file-upload-info" disabled placeholder="Upload Image">
+                          <span class="input-group-append">
+                            <button class="file-upload-browse btn btn-primary" type="button">Upload</button>
+                          </span>
+                        </div>
+                      </div> -->
+
+                      
+
+             
                 </div>
                 <button type="submit" class="btn btn-success">Add Product</button>
             </form>
@@ -230,6 +201,11 @@
                             <td>{{ product.paid | currency }}</td>
                             <td>{{ product.due| currency }}</td>
                             <td>{{ product.totalPrice | currency }}</td>
+                            <td class="user-photo">
+                                <img [src]="product.image ? 'http://localhost:8089/images/' + product.image : 'static/images/**'"
+                                    alt="Photo" class="img-thumbnail" />
+                                </td>
+                           
                             <td>
                                 <button class="btn btn-warning"
                                     (click)="editProduct(product.id)">Edit</button>&nbsp;&nbsp;

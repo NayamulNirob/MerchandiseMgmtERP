@@ -34,6 +34,7 @@ export class SupplierManagementComponent implements OnInit {
       data => {  
       this.suppliers = data;  
       this.filteredSuppliers = data; 
+      
     });
     this.countryService.getCountries().subscribe({
       next:res=>{
@@ -54,9 +55,9 @@ export class SupplierManagementComponent implements OnInit {
   addSupplier() {  
     this.newSupplier.createdAt = new Date();
     this.newSupplier.updatedAt = new Date(); 
-
     this.supplierService.addSupplier(this.newSupplier).subscribe(() => { 
-      alert('Supplier saved successfully!');   
+      alert('Supplier saved successfully!'); 
+      console.log();  
       this.updateFilteredSuppliers();  
       this.resetNewSupplier();  
     }); 

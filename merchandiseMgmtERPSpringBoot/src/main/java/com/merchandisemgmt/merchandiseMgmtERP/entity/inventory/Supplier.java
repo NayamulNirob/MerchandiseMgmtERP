@@ -39,7 +39,7 @@ public class Supplier {
 
     @ManyToOne
     @JoinColumn
-    private Country countries;
+    private Country country;
 
 
 }

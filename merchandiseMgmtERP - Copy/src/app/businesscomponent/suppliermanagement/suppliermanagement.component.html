@@ -34,11 +34,16 @@
             <div class="form-group row">
               <label class="col-sm-3 col-form-label">Country</label>
               <div class="col-sm-9">
-                <select class="form-control" id="country" [(ngModel)]="newSupplier.country.id" name="country"
+                <!-- <select class="form-control" id="country" [(ngModel)]="newSupplier.country.id" name="country"
                   required>
                   <option *ngFor="let countries of country" [value]="countries.id">{{
                     countries.name}}</option>
+                </select> -->
+
+                <select class="form-control" id="country" [(ngModel)]="newSupplier.country" name="country" required>
+                  <option *ngFor="let countries of country" [ngValue]="countries">{{ countries.name }}</option>
                 </select>
+                
               </div>
             </div>
           </div>

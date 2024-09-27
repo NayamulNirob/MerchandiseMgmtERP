@@ -27,16 +27,17 @@
       <p class="card-description"> Update if any Correcton needed </p>
       <div *ngIf="errorMessage" class="alert alert-danger mt-4">{{ errorMessage }}</div>
       <form class="forms-sample" (ngSubmit)="updateProduct()" *ngIf="product">
-        
+
         <div class="form-group">
           <label for="name">Product Name</label>
           <input id="name" [(ngModel)]="product.name" name="name" class="form-control" required />
         </div>
-       
+
 
         <div class="form-group">
           <label for="description">Product Description</label>
-          <textarea class="form-control" id="description" rows="2" [(ngModel)]="product.description" name="description"></textarea>
+          <textarea class="form-control" id="description" rows="2" [(ngModel)]="product.description"
+            name="description"></textarea>
         </div>
 
         <div class="form-group">
@@ -62,52 +63,71 @@
         </div> -->
         <div class="form-group">
           <label for="quantity">Quantity</label>
-          <input type="number" class="form-control" id="quantity" placeholder="Quantity"  [(ngModel)]="product.quantity" name="quantity">
+          <input type="number" class="form-control" id="quantity" placeholder="Quantity" [(ngModel)]="product.quantity"
+            name="quantity">
         </div>
 
         <div class="form-group">
           <label for="purchaseDate">Purchase Date</label>
-          <input type="date" class="form-control" id="purchaseDate" placeholder="Purchase Date"  [(ngModel)]="product.purchaseDate" name="purchaseDate" disabled>
+          <input type="date" class="form-control" id="purchaseDate" placeholder="Purchase Date"
+            [(ngModel)]="product.purchaseDate" name="purchaseDate" disabled>
         </div>
 
         <div class="form-group">
           <label for="dalivaryDate">Dalivary Date</label>
-          <input type="date" class="form-control" id="dalivaryDate" placeholder="Dalivary Date"  [(ngModel)]="product.dalivaryDate" name="dalivaryDate">
+          <input type="date" class="form-control" id="dalivaryDate" placeholder="Dalivary Date"
+            [(ngModel)]="product.dalivaryDate" name="dalivaryDate">
         </div>
 
 
-        
+
         <div class="form-group">
           <label for="productCode">Product Code</label>
-          <input type="text" class="form-control" id="productCode" placeholder="Product Code"  [(ngModel)]="product.productCode" name="productCode">
+          <input type="text" class="form-control" id="productCode" placeholder="Product Code"
+            [(ngModel)]="product.productCode" name="productCode">
         </div>
 
 
         <div class="form-group">
           <label for="tax">Tax</label>
-          <input type="number" class="form-control" id="tax" placeholder="Tax"  [(ngModel)]="product.tax" name="tax" disabled>
+          <input type="number" class="form-control" id="tax" placeholder="Tax" [(ngModel)]="product.tax" name="tax"
+            disabled>
         </div>
 
         <div class="form-group">
           <label for="paid">Paid Amount</label>
-          <input type="number" class="form-control" id="paid" placeholder="paid"  [(ngModel)]="product.paid" name="paid" >
+          <input type="number" class="form-control" id="paid" placeholder="paid" [(ngModel)]="product.paid" name="paid">
         </div>
 
-        
+
         <div class="form-group">
           <label for="due">Due Amount</label>
-          <input type="number" class="form-control" id="due" placeholder="due"  [(ngModel)]="product.due" name="due" >
+          <input type="number" class="form-control" id="due" placeholder="due" [(ngModel)]="product.due" name="due">
         </div>
 
 
         <div class="form-group">
           <label for="totalPrice">Total Amount</label>
-          <input type="number" class="form-control" id="totalPrice" placeholder="totalPrice"  [(ngModel)]="product.totalPrice" name="totalPrice" >
+          <input type="number" class="form-control" id="totalPrice" placeholder="totalPrice"
+            [(ngModel)]="product.totalPrice" name="totalPrice">
         </div>
 
 
-       
-       
+
+        <div class="form-group">
+        <label for="subCategory">Select Category:</label>
+        <select class="form-control" id="subCategory" [(ngModel)]="product.subCategories.id" name="product" required>
+          <option *ngFor="let subCategory of subCategories" [value]="subCategory.id">{{
+            subCategory.name }}</option>
+        </select>
+        </div>
+
+
+
+
+
+
+
         <button type="submit" class="btn btn-primary mr-2">Submit</button>
         <button class="btn btn-dark">Cancel</button>
       </form>

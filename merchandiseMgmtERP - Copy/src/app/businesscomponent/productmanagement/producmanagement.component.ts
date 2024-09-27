@@ -4,6 +4,9 @@ import { ProductService } from '../../services/product.service';
 import { Router } from '@angular/router';
 import { WareHouse } from '../../model/warehouse.model';
 import { InventoryItem } from '../../model/inventory.item.model';
+import { SubCategories } from '../../model/subcategoriesmodel';
+import { SubcategoryService } from '../../services/subcategory.service';
+import { SupplierService } from '../../services/supplier.service';
 
 @Component({
   selector: 'app-producmanagement',
@@ -16,12 +19,13 @@ export class ProducmanagementComponent implements OnInit {
   filteredProducts: Product[] = [];
   newProduct: Product = new Product();
 
+  subCategories:SubCategories[]=[];
+
   searchTerm: string = '';
   sortBy: string = 'name'; // Default sort
 
-  supplier: Supplier[] = [];
-  wareHouse: WareHouse[] = [];
-  inventory: InventoryItem[] = [];
+  suppliers: Supplier[] = [];
+ 
 
 
   selectedFile: File | null = null;
@@ -30,10 +34,21 @@ export class ProducmanagementComponent implements OnInit {
 
 
   constructor(private productService: ProductService,
-    private router: Router) { }
+  private router: Router,
+  private subCategoryService:SubcategoryService,
+  private supplierService:SupplierService ) { }
 
   ngOnInit(): void {
     this.loadProducts();
+    this.subCategoryService.loadSubCategories().subscribe({
+      next:res=>{
+        this.subCategories=res;
+      },
+      error:err=>{
+        alert(err);
+        console.log(err);
+      }
+    });
   }
 
   loadProducts(): void {
@@ -76,25 +91,7 @@ export class ProducmanagementComponent implements OnInit {
   }
 
 
-  // addProductCategories() {
-  //   if (this.selectedFile) {
-  //     this.categoriesService.createProductCategory(this.newCategory,this.selectedFile).subscribe({
-  //       next: res => {
-  //         console.log(this.newCategory);
-  //         this.newCategory = new ProductCategory();
-  //         this.loadCategories();
-  //       },
-  //       error: error => {
-  //         console.log(error);
-  //         alert(error);
-  //       }
-  //     });
-  //   }
-  //   else{
-  //     alert('Please Select an image');
-  //   }
 
-  // }  
 
   onFileSelected(event: any) {
     this.selectedFile = event.target.files[0];

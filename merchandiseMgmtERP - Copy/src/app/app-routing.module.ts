@@ -20,6 +20,7 @@ import { SupplierUpdateComponent } from './businesscomponent/supplier-update/sup
 import { UpdateInventoryComponent } from './businesscomponent/update-inventory/update-inventory.component';
 import { UpdatecustomerComponent } from './businesscomponent/updatecustomer/updatecustomer.component';
 import { ProductcategoryComponent } from './businesscomponent/productcategory/productcategory.component';
+import { SubcategoriesComponent } from './businesscomponent/subcategories/subcategories.component';
 
 
 const routes: Routes = [
@@ -41,6 +42,7 @@ const routes: Routes = [
   {path:'Updateinventory/:id',component:UpdateInventoryComponent},
   {path:'updatecustomer/:id',component:UpdatecustomerComponent},
   {path:'category',component:ProductcategoryComponent},
+  {path:'subcategory',component:SubcategoriesComponent},
   {path:"**", redirectTo:'dashbord' , pathMatch:'full'},
   
   {

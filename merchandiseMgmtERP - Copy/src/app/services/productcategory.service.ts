@@ -10,9 +10,6 @@ export class ProductcategoryService {
 
   private baseUrl = "http://localhost:8089/api/category"
 
-  private productCategories: ProductCategory[] = [];
-
-  private newproductCategories: ProductCategory = new ProductCategory();
 
   constructor(private http: HttpClient) { }
 
@@ -43,5 +40,6 @@ export class ProductcategoryService {
     return this.http.get<any>(`${this.baseUrl}/${categoryId}`);
   }
 
+  
 
 }

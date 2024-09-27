@@ -71,6 +71,8 @@ export class ProductcategoryComponent implements OnInit {
 
   }
 
+  
+
 
   deleteProductCategory(categoryId: number): void {
     if (categoryId) {
@@ -81,6 +83,16 @@ export class ProductcategoryComponent implements OnInit {
       });
     }
   }
+
+ 
+
+
+
+
+
+  
+  
+
 
 
 

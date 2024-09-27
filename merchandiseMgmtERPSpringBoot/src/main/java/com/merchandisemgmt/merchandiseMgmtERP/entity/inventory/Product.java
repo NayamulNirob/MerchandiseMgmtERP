@@ -1,6 +1,8 @@
 package com.merchandisemgmt.merchandiseMgmtERP.entity.inventory;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.merchandisemgmt.merchandiseMgmtERP.entity.ProductCategory;
+import com.merchandisemgmt.merchandiseMgmtERP.entity.SubCategories;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -80,4 +82,7 @@ public class Product {
 //    @OneToMany(fetch = FetchType.EAGER)
 //    private List<InventoryItem> inventoryItemList;
 
+    @ManyToOne
+    @JoinColumn
+    private SubCategories subCategories;
 }

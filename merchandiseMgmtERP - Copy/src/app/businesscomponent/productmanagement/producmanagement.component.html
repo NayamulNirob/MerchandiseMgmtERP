@@ -73,8 +73,9 @@
                         </div>
                     </div>
                 </div>
+
                 <div class="row">
-      
+
 
                     <div class="col-md-6">
                         <div class="form-group row">
@@ -86,19 +87,22 @@
                         </div>
                     </div>
 
+                    <div class="col-md-6">
+                        <div class="form-group row ">
+                            <label class="col-sm-3 col-form-label">Attachment</label>
+                            <div class="col-sm-9">
+                                <input type="file" class="form-control" id="formFileMultiple"
+                                    (change)="onFileSelected($event)" accept="image/*" required>
+                            </div>
 
-                    <div class="form-group col-md-6">
-                        <label for="categoryCode">Attachment</label>
-                        <input type="file" class="form-control" id="formFileMultiple" (change)="onFileSelected($event)"
-                            accept="image/*" required>
-
-
+                        </div>
                     </div>
 
 
 
 
                 </div>
+
                 <div class="row">
 
                     <div class="col-md-6">
@@ -112,22 +116,39 @@
                         </div>
                     </div>
 
-                    <!-- <div class="form-group">
-                        <label>File upload</label>
-                        <input type="file" name="img[]" class="file-upload-default">
-                        <div class="input-group col-xs-12">
-                          <input type="text" class="form-control file-upload-info" disabled placeholder="Upload Image">
-                          <span class="input-group-append">
-                            <button class="file-upload-browse btn btn-primary" type="button">Upload</button>
-                          </span>
+                    <div class="col-md-6">
+                        <div class="form-group row">
+                            <label for="subCategory" class="col-sm-3 col-form-label">Select Category:</label>
+                            <div class="col-sm-9">
+                                <select class="form-control" id="subCategory" [(ngModel)]="newProduct.subCategories.id"
+                                    name="product" required>
+                                    <option *ngFor="let subCategory of subCategories" [value]="subCategory.id">{{
+                                        subCategory.name }}</option>
+                                </select>
+                            </div>
                         </div>
-                      </div> -->
+                    </div>
 
-                      
-
-             
                 </div>
-                <button type="submit" class="btn btn-success">Add Product</button>
+
+
+
+                <!-- 
+                <div class="col-md-6">
+                    <div class="form-group row">
+                        <label class="col-sm-3 col-form-label">Supplier</label>
+                        <div class="col-sm-9">
+                            <select class="form-control" id="supplier" [(ngModel)]="newProduct.supplier.id" name="supplier" required>
+                                <option *ngFor="let supplier of suppliers" [value]="supplier.id">{{ suppliers.name}}</option>
+                              </select>
+                        </div>
+                    </div>
+                </div> -->
+
+                
+
+                <button type="submit" class="btn btn-success mt-3">Add Product</button>
+
             </form>
         </div>
     </div>
@@ -137,7 +158,7 @@
 
 <div class="row ">
     <div class="col-md-12 d-flex justify-content-between align-items-start ">
-        
+
         <input type="text" class="form-control ms-3 bg-dark text-white" style="max-width: 250px; color: #fff;"
             [(ngModel)]="searchTerm" (input)="filterProducts()" placeholder="Search by Product name or code..."
             onfocus="this.placeholder='Search by Product name or code...'" />
@@ -151,7 +172,7 @@
                 <option value="productCode">Code</option>
                 <option value="description">Description</option>
             </select>
-            
+
         </div>
     </div>
 </div>
@@ -173,7 +194,6 @@
                         <tr>
                             <th>SL</th>
                             <th>Name</th>
-                            <th>Description</th>
                             <th>Price</th>
                             <th>Quantity</th>
                             <th>PurchaseDate</th>
@@ -183,7 +203,7 @@
                             <th>Paid</th>
                             <th>Due</th>
                             <th>TotalPrice</th>
-                            <th>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Actions
+                            <th>&nbsp;&nbsp;Actions
                             </th>
                         </tr>
                     </thead>
@@ -191,7 +211,6 @@
                         <tr *ngFor="let product of filteredProducts ,let i = index">
                             <td>{{ i+1 }}</td>
                             <td>{{ product.name }}</td>
-                            <td>{{ product.description }}</td>
                             <td>{{ product.price | currency }}</td>
                             <td>{{ product.quantity }}</td>
                             <td>{{ product.purchaseDate | date }}</td>
@@ -201,15 +220,23 @@
                             <td>{{ product.paid | currency }}</td>
                             <td>{{ product.due| currency }}</td>
                             <td>{{ product.totalPrice | currency }}</td>
-                            <td class="user-photo">
+                            <!-- <td class="user-photo">
                                 <img [src]="product.image ? 'http://localhost:8089/images/' + product.image : 'static/images/**'"
                                     alt="Photo" class="img-thumbnail" />
-                                </td>
-                           
+                            </td> -->
+
                             <td>
-                                <button class="btn btn-warning"
-                                    (click)="editProduct(product.id)">Edit</button>&nbsp;&nbsp;
-                                <button class="btn btn-danger" (click)="deleteProduct(product.id)">Delete</button>
+                                <a class="btn text-white" (click)="editProduct(product.id)" data-toggle="modal"
+                                    data-target="#exampleModal">
+                                    <i class="fa-solid fa-pen-to-square fa-fade" style="color: #66fc72;"></i>
+                                </a>
+
+                                <a class="btn" (click)="deleteProduct(product.id)" data-toggle="modal"
+                                    data-target="#exampleModal"><i class="fa-solid fa-trash-can fa-fade"
+                                        style="color: #fd0101;"></i>
+
+
+                                </a>
                             </td>
                         </tr>
                     </tbody>
@@ -220,4 +247,26 @@
             </div>
         </div>
     </div>
+</div>
+
+
+
+
+<div class="row  ms-3">
+
+    <div class="card md-4 m-1 bg-dark text-white" style="width: 18rem;" *ngFor="let u of products">
+
+        <div class="card-body ">
+            <img src="http://localhost:8089/images/{{u.image}}" class="card-img-top" alt="{{u.name}}">
+            <h5 class="card-title text-dark mt-1 text-center text-white">{{u.name}}</h5>
+            <p class="card-text text-white">
+                Description : {{u.description}}<br>
+                Price: {{u.price}}<br>
+                Product Code: {{u.productCode}}<br>
+                <!-- Category: {{u.subCategories.name}} -->
+            </p>
+
+        </div>
+    </div>
+
 </div>

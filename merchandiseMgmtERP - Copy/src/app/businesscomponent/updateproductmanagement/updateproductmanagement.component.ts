@@ -3,6 +3,8 @@ import { Product } from '../../model/sale.model';
 import { ProductService } from '../../services/product.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { HttpErrorResponse } from '@angular/common/http';
+import { SubCategories } from '../../model/subcategoriesmodel';
+import { SubcategoryService } from '../../services/subcategory.service';
 
 @Component({
   selector: 'app-updateproductmanagement',
@@ -14,18 +16,28 @@ export class UpdateproductmanagementComponent implements OnInit {
   productId!: number;
   errorMessage: string = '';
   product:Product =new Product();
-  
+  subCategories:SubCategories[]=[];
 
   constructor(
     private productService: ProductService,
     private route: ActivatedRoute,
-    private router: Router
+    private router: Router,
+    private subCateroyService:SubcategoryService
   ) { }
 
   ngOnInit(): void {
     this.productId = this.route.snapshot.params['id'];
     console.log(this.productId)
     this.loadProduct();
+    this.subCateroyService.loadSubCategories().subscribe({
+      next:res=>{
+        this.subCategories=res
+      },
+      error:err=>{
+        console.log(err)
+      }
+
+    });
 
   }
 

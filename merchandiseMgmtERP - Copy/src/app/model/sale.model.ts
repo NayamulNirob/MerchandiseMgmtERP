@@ -1,4 +1,5 @@
 import { InventoryItem } from "./inventory.item.model";
+import { SubCategories } from "./subcategoriesmodel";
 import { WareHouse } from "./warehouse.model";
 
 
@@ -18,6 +19,7 @@ export class Product {
   totalPrice!:number;
   image!:string;
   supplier:Supplier=new Supplier();
+  subCategories:SubCategories=new SubCategories();
 }
 
 // -----------------------------------product-------------------------------

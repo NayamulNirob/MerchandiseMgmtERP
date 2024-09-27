@@ -8,6 +8,7 @@ import { CountryService } from '../../services/country.service';
 import { DatePipe } from '@angular/common';
 
 
+
 @Component({  
   selector: 'app-supplier-management',  
   templateUrl: './suppliermanagement.component.html',  
@@ -46,7 +47,7 @@ export class SupplierManagementComponent implements OnInit {
 
   }  
 
-  formatDateTime(date: Date) {
+  formatDateTime(date: Date | string) {
     return this.datePipe.transform(date, 'd MMM, y hh:mm:ss a');
   }
 

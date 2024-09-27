@@ -52,11 +52,11 @@ export class SupplierManagementComponent implements OnInit {
   }
 
   addSupplier() {  
+    this.newSupplier.createdAt = new Date();
+    this.newSupplier.updatedAt = new Date(); 
 
     this.supplierService.addSupplier(this.newSupplier).subscribe(() => { 
-      alert('Supplier saved successfully!');
-        this.newSupplier.createdAt = new Date();
-        this.newSupplier.updatedAt = new Date(); 
+      alert('Supplier saved successfully!');   
       this.updateFilteredSuppliers();  
       this.resetNewSupplier();  
     }); 

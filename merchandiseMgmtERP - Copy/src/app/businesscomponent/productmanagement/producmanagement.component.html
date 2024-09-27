@@ -132,20 +132,23 @@
                 </div>
 
 
+                <div class="row">
 
-                <!-- 
-                <div class="col-md-6">
-                    <div class="form-group row">
-                        <label class="col-sm-3 col-form-label">Supplier</label>
-                        <div class="col-sm-9">
-                            <select class="form-control" id="supplier" [(ngModel)]="newProduct.supplier.id" name="supplier" required>
-                                <option *ngFor="let supplier of suppliers" [value]="supplier.id">{{ suppliers.name}}</option>
-                              </select>
+                    <div class="col-md-6">
+                        <div class="form-group row">
+                            <label class="col-sm-3 col-form-label">Supplier</label>
+                            <div class="col-sm-9">
+                                <select class="form-control" id="suppliers" [(ngModel)]="newProduct.supplier.id"
+                                    name="supplier" required>
+                                    <option *ngFor="let supplier of suppliers" [value]="supplier.id">{{
+                                        supplier.organization}}</option>
+                                </select>
+                            </div>
                         </div>
                     </div>
-                </div> -->
 
-                
+                </div>
+
 
                 <button type="submit" class="btn btn-success mt-3">Add Product</button>
 

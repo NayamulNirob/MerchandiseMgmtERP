@@ -34,6 +34,7 @@ import { UpdatecustomerComponent } from './businesscomponent/updatecustomer/upda
 import { DatePipe } from '@angular/common';
 import { ProductcategoryComponent } from './businesscomponent/productcategory/productcategory.component';
 import { SubcategoriesComponent } from './businesscomponent/subcategories/subcategories.component';
+import { CountryComponent } from './businesscomponent/country/country.component';
 
 
 
@@ -64,7 +65,8 @@ import { SubcategoriesComponent } from './businesscomponent/subcategories/subcat
     UpdateInventoryComponent,
     UpdatecustomerComponent,
     ProductcategoryComponent,
-    SubcategoriesComponent
+    SubcategoriesComponent,
+    CountryComponent
   
 
   ],

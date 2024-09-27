@@ -3,22 +3,29 @@ import { Component, OnInit } from '@angular/core';
 import { Supplier } from '../../model/sale.model';
 import { SupplierService } from '../../services/supplier.service';
 import { Router } from '@angular/router';
+import { Country } from '../../model/countrymodel';
+import { CountryService } from '../../services/country.service';
+import { DatePipe } from '@angular/common';
 
 
 @Component({  
   selector: 'app-supplier-management',  
   templateUrl: './suppliermanagement.component.html',  
-  styleUrls: ['./suppliermanagement.component.css']  
+  styleUrls: ['./suppliermanagement.component.css'],
+  providers: [DatePipe]
 })  
 export class SupplierManagementComponent implements OnInit {  
   suppliers: Supplier[] = [];  
   filteredSuppliers: Supplier[] = [];  
   searchTerm: string = '';  
   sortBy: 'name' | 'contactPerson' | 'email' = 'name';  
-  newSupplier: Supplier = new Supplier();  
+  newSupplier: Supplier = new Supplier(); 
+  country:Country[]=[]; 
 
   constructor(private supplierService: SupplierService,
-    private router:Router
+    private router:Router,
+    private countryService:CountryService,
+    private datePipe: DatePipe
   ) {}  
 
   ngOnInit(): void {  
@@ -26,15 +33,29 @@ export class SupplierManagementComponent implements OnInit {
       data => {  
       this.suppliers = data;  
       this.filteredSuppliers = data; 
-    });  
+    });
+    this.countryService.getCountries().subscribe({
+      next:res=>{
+        this.country=res
+      },
+      error:err=>{
+        console.log(err)
+        alert(err)
+      }
+    });
+
   }  
 
-  addSupplier() {  
-    this.newSupplier.id = this.suppliers.length + 1; // Simple ID generation  
-    this.newSupplier.createdAt = new Date();  
-    this.newSupplier.updatedAt = new Date();  
+  formatDateTime(date: Date) {
+    return this.datePipe.transform(date, 'd MMM, y hh:mm:ss a');
+  }
 
-    this.supplierService.addSupplier(this.newSupplier).subscribe(() => {  
+  addSupplier() {  
+
+    this.supplierService.addSupplier(this.newSupplier).subscribe(() => { 
+      alert('Supplier saved successfully!');
+        this.newSupplier.createdAt = new Date();
+        this.newSupplier.updatedAt = new Date(); 
       this.updateFilteredSuppliers();  
       this.resetNewSupplier();  
     }); 

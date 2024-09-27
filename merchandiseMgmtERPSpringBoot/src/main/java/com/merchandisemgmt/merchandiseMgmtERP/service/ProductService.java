@@ -70,7 +70,6 @@ public class ProductService {
             double due= p.getPaid()-totalPrice;
             p.setDue(due);
             p.setTotalPrice(totalPrice);
-            p.setSupplier(null);
             return productRepository.save(p);
         } catch (Exception e) {
             System.err.println("Error saving product: " + e.getMessage());

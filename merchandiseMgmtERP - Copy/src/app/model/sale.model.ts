@@ -1,6 +1,6 @@
+import { Country } from "./countrymodel";
 import { InventoryItem } from "./inventory.item.model";
 import { SubCategories } from "./subcategoriesmodel";
-import { WareHouse } from "./warehouse.model";
 
 
 // -----------------------------------product-------------------------------
@@ -48,7 +48,8 @@ export class Supplier {
   createdAt!: Date;
   updatedAt!: Date;
   status!:string;
-  products: Product[] = [];
+  organization!:string;
+  country:Country=new Country();
 }
 
 // sale.model.ts  

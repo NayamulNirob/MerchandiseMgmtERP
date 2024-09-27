@@ -1,12 +1,14 @@
 package com.merchandisemgmt.merchandiseMgmtERP.entity.inventory;
 
 import com.fasterxml.jackson.annotation.JsonManagedReference;
+import com.merchandisemgmt.merchandiseMgmtERP.entity.Country;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.sql.Date;
+import java.time.LocalDateTime;
 import java.util.List;
 
 
@@ -26,15 +28,18 @@ public class Supplier {
     private String email;
     private String phone;
     private String address;
-    private Date createdAt;
-    private Date updatedAt;
+    private LocalDateTime createdAt;
+    private LocalDateTime updatedAt;
     private String status;
+    private String organization;
 
+//    @JsonManagedReference
+//    @OneToMany(mappedBy = "supplier",fetch = FetchType.LAZY)
+//    private List<Product> products;
 
-    @JsonManagedReference
-    @OneToMany(mappedBy = "supplier",fetch = FetchType.LAZY)
-    private List<Product> products;
-
+    @ManyToOne
+    @JoinColumn
+    private Country countries;
 
 
 }

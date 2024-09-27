@@ -3,6 +3,8 @@ import { Supplier } from '../../model/sale.model';
 import { SupplierService } from '../../services/supplier.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { HttpErrorResponse } from '@angular/common/http';
+import { Country } from '../../model/countrymodel';
+import { CountryService } from '../../services/country.service';
 
 @Component({
   selector: 'app-supplier-update',
@@ -16,18 +18,25 @@ export class SupplierUpdateComponent implements OnInit{
   errorMessage: string = '';
   supplier:Supplier =new Supplier();
   suppliers: Supplier[] = []; 
+
+ 
+
   
 
   constructor(
     private supplierService: SupplierService,
     private route: ActivatedRoute,
-    private router: Router
+    private router: Router,
+   
   ) { }
 
   ngOnInit(): void {
     this.supplierId = this.route.snapshot.params['id'];
     console.log(this.supplierId)
     this.loadSupplier();
+
+    
+
 
   }
 
@@ -41,7 +50,9 @@ export class SupplierUpdateComponent implements OnInit{
         console.log(error)
         this.errorMessage = 'Could not load supplier';
       }
-    })
+    });
+
+    
   }
 
 

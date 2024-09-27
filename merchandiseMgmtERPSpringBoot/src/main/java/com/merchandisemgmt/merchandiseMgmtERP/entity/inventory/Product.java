@@ -73,7 +73,7 @@ public class Product {
 
 
 
-    @JsonBackReference
+//    @JsonBackReference
     @ManyToOne
     @JoinColumn
     private Supplier supplier;

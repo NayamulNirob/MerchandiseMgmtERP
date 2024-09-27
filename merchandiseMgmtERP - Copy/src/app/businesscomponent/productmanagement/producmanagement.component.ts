@@ -20,7 +20,7 @@ export class ProducmanagementComponent implements OnInit {
   newProduct: Product = new Product();
 
   subCategories:SubCategories[]=[];
-
+ 
   searchTerm: string = '';
   sortBy: string = 'name'; // Default sort
 
@@ -49,6 +49,16 @@ export class ProducmanagementComponent implements OnInit {
         console.log(err);
       }
     });
+    this.supplierService.loadSuppliers().subscribe({
+      next:res=>{
+        this.suppliers=res
+      },
+      error:err=>{
+        alert(err);
+        console.log(err);
+
+      }
+    })
   }
 
   loadProducts(): void {

@@ -5,6 +5,7 @@ import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import java.util.*;
 
 import java.time.LocalDateTime;
 
@@ -25,9 +26,7 @@ public class Stock {
 
     private String catagoryName;
 
-    @ManyToOne
-    @JoinColumn
-    private RawMateriaes rawMateriaes;
+
 
     @ManyToOne
     @JoinColumn
@@ -35,6 +34,8 @@ public class Stock {
 
     @ManyToOne
     @JoinColumn
-    private Warehouse warehouse;
+    private Warehouse wareHouse;
+
+
 
 }

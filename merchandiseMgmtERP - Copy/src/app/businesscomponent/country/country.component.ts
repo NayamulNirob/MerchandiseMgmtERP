@@ -13,31 +13,43 @@ import { HttpErrorResponse } from '@angular/common/http';
 })
 export class CountryComponent {
 
-  countryId!:number;
+  countryId!: number;
   errorMessage: string = '';
-  
+
   countries: Country[] = [];
   filteredCountries: Country[] = [];
   newCountry: Country = new Country();
 
- 
+  maxSale: number = 1000000;  // Example maximum sale value
+
+  getProgressColor(percentage: number): string {
+    if (percentage < 33) {
+      return 'red';
+    } else if (percentage >= 33 && percentage < 50) {
+      return 'orange';
+    } else {
+      return 'green';
+    }
+  }
+
+
   searchTerm: string = '';
   sortBy: string = 'name'; // Default sort
 
   suppliers: Supplier[] = [];
- 
+
 
   constructor(private countryService: CountryService,
-  private router: Router,
-  private supplierService:SupplierService ) { }
+    private router: Router,
+    private supplierService: SupplierService) { }
 
   ngOnInit(): void {
     this.loadCountries();
     this.supplierService.loadSuppliers().subscribe({
-      next:res=>{
-        this.suppliers=res
+      next: res => {
+        this.suppliers = res
       },
-      error:err=>{
+      error: err => {
         alert(err);
         console.log(err);
 
@@ -91,26 +103,26 @@ export class CountryComponent {
 
 
   addCountry(): void {
-    
-      this.countryService.addCountry(this.newCountry).subscribe({
-        next: res => {
-          this.newCountry = new Country();
-          this.loadCountries();
-          this.resetNewCountrys();
-        },
-        error: error => {
-          console.log(error);
-          alert(error);
-        }
-      });
-    
-   
+
+    this.countryService.addCountry(this.newCountry).subscribe({
+      next: res => {
+        this.newCountry = new Country();
+        this.loadCountries();
+        this.resetNewCountrys();
+      },
+      error: error => {
+        console.log(error);
+        alert(error);
+      }
+    });
+
+
   }
 
   editCountry(countryId: number) {
     if (this.newCountry) {
       this.countryService.updateCountry(this.countryId, this.newCountry).subscribe({
-        next: () => this.router.navigate(['/country']),    
+        next: () => this.router.navigate(['/country']),
         error: (error: HttpErrorResponse) => {
           this.errorMessage = 'An error occurred while updating the Country';
         }
@@ -118,7 +130,7 @@ export class CountryComponent {
     }
   }
 
-  
+
 
   deleteCountry(countryId: number): void {
     if (countryId) {

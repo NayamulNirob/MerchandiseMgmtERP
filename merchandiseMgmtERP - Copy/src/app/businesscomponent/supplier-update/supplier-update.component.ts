@@ -32,7 +32,6 @@ export class SupplierUpdateComponent implements OnInit{
 
   ngOnInit(): void {
     this.supplierId = this.route.snapshot.params['id'];
-    console.log(this.supplierId)
     this.loadSupplier();
 
     

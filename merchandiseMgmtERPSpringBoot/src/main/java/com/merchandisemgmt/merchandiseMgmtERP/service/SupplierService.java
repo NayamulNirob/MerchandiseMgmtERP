@@ -6,6 +6,7 @@ import com.merchandisemgmt.merchandiseMgmtERP.repository.SupplierRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 @Service
@@ -39,6 +40,7 @@ public class SupplierService {
     }
 
     public Supplier updateSupplier(Supplier s, Long id) {
+        s.setUpdatedAt(LocalDateTime.now());
         return supplierRepository.save(s);
     }
 

@@ -4,5 +4,5 @@ export class Country{
     bussiness!:string;
     Progress!:string;
     status!:string;
-    sale!:string;
+    sale!:number;
 }

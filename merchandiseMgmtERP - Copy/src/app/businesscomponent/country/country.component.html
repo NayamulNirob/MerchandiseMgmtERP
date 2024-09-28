@@ -12,10 +12,10 @@
                         placeholder="Main Merchandise Bussinesses " required class="form-control mb-2 "
                         id="inlineFormInputName2">
                 </div>
-
+<!-- 
                 <input type="text" [(ngModel)]="newCountry.Progress" name="progress" placeholder="Progress Rate"
                     required class="form-control mb-3 mr-md-2" id="inlineFormInputName2">
-                <label class="sr-only" for="inlineFormInputGroupUsername2">Progress Rate</label>
+                <label class="sr-only" for="inlineFormInputGroupUsername2">Progress Rate</label> -->
 
 
                 <input type="text" [(ngModel)]="newCountry.sale" name="sale" placeholder="Sale Amount" required
@@ -25,7 +25,7 @@
 
                 <select class="form-control mb-3 mr-md-2" aria-label="Default select example"
                     [(ngModel)]="newCountry.status" name="status" placeholder="Country Based " required>
-                    <option selected>Open this select menu</option>
+                    <option selected disabled>Open this select menu</option>
                     <option value="Good"> Good Standing</option>
                     <option value="Poor">Poor Position</option>
                     <option value="Rich"> Rich Position</option>
@@ -66,10 +66,27 @@
                             <td>{{ country.name }} </td>
                             <td> {{country.bussiness}}</td>
                             <td>
+                          
+                                 <!-- <div class="progress">
+                                    <div class="progress-bar bg-success text-white" role="progressbar"
+                                        [style.width]="(country.sale / maxSale) * 100 + '%'" 
+                                        [attr.aria-valuenow]="(country.sale / maxSale) * 100" aria-valuemin="0" aria-valuemax="100">
+                                        {{(country.sale / maxSale) * 100 | number: '1.0-0'}}%
+                                    </div>
+                                </div> -->
+
+
                                 <div class="progress">
-                                    <div class="progress-bar bg-info text-white" role="progressbar" style="width: 75%"
-                                        aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">{{country.Progress}}</div>
+                                    <div class="progress-bar text-white" role="progressbar"
+                                        [style.width]="(country.sale / maxSale) * 100 + '%'" 
+                                        [style.background-color]="getProgressColor(country.sale / maxSale * 100)"
+                                        [attr.aria-valuenow]="(country.sale / maxSale) * 100" aria-valuemin="0" aria-valuemax="100">
+                                        {{(country.sale / maxSale) * 100 | number: '1.0-0'}}%
+                                    </div>
                                 </div>
+                                
+
+                                
                             </td>
                             <td>{{country.sale|currency}}</td>
                             

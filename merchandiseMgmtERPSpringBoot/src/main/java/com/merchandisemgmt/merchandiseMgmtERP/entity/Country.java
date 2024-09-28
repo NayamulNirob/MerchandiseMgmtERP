@@ -18,9 +18,9 @@ public class Country {
     private Integer id;
     private String name;
     private String bussiness;
-    private String Progress;
+    private String progress;
     private String status;
-    private String sale;
+    private double sale;
 
 
 

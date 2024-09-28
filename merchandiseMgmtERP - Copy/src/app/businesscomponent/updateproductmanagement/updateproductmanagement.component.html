@@ -123,6 +123,15 @@
         </div>
 
 
+        <div class="form-group">
+          <label for="supplier">Select Supplier:</label>
+          <select class="form-control" id="supplier" [(ngModel)]="product.supplier.id" name="supplier" required>
+            <option *ngFor="let suppliers of supplier" [value]="suppliers.id">{{
+              suppliers.organization}}</option>
+          </select>
+          </div>
+
+
 
 
 

@@ -1,10 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import { Product } from '../../model/sale.model';
+import { Product, Supplier } from '../../model/sale.model';
 import { ProductService } from '../../services/product.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { HttpErrorResponse } from '@angular/common/http';
 import { SubCategories } from '../../model/subcategoriesmodel';
 import { SubcategoryService } from '../../services/subcategory.service';
+import { SupplierService } from '../../services/supplier.service';
 
 @Component({
   selector: 'app-updateproductmanagement',
@@ -17,12 +18,14 @@ export class UpdateproductmanagementComponent implements OnInit {
   errorMessage: string = '';
   product:Product =new Product();
   subCategories:SubCategories[]=[];
+  supplier:Supplier[]=[];
 
   constructor(
     private productService: ProductService,
     private route: ActivatedRoute,
     private router: Router,
-    private subCateroyService:SubcategoryService
+    private subCateroyService:SubcategoryService,
+    private supplierService:SupplierService
   ) { }
 
   ngOnInit(): void {
@@ -38,6 +41,14 @@ export class UpdateproductmanagementComponent implements OnInit {
       }
 
     });
+    this.supplierService.loadSuppliers().subscribe({
+      next:res=>{
+        this.supplier=res
+      },
+      error:err=>{
+        console.log(err)
+      }
+    })
 
   }
 

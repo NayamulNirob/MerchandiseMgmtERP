@@ -16,29 +16,38 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `suppliers_products`
+-- Table structure for table `stock`
 --
 
-DROP TABLE IF EXISTS `suppliers_products`;
+DROP TABLE IF EXISTS `stock`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `suppliers_products` (
-  `suppliers_id` bigint NOT NULL,
-  `products_id` bigint NOT NULL,
-  KEY `FKl2ny02g9d0u0m6lqabfb9o7t0` (`products_id`),
-  KEY `FKgqp9wlcc7p7pychpywu9p7vax` (`suppliers_id`),
-  CONSTRAINT `FKgqp9wlcc7p7pychpywu9p7vax` FOREIGN KEY (`suppliers_id`) REFERENCES `suppliers` (`id`),
-  CONSTRAINT `FKl2ny02g9d0u0m6lqabfb9o7t0` FOREIGN KEY (`products_id`) REFERENCES `products` (`id`)
+CREATE TABLE `stock` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `catagory_name` varchar(255) DEFAULT NULL,
+  `created_at` datetime(6) DEFAULT NULL,
+  `quantity` double NOT NULL,
+  `updated_at` datetime(6) DEFAULT NULL,
+  `product_id` bigint DEFAULT NULL,
+  `raw_materiaes_id` bigint DEFAULT NULL,
+  `warehouse_id` bigint DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `FKeuiihog7wq4cu7nvqu7jx57d2` (`product_id`),
+  KEY `FKpq1uuh2afnfqkuy8dqkrkewm5` (`raw_materiaes_id`),
+  KEY `FKpx2sjs5k0wdolrps3puo2skaw` (`warehouse_id`),
+  CONSTRAINT `FKeuiihog7wq4cu7nvqu7jx57d2` FOREIGN KEY (`product_id`) REFERENCES `products` (`id`),
+  CONSTRAINT `FKpq1uuh2afnfqkuy8dqkrkewm5` FOREIGN KEY (`raw_materiaes_id`) REFERENCES `raw_materiaes` (`id`),
+  CONSTRAINT `FKpx2sjs5k0wdolrps3puo2skaw` FOREIGN KEY (`warehouse_id`) REFERENCES `warehouses` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `suppliers_products`
+-- Dumping data for table `stock`
 --
 
-LOCK TABLES `suppliers_products` WRITE;
-/*!40000 ALTER TABLE `suppliers_products` DISABLE KEYS */;
-/*!40000 ALTER TABLE `suppliers_products` ENABLE KEYS */;
+LOCK TABLES `stock` WRITE;
+/*!40000 ALTER TABLE `stock` DISABLE KEYS */;
+/*!40000 ALTER TABLE `stock` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -50,4 +59,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2024-09-21 16:31:39
+-- Dump completed on 2024-09-28 16:19:11

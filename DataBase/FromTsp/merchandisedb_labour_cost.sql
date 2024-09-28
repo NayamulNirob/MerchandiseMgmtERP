@@ -16,35 +16,31 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `customers`
+-- Table structure for table `labour_cost`
 --
 
-DROP TABLE IF EXISTS `customers`;
+DROP TABLE IF EXISTS `labour_cost`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `customers` (
+CREATE TABLE `labour_cost` (
   `id` bigint NOT NULL AUTO_INCREMENT,
-  `address` varchar(255) DEFAULT NULL,
-  `contact_person` varchar(255) DEFAULT NULL,
-  `country` varchar(255) DEFAULT NULL,
-  `created_at` datetime(6) DEFAULT NULL,
-  `email` varchar(255) NOT NULL,
-  `name` varchar(255) NOT NULL,
-  `organigation` varchar(255) DEFAULT NULL,
-  `phone` varchar(255) NOT NULL,
-  `updated_at` datetime(6) DEFAULT NULL,
+  `department_name` varchar(255) DEFAULT NULL,
+  `hour` double NOT NULL,
+  `unit_cost` double NOT NULL,
+  `style_category_id` bigint DEFAULT NULL,
   PRIMARY KEY (`id`),
-  UNIQUE KEY `UKrfbvkrffamfql7cjmen8v976v` (`email`)
+  KEY `FKm5j8gap5cnmt8pckwa3kg7vu2` (`style_category_id`),
+  CONSTRAINT `FKm5j8gap5cnmt8pckwa3kg7vu2` FOREIGN KEY (`style_category_id`) REFERENCES `style_categories` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `customers`
+-- Dumping data for table `labour_cost`
 --
 
-LOCK TABLES `customers` WRITE;
-/*!40000 ALTER TABLE `customers` DISABLE KEYS */;
-/*!40000 ALTER TABLE `customers` ENABLE KEYS */;
+LOCK TABLES `labour_cost` WRITE;
+/*!40000 ALTER TABLE `labour_cost` DISABLE KEYS */;
+/*!40000 ALTER TABLE `labour_cost` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -56,4 +52,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2024-09-28 16:19:11
+-- Dump completed on 2024-09-28 16:19:10

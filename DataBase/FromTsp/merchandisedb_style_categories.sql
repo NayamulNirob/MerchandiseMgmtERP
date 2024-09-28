@@ -16,35 +16,34 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `customers`
+-- Table structure for table `style_categories`
 --
 
-DROP TABLE IF EXISTS `customers`;
+DROP TABLE IF EXISTS `style_categories`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `customers` (
+CREATE TABLE `style_categories` (
   `id` bigint NOT NULL AUTO_INCREMENT,
-  `address` varchar(255) DEFAULT NULL,
-  `contact_person` varchar(255) DEFAULT NULL,
-  `country` varchar(255) DEFAULT NULL,
+  `attachment` varchar(255) DEFAULT NULL,
+  `code` varchar(255) DEFAULT NULL,
   `created_at` datetime(6) DEFAULT NULL,
-  `email` varchar(255) NOT NULL,
-  `name` varchar(255) NOT NULL,
-  `organigation` varchar(255) DEFAULT NULL,
-  `phone` varchar(255) NOT NULL,
+  `discription` varchar(255) DEFAULT NULL,
+  `metarial_quantity` double NOT NULL,
+  `name` varchar(255) DEFAULT NULL,
+  `size` varchar(255) DEFAULT NULL,
+  `trim_name` varchar(255) DEFAULT NULL,
   `updated_at` datetime(6) DEFAULT NULL,
-  PRIMARY KEY (`id`),
-  UNIQUE KEY `UKrfbvkrffamfql7cjmen8v976v` (`email`)
+  PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `customers`
+-- Dumping data for table `style_categories`
 --
 
-LOCK TABLES `customers` WRITE;
-/*!40000 ALTER TABLE `customers` DISABLE KEYS */;
-/*!40000 ALTER TABLE `customers` ENABLE KEYS */;
+LOCK TABLES `style_categories` WRITE;
+/*!40000 ALTER TABLE `style_categories` DISABLE KEYS */;
+/*!40000 ALTER TABLE `style_categories` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -56,4 +55,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2024-09-28 16:19:11
+-- Dump completed on 2024-09-28 16:19:09

@@ -16,36 +16,30 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `order_items`
+-- Table structure for table `categories`
 --
 
-DROP TABLE IF EXISTS `order_items`;
+DROP TABLE IF EXISTS `categories`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `order_items` (
+CREATE TABLE `categories` (
   `id` bigint NOT NULL AUTO_INCREMENT,
-  `delivery_date` date DEFAULT NULL,
-  `order_date` datetime(6) NOT NULL,
-  `quantity` bigint NOT NULL,
-  `status` varchar(255) NOT NULL,
-  `total_price` double NOT NULL,
-  `customer_id` bigint NOT NULL,
-  `product_id` bigint NOT NULL,
-  PRIMARY KEY (`id`),
-  KEY `FK9xiqncq3lfs899jmdi8hndr5l` (`customer_id`),
-  KEY `FKocimc7dtr037rh4ls4l95nlfi` (`product_id`),
-  CONSTRAINT `FK9xiqncq3lfs899jmdi8hndr5l` FOREIGN KEY (`customer_id`) REFERENCES `customers` (`id`),
-  CONSTRAINT `FKocimc7dtr037rh4ls4l95nlfi` FOREIGN KEY (`product_id`) REFERENCES `products` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+  `category_code` varchar(255) DEFAULT NULL,
+  `description` varchar(255) DEFAULT NULL,
+  `image` varchar(255) DEFAULT NULL,
+  `name` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `order_items`
+-- Dumping data for table `categories`
 --
 
-LOCK TABLES `order_items` WRITE;
-/*!40000 ALTER TABLE `order_items` DISABLE KEYS */;
-/*!40000 ALTER TABLE `order_items` ENABLE KEYS */;
+LOCK TABLES `categories` WRITE;
+/*!40000 ALTER TABLE `categories` DISABLE KEYS */;
+INSERT INTO `categories` VALUES (6,'G31C','All Kinds of Garments','4f9f5879-ed2a-4f4f-8ee9-4ee98cd2bb23_garments.svg','Garment'),(7,'DEDA','Many Kins of Fabric','12a4085d-26ef-404d-b0e4-ac0834886251_fabric.svg','Fabric '),(8,'3G12','High Quality Yarn ','b3f03af0-8f3a-41e3-8d33-1340ba1552f7_yarn.svg','Yarn'),(9,'31FE','Hugh Collection of Home Textiles','ae373b3e-212b-4777-96ca-3b715a932aa2_home-textile.svg','Home Textiles'),(10,'A32B',' All Kinds of Clothing Accessory','bee3c459-1b84-4b97-843e-f9dca1aa76d7_clothing.svg','Clothing Accessory'),(11,'AFEB','Organic & Conventional Cotton  Fibre & FeedStock','f6d2d1a8-3a84-4566-90d8-ba3fbe721513_feedstock.svg','Fibre & FeedStock'),(12,'02F2','High-Quality Leather & Footwear','03224947-56ab-41e5-ad60-fa2d62a2cbfb_footwear.svg','Leather & Footwear'),(13,'2G0F','Many kinds of Fashion Accessory','70110064-2bcf-4d4d-94af-c256352648b6_fashion-accessary.svg','Fashion Accessory');
+/*!40000 ALTER TABLE `categories` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 

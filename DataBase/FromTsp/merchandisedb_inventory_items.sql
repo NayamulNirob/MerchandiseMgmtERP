@@ -26,13 +26,13 @@ CREATE TABLE `inventory_items` (
   `id` bigint NOT NULL AUTO_INCREMENT,
   `stock` bigint NOT NULL,
   `product_id` bigint DEFAULT NULL,
-  `warehouse_id` bigint NOT NULL,
+  `warehouse_id` bigint DEFAULT NULL,
   PRIMARY KEY (`id`),
-  UNIQUE KEY `UKsa0ria236swwogrjp62r4okti` (`product_id`),
+  KEY `FK9qhblf3mc4r22jajlv4w6sstt` (`product_id`),
   KEY `FKqq1baol3lk2v7ka2ob578l31h` (`warehouse_id`),
   CONSTRAINT `FK9qhblf3mc4r22jajlv4w6sstt` FOREIGN KEY (`product_id`) REFERENCES `products` (`id`),
   CONSTRAINT `FKqq1baol3lk2v7ka2ob578l31h` FOREIGN KEY (`warehouse_id`) REFERENCES `warehouses` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -41,7 +41,6 @@ CREATE TABLE `inventory_items` (
 
 LOCK TABLES `inventory_items` WRITE;
 /*!40000 ALTER TABLE `inventory_items` DISABLE KEYS */;
-INSERT INTO `inventory_items` VALUES (1,1102,1,2),(2,200,2,1),(3,299,3,1),(5,70,4,1),(7,500000,6,2),(8,650,7,2);
 /*!40000 ALTER TABLE `inventory_items` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -54,4 +53,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2024-09-21 16:31:40
+-- Dump completed on 2024-09-28 16:19:10

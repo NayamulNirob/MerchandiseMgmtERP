@@ -16,35 +16,40 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `customers`
+-- Table structure for table `adjusatment_material`
 --
 
-DROP TABLE IF EXISTS `customers`;
+DROP TABLE IF EXISTS `adjusatment_material`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `customers` (
+CREATE TABLE `adjusatment_material` (
   `id` bigint NOT NULL AUTO_INCREMENT,
-  `address` varchar(255) DEFAULT NULL,
-  `contact_person` varchar(255) DEFAULT NULL,
-  `country` varchar(255) DEFAULT NULL,
-  `created_at` datetime(6) DEFAULT NULL,
-  `email` varchar(255) NOT NULL,
-  `name` varchar(255) NOT NULL,
-  `organigation` varchar(255) DEFAULT NULL,
-  `phone` varchar(255) NOT NULL,
-  `updated_at` datetime(6) DEFAULT NULL,
+  `price` double NOT NULL,
+  `quantity` double NOT NULL,
+  `remarks` varchar(255) DEFAULT NULL,
+  `order_item_id` bigint DEFAULT NULL,
+  `raw_materiaes_id` bigint DEFAULT NULL,
+  `stock_id` int DEFAULT NULL,
+  `warehouse_id` bigint DEFAULT NULL,
   PRIMARY KEY (`id`),
-  UNIQUE KEY `UKrfbvkrffamfql7cjmen8v976v` (`email`)
+  KEY `FKs1keirk2iycr7jyys0kmrum7g` (`order_item_id`),
+  KEY `FKens5dub29kqi36cj8v3x27wu1` (`raw_materiaes_id`),
+  KEY `FKii65e95xpdah45f2x45c7wx9k` (`stock_id`),
+  KEY `FKe5a7o7xpd70yrdfvijouvps7q` (`warehouse_id`),
+  CONSTRAINT `FKe5a7o7xpd70yrdfvijouvps7q` FOREIGN KEY (`warehouse_id`) REFERENCES `warehouses` (`id`),
+  CONSTRAINT `FKens5dub29kqi36cj8v3x27wu1` FOREIGN KEY (`raw_materiaes_id`) REFERENCES `raw_materiaes` (`id`),
+  CONSTRAINT `FKii65e95xpdah45f2x45c7wx9k` FOREIGN KEY (`stock_id`) REFERENCES `stock` (`id`),
+  CONSTRAINT `FKs1keirk2iycr7jyys0kmrum7g` FOREIGN KEY (`order_item_id`) REFERENCES `order_items` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `customers`
+-- Dumping data for table `adjusatment_material`
 --
 
-LOCK TABLES `customers` WRITE;
-/*!40000 ALTER TABLE `customers` DISABLE KEYS */;
-/*!40000 ALTER TABLE `customers` ENABLE KEYS */;
+LOCK TABLES `adjusatment_material` WRITE;
+/*!40000 ALTER TABLE `adjusatment_material` DISABLE KEYS */;
+/*!40000 ALTER TABLE `adjusatment_material` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 

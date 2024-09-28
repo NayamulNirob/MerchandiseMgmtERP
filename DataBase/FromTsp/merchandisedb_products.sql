@@ -24,11 +24,26 @@ DROP TABLE IF EXISTS `products`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `products` (
   `id` bigint NOT NULL AUTO_INCREMENT,
+  `dalivary_date` date DEFAULT NULL,
   `description` varchar(255) NOT NULL,
+  `due` double NOT NULL,
+  `image` varchar(255) DEFAULT NULL,
   `name` varchar(255) NOT NULL,
+  `paid` double NOT NULL,
   `price` double NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+  `product_code` varchar(255) DEFAULT NULL,
+  `purchase_date` date DEFAULT NULL,
+  `quantity` int NOT NULL,
+  `tax` double NOT NULL,
+  `total_price` double NOT NULL,
+  `sub_categories_id` bigint DEFAULT NULL,
+  `supplier_id` bigint DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `FKklfbf25x7jf9pg19jhojq5pg2` (`sub_categories_id`),
+  KEY `FK6i174ixi9087gcvvut45em7fd` (`supplier_id`),
+  CONSTRAINT `FK6i174ixi9087gcvvut45em7fd` FOREIGN KEY (`supplier_id`) REFERENCES `suppliers` (`id`),
+  CONSTRAINT `FKklfbf25x7jf9pg19jhojq5pg2` FOREIGN KEY (`sub_categories_id`) REFERENCES `sub_categories` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -37,7 +52,7 @@ CREATE TABLE `products` (
 
 LOCK TABLES `products` WRITE;
 /*!40000 ALTER TABLE `products` DISABLE KEYS */;
-INSERT INTO `products` VALUES (1,'PC','PC',105),(2,'Mobile','Mobile',200),(3,'Nice Shirts','Shirt',150),(4,'Nice','Pants',150),(6,'Fresh','Cotton',500),(7,'Description for Product A','Product A',250);
+INSERT INTO `products` VALUES (3,'2024-10-31','We are a professional manufacturer and exporter and our expertise is in Girl Unicorn Onesie . \nThese Wrap yourself with our exquisite Girl Unicorn...',0,'c2b6bc7d-f820-4756-ac31-3311a2607bf5_24218606_2_girl-unicorn-onesie-supplier.webp','Girl Unicorn Onesie',52500,200,'slqq4','2024-09-27',250,5,52500,NULL,NULL),(4,'2024-10-24','We introduce our company as a well renowned maker and exporter of Kid\'s Formal Shorts . We have achieved expertise in catering to the requirements...',0,'5ef636ed-89c5-4616-8edd-b10bd39455b4_24221923_0_twill-short-frt-removebg-preview.webp','Kid\'s Formal Shorts',15900,150,'wwrsw','2024-09-28',100,6,15900,NULL,NULL),(5,'2024-11-01','We introduce our self as a pioneer in the field of Women\'s Long Denim Skirt . Our Customizable Women\'s Long Denim Skirt with Front pocket and Slit...',0,'228836dc-5364-4ec6-bc06-76592ff4a039_24220755_0_10.webp','Women\'s Long Denim Skirt',155250,900,'ywjv5','2024-09-28',150,15,155250,4,NULL);
 /*!40000 ALTER TABLE `products` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -50,4 +65,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2024-09-21 16:31:39
+-- Dump completed on 2024-09-28 16:19:11

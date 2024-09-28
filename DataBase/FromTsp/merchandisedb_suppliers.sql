@@ -26,14 +26,19 @@ CREATE TABLE `suppliers` (
   `id` bigint NOT NULL AUTO_INCREMENT,
   `address` varchar(255) DEFAULT NULL,
   `contact_person` varchar(255) DEFAULT NULL,
-  `created_at` date DEFAULT NULL,
-  `email` varchar(255) DEFAULT NULL,
-  `name` varchar(255) NOT NULL,
+  `created_at` datetime(6) DEFAULT NULL,
+  `email` varchar(255) NOT NULL,
+  `organization` varchar(255) DEFAULT NULL,
   `phone` varchar(255) DEFAULT NULL,
-  `updated_at` date DEFAULT NULL,
   `status` varchar(255) DEFAULT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+  `updated_at` datetime(6) DEFAULT NULL,
+  `name` varchar(255) NOT NULL,
+  `country_id` int DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `UKq5uvp89ra4ksaty5ghyaw4kjr` (`email`),
+  KEY `FKn1iyuiw0xgggncfk4joxfx9y` (`country_id`),
+  CONSTRAINT `FKn1iyuiw0xgggncfk4joxfx9y` FOREIGN KEY (`country_id`) REFERENCES `country` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -42,7 +47,7 @@ CREATE TABLE `suppliers` (
 
 LOCK TABLES `suppliers` WRITE;
 /*!40000 ALTER TABLE `suppliers` DISABLE KEYS */;
-INSERT INTO `suppliers` VALUES (1,'Purbo kallan, Kurigram sadar, Kurigram','Md Nayamul lslam','2024-09-21','nayamulislam@gmail.com','Md Nayamul lslam','01784991229','2024-09-21','active'),(2,'7th floor, House 5/C, Road:1, PC Culture Housing Society limited,','NAYAMUL ISLAM','2024-09-21','nayamulislam@gmail.com','NAYAMUL ISLAM','01323276407','2024-09-21','inactive'),(4,'7th Floor, House 5/C, Road 01,','MD Neyamul Isalm Nirob','2024-09-21','1302neyamulislamnirob@gmail.com','MD Neyamul Isalm Nirob','01323276407','2024-09-21','active');
+INSERT INTO `suppliers` VALUES (14,'B-52, Sector-2, Noida-201301,\nUttar Pradesh (INDIA)','Mr. Vimal Singha','2024-09-28 14:52:48.802892','manglamapparels@gmail.com','Manglam Apparels Pvt. Ltd','+91-0120 4320133','Accessories','2024-09-28 15:13:22.678026','Mrs. Anjana Singhal',5);
 /*!40000 ALTER TABLE `suppliers` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -55,4 +60,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2024-09-21 16:31:40
+-- Dump completed on 2024-09-28 16:19:09

@@ -16,29 +16,38 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `products_inventory_item_list`
+-- Table structure for table `measurement`
 --
 
-DROP TABLE IF EXISTS `products_inventory_item_list`;
+DROP TABLE IF EXISTS `measurement`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `products_inventory_item_list` (
-  `product_id` bigint NOT NULL,
-  `inventory_item_list_id` bigint NOT NULL,
-  UNIQUE KEY `UK5rjv53qb4yu2gs02xuuhdyr46` (`inventory_item_list_id`),
-  KEY `FK3ko7ysujefffxcjjfhojso83m` (`product_id`),
-  CONSTRAINT `FK3ko7ysujefffxcjjfhojso83m` FOREIGN KEY (`product_id`) REFERENCES `products` (`id`),
-  CONSTRAINT `FKogdo2ufto9w2iksmi3f8nq4dk` FOREIGN KEY (`inventory_item_list_id`) REFERENCES `inventory_items` (`id`)
+CREATE TABLE `measurement` (
+  `id` bigint NOT NULL AUTO_INCREMENT,
+  `attachment_description` varchar(255) DEFAULT NULL,
+  `attachment_name` varchar(255) DEFAULT NULL,
+  `code_name` varchar(255) DEFAULT NULL,
+  `large` varchar(255) DEFAULT NULL,
+  `measurement_description` varchar(255) DEFAULT NULL,
+  `measurement_name` varchar(255) DEFAULT NULL,
+  `measurement_tolerance` varchar(255) DEFAULT NULL,
+  `medium` varchar(255) DEFAULT NULL,
+  `small` varchar(255) DEFAULT NULL,
+  `tolerance` varchar(255) DEFAULT NULL,
+  `style_category_id` bigint DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `FKted6rhfi8ufa8klgy50rbomd4` (`style_category_id`),
+  CONSTRAINT `FKted6rhfi8ufa8klgy50rbomd4` FOREIGN KEY (`style_category_id`) REFERENCES `style_categories` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `products_inventory_item_list`
+-- Dumping data for table `measurement`
 --
 
-LOCK TABLES `products_inventory_item_list` WRITE;
-/*!40000 ALTER TABLE `products_inventory_item_list` DISABLE KEYS */;
-/*!40000 ALTER TABLE `products_inventory_item_list` ENABLE KEYS */;
+LOCK TABLES `measurement` WRITE;
+/*!40000 ALTER TABLE `measurement` DISABLE KEYS */;
+/*!40000 ALTER TABLE `measurement` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -50,4 +59,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2024-09-21 16:31:39
+-- Dump completed on 2024-09-28 16:19:11

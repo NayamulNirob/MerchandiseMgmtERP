@@ -42,7 +42,7 @@ public class InventoryItemsService {
 
 
             existingInventory.setStock(existingInventory.getStock() + inventoryItem.getStock());
-            existingInventory.setWarehouse(inventoryItem.getWarehouse());
+            existingInventory.setWareHouse(inventoryItem.getWareHouse());
 
 
 

@@ -30,10 +30,10 @@ public class SupplierRestController {
 
     @PostMapping("/save")
     public ResponseEntity<Supplier> saveSupplier(@RequestBody Supplier supplier) {
-        supplier.setCreatedAt(LocalDateTime.now());
-        supplier.setUpdatedAt(LocalDateTime.now());
-        Country country = countryService.findCountryById(supplier.getCountry().getId());
-        supplier.setCountry(country);
+//        supplier.setCreatedAt(LocalDateTime.now());
+//        supplier.setUpdatedAt(LocalDateTime.now());
+//        Country country = countryService.findCountryById(supplier.getCountry().getId());
+//        supplier.setCountry(country);
         Supplier saveSupplier= supplierService.SaveSupplier(supplier);
         return new ResponseEntity<>(saveSupplier, HttpStatus.CREATED);
     }

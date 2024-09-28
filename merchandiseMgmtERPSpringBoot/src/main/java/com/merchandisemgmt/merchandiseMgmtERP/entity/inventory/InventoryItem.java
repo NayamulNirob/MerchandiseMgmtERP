@@ -22,7 +22,7 @@ public class InventoryItem {
 
     @ManyToOne
     @JoinColumn
-    private Warehouse warehouse;
+    private WareHouse wareHouse;
 
     @JsonBackReference
     @ManyToOne(fetch = FetchType.EAGER)

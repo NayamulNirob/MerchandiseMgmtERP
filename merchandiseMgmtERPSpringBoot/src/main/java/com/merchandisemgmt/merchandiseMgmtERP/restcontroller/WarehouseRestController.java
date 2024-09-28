@@ -1,6 +1,6 @@
 package com.merchandisemgmt.merchandiseMgmtERP.restcontroller;
 
-import com.merchandisemgmt.merchandiseMgmtERP.entity.inventory.Warehouse;
+import com.merchandisemgmt.merchandiseMgmtERP.entity.inventory.WareHouse;
 import com.merchandisemgmt.merchandiseMgmtERP.service.WereHouseService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -18,21 +18,21 @@ public class WarehouseRestController {
     private WereHouseService wereHouseService;
 
     @GetMapping("/")
-    public ResponseEntity <List<Warehouse>> getAllWarehouses() {
-        List<Warehouse> warehouses = wereHouseService.getAllWarehouses();
-        return new ResponseEntity<>(warehouses,HttpStatus.OK);
+    public ResponseEntity <List<WareHouse>> getAllWarehouses() {
+        List<WareHouse> wareHouses = wereHouseService.getAllWarehouses();
+        return new ResponseEntity<>(wareHouses,HttpStatus.OK);
     }
 
 
     @PostMapping("/save")
-    public ResponseEntity<Warehouse> saveWarehouse(@RequestBody Warehouse warehouse) {
-        Warehouse saveWarehouse = wereHouseService.saveWarehouse(warehouse);
-        return new ResponseEntity<>(saveWarehouse, HttpStatus.CREATED);
+    public ResponseEntity<WareHouse> saveWarehouse(@RequestBody WareHouse warehouse) {
+        WareHouse saveWareHouse = wereHouseService.saveWarehouse(warehouse);
+        return new ResponseEntity<>(saveWareHouse, HttpStatus.CREATED);
     }
     @PutMapping("/update/{id}")
-    public ResponseEntity<Warehouse> updateWarehouse(@RequestBody Warehouse warehouse,@PathVariable("id") Long Id) {
-        Warehouse  updateWarehouse =wereHouseService.updateWarehouse(warehouse,Id);
-        return new ResponseEntity<>(updateWarehouse,HttpStatus.OK);
+    public ResponseEntity<WareHouse> updateWarehouse(@RequestBody WareHouse warehouse, @PathVariable("id") Long Id) {
+        WareHouse updateWareHouse =wereHouseService.updateWarehouse(warehouse,Id);
+        return new ResponseEntity<>(updateWareHouse,HttpStatus.OK);
     }
 
     @DeleteMapping("/delete/{id}")
@@ -45,8 +45,8 @@ public class WarehouseRestController {
 
 
     @GetMapping("/{id}")
-    public ResponseEntity<Warehouse> getWarehouseById(@PathVariable("id") Long id) {
-        Warehouse warehouse = wereHouseService.getWarehouseById(id);
+    public ResponseEntity<WareHouse> getWarehouseById(@PathVariable("id") Long id) {
+        WareHouse warehouse = wereHouseService.getWarehouseById(id);
         return new ResponseEntity<>(warehouse,HttpStatus.OK);
     }
 

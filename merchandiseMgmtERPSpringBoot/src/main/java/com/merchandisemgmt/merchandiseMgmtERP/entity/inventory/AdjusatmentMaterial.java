@@ -29,7 +29,7 @@ public class AdjusatmentMaterial {
 
     @ManyToOne
     @JoinColumn
-    private Warehouse warehouse;
+    private WareHouse warehouse;
 
     @ManyToOne
     @JoinColumn

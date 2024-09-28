@@ -1,7 +1,7 @@
 package com.merchandisemgmt.merchandiseMgmtERP.service;
 
 import com.merchandisemgmt.merchandiseMgmtERP.entity.inventory.InventoryItem;
-import com.merchandisemgmt.merchandiseMgmtERP.entity.inventory.Warehouse;
+import com.merchandisemgmt.merchandiseMgmtERP.entity.inventory.WareHouse;
 import com.merchandisemgmt.merchandiseMgmtERP.repository.InventoryItemRepository;
 import com.merchandisemgmt.merchandiseMgmtERP.repository.WareHouseRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,11 +17,11 @@ public class WereHouseService {
     @Autowired
     private InventoryItemRepository inventoryItemRepository;
 
-    public List<Warehouse> getAllWarehouses() {
+    public List<WareHouse> getAllWarehouses() {
         return wareHouseRepository.findAll();
     }
 
-    public Warehouse saveWarehouse(Warehouse warehouse) {
+    public WareHouse saveWarehouse(WareHouse warehouse) {
 
         try {
             return wareHouseRepository.save(warehouse);
@@ -31,21 +31,21 @@ public class WereHouseService {
         }
     }
 
-    public Warehouse getWarehouseById(Long id) {
+    public WareHouse getWarehouseById(Long id) {
         return wareHouseRepository.findById(id).orElseThrow(
-                () -> new RuntimeException("Warehouse with id " + id + " not found")
+                () -> new RuntimeException("WareHouse with id " + id + " not found")
         );
     }
 
-    public Warehouse updateWarehouse(Warehouse warehouse,long id) {
+    public WareHouse updateWarehouse(WareHouse warehouse, long id) {
         return wareHouseRepository.save(warehouse);
     }
 
     public void deleteWarehouseById(Long id) {
 
-        List<InventoryItem> items = inventoryItemRepository.findByWarehouseId(id);
+        List<InventoryItem> items = inventoryItemRepository.findByWareHouseId(id);
         for (InventoryItem item : items) {
-            item.setWarehouse(null);
+            item.setWareHouse(null);
             inventoryItemRepository.save(item);
         }
 

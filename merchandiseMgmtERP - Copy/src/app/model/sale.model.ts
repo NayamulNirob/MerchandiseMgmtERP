@@ -1,5 +1,6 @@
 import { Country } from "./countrymodel";
 import { InventoryItem } from "./inventory.item.model";
+import { Stock } from "./stockmodel";
 import { SubCategories } from "./subcategoriesmodel";
 
 

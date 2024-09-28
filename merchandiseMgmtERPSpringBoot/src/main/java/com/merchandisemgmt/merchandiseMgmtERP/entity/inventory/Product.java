@@ -85,4 +85,8 @@ public class Product {
     @ManyToOne
     @JoinColumn
     private SubCategories subCategories;
+
+
+
+
 }

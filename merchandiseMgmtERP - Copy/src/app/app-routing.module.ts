@@ -22,6 +22,7 @@ import { UpdatecustomerComponent } from './businesscomponent/updatecustomer/upda
 import { ProductcategoryComponent } from './businesscomponent/productcategory/productcategory.component';
 import { SubcategoriesComponent } from './businesscomponent/subcategories/subcategories.component';
 import { CountryComponent } from './businesscomponent/country/country.component';
+import { StockmanagementComponent } from './businesscomponent/stockmanagement/stockmanagement.component';
 
 
 const routes: Routes = [
@@ -45,6 +46,7 @@ const routes: Routes = [
   {path:'category',component:ProductcategoryComponent},
   {path:'subcategory',component:SubcategoriesComponent},
   {path:'country',component:CountryComponent},
+  {path:'stock',component:StockmanagementComponent},
   {path:"**", redirectTo:'dashbord' , pathMatch:'full'},
   
   {

@@ -7,6 +7,8 @@ import com.merchandisemgmt.merchandiseMgmtERP.repository.StockRepository;
 import com.merchandisemgmt.merchandiseMgmtERP.repository.WareHouseRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import java.time.LocalDateTime;
 import java.util.*;
 
 @Service
@@ -35,6 +37,12 @@ public class StockService {
     }
 
     public Stock addStock(Stock stock) {
+        stock.setCreatedAt(LocalDateTime.now());
+        stock.setUpdatedAt(LocalDateTime.now());
+        if (stock.getProduct().getId() == null) {
+            // Save the product first
+            productRepository.save(stock.getProduct());
+        }
         return stockRepository.save(stock);
     }
 

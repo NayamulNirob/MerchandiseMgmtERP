@@ -47,4 +47,8 @@ public class Customer {
     private String organigation;
 
 
+    @ManyToOne
+    @JoinColumn
+    private Country countryObj;
+
 }

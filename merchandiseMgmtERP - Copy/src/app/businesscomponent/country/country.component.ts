@@ -23,9 +23,9 @@ export class CountryComponent {
   maxSale: number = 1000000;  // Example maximum sale value
 
   getProgressColor(percentage: number): string {
-    if (percentage < 33) {
+    if (percentage < 40) {
       return 'red';
-    } else if (percentage >= 33 && percentage < 50) {
+    } else if (percentage >= 40 && percentage < 65) {
       return 'orange';
     } else {
       return 'green';

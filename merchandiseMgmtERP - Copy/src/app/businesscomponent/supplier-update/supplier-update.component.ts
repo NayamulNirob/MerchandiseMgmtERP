@@ -5,38 +5,41 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { HttpErrorResponse } from '@angular/common/http';
 import { Country } from '../../model/countrymodel';
 import { CountryService } from '../../services/country.service';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-supplier-update',
   templateUrl: './supplier-update.component.html',
   styleUrl: './supplier-update.component.css'
 })
-export class SupplierUpdateComponent implements OnInit{
+export class SupplierUpdateComponent implements OnInit {
 
 
   supplierId!: number;
   errorMessage: string = '';
-  supplier:Supplier =new Supplier();
-  suppliers: Supplier[] = []; 
+  supplier: Supplier = new Supplier();
+  suppliers: Supplier[] = [];
 
- 
+  private supplierSubscription!: Subscription;
 
-  
+  ngOnDestroy(): void {
+    if (this.supplierSubscription) {
+      this.supplierSubscription.unsubscribe();
+    }
+  }
+
+
 
   constructor(
     private supplierService: SupplierService,
     private route: ActivatedRoute,
     private router: Router,
-   
+
   ) { }
 
   ngOnInit(): void {
     this.supplierId = this.route.snapshot.params['id'];
     this.loadSupplier();
-
-    
-
-
   }
 
   loadSupplier() {
@@ -46,12 +49,12 @@ export class SupplierUpdateComponent implements OnInit{
         console.log(this.supplier);
       },
       error: error => {
-        console.log(error)
-        this.errorMessage = 'Could not load supplier';
+        this.errorMessage = `Could not load supplier: ${error.message}`;
       }
     });
 
-    
+
+
   }
 
 
@@ -66,5 +69,9 @@ export class SupplierUpdateComponent implements OnInit{
       });
     }
   }
+
+
+
+
 
 }

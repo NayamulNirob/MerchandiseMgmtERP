@@ -4,6 +4,8 @@ import { Customer } from '../../model/sale.model';
 import { CustomerService } from '../../services/customermanagement.service';
 import { Router } from '@angular/router';
 import { DatePipe } from '@angular/common';
+import { Country } from '../../model/countrymodel';
+import { CountryService } from '../../services/country.service';
 
 
 @Component({
@@ -17,10 +19,12 @@ export class CustomerManagementComponent implements OnInit {
   filteredCustomers: Customer[] = [];
   searchTerm: string = '';
   newCustomer: Customer = new Customer();
+  countryObj:Country[]=[];
 
   constructor(private customerService: CustomerService,
     private router: Router,
-    private datePipe: DatePipe
+    private datePipe: DatePipe,
+    private countryService:CountryService
   ) { }
 
   
@@ -38,6 +42,15 @@ export class CustomerManagementComponent implements OnInit {
     this.customerService.getCustomers().subscribe(data => {
       this.customers = data;
       this.filteredCustomers = data; 
+    });
+    
+    this.countryService.getCountries().subscribe({
+      next:res=>{
+        this.countryObj=res
+      },
+      error:err=>{
+        console.error(err)
+      }
     });
   }
 

@@ -91,7 +91,7 @@
                     <span class="menu-icon">
                         <i class="fa-solid fa-server fa-beat" style="color: #005eff;"></i>
                     </span>
-                    <span class="menu-title">Reports And Analytics</span>
+                    <span class="menu-title">Reports & Analytics</span>
 
                 </a>
             </ng-container>
@@ -124,7 +124,7 @@
             <a class="nav-link" data-toggle="collapse" href="#ui-basic" aria-expanded="false" aria-controls="ui-basic">
                 <span class="menu-icon">
                     <i class="fa-solid fa-list-check fa-fade" style="color: #8258ff;"></i>
-                    
+
                 </span>
                 <span class="menu-title">Category Based</span>
                 <i class="menu-arrow"></i>
@@ -133,10 +133,12 @@
                 <ul class="nav flex-column sub-menu">
 
                     <li class="nav-item"> <a class="nav-link" href="/category">
-                        <i class="fa-solid fa-check-double fa-beat" style="color: #ffffff;"></i>&nbsp; Product Category</a>
+                            <i class="fa-solid fa-check-double fa-beat" style="color: #ffffff;"></i>&nbsp; Product
+                            Category</a>
                     </li>
                     <li class="nav-item"> <a class="nav-link" href="/subcategory">
-                        <i class="fa-solid fa-check-double fa-beat" style="color: #ffffff;"></i>&nbsp;Sub Category</a>
+                            <i class="fa-solid fa-check-double fa-beat" style="color: #ffffff;"></i>&nbsp;Sub
+                            Category</a>
                     </li>
 
 
@@ -154,49 +156,37 @@
             </a>
         </li>
         <li class="nav-item menu-items">
-            <a class="nav-link" href="#">
-                <span class="menu-icon">
-                    <i class="mdi mdi-table-large"></i>
-                </span>
-                <span class="menu-title">Order Mgmt</span>
-        <li class="nav-item">
             <ng-container *ngIf="userRole==='Admin'">
+
                 <a class="nav-link" href="/orders">
+                    <span class="menu-icon">
+                        <i class="fa-solid fa-layer-group fa-beat-fade" style="color: #63E6BE;"></i>
+                    </span>
+                    <span class="menu-title">Order Mgmt</span>
                 </a>
             </ng-container>
         </li>
-        </a>
-        </li>
         <li class="nav-item menu-items">
-            <a class="nav-link" href="#">
-                <span class="menu-icon">
-                    <i class="mdi mdi-chart-bar"></i>
-                    
-                </span>
-                <span class="menu-title">Sales</span>
-        <li class="nav-item">
             <ng-container *ngIf="userRole==='Admin'">
                 <a class="nav-link" href="/sales">
+                    <span class="menu-icon">
+                        <i class="fa-solid fa-chart-simple fa-beat" style="color: #ff2e2e;"></i>
+
+                    </span>
+                    <span class="menu-title">Sales</span>
 
                 </a>
             </ng-container>
-        </li>
-        </a>
         </li>
         <li class="nav-item menu-items">
-            <a class="nav-link" href="#">
-                <span class="menu-icon">
-                    <i class="mdi mdi-contacts"></i>
-                </span>
-                <span class="menu-title">Buyers</span>
-        <li class="nav-item">
             <ng-container *ngIf="userRole==='Admin'">
                 <a class="nav-link" href="/customer">
-
+                    <span class="menu-icon">
+                        <i class="fa-solid fa-wind fa-beat" style="color: #74C0FC;"></i>
+                    </span>
+                    <span class="menu-title">Buyers</span>
                 </a>
             </ng-container>
-        </li>
-        </a>
         </li>
         <li class="nav-item menu-items">
             <a class="nav-link" data-toggle="collapse" href="#auth" aria-expanded="false" aria-controls="auth">
@@ -205,32 +195,36 @@
                 </span>
                 <span class="menu-title">Location</span>
                 <i class="menu-arrow"></i>
-                
+
             </a>
             <div class="collapse" id="auth">
                 <ul class="nav flex-column sub-menu">
 
                     <li class="nav-item">
-                        <a class="nav-link" href="/warehouseview"> 
-                            <i class="fa-solid fa-check-double fa-beat" style="color: #ffffff;"></i>&nbsp;  ALL Warehouses </a>
+                        <a class="nav-link" href="/warehouseview">
+                            <i class="fa-solid fa-check-double fa-beat" style="color: #ffffff;"></i>&nbsp; ALL
+                            Warehouses </a>
                     </li>
-                    <li class="nav-item"> <a class="nav-link" href="/country"> 
-                        <i class="fa-solid fa-check-double fa-beat" style="color: #ffffff;"></i>&nbsp;Country List</a>
+                    <li class="nav-item"> <a class="nav-link" href="/country">
+                            <i class="fa-solid fa-check-double fa-beat" style="color: #ffffff;"></i>&nbsp;Country
+                            List</a>
                     </li>
 
                 </ul>
             </div>
         </li>
+
+
         <li class="nav-item menu-items">
             <ng-container *ngIf="userRole==='Admin'">
                 <a class="nav-link" href="/supplier">
                     <span class="menu-icon">
-                        <i class="mdi mdi-file-document-box"></i>
-                    </span> Supplier
+                        <i class="fa-solid fa-industry fa-beat-fade" style="color: #B197FC;"></i>
+                    </span>
+                    <span class="menu-title">Supplier</span>
                 </a>
             </ng-container>
         </li>
+
     </ul>
 </nav>
-
-<!-- partial -->

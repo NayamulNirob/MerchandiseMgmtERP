@@ -80,6 +80,7 @@ export class Customer {
   contactPerson!:string;
   country!:string;
   organigation!:string;
+  countryObj:Country=new Country();
 }
 
 // registration.model.ts  

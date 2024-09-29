@@ -47,7 +47,7 @@ const routes: Routes = [
   {path:'subcategory',component:SubcategoriesComponent},
   {path:'country',component:CountryComponent},
   {path:'stock',component:StockmanagementComponent},
-  {path:"**", redirectTo:'dashbord' , pathMatch:'full'},
+  {path:"**", redirectTo:'login' , pathMatch:'full'},
   
   {
     path:'userProfile',

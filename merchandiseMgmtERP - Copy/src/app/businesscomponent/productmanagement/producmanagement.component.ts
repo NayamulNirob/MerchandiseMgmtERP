@@ -113,6 +113,7 @@ export class ProducmanagementComponent implements OnInit {
     if (this.selectedFile) {
       this.productService.createProduct(this.newProduct, this.selectedFile).subscribe({
         next: res => {
+          alert('Product Addes Succesfully');
           this.newProduct = new Product();
           this.loadProducts();
           this.resetNewProducts();

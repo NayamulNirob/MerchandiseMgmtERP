@@ -3,6 +3,7 @@ import { WareHouse } from "./warehouse.model";
 
 export class Stock{
 
+
       id!:number;
 
      quantity!:number;

@@ -39,10 +39,6 @@ public class StockService {
     public Stock addStock(Stock stock) {
         stock.setCreatedAt(LocalDateTime.now());
         stock.setUpdatedAt(LocalDateTime.now());
-        if (stock.getProduct().getId() == null) {
-            // Save the product first
-            productRepository.save(stock.getProduct());
-        }
         return stockRepository.save(stock);
     }
 

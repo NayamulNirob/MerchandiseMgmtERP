@@ -2,10 +2,12 @@ import { Component, OnInit } from '@angular/core';
 import { Stock } from '../../model/stockmodel';
 import { StockService } from '../../services/stock.service';
 import { Router } from '@angular/router';
-import { SubcategoryService } from '../../services/subcategory.service';
 import { Product } from '../../model/sale.model';
 import { WareHouse } from '../../model/warehouse.model';
 import { DatePipe } from '@angular/common';
+import { ProductService } from '../../services/product.service';
+import { WarehouseService } from '../../services/warehouse.service';
+
 
 
 @Component({
@@ -15,6 +17,8 @@ import { DatePipe } from '@angular/common';
   providers: [DatePipe]
 })
 export class StockmanagementComponent implements OnInit {
+
+
 
   stocks: Stock[] = [];
   newStock: Stock = new Stock();
@@ -38,7 +42,10 @@ export class StockmanagementComponent implements OnInit {
   constructor(
     private stockService: StockService,
     private router: Router,
-    private datePipe: DatePipe) { }
+    private datePipe: DatePipe,
+    private productService: ProductService,
+    private warehouseservice:WarehouseService,
+   ) { }
 
 
   formatDateTime(date: string | Date) {
@@ -47,6 +54,25 @@ export class StockmanagementComponent implements OnInit {
 
   ngOnInit(): void {
     this.loadStocks();
+    this.productService.getProducts().subscribe({
+      next: res => {
+        this.newProducts = res
+      },
+      error: err => {
+        console.log(err)
+      }
+    });
+    this.warehouseservice.getWarehouses().subscribe({
+      next:res=>{
+        this.wareHouse=res
+      },
+      error:err=>{
+        console.log(err)
+      }
+    });
+  
+
+   
 
   }
 
@@ -68,13 +94,13 @@ export class StockmanagementComponent implements OnInit {
   }
 
   filterAndSortStocks(): void {
-    // Filter the stocks based on the search term
+    
     this.filteredStocks = this.stocks.filter(stock =>
       stock.product.name.toLowerCase().includes(this.searchTerm.toLowerCase()) ||
       stock.wareHouse.name.toLowerCase().includes(this.searchTerm.toLowerCase())
     );
 
-    // Sort the filtered stocks based on the selected sort criteria
+  
     this.sortStocks();
   }
 
@@ -143,14 +169,54 @@ export class StockmanagementComponent implements OnInit {
     }
   }
 
-  calculateTotalAmount(): number {
-    const total = this.newStock.product.price * this.newStock.quantity;
-    const taxAmount = (total * this.newStock.product.tax) / 100;
-    return total + taxAmount;
-  }
+  // calculateTotalAmount(): number {
+  //   const total = this.newStock.product.totalPrice * this.newStock.quantity;
+  //   const taxAmount = (total * this.newStock.product.tax) / 100;
+  //   return total + taxAmount;
+  // }
+
+  // calculateTotalAmount(): number {
+  //   let totalAmount = 0;
+  
+  //   // this.newStock.forEach(stockItem => {
+  //   //   totalAmount += stockItem.product.totalPrice * stockItem.quantity;
+  //   // });
+  
+  //   return totalAmount;
+  // }
+  
 
   private resetNewStocks() {
     this.newStock = new Stock();
   }
+
+
+  // totalStockInWarehouse(arg0: number) {
+  //   throw new Error('Method not implemented.');
+  //   }
+    
+    calculateTotalWarehousePrice(warehouseId: number): number {
+      let totalPrice = 0;
+
+      this.filteredStocks.forEach(stock => {
+        if (stock.wareHouse.id === warehouseId) {
+          totalPrice += stock.product.totalPrice;
+        }
+      });
+    
+      return totalPrice;
+    }
+
+    calculateTotalWarehouseQuantity(warehouseId: number): number {
+      let totalQuantity = 0;
+      this.filteredStocks.forEach(stock => {
+        if (stock.wareHouse.id === warehouseId) {
+          totalQuantity += stock.product.quantity;
+        }
+      });
+    
+      return totalQuantity;
+    }
+    
 
 }

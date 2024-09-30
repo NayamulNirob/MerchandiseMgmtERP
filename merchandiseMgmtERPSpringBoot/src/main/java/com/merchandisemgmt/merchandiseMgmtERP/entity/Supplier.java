@@ -1,15 +1,11 @@
-package com.merchandisemgmt.merchandiseMgmtERP.entity.inventory;
+package com.merchandisemgmt.merchandiseMgmtERP.entity;
 
-import com.fasterxml.jackson.annotation.JsonManagedReference;
-import com.merchandisemgmt.merchandiseMgmtERP.entity.Country;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.sql.Date;
 import java.time.LocalDateTime;
-import java.util.List;
 
 
 @Entity

@@ -1,4 +1,4 @@
-package com.merchandisemgmt.merchandiseMgmtERP.entity.inventory;
+package com.merchandisemgmt.merchandiseMgmtERP.entity;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;

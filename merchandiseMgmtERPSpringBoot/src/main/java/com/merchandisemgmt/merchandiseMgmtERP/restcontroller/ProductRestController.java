@@ -1,6 +1,6 @@
 package com.merchandisemgmt.merchandiseMgmtERP.restcontroller;
 
-import com.merchandisemgmt.merchandiseMgmtERP.entity.inventory.Product;
+import com.merchandisemgmt.merchandiseMgmtERP.entity.Product;
 import com.merchandisemgmt.merchandiseMgmtERP.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;

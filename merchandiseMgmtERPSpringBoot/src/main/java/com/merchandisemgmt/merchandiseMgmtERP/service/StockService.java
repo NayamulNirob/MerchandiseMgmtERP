@@ -1,6 +1,6 @@
 package com.merchandisemgmt.merchandiseMgmtERP.service;
 
-import com.merchandisemgmt.merchandiseMgmtERP.entity.inventory.Stock;
+import com.merchandisemgmt.merchandiseMgmtERP.entity.Stock;
 import com.merchandisemgmt.merchandiseMgmtERP.repository.InventoryItemRepository;
 import com.merchandisemgmt.merchandiseMgmtERP.repository.ProductRepository;
 import com.merchandisemgmt.merchandiseMgmtERP.repository.StockRepository;

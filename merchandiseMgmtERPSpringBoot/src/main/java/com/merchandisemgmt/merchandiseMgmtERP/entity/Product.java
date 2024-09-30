@@ -1,8 +1,5 @@
-package com.merchandisemgmt.merchandiseMgmtERP.entity.inventory;
+package com.merchandisemgmt.merchandiseMgmtERP.entity;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
-import com.merchandisemgmt.merchandiseMgmtERP.entity.ProductCategory;
-import com.merchandisemgmt.merchandiseMgmtERP.entity.SubCategories;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;

@@ -1,7 +1,6 @@
 package com.merchandisemgmt.merchandiseMgmtERP.restcontroller;
 
-import com.merchandisemgmt.merchandiseMgmtERP.entity.Country;
-import com.merchandisemgmt.merchandiseMgmtERP.entity.inventory.Supplier;
+import com.merchandisemgmt.merchandiseMgmtERP.entity.Supplier;
 import com.merchandisemgmt.merchandiseMgmtERP.service.CountryService;
 import com.merchandisemgmt.merchandiseMgmtERP.service.SupplierService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,7 +8,6 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.time.LocalDateTime;
 import java.util.List;
 
 @RestController

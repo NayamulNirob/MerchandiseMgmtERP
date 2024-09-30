@@ -1,7 +1,6 @@
 package com.merchandisemgmt.merchandiseMgmtERP.service;
 
 import com.merchandisemgmt.merchandiseMgmtERP.entity.Sale;
-import com.merchandisemgmt.merchandiseMgmtERP.entity.inventory.Product;
 import com.merchandisemgmt.merchandiseMgmtERP.repository.CustomerRepository;
 import com.merchandisemgmt.merchandiseMgmtERP.repository.ProductRepository;
 import com.merchandisemgmt.merchandiseMgmtERP.repository.SaleRepository;

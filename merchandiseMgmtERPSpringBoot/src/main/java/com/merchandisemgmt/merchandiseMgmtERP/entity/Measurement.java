@@ -24,8 +24,6 @@ public class Measurement {
     private String attachmentName;
     private String attachmentDescription;
 
-    @ManyToOne
-    @JoinColumn
-    private StyleCategories styleCategory;
+
 
 }

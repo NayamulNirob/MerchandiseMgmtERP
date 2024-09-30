@@ -1,0 +1,127 @@
+Section-2
+Total number of questions: 25
+Score for each question: 2
+Total Marks: 50
+Which of the following XML file is used by Maven?
+Config.xml
+META-INF.xml
+Pom.xml
+None of the Above
+Which of the following is the default HTML template engine in Spring Boot?
+HTML
+Thymeleaf
+JSP
+None
+What is the starter for using log4j2 for logging?
+Spring-boot-starter-logger
+Spring-boot-starter-log
+Spring-boot-starter-log4j2
+None of the options
+What is the purpose of Spring Boot ?
+MVC Framework
+Java Framework
+Web Development Framework
+All of the Above
+How we can disable a specific auto- configuration class?
+Using include attribute of @DisableAutoconfiguration
+Using not exclude attribute of @DisabaleAutoConfiguration
+Using not include attribute of @EnableAutoConfiguration
+Using exclude attribute of @EnableAutoConfiguration
+What is the default method of @RequestMapping?
+Pull
+Patch
+Post
+Get
+Which you needed to build a RESTful Web Services?
+Spring-boot-starter-rest
+Spring-boot-starter-web.rest
+Spring-boot-starter-web
+None
+Which of the following is not a spring boot layer?
+Presentation Layer
+Service layer
+Persistence Layer
+Business Layer
+How could you secure MVC controller with Spring Security?
+With the @Secured annotation
+With the @RolesAllowed annotation
+In a XML security configuration file
+All of the above
+What is the spring boot default embedded server?
+Undertow Server
+Tomcat Server
+Glassfish Server
+Jetty Server
+Spring-boot-starter-parent manage which of the following activities?
+Configuration - Java Version and other properties
+Dependency Management - Version of dependencies
+Default Plugin Configuration
+All of the above
+Which of the following are Class level annotation?
+@Controller
+@Service
+@Repository
+All of the above
+How to disable the default web server in the Spring Boot application?
+spring.main.web-server-type=none
+spring.main.web-application-type=none
+spring.main.application-type=no
+spring.web-application-type=no-server
+What is the starting point of Spring Boot Application?
+@Service
+@Controller
+@SpringBootApplication
+None of the Above
+What is used for handling GET requests?
+@GetMapping
+@PutMapping
+@PostMapping
+None of the Above
+How primary key is annotated with attribute?
+@Column
+@Id
+@PrimaryKeyNotNull
+@PrimaryKeyNotNullAutoIncrement
+Which of the following is correct syntax to exclude?
+@SpringBootApplication(exclude =={Salary. class}) Public class Employee{}
+@SpringBootApplication(include !={Salary. class})
+@SpringBootApplication(exclude ={Salary. class}) Public class Employee{}
+None
+What is the purpose of Rest Template ?
+create applications that consume RESTful Web Services
+create applications that produced RESTful Web Services
+Both A & B
+None
+Do you think Spring Boot upgrades all dependencies automatically?
+True
+False
+How to configure hibernate in spring boot?
+h2
+spring-boot-starter-data-jpa
+Both a & b
+None of the above
+Which of the following annotation is used to bind application properties to the class fields?
+@ApplicationProperties
+@ConfigurationProperties
+ @AppProperties
+None of the above
+Springboot enables the developers to use?
+Multiple Annotations
+Single Annotation
+Both
+None
+Which of the following annotation used for Restful Web Services?
+@Controller
+@SpringBootApplication
+@RestController
+All of the Above
+The annotation to be added to automatically configure beans based on the classes added to the class path is ?
+@AutoConfiguration
+@EnableAutoConfiguration
+@EnableConfiguration
+None of the options
+How to handle exceptions in Spring Boot?
+@Advice
+@ControllerAdvice
+@SpringBootException
+@ExceptionHandle

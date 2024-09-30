@@ -36,6 +36,7 @@ import { ProductcategoryComponent } from './businesscomponent/productcategory/pr
 import { SubcategoriesComponent } from './businesscomponent/subcategories/subcategories.component';
 import { CountryComponent } from './businesscomponent/country/country.component';
 import { StockmanagementComponent } from './businesscomponent/stockmanagement/stockmanagement.component';
+import {NgxPrintModule} from 'ngx-print';
 
 
 
@@ -80,7 +81,9 @@ import { StockmanagementComponent } from './businesscomponent/stockmanagement/st
     FormsModule,
     BrowserAnimationsModule,
     MatTableModule,  
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    NgxPrintModule
+  
 
   ],
   providers: [

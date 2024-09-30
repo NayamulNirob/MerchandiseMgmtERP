@@ -25,7 +25,6 @@ import { ReportsAnalyticsComponent } from './businesscomponent/reports-and-analy
 import { UpdateproductmanagementComponent } from './businesscomponent/updateproductmanagement/updateproductmanagement.component';
 import { LogoutComponent } from './logout/logout.component';
 import { UserprofileComponent } from './userprofile/userprofile.component';
-import { MultiLocationSupportComponent } from './businesscomponent/multi-location-support/multi-location-support.component';
 import { WarehouseviewComponent } from './businesscomponent/warehouseview/warehouseview.component';
 import { WarehouseupdateComponent } from './businesscomponent/warehouseupdate/warehouseupdate.component';
 import { SupplierUpdateComponent } from './businesscomponent/supplier-update/supplier-update.component';
@@ -60,7 +59,6 @@ import {NgxPrintModule} from 'ngx-print';
     UpdateproductmanagementComponent,
     LogoutComponent,
     UserprofileComponent,
-    MultiLocationSupportComponent,
     WarehouseviewComponent,
     WarehouseupdateComponent,
     SupplierUpdateComponent,

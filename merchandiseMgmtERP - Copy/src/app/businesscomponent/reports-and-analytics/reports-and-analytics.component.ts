@@ -13,6 +13,7 @@ export class ReportsAnalyticsComponent implements OnInit {
   inventoryItems: InventoryItem[] = [];  
   sales: Sale[] = [];  
   suppliers: Supplier[] = [];  
+  
   salesRevenueChartData: { labels: string[], data: number[] } = { labels: [], data: [] };  
 
   constructor(private reportsService: ReportsService,
@@ -50,4 +51,7 @@ export class ReportsAnalyticsComponent implements OnInit {
     return Math.max(...this.salesRevenueChartData.data);  
   }  
   //other-data-end
+
+
+  
 }

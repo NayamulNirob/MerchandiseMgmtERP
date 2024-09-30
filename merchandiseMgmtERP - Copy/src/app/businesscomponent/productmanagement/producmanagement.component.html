@@ -18,10 +18,11 @@
                         <div class="form-group row">
                             <label class="col-sm-3 col-form-label">Discription:</label>
                             <div class="col-sm-9">
-                                    <div class="form-group">
-                                        <textarea class="form-control" id="description" rows="2" [(ngModel)]="newProduct.description"
-                                            name="description"  placeholder="Product Discription"></textarea>
-                                    </div>
+                                <div class="form-group">
+                                    <textarea class="form-control" id="description" rows="2"
+                                        [(ngModel)]="newProduct.description" name="description"
+                                        placeholder="Product Discription"></textarea>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -29,7 +30,7 @@
                 <div class="row">
                     <div class="col-md-6">
                         <div class="form-group row">
-                            <label class="col-sm-3 col-form-label"> Price per piece</label>
+                            <label class="col-sm-3 col-form-label"> Price per piece/Kg</label>
                             <div class="col-sm-9">
                                 <input type="number" [(ngModel)]="newProduct.price" name="price" class="form-control"
                                     placeholder="Price" required min="0" />
@@ -63,22 +64,6 @@
                         </div>
                     </div>
 
-
-
-                    <div class="col-md-6">
-                        <div class="form-group row">
-                            <label class="col-sm-3 col-form-label">Date of Dalivary</label>
-                            <div class="col-sm-9">
-                                <input type="date" [(ngModel)]="newProduct.dalivaryDate" name="dalivaryDate"
-                                    class="form-control" placeholder="Dalivary Date" required min="0" />
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="row">
-
-
                     <div class="col-md-6">
                         <div class="form-group row">
                             <label class="col-sm-3 col-form-label">Tax Percentage</label>
@@ -88,6 +73,12 @@
                             </div>
                         </div>
                     </div>
+
+
+
+                </div>
+
+                <div class="row">
 
                     <div class="col-md-6">
                         <div class="form-group row ">
@@ -100,13 +91,6 @@
                         </div>
                     </div>
 
-
-
-
-                </div>
-
-                <div class="row">
-
                     <div class="col-md-6">
                         <div class="form-group row">
                             <label class="col-sm-3 col-form-label">Amount To Pay / Paid</label>
@@ -117,6 +101,13 @@
                             </div>
                         </div>
                     </div>
+
+
+                </div>
+
+                <div class="row">
+
+
 
                     <div class="col-md-6">
                         <div class="form-group row">
@@ -131,10 +122,6 @@
                         </div>
                     </div>
 
-                </div>
-
-
-                <div class="row">
 
                     <div class="col-md-6">
                         <div class="form-group row">
@@ -148,6 +135,33 @@
                             </div>
                         </div>
                     </div>
+
+                </div>
+
+
+                <div class="row">
+
+                    <div class="col-md-6">
+                        <div class="form-group row">
+                            <label for="size" class="col-sm-3 col-form-label">Select Size:</label>
+                            <div class="col-sm-9">
+                                <select class="form-control" id="size" [(ngModel)]="newProduct.sizes" name="sizes"
+                                    required>
+                                    <option [value]="'Xsmall'">Xsmall</option>
+                                    <option [value]="'Small'">Small</option>
+                                    <option [value]="'Medium'">Medium</option>
+                                    <option [value]="'Large'">Large</option>
+                                    <option [value]="'Exlarge'">Xlarge</option>
+                                    <option [value]="'All'">All</option>
+                                    <option [value]="'Xsmall,Small,Medium'">XS,S,M</option>
+                                    <option [value]="'Medium,Large,Xlarge'">M,L,XL</option>
+                                    <option [value]="'Kg'">Kg</option>
+                                    <option [value]="'Gram'">Gm</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
 
                 </div>
 
@@ -202,7 +216,6 @@
                             <th>Price</th>
                             <th>Quantity</th>
                             <th>PurchaseDate</th>
-                            <th>DalivaryDate</th>
                             <th>Code</th>
                             <th>Tax</th>
                             <th>Paid</th>
@@ -219,7 +232,6 @@
                             <td>{{ product.price | currency }}</td>
                             <td>{{ product.quantity }}</td>
                             <td>{{ product.purchaseDate | date }}</td>
-                            <td>{{ product.dalivaryDate | date }}</td>
                             <td>{{ product.productCode }}</td>
                             <td>{{ product.tax }}</td>
                             <td>{{ product.paid | currency }}</td>
@@ -257,9 +269,10 @@
 
 
 
-<div class="row  ms-3">
+<div class="row ms-1">
 
-    <div class="card md-4 m-1 bg-dark text-white" style="width: 18rem;" *ngFor="let u of products">
+    <div class=" card md-4 mb-4 ms-3 bg-dark text-white" style="width: 18rem; margin-right: 15px;"
+        *ngFor="let u of products">
 
         <div class="card-body ">
             <img src="http://localhost:8089/images/{{u.image}}" class="card-img-top" alt="{{u.name}}">
@@ -268,7 +281,7 @@
                 Description : {{u.description}}<br>
                 Price: {{u.price}}<br>
                 Product Code: {{u.productCode}}<br>
-                <!-- Category: {{u.subCategories.name}} -->
+                More In Sizes:{{u.sizes}}
             </p>
 
         </div>

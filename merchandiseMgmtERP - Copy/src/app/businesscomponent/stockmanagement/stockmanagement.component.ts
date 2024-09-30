@@ -4,7 +4,7 @@ import { StockService } from '../../services/stock.service';
 import { Router } from '@angular/router';
 import { Product } from '../../model/sale.model';
 import { WareHouse } from '../../model/warehouse.model';
-import { DatePipe } from '@angular/common';
+import {  DatePipe } from '@angular/common';
 import { ProductService } from '../../services/product.service';
 import { WarehouseService } from '../../services/warehouse.service';
 
@@ -51,6 +51,8 @@ export class StockmanagementComponent implements OnInit {
   formatDateTime(date: string | Date) {
     return this.datePipe.transform(date, 'd MMM, y hh:mm:ss a');
   }
+  
+  
 
   ngOnInit(): void {
     this.loadStocks();
@@ -81,13 +83,19 @@ export class StockmanagementComponent implements OnInit {
       next: res => {
         this.stocks = res;
         this.filterAndSortStocks();
+  
       },
+      
       error: error => {
         console.log(error);
         alert(error);
       }
     });
   }
+
+
+  
+
 
   filterStocks(): void {
     this.filterAndSortStocks();

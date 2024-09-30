@@ -2,8 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { Product, Supplier } from '../../model/sale.model';
 import { ProductService } from '../../services/product.service';
 import { Router } from '@angular/router';
-import { WareHouse } from '../../model/warehouse.model';
-import { InventoryItem } from '../../model/inventory.item.model';
 import { SubCategories } from '../../model/subcategoriesmodel';
 import { SubcategoryService } from '../../services/subcategory.service';
 import { SupplierService } from '../../services/supplier.service';
@@ -18,11 +16,13 @@ export class ProducmanagementComponent implements OnInit {
   products: Product[] = [];
   filteredProducts: Product[] = [];
   newProduct: Product = new Product();
+ 
+  
 
   subCategories:SubCategories[]=[];
  
   searchTerm: string = '';
-  sortBy: string = 'name'; // Default sort
+  sortBy: string = 'name'; 
 
   suppliers: Supplier[] = [];
  
@@ -152,4 +152,6 @@ export class ProducmanagementComponent implements OnInit {
   private resetNewProducts() {
     this.newProduct = new Product();
   }
+
+ 
 }

@@ -12,13 +12,13 @@ export class Product {
   price!: number;
   productCode!:string;
   purchaseDate!:Date;
-  dalivaryDate!:Date;
   quantity!:number;
   tax!:number;
   paid!:number;
   due!:number;
   totalPrice!:number;
   image!:string;
+  sizes!:string;
   supplier:Supplier=new Supplier();
   subCategories:SubCategories=new SubCategories();
 }

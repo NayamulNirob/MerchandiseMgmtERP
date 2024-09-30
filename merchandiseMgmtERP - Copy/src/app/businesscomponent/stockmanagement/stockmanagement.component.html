@@ -34,65 +34,6 @@
                     </div>
                 </div>
 
-                <!-- <div class="row">
-                    <div class="col-md-6">
-                        <div class="form-group row">
-                            <label class="col-sm-3 col-form-label">Price</label>
-                            <div class="col-sm-9">
-                                <input type="number" [(ngModel)]="newStock.product.price" name="price"
-                                    class="form-control" placeholder="Price" required min="0" disabled />
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-md-6">
-                        <div class="form-group row">
-                            <label class="col-sm-3 col-form-label">Quantity</label>
-                            <div class="col-sm-9">
-                                <input type="number" [(ngModel)]="newStock.product.quantity" name="quantity"
-                                    class="form-control" placeholder="Quantity" required min="0" 
-                                    [max]="newStock.wareHouse.capacity - totalStockInWarehouse(newStock.product.quantity)" />
-                                <small class="text-warning">
-                                    Warehouse limit: {{newStock.wareHouse.capacity - totalStockInWarehouse(newStock.product.quantity}}
-                                </small>
-                            </div>
-                        </div>
-                    </div>
-                </div> -->
-
-                <!-- <div class="row">
-                   
-                    <div class="col-md-6">
-                        <div class="form-group row">
-                            <label class="col-sm-3 col-form-label">Date of Arrival</label>
-                            <div class="col-sm-9">
-                                <input type="datetime-local" [(ngModel)]="newStock.createdAt" name="arrivalDate"
-                                    class="form-control" required disabled />
-                            </div>
-                        </div>
-                    </div>
-                </div> -->
-
-                <!-- <div class="row">
-                    <div class="col-md-6">
-                        <div class="form-group row">
-                            <label class="col-sm-3 col-form-label">Total Amount</label>
-                            <div class="col-sm-9">
-                                <input type="text" [(ngModel)]="calculateTotalAmount()" name="totalAmount"
-                                    class="form-control" readonly />
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-md-6">
-                        <div class="form-group row">
-                            <label class="col-sm-3 col-form-label">Attach Image</label>
-                            <div class="col-sm-9">
-                                <input type="file" class="form-control" (change)="onFileSelected($event)" accept="image/*" />
-                            </div>
-                        </div>
-                    </div>
-                </div> -->
 
                 <button type="submit" class="btn btn-success mt-3">Add Stock</button>
             </form>
@@ -145,7 +86,7 @@
                         <td>{{ stock.product.price | currency }}</td>
                         <td>{{ stock.product.quantity }}</td>
                         <td>{{ stock.product.totalPrice| currency }}</td>
-                        <td>{{ stock.product.purchaseDate| date }}</td>
+                        <td>{{ stock.createdAt| date: 'd MMM, y'}}</td>
                         <td>
                             <button class="btn btn-warning btn-sm"
                                 (click)="editStock(stock.id)">Edit</button>&nbsp;&nbsp;

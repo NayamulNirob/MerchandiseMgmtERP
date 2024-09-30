@@ -39,6 +39,8 @@ public class StockService {
     public Stock addStock(Stock stock) {
         stock.setCreatedAt(LocalDateTime.now());
         stock.setUpdatedAt(LocalDateTime.now());
+        System.out.println("Created At: " + stock.getCreatedAt());
+        System.out.println("Updated At: " + stock.getUpdatedAt());
         return stockRepository.save(stock);
     }
 

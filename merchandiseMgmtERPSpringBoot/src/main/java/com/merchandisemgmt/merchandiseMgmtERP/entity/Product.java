@@ -7,6 +7,8 @@ import lombok.NoArgsConstructor;
 
 import java.security.SecureRandom;
 import java.sql.Date;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Data
@@ -33,8 +35,6 @@ public class Product {
 
     private Date purchaseDate;
 
-    private Date dalivaryDate;
-
     private int quantity;
 
     private double tax;
@@ -46,6 +46,8 @@ public class Product {
     private double totalPrice;
 
     private String image;
+
+    private String sizes;
 
 
 
@@ -82,7 +84,6 @@ public class Product {
     @ManyToOne
     @JoinColumn
     private SubCategories subCategories;
-
 
 
 

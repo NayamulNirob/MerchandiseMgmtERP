@@ -24,9 +24,9 @@ export class SalesService {
     return this.http.get<Sale[]>(this.baseUrl+"/");
   }  
 
-  addSales(item: Sale): Observable<Sale> {
-    return this.http.post<Sale>(this.baseUrl + "/save", item);
-  }
+  // addSales(item: Sale): Observable<Sale> {
+  //   return this.http.post<Sale>(this.baseUrl + "/save", item);
+  // }
 
 
   recordSale(sale: Sale) : Observable<Sale> {

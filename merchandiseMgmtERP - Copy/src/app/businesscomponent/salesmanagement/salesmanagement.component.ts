@@ -6,6 +6,7 @@ import { ProductService } from '../../services/product.service';
 import { CustomerService } from '../../services/customermanagement.service';
 import { Router } from '@angular/router';
 import { OrderService } from '../../services/ordermanagement.service';
+import { SourceTextModule } from 'vm';
 
 @Component({
   selector: 'app-sales-management',
@@ -79,6 +80,7 @@ export class SalesManagementComponent implements OnInit {
         alert('Sales saved successfully!');
         this.updateFilteredSales();
         this.loadSales();
+        console.log( this.newSale);
       },
       error: error => {
         console.log('Error saving Sales:', error);

@@ -1,3 +1,25 @@
+<h4 class="card-title">Purchase Items</h4>
+<div class="row">
+  <div class=" card md-4 mb-4 ms-3 bg-dark text-white" style="width: 20rem; margin-right: 15px;"
+    *ngFor="let u of products">
+    <div class="card-body ">
+      <img src="http://localhost:8089/images/{{u.image}}" class="card-img-top" alt="{{u.name}}">
+      <h5 class="card-title text-dark mt-1 text-center text-white">{{u.name}}</h5>
+      <p class="card-text text-white">
+        Description : {{u.description}}<br>
+        Price: {{u.price}}<br>
+        Product Code: {{u.productCode}}<br>
+        More In Sizes:{{u.sizes}}
+      </p>
+
+    </div>
+  </div>
+
+</div>
+
+
+
+
 <div class="col-lg-12 grid-margin stretch-card col-md-12 col-sm-6">
 
   <div class="card bg-dark text-white">
@@ -55,22 +77,3 @@
   </div>
 </div>
 
-<div class="row ms-1">
-
-  <div class=" card md-4 mb-4 ms-3 bg-dark text-white" style="width: 18rem; margin-right: 15px;"
-    *ngFor="let u of products">
-
-    <div class="card-body ">
-      <img src="http://localhost:8089/images/{{u.image}}" class="card-img-top" alt="{{u.name}}">
-      <h5 class="card-title text-dark mt-1 text-center text-white">{{u.name}}</h5>
-      <p class="card-text text-white">
-        Description : {{u.description}}<br>
-        Price: {{u.price}}<br>
-        Product Code: {{u.productCode}}<br>
-        More In Sizes:{{u.sizes}}
-      </p>
-
-    </div>
-  </div>
-
-</div>

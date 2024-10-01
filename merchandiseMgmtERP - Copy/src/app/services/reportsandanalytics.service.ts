@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 import { tap } from 'rxjs/operators';  
 import { Sale, Supplier } from '../model/sale.model';
 import { InventoryItem } from '../model/inventory.item.model';
+import { Stock } from '../model/stockmodel';
 
 
 @Injectable({  
@@ -19,8 +20,17 @@ export class ReportsService {
   private inventory: InventoryItem[] = [];  
   private sales: Sale[] = [];  
   private suppliers: Supplier[] = [];  
+  private stock:Stock[]=[];
 
   constructor(private http: HttpClient) {}  
+
+
+  
+  loadstocks(): Observable<Stock[]> {  
+    return this.http.get<Stock[]>(this.baseUrl+"stock/").pipe(  
+      tap(data => this.stock = data)  
+    );  
+  }  
 
   loadInventory(): Observable<InventoryItem[]> {  
     return this.http.get<InventoryItem[]>(this.baseUrl+"inventory/").pipe(  
@@ -38,6 +48,10 @@ export class ReportsService {
     return this.http.get<Supplier[]>(this.baseUrl+"supplier/").pipe(  
       tap(data => this.suppliers = data)  
     );  
+  }  
+
+  getStocks(): Stock[] {  
+    return this.stock;  
   }  
 
   getInventory(): InventoryItem[] {  

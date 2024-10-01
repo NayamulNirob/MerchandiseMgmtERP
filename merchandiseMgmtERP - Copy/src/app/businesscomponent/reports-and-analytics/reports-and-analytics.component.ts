@@ -1,57 +1,50 @@
-import { Component, OnInit } from '@angular/core';  
-import {  Sale, Supplier } from '../../model/sale.model';
+import { Component, OnInit } from '@angular/core';
+import { Sale, Supplier } from '../../model/sale.model';
 import { ReportsService } from '../../services/reportsandanalytics.service';
 import { InventoryItem } from '../../model/inventory.item.model';
+import { Stock } from '../../model/stockmodel';
 
-@Component({  
-  selector: 'app-reports-analytics',  
-  templateUrl: './reports-and-analytics.component.html',  
-  styleUrls: ['./reports-and-analytics.component.css']  
-})  
-export class ReportsAnalyticsComponent implements OnInit { 
+@Component({
+  selector: 'app-reports-analytics',
+  templateUrl: './reports-and-analytics.component.html',
+  styleUrls: ['./reports-and-analytics.component.css']
+})
+export class ReportsAnalyticsComponent implements OnInit {
 
-  inventoryItems: InventoryItem[] = [];  
-  sales: Sale[] = [];  
-  suppliers: Supplier[] = [];  
-  
-  salesRevenueChartData: { labels: string[], data: number[] } = { labels: [], data: [] };  
+  inventoryItems: InventoryItem[] = [];
+  sales: Sale[] = [];
+  suppliers: Supplier[] = [];
+  stock: Stock[] = [];
+
+  salesRevenueChartData: { labels: string[], data: number[] } = { labels: [], data: [] };
 
   constructor(private reportsService: ReportsService,
-    
-  ) {}  
 
-  ngOnInit(): void {  
-    this.reportsService.loadInventory().subscribe(inventoryData => {  
-      this.inventoryItems = inventoryData;  
-    });  
-    this.reportsService.loadSales().subscribe(salesData => {  
-      this.sales = salesData;  
-      this.salesRevenueChartData = this.reportsService.getSalesRevenueChartData();  
-    });  
-    this.reportsService.loadSuppliers().subscribe(suppliersData => {  
-      this.suppliers = suppliersData;  
-    });  
+  ) { }
+
+  ngOnInit(): void {
+    this.reportsService.loadInventory().subscribe(inventoryData => {
+      this.inventoryItems = inventoryData;
+    });
+    this.reportsService.loadSales().subscribe(salesData => {
+      this.sales = salesData;
+      this.salesRevenueChartData = this.reportsService.getSalesRevenueChartData();
+    });
+    this.reportsService.loadSuppliers().subscribe(suppliersData => {
+      this.suppliers = suppliersData;
+    });
+    this.reportsService.loadstocks().subscribe(stocksData => {
+      this.stock=stocksData;
+    })
   }
 
-  // other-data
-  private loadSales(): void {  
-    this.reportsService.loadSales().subscribe(data => {  
-      this.sales = data;  
-      this.prepareChartData();  
-    });  
-  }  
 
-  private prepareChartData(): void {  
-    // Assuming this.sales has already loaded  
-    this.salesRevenueChartData.labels = this.sales.map(sale => sale.productName);  
-    this.salesRevenueChartData.data = this.sales.map(sale => sale.totalPrice);  
-  }  
 
-  get maxRevenue(): number {  
-    return Math.max(...this.salesRevenueChartData.data);  
-  }  
+  get maxRevenue(): number {
+    return Math.max(...this.salesRevenueChartData.data);
+  }
   //other-data-end
 
 
-  
+
 }

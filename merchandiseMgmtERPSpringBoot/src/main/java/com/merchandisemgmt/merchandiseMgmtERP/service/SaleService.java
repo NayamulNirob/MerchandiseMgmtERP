@@ -2,6 +2,7 @@ package com.merchandisemgmt.merchandiseMgmtERP.service;
 
 import com.merchandisemgmt.merchandiseMgmtERP.entity.Sale;
 import com.merchandisemgmt.merchandiseMgmtERP.repository.CustomerRepository;
+import com.merchandisemgmt.merchandiseMgmtERP.repository.OrderItemRepository;
 import com.merchandisemgmt.merchandiseMgmtERP.repository.ProductRepository;
 import com.merchandisemgmt.merchandiseMgmtERP.repository.SaleRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,10 +20,12 @@ public class SaleService {
     private ProductRepository productRepository;
     @Autowired
     private CustomerRepository customerRepository;
+    @Autowired
+    private OrderItemRepository orderItemRepository;
 
     public Sale saveSale(Sale sale) {
         try {
-            double totalPrice = sale.getQuantity() * sale.getProduct().getPrice();
+            double totalPrice = sale.getOrderItem().getQuantity() * sale.getProduct().getPrice();
             sale.setTotalPrice(totalPrice);
             return saleRepository.save(sale);
         } catch (Exception e) {

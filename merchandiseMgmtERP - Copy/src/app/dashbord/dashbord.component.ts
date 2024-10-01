@@ -1,10 +1,12 @@
 import { Component, OnInit } from '@angular/core';
-import { Product, Supplier } from '../model/sale.model';
-import { SubCategories } from '../model/subcategoriesmodel';
 import { ProductService } from '../services/product.service';
 import { Router } from '@angular/router';
 import { SubcategoryService } from '../services/subcategory.service';
 import { SupplierService } from '../services/supplier.service';
+import { AdmindashbordserviceService } from '../services/admindashbordservice.service';
+import { Country } from '../model/countrymodel';
+import { OrderItem, Product, Sale } from '../model/sale.model';
+import { ProductCategory } from '../model/productcategorymodel';
 
 @Component({
   selector: 'app-dashbord',
@@ -12,58 +14,38 @@ import { SupplierService } from '../services/supplier.service';
   styleUrl: './dashbord.component.css'
 })
 export class DashbordComponent implements OnInit{
-  
-  products: Product[] = [];
-  filteredProducts: Product[] = [];
-  newProduct: Product = new Product();
-
-  subCategories:SubCategories[]=[];
- 
-  searchTerm: string = '';
-  sortBy: string = 'name'; // Default sort
-
-  suppliers: Supplier[] = [];
+  country:Country[]=[];
+  orderItem:OrderItem[]=[];
+  productCategories:ProductCategory[]=[];
+  product:Product[]=[];
+  sales:Sale[]=[];
  
 
-
-  selectedFile: File | null = null;
-
-
-
-
-  constructor(private productService: ProductService,
-  private router: Router,
-  private subCategoryService:SubcategoryService,
-  private supplierService:SupplierService ) { }
+  constructor(
+  private adminDashbordService:AdmindashbordserviceService) { }
 
   ngOnInit(): void {
-    this.loadProducts();
-    this.subCategoryService.loadSubCategories().subscribe({
-      next:res=>{
-        this.subCategories=res;
-      },
-      error:err=>{
-        alert(err);
-        console.log(err);
-      }
-    });
-    this.supplierService.loadSuppliers().subscribe({
-      next:res=>{
-        this.suppliers=res
-      },
-      error:err=>{
-        alert(err);
-        console.log(err);
-
-      }
-    })
+    this.loadCountries();
+    this.loadProductCategories();
+    this.loadOrders();
   }
 
-  loadProducts(): void {
-    this.productService.getProducts().subscribe({
+  generateSalesReport() {
+    const totalRevenue = this.sales.reduce((sum, sale) => sum + sale.totalPrice, 0);
+    const totalSalesCount = this.sales.length;
+
+    alert(`Total Sales Count: ${totalSalesCount}, Total Revenue: ${totalRevenue}`);
+
+
+  //   document.getElementById('totalRevenue').innerText = `$${totalRevenue}`;
+  // document.getElementById('totalSalesCount').innerText = `${totalSalesCount}`;
+  }
+
+
+  loadSales(): void {
+    this.adminDashbordService.loadSales().subscribe({
       next: res => {
-        this.products = res;
-        this.filterAndSortProducts();
+        this.sales = res;
       },
       error: error => {
         console.log(error);
@@ -72,82 +54,64 @@ export class DashbordComponent implements OnInit{
     });
   }
 
-  filterProducts(): void {
-    this.filterAndSortProducts();
-  }
-
-  filterAndSortProducts(): void {
-    // Filter the products based on the search term
-    this.filteredProducts = this.products.filter(product =>
-      product.name.toLowerCase().includes(this.searchTerm.toLowerCase()) ||
-      product.description.toLowerCase().includes(this.searchTerm.toLowerCase())
-    );
-
-    // Sort the filtered products based on the selected sort criteria
-    this.sortProducts();
-  }
-
-  sortProducts(): void {
-    this.filteredProducts.sort((a, b) => {
-      const aValue = a[this.sortBy as keyof Product];
-      const bValue = b[this.sortBy as keyof Product];
-
-      if (aValue < bValue) return -1;
-      if (aValue > bValue) return 1;
-      return 0;
+  
+  loadProducts(): void {
+    this.adminDashbordService.loadProducts().subscribe({
+      next: res => {
+        this.product = res;
+      },
+      error: error => {
+        console.log(error);
+        alert(error);
+      }
     });
   }
 
-
-
-
-  onFileSelected(event: any) {
-    this.selectedFile = event.target.files[0];
+  loadCountries(){
+    this.adminDashbordService.loadCountries().subscribe({
+      next:res=>{
+        this.country=res
+      },
+      error:err=>{
+        console.log(err);
+      }
+    });
   }
 
+  maxSale: number = 1000000;  // Example maximum sale value
 
-
-  addProduct(): void {
-    if (this.selectedFile) {
-      this.productService.createProduct(this.newProduct, this.selectedFile).subscribe({
-        next: res => {
-          alert('Product Addes Succesfully');
-          this.newProduct = new Product();
-          this.loadProducts();
-          this.resetNewProducts();
-        },
-        error: error => {
-          console.log(error);
-          alert(error);
-        }
-      });
-    }
-    else{
-          alert('Please Select an image');
-        }
-  }
-
-  editProduct(productId: number) {
-    this.router.navigate(['updateproduct', productId]);
-  }
-
-  deleteProduct(productId: number): void {
-    if (productId) {
-      this.productService.deleteProduct(productId).subscribe(success => {
-        if (success) {
-          this.loadProducts();
-        }
-      });
+  getProgressColor(percentage: number): string {
+    if (percentage < 40) {
+      return 'red';
+    } else if (percentage >= 40 && percentage < 65) {
+      return 'orange';
+    } else {
+      return 'green';
     }
   }
 
-  calculateTotalAmount(): number {
-    const total = this.newProduct.price * this.newProduct.quantity;
-    const taxAmount = (total * this.newProduct.tax) / 100;
-    return total + taxAmount;
+  loadOrders(){
+    this.adminDashbordService.loadOrders().subscribe({
+      next:res=>{
+        this.orderItem=res
+      },
+      error:err=>{
+        console.error(err)
+      }
+    });
+  }
+  loadProductCategories(){
+    this.adminDashbordService.loadCategories().subscribe({
+      next:res=>{
+        this.productCategories=res
+      },
+      error:err=>{
+        console.log(err)
+      }
+    });
   }
 
-  private resetNewProducts() {
-    this.newProduct = new Product();
-  }
+  
+
+  
 }

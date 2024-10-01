@@ -3,6 +3,8 @@ import { Sale, Supplier } from '../../model/sale.model';
 import { ReportsService } from '../../services/reportsandanalytics.service';
 import { InventoryItem } from '../../model/inventory.item.model';
 import { Stock } from '../../model/stockmodel';
+import jsPDF from 'jspdf';
+import html2canvas from 'html2canvas';
 
 @Component({
   selector: 'app-reports-analytics',
@@ -45,6 +47,52 @@ export class ReportsAnalyticsComponent implements OnInit {
   }
   //other-data-end
 
+  generatePDF() {
+    const data = document.getElementById('print-section');
+    html2canvas(data!).then(canvas => {
+      const imgWidth = 208;
+      const pageHeight = 295;
+      const imgHeight = canvas.height * imgWidth / canvas.width;
+      const heightLeft = imgHeight;
 
+      const contentDataURL = canvas.toDataURL('image/png');
+      let pdf = new jsPDF('p', 'mm', 'a4'); // A4 size page of PDF
+      const position = 0;
+      pdf.addImage(contentDataURL, 'PNG', 0, position, imgWidth, imgHeight);
+      pdf.save('SupplierReport.pdf'); // Generated PDF with the table
+    });
+  }
+
+  generatesalePDF() {
+    const data = document.getElementById('print-sections');
+    html2canvas(data!).then(canvas => {
+      const imgWidth = 208;
+      const pageHeight = 295;
+      const imgHeight = canvas.height * imgWidth / canvas.width;
+      const heightLeft = imgHeight;
+
+      const contentDataURL = canvas.toDataURL('image/png');
+      let pdf = new jsPDF('p', 'mm', 'a4'); // A4 size page of PDF
+      const position = 0;
+      pdf.addImage(contentDataURL, 'PNG', 0, position, imgWidth, imgHeight);
+      pdf.save('SupplierReport.pdf'); // Generated PDF with the table
+    });
+  }
+
+  generateStocksPDF() {
+    const data = document.getElementById('print-sectionss');
+    html2canvas(data!).then(canvas => {
+      const imgWidth = 208;
+      const pageHeight = 295;
+      const imgHeight = canvas.height * imgWidth / canvas.width;
+      const heightLeft = imgHeight;
+
+      const contentDataURL = canvas.toDataURL('image/png');
+      let pdf = new jsPDF('p', 'mm', 'a4'); // A4 size page of PDF
+      const position = 0;
+      pdf.addImage(contentDataURL, 'PNG', 0, position, imgWidth, imgHeight);
+      pdf.save('SupplierReport.pdf'); // Generated PDF with the table
+    });
+  }
 
 }

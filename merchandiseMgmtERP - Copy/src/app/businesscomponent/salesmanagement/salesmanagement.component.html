@@ -1,3 +1,4 @@
+
 <div class="col-12 grid-margin">
   <div class="card bg-dark text-white">
     <div class="card-body">
@@ -9,7 +10,6 @@
         <h5>Record New Sale</h5>
         <form class="form-sample" (ngSubmit)="recordSale()">
           <div class="row">
-
             <div class="col-md-3">
               <div class="form-group row">
                 <label class="col-sm-4 col-form-label">Product:</label>
@@ -27,22 +27,10 @@
                 <label class="col-sm-4 col-form-label">Quantity:</label>
                 <div class="col-sm-8">
                   <input type="number" class="form-control" [(ngModel)]="newSale.quantity" name="quantity"
-                    placeholder="Quantity" required readonly />
+                    placeholder="Quantity" required />
                 </div>
               </div>
             </div>
-
-            <div class="col-md-3">
-              <div class="form-group row">
-                <label class="col-sm-4 col-form-label">Customer:</label>
-                <div class="col-sm-8">
-                  <input type="text" class="form-control" [(ngModel)]="newSale.customer.name" name="customerName"
-                    readonly />
-                </div>
-              </div>
-            </div>
-
-
 
             <div class="col-md-3">
               <div class="form-group row">
@@ -54,7 +42,16 @@
               </div>
             </div>
 
-
+            <div class="col-md-3">
+              <div class="form-group row">
+                <label class="col-sm-4 col-form-label">Customer:</label>
+                <div class="col-sm-8">
+                  <select class="form-control" id="customer" [(ngModel)]="newSale.customer.id" name="customer" required>
+                    <option *ngFor="let customers of customers" [value]="customers.id">{{ customers.name }}</option>
+                  </select>
+                </div>
+              </div>
+            </div>
 
             <div class="col-md-2 d-flex align-items-end">
               <button type="submit" class="btn btn-success mt-3">Record Sale</button>
@@ -89,7 +86,6 @@
                 <td>
                   <button class="btn btn-warning btn-sm">Update</button>&nbsp;&nbsp;
                   <button (click)="removeSale(sale.id)" class="btn btn-danger btn-sm">Remove</button>
-
                 </td>
               </tr>
             </tbody>

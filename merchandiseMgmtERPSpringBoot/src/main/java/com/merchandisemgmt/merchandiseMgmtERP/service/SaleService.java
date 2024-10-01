@@ -16,16 +16,11 @@ public class SaleService {
 
     @Autowired
     private SaleRepository saleRepository;
-    @Autowired
-    private ProductRepository productRepository;
-    @Autowired
-    private CustomerRepository customerRepository;
-    @Autowired
-    private OrderItemRepository orderItemRepository;
+
 
     public Sale saveSale(Sale sale) {
         try {
-            double totalPrice = sale.getOrderItem().getQuantity() * sale.getProduct().getPrice();
+            double totalPrice = sale.getQuantity() * sale.getProduct().getPrice();
             sale.setTotalPrice(totalPrice);
             return saleRepository.save(sale);
         } catch (Exception e) {

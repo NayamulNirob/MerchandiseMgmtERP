@@ -32,9 +32,7 @@ public class Sale {
 
     private Date saleDate;
 
-    @ManyToOne
-    @JoinColumn
-    private OrderItem orderItem;
+
 
 
 

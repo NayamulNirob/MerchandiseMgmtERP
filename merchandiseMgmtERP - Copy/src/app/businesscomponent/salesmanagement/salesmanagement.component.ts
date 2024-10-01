@@ -6,7 +6,7 @@ import { ProductService } from '../../services/product.service';
 import { CustomerService } from '../../services/customermanagement.service';
 import { Router } from '@angular/router';
 import { OrderService } from '../../services/ordermanagement.service';
-import { SourceTextModule } from 'vm';
+
 
 @Component({
   selector: 'app-sales-management',
@@ -21,7 +21,7 @@ export class SalesManagementComponent implements OnInit {
   newSale: Sale = new Sale();
   products: Product[] = [];
   customers: Customer[] = [];
-  orderItem: OrderItem[] = [];
+
 
   constructor(
     private salesService: SalesService,
@@ -42,24 +42,14 @@ export class SalesManagementComponent implements OnInit {
       this.customers = data;
     });
 
-    this.orderItemService.loadOrders().subscribe({
-      next: res => {
-        this.orderItem = res;
-      },
-      error: err => {
-        console.log(err);
-      }
-    });
+ 
   }
 
   onProductChange() {
     if (this.newSale.product) {
-      const selectedOrderItem = this.orderItem.find(orderItem => orderItem.product.id === this.newSale.product.id);
-
-      if (selectedOrderItem) {
-        // Populate the quantity and customer from the order item
-        this.newSale.quantity = selectedOrderItem.quantity;
-        this.newSale.customer = selectedOrderItem.customer;
+      const selectedProduct = this.products.find(p => p.id === this.newSale.product.id);
+      if (selectedProduct) {
+        this.newSale.product.price = selectedProduct.price;
       }
     }
   }
@@ -80,7 +70,7 @@ export class SalesManagementComponent implements OnInit {
         alert('Sales saved successfully!');
         this.updateFilteredSales();
         this.loadSales();
-        console.log( this.newSale);
+       
       },
       error: error => {
         console.log('Error saving Sales:', error);
@@ -119,7 +109,7 @@ export class SalesManagementComponent implements OnInit {
   }
 
   private updateFilteredSales() {
-    this.filteredSales = [...this.sales]; // Create a copy of the sales list
+    this.filteredSales = this.salesService.getSales(); // Create a copy of the sales list
   }
 
   private resetNewSale() {

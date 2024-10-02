@@ -1,12 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { ProductService } from '../services/product.service';
-import { Router } from '@angular/router';
-import { SubcategoryService } from '../services/subcategory.service';
-import { SupplierService } from '../services/supplier.service';
 import { AdmindashbordserviceService } from '../services/admindashbordservice.service';
 import { Country } from '../model/countrymodel';
 import { OrderItem, Product, Sale } from '../model/sale.model';
-import { ProductCategory } from '../model/productcategorymodel';
+
 
 @Component({
   selector: 'app-dashbord',
@@ -16,7 +12,6 @@ import { ProductCategory } from '../model/productcategorymodel';
 export class DashbordComponent implements OnInit{
   country:Country[]=[];
   orderItem:OrderItem[]=[];
-  productCategories:ProductCategory[]=[];
   product:Product[]=[];
   sales:Sale[]=[];
  
@@ -26,7 +21,6 @@ export class DashbordComponent implements OnInit{
 
   ngOnInit(): void {
     this.loadCountries();
-    this.loadProductCategories();
     this.loadOrders();
   }
 
@@ -100,16 +94,7 @@ export class DashbordComponent implements OnInit{
       }
     });
   }
-  loadProductCategories(){
-    this.adminDashbordService.loadCategories().subscribe({
-      next:res=>{
-        this.productCategories=res
-      },
-      error:err=>{
-        console.log(err)
-      }
-    });
-  }
+
 
   
 

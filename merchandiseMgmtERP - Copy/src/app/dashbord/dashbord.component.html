@@ -115,29 +115,22 @@
                 <div class="card-body">
                     <h4 class="card-title">Transaction History</h4>
                     <canvas id="transaction-history" class="transaction-chart"></canvas>
-                    <div
-                        class="bg-gray-dark d-flex d-md-block d-xl-flex flex-row py-3 px-4 px-md-3 px-xl-4 rounded mt-3 bg-dark text-white bg-dark">
-                        <div class="text-md-center text-xl-left">
-                            <h6 class="mb-1 ">Transfer to Paypal</h6>
-                            <p class="mb-0 bg-dark text-white bg-dark">07 Jan 2019, 09:12AM</p>
-                        </div>
-                        <div
-                            class="align-self-center flex-grow text-right text-md-center text-xl-right py-md-2 py-xl-0 ">
-                            <h6 class="font-weight-bold mb-0">$236</h6>
-                        </div>
-                    </div>
-                    <div
-                        class="bg-gray-dark d-flex d-md-block d-xl-flex flex-row py-3 px-4 px-md-3 px-xl-4 rounded mt-3 bg-dark text-white bg-dark">
-                        <div class="text-md-center text-xl-left">
-                            <h6 class="mb-1">Tranfer to Stripe</h6>
-                            <p class="bg-dark text-white bg-dark mb-0">07 Jan 2019, 09:12AM</p>
-                        </div>
-                        <div
-                            class="align-self-center flex-grow text-right text-md-center text-xl-right py-md-2 py-xl-0">
-                            <h6 class="font-weight-bold mb-0">$593</h6>
+                    <!-- <h5>Total Transaction:  {{ totalAmount | currency }}</h5> -->
+                    <div>
+                        <div *ngFor="let transaction of transaction"
+                            class="bg-gray-dark d-flex d-md-block d-xl-flex flex-row py-3 px-4 px-md-3 px-xl-4 rounded mt-3 bg-dark text-white">
+                            <div class="text-md-center text-xl-left">
+                                <h6 class="mb-1">{{ transaction.description }}</h6>
+                                <p class="mb-0">{{ transaction.date | date: 'd MMM, y hh:mm:ss a' }}</p>
+                            </div>
+                            <div
+                                class="align-self-center flex-grow text-right text-md-center text-xl-right py-md-2 py-xl-0">
+                                <h6 class="font-weight-bold mb-0">{{ transaction.amount | currency }}</h6>
+                            </div>
                         </div>
                     </div>
                 </div>
+
             </div>
         </div>
         <div class="col-md-8 grid-margin stretch-card">
@@ -295,44 +288,44 @@
     </div>
     <div class="row">
         <div class="col-md-6 col-xl-4 grid-margin stretch-card">
-            
+
             <div class="card bg-dark text-white">
                 <div class="card-body ">
-                  <h4 class="card-title">Purchase List</h4>
-            
-            
-                  <div class="table-responsive">
-                    <table class="table table table-dark table-striped">
-            
-                      <thead>
-            
-                        <tr>
-                          <th>Attachment</th>
-                          <th>Code</th>
-                          <th>Price</th>
-                          <th>Sizes</th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                        <tr *ngFor="let product of  product,let i = index">
-                          <td class="user-photo">
-                            <img [src]="product.image ? 'http://localhost:8089/images/' + product.image : 'static/images/**'"
-                              alt="Photo" class="img-thumbnail" />
-                          </td>
-                          <td>{{ product.productCode }}</td>
-                          <td>{{ product.price | currency }}</td>
-                          <td>{{ product.sizes}}</td>
+                    <h4 class="card-title">Purchase List</h4>
 
-            
-                        </tr>
-                      </tbody>
-                    </table>
-            
-            
-            
-                  </div>
+
+                    <div class="table-responsive">
+                        <table class="table table table-dark table-striped">
+
+                            <thead>
+
+                                <tr>
+                                    <th>Attachment</th>
+                                    <th>Code</th>
+                                    <th>Price</th>
+                                    <th>Sizes</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let product of  product,let i = index">
+                                    <td class="user-photo">
+                                        <img [src]="product.image ? 'http://localhost:8089/images/' + product.image : 'static/images/**'"
+                                            alt="Photo" class="img-thumbnail" />
+                                    </td>
+                                    <td>{{ product.productCode }}</td>
+                                    <td>{{ product.price | currency }}</td>
+                                    <td>{{ product.sizes}}</td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+
+
+
+                    </div>
                 </div>
-              </div>
+            </div>
 
 
         </div>
@@ -445,59 +438,7 @@
                     <div class="row">
                         <div class="col-md-6">
                             <div class="table ">
-                                <!-- <table class="table table table-dark table-striped">
-                                    <tbody>
-                                        <tr>
-                                                <td>
-                                                    <i class="flag-icon flag-icon-us"></i>
-                                                </td>
-                                                <td>USA</td>
-                                                <td class="text-right">1500</td>
-                                                <td class="text-right font-weight-medium">56.35%</td>
-                                            </tr>
-                                            <tr>
-                                                <td>
-                                                    <i class="flag-icon flag-icon-de"></i>
-                                                </td>
-                                                <td>Germany</td>
-                                                <td class="text-right">800</td>
-                                                <td class="text-right font-weight-medium">33.25%</td>
-                                            </tr>
-                                            <tr>
-                                                <td>
-                                                    <i class="flag-icon flag-icon-au"></i>
-                                                </td>
-                                                <td>Australia</td>
-                                                <td class="text-right">760</td>
-                                                <td class="text-right font-weight-medium">15.45%</td>
-                                            </tr>
-                                            <tr>
-                                                <td>
-                                                    <i class="flag-icon flag-icon-gb"></i>
-                                                </td>
-                                                <td>United Kingdom</td>
-                                                <td class="text-right">450</td>
-                                                <td class="text-right font-weight-medium">25.00%</td>
-                                            </tr>
-                                            <tr>
-                                                <td>
-                                                    <i class="flag-icon flag-icon-ro"></i>
-                                                </td>
-                                                <td>Romania</td>
-                                                <td class="text-right">620</td>
-                                                <td class="text-right font-weight-medium">10.25%</td>
-                                            </tr>
-                                            <tr>
-                                                <td>
-                                                    <i class="flag-icon flag-icon-br"></i>
-                                                </td>
-                                                <td>Brazil</td>
-                                                <td class="text-right">230</td>
-                                                <td class="text-right font-weight-medium">75.00%</td>
-                                            </tr>
 
-                                    </tbody>
-                                </table> -->
                                 <table class=" table table-dark table-striped">
                                     <thead>
                                         <tr>

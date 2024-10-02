@@ -7,6 +7,7 @@ import { WareHouse } from '../../model/warehouse.model';
 import {  DatePipe } from '@angular/common';
 import { ProductService } from '../../services/product.service';
 import { WarehouseService } from '../../services/warehouse.service';
+import { Transaction } from '../../model/transactionmodel';
 
 
 
@@ -29,6 +30,7 @@ export class StockmanagementComponent implements OnInit {
   filteredStocks: Stock[] = [];
 
 
+  
   searchTerm: string = '';
   sortBy: string = 'name'; // Default sort
 

@@ -7,7 +7,7 @@ import { SidebarComponent } from './sidebar/sidebar.component';
 import { FooterComponent } from './footer/footer.component';
 import { DashbordComponent } from './dashbord/dashbord.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import { HttpClient, HttpClientModule, provideHttpClient, withFetch } from '@angular/common/http';
+import { HttpClientModule, provideHttpClient, withFetch } from '@angular/common/http';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { ProducmanagementComponent } from './businesscomponent/productmanagement/producmanagement.component';
@@ -30,12 +30,13 @@ import { WarehouseupdateComponent } from './businesscomponent/warehouseupdate/wa
 import { SupplierUpdateComponent } from './businesscomponent/supplier-update/supplier-update.component';
 import { UpdateInventoryComponent } from './businesscomponent/update-inventory/update-inventory.component';
 import { UpdatecustomerComponent } from './businesscomponent/updatecustomer/updatecustomer.component';
-import { DatePipe } from '@angular/common';
 import { ProductcategoryComponent } from './businesscomponent/productcategory/productcategory.component';
 import { SubcategoriesComponent } from './businesscomponent/subcategories/subcategories.component';
 import { CountryComponent } from './businesscomponent/country/country.component';
 import { StockmanagementComponent } from './businesscomponent/stockmanagement/stockmanagement.component';
 import {NgxPrintModule} from 'ngx-print';
+import { TransactionmanagementComponent } from './businesscomponent/transactionmanagement/transactionmanagement.component';
+
 
 
 
@@ -67,7 +68,8 @@ import {NgxPrintModule} from 'ngx-print';
     ProductcategoryComponent,
     SubcategoriesComponent,
     CountryComponent,
-    StockmanagementComponent
+    StockmanagementComponent,
+    TransactionmanagementComponent
   
 
   ],
@@ -80,7 +82,8 @@ import {NgxPrintModule} from 'ngx-print';
     BrowserAnimationsModule,
     MatTableModule,  
     ReactiveFormsModule,
-    NgxPrintModule
+    NgxPrintModule,
+
   
 
   ],

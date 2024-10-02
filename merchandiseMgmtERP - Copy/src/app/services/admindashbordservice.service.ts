@@ -6,6 +6,7 @@ import { HttpClient } from '@angular/common/http';
 import { Observable, tap } from 'rxjs';
 import { Country } from '../model/countrymodel';
 import { ProductCategory } from '../model/productcategorymodel';
+import { Transaction } from '../model/transactionmodel';
 
 @Injectable({
   providedIn: 'root'
@@ -23,8 +24,18 @@ export class AdmindashbordserviceService {
   private orderItem:OrderItem[]=[];
   private category:ProductCategory[]=[];
   private product:Product[]=[];
+  private transaction:Transaction[]=[];
+
 
   constructor(private http: HttpClient) {} 
+
+
+
+  loadtransactions():Observable<Transaction[]>{
+    return this.http.get<Transaction[]>(this.baseUrl+"transaction/").pipe(
+      tap(data=>this.transaction=data)
+    );
+  }
 
   loadProducts():Observable<Product[]>{
     return this.http.get<Product[]>(this.baseUrl+"product/").pipe(

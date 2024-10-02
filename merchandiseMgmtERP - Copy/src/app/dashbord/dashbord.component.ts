@@ -3,6 +3,7 @@ import { AdmindashbordserviceService } from '../services/admindashbordservice.se
 import { Country } from '../model/countrymodel';
 import { OrderItem, Product, Sale } from '../model/sale.model';
 import { ProductCategory } from '../model/productcategorymodel';
+import { Transaction } from '../model/transactionmodel';
 
 
 @Component({
@@ -10,31 +11,50 @@ import { ProductCategory } from '../model/productcategorymodel';
   templateUrl: './dashbord.component.html',
   styleUrl: './dashbord.component.css'
 })
-export class DashbordComponent implements OnInit{
-  country:Country[]=[];
-  orderItem:OrderItem[]=[];
-  product:Product[]=[];
-  sales:Sale[]=[];
-  productCategory:ProductCategory[]=[];
-  selectedProduct: Product | null = null; 
+export class DashbordComponent implements OnInit {
+  country: Country[] = [];
+  orderItem: OrderItem[] = [];
+  product: Product[] = [];
+  sales: Sale[] = [];
+  productCategory: ProductCategory[] = [];
+  selectedProduct: Product | null = null;
+  transaction: Transaction[] = [];
+  totalAmount:number=0;
+
+
 
   constructor(
-  private adminDashbordService:AdmindashbordserviceService) { }
+    private adminDashbordService: AdmindashbordserviceService) { }
 
   ngOnInit(): void {
     this.loadCountries();
     this.loadOrders();
     this.loadProducts();
     this.loadCategory();
-    
+    this.loadTransactions();
+
   }
 
-  loadCategory(){
-    this.adminDashbordService.loadCategories().subscribe({
-      next:res=>{
-        this.productCategory=res
+ 
+
+  loadTransactions() {
+    this.adminDashbordService.loadtransactions().subscribe({
+      next: res => {
+        this.transaction = res
       },
       error:err=>{
+        console.log(err)
+      }
+    });
+  }
+  
+
+  loadCategory() {
+    this.adminDashbordService.loadCategories().subscribe({
+      next: res => {
+        this.productCategory = res
+      },
+      error: err => {
         console.error(err)
       }
     });
@@ -47,8 +67,8 @@ export class DashbordComponent implements OnInit{
     alert(`Total Sales Count: ${totalSalesCount}, Total Revenue: ${totalRevenue}`);
 
 
-  //   document.getElementById('totalRevenue').innerText = `$${totalRevenue}`;
-  // document.getElementById('totalSalesCount').innerText = `${totalSalesCount}`;
+    //   document.getElementById('totalRevenue').innerText = `$${totalRevenue}`;
+    // document.getElementById('totalSalesCount').innerText = `${totalSalesCount}`;
   }
 
 
@@ -64,7 +84,7 @@ export class DashbordComponent implements OnInit{
     });
   }
 
-  
+
   // loadProducts(): void {
   //   this.adminDashbordService.loadProducts().subscribe({
   //     next: res => {
@@ -96,20 +116,20 @@ export class DashbordComponent implements OnInit{
   }
 
   updateSelectedProduct(event: any) {
-    const activeIndex = event.to; 
+    const activeIndex = event.to;
     this.selectedProduct = this.product[activeIndex];
   }
 
- 
- 
 
- 
-  loadCountries(){
+
+
+
+  loadCountries() {
     this.adminDashbordService.loadCountries().subscribe({
-      next:res=>{
-        this.country=res
+      next: res => {
+        this.country = res
       },
-      error:err=>{
+      error: err => {
         console.log(err);
       }
     });
@@ -127,19 +147,19 @@ export class DashbordComponent implements OnInit{
     }
   }
 
-  loadOrders(){
+  loadOrders() {
     this.adminDashbordService.loadOrders().subscribe({
-      next:res=>{
-        this.orderItem=res
+      next: res => {
+        this.orderItem = res
       },
-      error:err=>{
+      error: err => {
         console.error(err)
       }
     });
   }
 
 
-  
 
-  
+
+
 }

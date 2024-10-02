@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AdmindashbordserviceService } from '../services/admindashbordservice.service';
 import { Country } from '../model/countrymodel';
 import { OrderItem, Product, Sale } from '../model/sale.model';
+import { ProductCategory } from '../model/productcategorymodel';
 
 
 @Component({
@@ -14,7 +15,8 @@ export class DashbordComponent implements OnInit{
   orderItem:OrderItem[]=[];
   product:Product[]=[];
   sales:Sale[]=[];
- 
+  productCategory:ProductCategory[]=[];
+  selectedProduct: Product | null = null; 
 
   constructor(
   private adminDashbordService:AdmindashbordserviceService) { }
@@ -22,6 +24,20 @@ export class DashbordComponent implements OnInit{
   ngOnInit(): void {
     this.loadCountries();
     this.loadOrders();
+    this.loadProducts();
+    this.loadCategory();
+    
+  }
+
+  loadCategory(){
+    this.adminDashbordService.loadCategories().subscribe({
+      next:res=>{
+        this.productCategory=res
+      },
+      error:err=>{
+        console.error(err)
+      }
+    });
   }
 
   generateSalesReport() {
@@ -49,10 +65,28 @@ export class DashbordComponent implements OnInit{
   }
 
   
+  // loadProducts(): void {
+  //   this.adminDashbordService.loadProducts().subscribe({
+  //     next: res => {
+  //       this.product = res;
+  //     },
+  //     error: error => {
+  //       console.log(error);
+  //       alert(error);
+  //     }
+  //   });
+  // }
+
+  // selectedProduct = this.product[0];
+
+
   loadProducts(): void {
     this.adminDashbordService.loadProducts().subscribe({
       next: res => {
         this.product = res;
+        if (this.product.length > 0) {
+          this.selectedProduct = this.product[0]; // Set default selected product
+        }
       },
       error: error => {
         console.log(error);
@@ -61,6 +95,15 @@ export class DashbordComponent implements OnInit{
     });
   }
 
+  updateSelectedProduct(event: any) {
+    const activeIndex = event.to; 
+    this.selectedProduct = this.product[activeIndex];
+  }
+
+ 
+ 
+
+ 
   loadCountries(){
     this.adminDashbordService.loadCountries().subscribe({
       next:res=>{

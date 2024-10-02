@@ -144,104 +144,44 @@
             <div class="card bg-dark text-white">
                 <div class="card-body ">
                     <div class="d-flex flex-row justify-content-between">
-                        <h4 class="card-title mb-1">Open Projects</h4>
-                        <p class="text- mb-1">Your data status</p>
+                        <h4 class="card-title mb-2 text-center">Available Available Categories</h4>
                     </div>
-                    <div class="row">
-                        <div class="col-12">
-                            <div class="preview-list">
-                                <div class="preview-item border-bottom">
-                                    <div class="preview-thumbnail">
-                                        <div class="preview-icon bg-primary">
-                                            <i class="mdi mdi-file-document"></i>
-                                        </div>
-                                    </div>
-                                    <div class="preview-item-content d-sm-flex flex-grow">
-                                        <div class="flex-grow">
-                                            <h6 class="preview-subject">Admin dashboard design</h6>
-                                            <p class=" mb-0">Broadcast web app mockup</p>
-                                        </div>
-                                        <div class="mr-auto text-sm-right pt-2 pt-sm-0">
-                                            <p class="">15 minutes ago</p>
-                                            <p class=" mb-0">30 tasks, 5 issues </p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="preview-item border-bottom">
-                                    <div class="preview-thumbnail">
-                                        <div class="preview-icon bg-success">
-                                            <i class="mdi mdi-cloud-download"></i>
-                                        </div>
-                                    </div>
-                                    <div class="preview-item-content d-sm-flex flex-grow">
-                                        <div class="flex-grow">
-                                            <h6 class="preview-subject">Wordpress Development</h6>
-                                            <p class=" mb-0">Upload new design</p>
-                                        </div>
-                                        <div class="mr-auto text-sm-right pt-2 pt-sm-0">
-                                            <p class="">1 hour ago</p>
-                                            <p class=" mb-0">23 tasks, 5 issues </p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="preview-item border-bottom">
-                                    <div class="preview-thumbnail">
-                                        <div class="preview-icon bg-info">
-                                            <i class="mdi mdi-clock"></i>
-                                        </div>
-                                    </div>
-                                    <div class="preview-item-content d-sm-flex flex-grow">
-                                        <div class="flex-grow">
-                                            <h6 class="preview-subject">Project meeting</h6>
-                                            <p class=" mb-0">New project discussion</p>
-                                        </div>
-                                        <div class="mr-auto text-sm-right pt-2 pt-sm-0">
-                                            <p class="">35 minutes ago</p>
-                                            <p class=" mb-0">15 tasks, 2 issues</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="preview-item border-bottom">
-                                    <div class="preview-thumbnail">
-                                        <div class="preview-icon bg-danger">
-                                            <i class="mdi mdi-email-open"></i>
-                                        </div>
-                                    </div>
-                                    <div class="preview-item-content d-sm-flex flex-grow">
-                                        <div class="flex-grow">
-                                            <h6 class="preview-subject">Broadcast Mail</h6>
-                                            <p class=" mb-0">Sent release details to team</p>
-                                        </div>
-                                        <div class="mr-auto text-sm-right pt-2 pt-sm-0">
-                                            <p class="">55 minutes ago</p>
-                                            <p class="text-whaite">35 tasks, 7 issues </p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="preview-item">
-                                    <div class="preview-thumbnail">
-                                        <div class="preview-icon bg-warning">
-                                            <i class="mdi mdi-chart-pie"></i>
-                                        </div>
-                                    </div>
-                                    <div class="preview-item-content d-sm-flex flex-grow">
-                                        <div class="flex-grow">
-                                            <h6 class="preview-subject">UI Design</h6>
-                                            <p class="mb-0">New application planning</p>
-                                        </div>
-                                        <div class="mr-auto text-sm-right pt-2 pt-sm-0">
-                                            <p class="">50 minutes ago</p>
-                                            <p class="">27 tasks, 4 issues </p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+
+
+                    <div class="table-responsive  ">
+                        <table class="table table-dark table-striped">
+                            <thead>
+                                <tr>
+                                    <th> Attatched</th>
+                                    <th> Category Name</th>
+                                    <th> Description</th>
+                                    <th> Code </th>
+                               
+                                </tr>
+                            </thead>
+                            <tbody>
+
+
+                                <tr *ngFor="let cat of productCategory ,let i = index">
+                                    <td class="user-photo">
+                                        <img [src]="cat.image ? 'http://localhost:8089/images/' + cat.image : 'static/images/**'"
+                                            alt="Profile Photo" class="img-thumbnail" />
+                                    </td>
+                                    <td>{{ cat.name }}</td>
+                                    <td>{{ cat.description }}</td>
+                                    <td>{{ cat.categoryCode}}</td>
+                                    
+                                </tr>
+
+                            </tbody>
+                        </table>
                     </div>
+
+
                 </div>
 
-
             </div>
+
         </div>
     </div>
     <div class="row">
@@ -264,9 +204,9 @@
                     </div>
                 </div>
             </div>
-        </div> 
+        </div>
 
-     
+
 
         <div class="col-sm-4 grid-margin">
             <div class="card bg-dark text-white">
@@ -312,170 +252,7 @@
             <div class="card bg-dark text-white">
                 <div class="card-body ">
                     <h4 class="card-title">Order Status</h4>
-                    <div class="table-responsive">
-                        <!-- <table class=" table table table-dark table-striped">
-                            <thead>
-                                <tr>
-                                    <th>
-                                        <div class="form-check form-check-muted m-0">
-                                            <label class="form-check-label">
-                                                <input type="checkbox" class="form-check-input">
-                                            </label>
-                                        </div>
-                                    </th>
-                                    <th> Client Name </th>
-                                    <th> Order No </th>
-                                    <th> Product Cost </th>
-                                    <th> Project </th>
-                                    <th> Payment Mode </th>
-                                    <th> Start Date </th>
-                                    <th> Payment Status </th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>
-                                        <div class="form-check form-check-muted m-0">
-                                            <label class="form-check-label">
-                                                <input type="checkbox" class="form-check-input">
-                                            </label>
-                                        </div>
-                                    </td>
-                                    <td>
-                                        <img src="assets/images/faces/face1.jpg" alt="image" loading="lazy" />
-                                        <span class="pl-2">Henry Klein</span>
-                                    </td>
-                                    <td> 02312 </td>
-                                    <td> $14,500 </td>
-                                    <td> Dashboard </td>
-                                    <td> Credit card </td>
-                                    <td> 04 Dec 2019 </td>
-                                    <td>
-                                        <div class="badge badge-outline-success text-white">Approved</div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <div class="form-check form-check-muted m-0">
-                                            <label class="form-check-label">
-                                                <input type="checkbox" class="form-check-input">
-                                            </label>
-                                        </div>
-                                    </td>
-                                    <td>
-                                        <img src="assets/images/faces/face2.jpg" alt="image" loading="lazy" />
-                                        <span class="pl-2">Estella Bryan</span>
-                                    </td>
-                                    <td> 02312 </td>
-                                    <td> $14,500 </td>
-                                    <td> Website </td>
-                                    <td> Cash on delivered </td>
-                                    <td> 04 Dec 2019 </td>
-                                    <td>
-                                        <div class="badge badge-outline-warning text-white">Pending</div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <div class="form-check form-check-muted m-0">
-                                            <label class="form-check-label">
-                                                <input type="checkbox" class="form-check-input">
-                                            </label>
-                                        </div>
-                                    </td>
-                                    <td>
-                                        <img src="assets/images/faces/face5.jpg" alt="image" loading="lazy" />
-                                        <span class="pl-2">Lucy Abbott</span>
-                                    </td>
-                                    <td> 02312 </td>
-                                    <td> $14,500 </td>
-                                    <td> App design </td>
-                                    <td> Credit card </td>
-                                    <td> 04 Dec 2019 </td>
-                                    <td>
-                                        <div class="badge badge-outline-danger text-white">Rejected</div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <div class="form-check form-check-muted m-0">
-                                            <label class="form-check-label">
-                                                <input type="checkbox" class="form-check-input">
-                                            </label>
-                                        </div>
-                                    </td>
-                                    <td>
-                                        <img src="assets/images/faces/face3.jpg" alt="image" loading="lazy" />
-                                        <span class="pl-2">Peter Gill</span>
-                                    </td>
-                                    <td> 02312 </td>
-                                    <td> $14,500 </td>
-                                    <td> Development </td>
-                                    <td> Online Payment </td>
-                                    <td> 04 Dec 2019 </td>
-                                    <td>
-                                        <div class="badge badge-outline-success text-white">Approved</div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <div class="form-check form-check-muted m-0">
-                                            <label class="form-check-label">
-                                                <input type="checkbox" class="form-check-input">
-                                            </label>
-                                        </div>
-                                    </td>
-                                    <td>
-                                        <img src="assets/images/faces/face4.jpg" alt="image" loading="lazy" />
-                                        <span class="pl-2">Sallie Reyes</span>
-                                    </td>
-                                    <td> 02312 </td>
-                                    <td> $14,500 </td>
-                                    <td> Website </td>
-                                    <td> Credit card </td>
-                                    <td> 04 Dec 2019 </td>
-                                    <td>
-                                        <div class="badge badge-outline-success text-white">Approved</div>
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table> -->
-
-                        <!-- <h4 class="card-title">Category List</h4>
-
-                        <div class="table-responsive  ">
-                            <table class="table table-dark table-striped">
-                                <thead>
-                                    <tr>
-                                        <th>Sl</th>
-                                        <th> Category Name</th>
-                                        <th> Description</th>
-                                        <th> Code </th>
-                                        <th> Attachment</th>
-                                        <th> Action</th>
-
-                                    </tr>
-                                </thead>
-                                <tbody>
-
-
-                                    <tr *ngFor="let cat of productCategories ,let i = index">
-                                        <td>{{ i+1 }}</td>
-                                        <td>{{ cat.name }}</td>
-                                        <td>{{ cat.description }}</td>
-                                        <td>{{ cat.categoryCode}}</td>
-                                        <td class="user-photo">
-                                            <img [src]="cat.image ? 'http://localhost:8089/images/' + cat.image : 'static/images/**'"
-                                                alt="Profile Photo" class="img-thumbnail" />
-                                        </td>
-                                    </tr>
-
-                                </tbody>
-                            </table>
-                        </div> -->
-
-                    </div>
-
+                    
                     <div class="table-responsive">
                         <table class="table table-dark table-striped">
                             <thead>
@@ -506,7 +283,7 @@
                                     <td>{{ order.quantity }}</td>
                                     <td>{{ order.product.sizes}}</td>
                                     <td>{{ order.totalPrice | currency }}</td>
-                                    <td>{{ order.orderDate | date: 'd MMM, y hh:mm:ss a' }}</td>
+                                    <td>{{ order.orderDate | date}}</td>
                                     <td>{{ order.deliveryDate | date }}</td>
                                 </tr>
                             </tbody>
@@ -591,6 +368,60 @@
         </div>
         <div class="col-md-6 col-xl-4 grid-margin stretch-card">
             <div class="card bg-dark text-white">
+                
+                    <div class="d-flex flex-row justify-content-between">
+                        <h3 class="card-title mb-3 mt-3 ms-2">Available Available Products </h3>
+                    </div>
+
+                    <div class="card md-2 mb-4 ms-3 bg-dark text-white" style="width: 18rem;">
+                        <div class="card-body">
+
+                            <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel"
+                                (slid.bs.carousel)="updateSelectedProduct($event)">
+                                <div class="carousel-inner">
+                                    <ng-container *ngFor="let u of product; let i = index">
+                                        <div class="carousel-item" [ngClass]="{'active': i === 0}">
+                                            <img src="http://localhost:8089/images/{{u.image}}" class="d-block w-100"
+                                                alt="{{u.name}}">
+                                        </div>
+                                    </ng-container>
+                                </div>
+
+                                <button class="carousel-control-prev" type="button"
+                                    data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+                                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                    <span class="visually-hidden">Previous</span>
+                                </button>
+                                <button class="carousel-control-next" type="button"
+                                    data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+                                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                    <span class="visually-hidden">Next</span>
+                                </button>
+                            </div>
+
+                            <h5 class="card-title text-dark mt-1 text-center text-white">{{ selectedProduct?.name }}
+                            </h5>
+                            <div class="text-white">
+                                <p>
+                                    <strong>Descripction:</strong> {{ selectedProduct?.description }}<br>
+                                    <strong> Code:</strong> {{ selectedProduct?.productCode }}<br>
+                                    <strong> Price:</strong> {{ selectedProduct?.price }}
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+
+
+
+
+               
+
+
+            </div>
+            <!-- <div class="card bg-dark text-white">
                 <div class="card-body ">
                     <h4 class="card-title">Portfolio Slide</h4>
                     <div class="owl-carousel owl-theme full-width owl-carousel-dash portfolio-carousel"
@@ -630,7 +461,7 @@
                             aria-valuemin="0" aria-valuemax="100"></div>
                     </div>
                 </div>
-            </div>
+            </div> -->
         </div>
         <div class="col-md-12 col-xl-4 grid-margin stretch-card">
             <div class="card bg-dark text-white">

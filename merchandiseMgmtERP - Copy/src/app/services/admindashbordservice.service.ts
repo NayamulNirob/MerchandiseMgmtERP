@@ -27,14 +27,14 @@ export class AdmindashbordserviceService {
   constructor(private http: HttpClient) {} 
 
   loadProducts():Observable<Product[]>{
-    return this.http.get<Product[]>(this.baseUrl+"product").pipe(
+    return this.http.get<Product[]>(this.baseUrl+"product/").pipe(
       tap(data=>this.product=data)
     );
   }
   
   
   loadCategories():Observable<ProductCategory[]>{
-    return this.http.get<ProductCategory[]>(this.baseUrl+"category").pipe(
+    return this.http.get<ProductCategory[]>(this.baseUrl+"category/").pipe(
       tap(data=>this.category=data)
     );
   }

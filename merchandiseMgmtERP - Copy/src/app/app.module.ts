@@ -36,6 +36,7 @@ import { CountryComponent } from './businesscomponent/country/country.component'
 import { StockmanagementComponent } from './businesscomponent/stockmanagement/stockmanagement.component';
 import {NgxPrintModule} from 'ngx-print';
 import { TransactionmanagementComponent } from './businesscomponent/transactionmanagement/transactionmanagement.component';
+import { TodotaskComponent } from './businesscomponent/todotask/todotask.component';
 
 
 
@@ -69,7 +70,8 @@ import { TransactionmanagementComponent } from './businesscomponent/transactionm
     SubcategoriesComponent,
     CountryComponent,
     StockmanagementComponent,
-    TransactionmanagementComponent
+    TransactionmanagementComponent,
+    TodotaskComponent
   
 
   ],

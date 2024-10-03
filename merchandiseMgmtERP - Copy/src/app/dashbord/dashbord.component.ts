@@ -4,6 +4,7 @@ import { Country } from '../model/countrymodel';
 import { OrderItem, Product, Sale } from '../model/sale.model';
 import { ProductCategory } from '../model/productcategorymodel';
 import { Transaction } from '../model/transactionmodel';
+import { TaskStatus, TodoTask } from '../model/todotaskmodel';
 
 
 @Component({
@@ -19,8 +20,11 @@ export class DashbordComponent implements OnInit {
   productCategory: ProductCategory[] = [];
   selectedProduct: Product | null = null;
   transaction: Transaction[] = [];
+  newTransaction: Transaction = new Transaction();
   totalAmount:number=0;
 
+  tasks: TodoTask[] = [];
+  newTask: string = '';
 
 
   constructor(
@@ -32,10 +36,47 @@ export class DashbordComponent implements OnInit {
     this.loadProducts();
     this.loadCategory();
     this.loadTransactions();
+    this.loadTasks();
+    this.calculateTotalAmount();
 
   }
 
- 
+
+  loadTasks(): void {
+    this.adminDashbordService.getTasks().subscribe(tasks => {
+      this.tasks = tasks;
+    });
+  }
+
+  addTask(): void {
+    if (this.newTask.trim()) {
+      this.adminDashbordService.addTask(this.newTask).subscribe(() => {
+        this.loadTasks();
+        this.newTask = '';
+      });
+    }
+  }
+
+  
+
+  deleteTask(id: number): void {
+    this.adminDashbordService.deleteTask(id).subscribe(() => this.loadTasks());
+  }
+
+
+  
+  markAsCompleted(id: number, event: Event): void {
+    const isChecked = (event.target as HTMLInputElement).checked;
+    const newStatus = isChecked ? TaskStatus.COMPLETED : TaskStatus.PENDING;
+    this.adminDashbordService.markAsCompleted(id, newStatus).subscribe(() => this.loadTasks());
+}
+
+
+private calculateTotalAmount(): void {
+  this.totalAmount = this.transaction.reduce((sum, transaction) => {
+    return sum + (transaction.amount || 0); 
+  }, 0);
+}
 
   loadTransactions() {
     this.adminDashbordService.loadtransactions().subscribe({

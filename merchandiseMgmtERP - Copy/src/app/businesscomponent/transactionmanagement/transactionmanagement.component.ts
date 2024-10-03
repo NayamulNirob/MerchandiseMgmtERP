@@ -91,7 +91,11 @@ export class TransactionmanagementComponent implements OnInit {
     this.newTransaction = new Transaction(); 
   }
 
-  
+  private calculateTotalAmount(): void {
+    this.totalAmount = this.transactions.reduce((sum, transaction) => {
+      return sum + (transaction.amount || 0); 
+    }, 0);
+  }
 
 
 

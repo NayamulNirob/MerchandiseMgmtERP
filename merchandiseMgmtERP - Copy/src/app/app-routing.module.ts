@@ -24,6 +24,7 @@ import { SubcategoriesComponent } from './businesscomponent/subcategories/subcat
 import { CountryComponent } from './businesscomponent/country/country.component';
 import { StockmanagementComponent } from './businesscomponent/stockmanagement/stockmanagement.component';
 import { TransactionmanagementComponent } from './businesscomponent/transactionmanagement/transactionmanagement.component';
+import { TodotaskComponent } from './businesscomponent/todotask/todotask.component';
 
 
 const routes: Routes = [
@@ -49,6 +50,7 @@ const routes: Routes = [
   {path:'country',component:CountryComponent},
   {path:'stock',component:StockmanagementComponent},
   {path:'transaction',component:TransactionmanagementComponent},
+  {path:'task',component:TodotaskComponent},
   {path:"**", redirectTo:'login' , pathMatch:'full'},
   
   {

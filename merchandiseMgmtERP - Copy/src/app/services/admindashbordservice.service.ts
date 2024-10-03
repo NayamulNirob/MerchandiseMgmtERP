@@ -7,6 +7,7 @@ import { Observable, tap } from 'rxjs';
 import { Country } from '../model/countrymodel';
 import { ProductCategory } from '../model/productcategorymodel';
 import { Transaction } from '../model/transactionmodel';
+import { TaskStatus, TodoTask } from '../model/todotaskmodel';
 
 @Injectable({
   providedIn: 'root'
@@ -28,6 +29,30 @@ export class AdmindashbordserviceService {
 
 
   constructor(private http: HttpClient) {} 
+
+
+  getTasks(): Observable<TodoTask[]> {
+    return this.http.get<TodoTask[]>(this.baseUrl + "task/");
+  }
+
+
+
+  addTask(description: string): Observable<TodoTask> {
+    const task = { description, status: 'PENDING' };  
+    return this.http.post<TodoTask>(`${this.baseUrl}task/save`, task, { headers: { 'Content-Type': 'application/json' } });
+  }
+
+
+  deleteTask(id: number): Observable<void> {
+    return this.http.delete<void>(`${this.baseUrl}task/delete/${id}`);
+  }
+
+  markAsCompleted(id: number, status: TaskStatus): Observable<TodoTask> {
+    const taskUpdate = { status }; 
+    return this.http.put<TodoTask>(`${this.baseUrl}task/update/${id}`, taskUpdate, {
+      headers: { 'Content-Type': 'application/json' }
+    });
+  }
 
 
 

@@ -1,8 +1,9 @@
 
-<div class="row">
+<div class="row justify-content-center">
+ 
   <div class="card md-4 mb-4 ms-3 bg-dark text-white" style="width: 20rem; margin-right: 15px;" *ngFor="let u of products">
     <div class="card-body">
-      <!-- Image Carousel -->
+      <h6 class="card-title">Products In Inventory</h6>
       <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
         <div class="carousel-inner">
           <div class="carousel-item active">
@@ -14,7 +15,7 @@
         </div>
       </div>
       
-      <!-- Card Content -->
+    
       <h5 class="card-title text-dark mt-1 text-center text-white">{{u.name}}</h5>
       <p class="card-text text-white">
         Description: {{u.description}}<br>

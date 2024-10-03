@@ -23,7 +23,7 @@
                 <a href="#" id="profile-dropdown" data-toggle="dropdown"><i class="mdi mdi-dots-vertical"></i></a>
                 <div class="dropdown-menu dropdown-menu-right sidebar-dropdown preview-list"
                     aria-labelledby="profile-dropdown">
-                    <a href="#" class="dropdown-item preview-item">
+                    <a href="/userProfile" class="dropdown-item preview-item">
                         <div class="preview-thumbnail">
                             <div class="preview-icon bg-dark rounded-circle">
                                 <i class="mdi mdi-settings text-primary"></i>
@@ -45,7 +45,7 @@
                         </div>
                     </a>
                     <div class="dropdown-divider"></div>
-                    <a href="#" class="dropdown-item preview-item">
+                    <a href="/task" class="dropdown-item preview-item">
                         <div class="preview-thumbnail">
                             <div class="preview-icon bg-dark rounded-circle">
                                 <i class="mdi mdi-calendar-today text-success"></i>
@@ -97,27 +97,16 @@
             </ng-container>
         </li>
 
+        
+
+
         <li class="nav-item menu-items">
-            <a class="nav-link" data-toggle="collapse" href="#ui-style" aria-expanded="false" aria-controls="ui-style">
+            <a class="nav-link" href="/inventory">
                 <span class="menu-icon">
                     <i class="fa-solid fa-scroll fa-flip" style="--fa-flip-x: 1; --fa-flip-y: 0;"></i>
                 </span>
                 <span class="menu-title">Inventory Mgmt</span>
-                <i class="menu-arrow"></i>
             </a>
-            <div class="collapse" id="ui-style">
-                <ul class="nav flex-column sub-menu">
-                    <li class="nav-item">
-                        <ng-container *ngIf="userRole==='Admin'">
-                            <a class="nav-link" href="/inventory">
-                                <i class="fa-solid fa-check-double fa-beat" style="color: #ffffff;"></i>
-                                &nbsp; inventory
-                            </a>
-                        </ng-container>
-                    </li>
-
-                </ul>
-            </div>
         </li>
 
         <li class="nav-item menu-items">

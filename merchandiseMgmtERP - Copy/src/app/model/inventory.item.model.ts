@@ -1,4 +1,4 @@
-import { Product } from "./sale.model";
+import { Product } from "./Product";
 import { WareHouse } from "./warehouse.model";
 
 export class InventoryItem {

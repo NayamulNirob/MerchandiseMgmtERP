@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { Country } from '../../model/countrymodel';
-import { Supplier } from '../../model/sale.model';
+import { Supplier } from "../../model/Supplier";
 import { Router } from '@angular/router';
 import { CountryService } from '../../services/country.service';
 import { SupplierService } from '../../services/supplier.service';

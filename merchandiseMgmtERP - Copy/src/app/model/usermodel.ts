@@ -1,9 +1,9 @@
-export class UserModel{
+// export class UserModel{
 
-    id!:number;
-    name!:string;
-    email!:string;
-    password!:string;
-    image!:string;
+//     id!:number;
+//     name!:string;
+//     email!:string;
+//     password!:string;
+//     image!:string;
   
-}
+// }

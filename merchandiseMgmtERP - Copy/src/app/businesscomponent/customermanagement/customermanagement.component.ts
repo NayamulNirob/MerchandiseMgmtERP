@@ -1,6 +1,6 @@
 // customer-management.component.ts  
 import { Component, OnInit } from '@angular/core';
-import { Customer } from '../../model/sale.model';
+import { Customer } from "../../model/Customer";
 import { CustomerService } from '../../services/customermanagement.service';
 import { Router } from '@angular/router';
 import { DatePipe } from '@angular/common';

@@ -2,7 +2,8 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';  
 import { Observable } from 'rxjs';  
 import { tap } from 'rxjs/operators';  
-import { Sale, Supplier } from '../model/sale.model';
+import { Sale } from '../model/sale.model';
+import { Supplier } from "../model/Supplier";
 import { InventoryItem } from '../model/inventory.item.model';
 import { Stock } from '../model/stockmodel';
 

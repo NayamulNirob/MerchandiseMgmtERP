@@ -1,7 +1,7 @@
 // inventory-management.component.ts  
 import { Component, OnInit } from '@angular/core';
 
-import { Product } from '../../model/sale.model';
+import { Product } from "../../model/Product";
 import { InventoryService } from '../../services/inventory.service';
 import { ProductService } from '../../services/product.service';
 import { WarehouseService } from '../../services/warehouse.service';

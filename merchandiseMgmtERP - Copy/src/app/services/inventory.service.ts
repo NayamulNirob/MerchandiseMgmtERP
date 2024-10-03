@@ -2,7 +2,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { Product } from '../model/sale.model';
+import { Product } from "../model/Product";
 import { InventoryItem } from '../model/inventory.item.model';
 import test from 'node:test';
 

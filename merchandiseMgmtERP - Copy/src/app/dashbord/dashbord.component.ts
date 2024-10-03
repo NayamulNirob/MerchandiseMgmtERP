@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { AdmindashbordserviceService } from '../services/admindashbordservice.service';
 import { Country } from '../model/countrymodel';
-import { OrderItem, Product, Sale } from '../model/sale.model';
+import { Sale } from '../model/sale.model';
+import { Product } from "../model/Product";
+import { OrderItem } from "../model/OrderItem";
 import { ProductCategory } from '../model/productcategorymodel';
 import { Transaction } from '../model/transactionmodel';
 import { TaskStatus, TodoTask } from '../model/todotaskmodel';

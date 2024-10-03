@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Sale, Supplier } from '../../model/sale.model';
+import { Sale } from '../../model/sale.model';
+import { Supplier } from "../../model/Supplier";
 import { ReportsService } from '../../services/reportsandanalytics.service';
 import { InventoryItem } from '../../model/inventory.item.model';
 import { Stock } from '../../model/stockmodel';

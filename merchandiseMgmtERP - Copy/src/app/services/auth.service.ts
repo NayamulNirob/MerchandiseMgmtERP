@@ -1,5 +1,6 @@
 import { Inject, Injectable, PLATFORM_ID } from '@angular/core';
-import { AuthResponse, UserModel } from '../model/sale.model';
+import { UserModel } from "../model/UserModel.1";
+import { AuthResponse } from "../model/AuthResponse";
 import { BehaviorSubject, catchError, map, Observable } from 'rxjs';
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { isPlatformBrowser } from '@angular/common';

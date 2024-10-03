@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Stock } from '../../model/stockmodel';
 import { StockService } from '../../services/stock.service';
 import { Router } from '@angular/router';
-import { Product } from '../../model/sale.model';
+import { Product } from "../../model/Product";
 import { WareHouse } from '../../model/warehouse.model';
 import {  DatePipe } from '@angular/common';
 import { ProductService } from '../../services/product.service';

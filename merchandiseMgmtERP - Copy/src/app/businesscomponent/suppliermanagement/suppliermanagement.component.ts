@@ -1,6 +1,6 @@
 // supplier-management.component.ts  
 import { Component, OnInit } from '@angular/core';  
-import { Supplier } from '../../model/sale.model';
+import { Supplier } from "../../model/Supplier";
 import { SupplierService } from '../../services/supplier.service';
 import { Router } from '@angular/router';
 import { Country } from '../../model/countrymodel';

@@ -195,7 +195,7 @@
       "name": "Neyamul",
       "email": "nayamulislam@gmail.com",
       "password": "123456",
-      "photo": "",
+      "image": "",
       "role": "Admin"
     },
     {
@@ -203,7 +203,7 @@
       "name": "Nirjash",
       "email": "nirjash@gmail.com",
       "password": "123456",
-      "photo": "",
+      "image": "",
       "role": "user"
     },
     {
@@ -211,7 +211,7 @@
       "name": "Shawon",
       "email": "showon@gmail.com",
       "password": "123456789",
-      "photo": "",
+      "image": "",
       "role": "user"
     }
   ],

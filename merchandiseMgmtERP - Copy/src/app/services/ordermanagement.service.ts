@@ -3,7 +3,9 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';  
 import { Observable } from 'rxjs';  
 import { tap } from 'rxjs/operators';  
-import { Customer, OrderItem, Product } from '../model/sale.model';
+import { Product } from "../model/Product";
+import { OrderItem } from "../model/OrderItem";
+import { Customer } from "../model/Customer";
 
 @Injectable({  
   providedIn: 'root'  

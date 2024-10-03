@@ -7,25 +7,26 @@
         <button class="navbar-toggler navbar-toggler align-self-center" type="button" data-toggle="minimize">
             <span class="mdi mdi-menu"></span>
         </button>
-     
-        <ul class="navbar-nav "  style="margin-left: 175px;">
+
+        <ul class="navbar-nav " style="margin-left: 175px;">
             <li class="nav-item w-100">
                 <form class="nav-link mt-2 mt-md-0 d-none d-lg-flex search">
-                    <input type="text" class="form-control bg-dark text-white search-bar-light" placeholder="Search products">&nbsp;&nbsp;
+                    <input type="text" class="form-control bg-dark text-white search-bar-light"
+                        placeholder="Search products">&nbsp;&nbsp;
                     <button class="btn btn-outline-light" type="submit">Search</button>
                 </form>
-                    
-               
+
+
             </li>
-        
+
         </ul>
         <ul class="navbar-nav navbar-nav-right">
             <li class="nav-item dropdown d-none d-lg-block">
                 <a class="nav-link btn btn-success create-new-button" id="createbuttonDropdown" data-toggle="dropdown"
-                    aria-expanded="false" href="#">+ Create New Project</a>
+                    aria-expanded="false" href="#">+ Available Catgories </a>
                 <div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list"
                     aria-labelledby="createbuttonDropdown">
-                    <h6 class="p-3 mb-0">Projects</h6>
+                    <h6 class="p-3 mb-0">Progress</h6>
                     <div class="dropdown-divider"></div>
                     <a class="dropdown-item preview-item">
                         <div class="preview-thumbnail">
@@ -34,7 +35,20 @@
                             </div>
                         </div>
                         <div class="preview-item-content">
-                            <p class="preview-subject ellipsis mb-1">Software Development</p>
+                            <a class="preview-subject ellipsis mb-1" href="/inventory">Available Products</a>
+
+                        </div>
+                    </a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item preview-item">
+                        <div class="preview-thumbnail">
+                            <div class="preview-icon bg-dark rounded-circle">
+                                
+                                <i class="mdi mdi-layers text-danger"></i>
+                            </div>
+                        </div>
+                        <div class="preview-item-content">
+                            <a class="preview-subject ellipsis mb-1" href="/subcategory">Available Catgories</a>
                         </div>
                     </a>
                     <div class="dropdown-divider"></div>
@@ -45,18 +59,8 @@
                             </div>
                         </div>
                         <div class="preview-item-content">
-                            <p class="preview-subject ellipsis mb-1">UI Development</p>
-                        </div>
-                    </a>
-                    <div class="dropdown-divider"></div>
-                    <a class="dropdown-item preview-item">
-                        <div class="preview-thumbnail">
-                            <div class="preview-icon bg-dark rounded-circle">
-                                <i class="mdi mdi-layers text-danger"></i>
-                            </div>
-                        </div>
-                        <div class="preview-item-content">
-                            <p class="preview-subject ellipsis mb-1">Software Testing</p>
+                            <a class="preview-subject ellipsis mb-1" href="/country">Country Progress</a>
+
                         </div>
                     </a>
                     <div class="dropdown-divider"></div>
@@ -144,7 +148,7 @@
                             </div>
                         </div>
                         <div class="preview-item-content">
-                            <a class="preview-subject mb-1"  href="/userProfile">Settings</a>
+                            <a class="preview-subject mb-1" href="/userProfile">Settings</a>
                             <p class="text-muted ellipsis mb-0"> Update dashboard </p>
                         </div>
                     </a>
@@ -156,13 +160,13 @@
                             </div>
                         </div>
                         <div class="preview-item-content">
-                            <a class="preview-subject mb-1" href="/dashbord">Launch Admin</a>
+                            <a class="preview-subject mb-1" href="/userProfile">Launch Admin</a>
                             <p class="text-muted ellipsis mb-0"> New admin wow! </p>
                         </div>
                     </a>
                     <div class="dropdown-divider"></div>
-                    
-                    <p class="p-3 mb-0 text-center" >See all notifications</p>
+
+                    <p class="p-3 mb-0 text-center">See all notifications</p>
                 </div>
             </li>
 

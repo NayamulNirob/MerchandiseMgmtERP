@@ -26,4 +26,10 @@ public class User {
 
     private String image;
 
+    @Enumerated(EnumType.STRING)
+    @Column(nullable = true)
+    private Role role;
+
+
+
 }

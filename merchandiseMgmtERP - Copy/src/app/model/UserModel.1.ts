@@ -7,3 +7,11 @@ export class UserModel {
   image!: string;
   role!: string;
 }
+
+
+export enum role {
+  
+  ADMIN = 'Admin',
+  USER = 'user',
+  
+}

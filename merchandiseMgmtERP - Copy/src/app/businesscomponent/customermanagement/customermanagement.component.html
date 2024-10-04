@@ -1,75 +1,10 @@
-<!-- <div class="container">
-    <h2 class="text-xl font-bold mb-4">Customer Management</h2>
-
-    <input type="text" [(ngModel)]="searchTerm" (input)="filterCustomers()" placeholder="Search by name or email..."
-        class="border rounded p-1 mb-4" />
-
-    <h3 class="text-lg font-semibold mb-3">Add New Customer</h3>
-    <form (ngSubmit)="addCustomer()" class="mb-4">
-        <input type="text" [(ngModel)]="newCustomer.name" name="name" placeholder="Name" required
-            class="border rounded p-1 mr-3" />
-        <input type="email" [(ngModel)]="newCustomer.email" name="email" placeholder="Email" required
-            class="border rounded p-1 mr-3" />
-        <input type="text" [(ngModel)]="newCustomer.phone" name="phone" placeholder="Phone" required
-            class="border rounded p-1 mr-3" />
-        <input type="text" [(ngModel)]="newCustomer.address" name="address" placeholder="Address" required
-            class="border rounded p-1 mr-4" />
-        <input type="text" [(ngModel)]="newCustomer.contactPerson" name="contactPerson" placeholder="contactPerson"
-            required class="border rounded p-1 mr-3" />
-        <input type="text" [(ngModel)]="newCustomer.country" name="country" placeholder="country" required
-            class="border rounded p-1 mr-3" />
-        <input type="text" [(ngModel)]="newCustomer.organigation" name="organigation" placeholder="organigation"
-            required class="border rounded p-1 mr-3 mt-2" />
-        <button type="submit" class="btn btn-outline-light btn-fw p-2 mt-2 btn-sm">Add Customer</button>
-
-    </form>
-
-    <table class="min-w-full border">
-        <thead>
-            <tr>
-                <th class="border p-1">Name</th>
-                <th class="border p-1">Email</th>
-                <th class="border p-1">Phone</th>
-                <th class="border p-1">Conatact Person</th>
-                <th class="border p-1">Address</th>
-                <th class="border p-1">Country</th>
-                <th class="border p-1">Organigation</th>
-                <th class="border p-1">Created At</th>
-                <th class="border p-1">Updated At</th>
-                <th class="border p-1">Actions</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr *ngFor="let customer of filteredCustomers">
-                <td class="border p-1">{{ customer.name }}</td>
-                <td class="border p-1">{{ customer.email }}</td>
-                <td class="border p-1">{{ customer.phone }}</td>
-                <td class="border p-1">{{ customer.contactPerson}}</td>
-                <td class="border p-1">{{ customer.address }}</td>
-                <td class="border p-1">{{ customer.country }}</td>
-                <td class="border p-1">{{ customer.organigation }}</td>
-                <td class="border p-1">{{ customer.createdAt | date }}</td>
-                <td class="border p-1">{{ customer.updatedAt | date: 'd MMM, y hh:mm:ss a' }}</td>
-                <td class="border p-1">
-                    <button type="button" class="btn btn-success btn-icon-text btn-sm mb-2 mt-2" (click)="updateCustomer(customer.id)"> Update <i
-                            class="mdi mdi-file-check btn-icon-append"></i>
-                    </button>
-
-                    <button type="button" class="btn btn-danger btn-icon-text btn-sm ms-1 mb-3" (click)="removeCustomer(customer.id)">Remove<i class="mdi mdi-alert btn-icon-prepend"></i> 
-                     </button>
-
-                </td>
-            </tr>
-        </tbody>
-    </table>
-</div> -->
 
 <div class="col-12 grid-margin">
-    <h4 class="card-title text-center">Buyer Management</h4>
-    <div class="card bg-dark text-white">
+    
+    <div class="card bg-dark text-white border rounded">
         <div class="card-body">
+            <h4 class="card-title text-center">Buyer Management</h4>
             <h6 class="card-title">New Buyer Add Form</h6>
-
             <form class="form-sample" (ngSubmit)="addCustomer()">
                 <div class="row">
                     <div class="col-md-6">
@@ -120,9 +55,6 @@
                         <div class="form-group row">
                             <label class="col-sm-3 col-form-label">Address:</label>
                             <div class="col-sm-9">
-                                <!-- <input type="text" [(ngModel)]="newCustomer.address" name="address" class="form-control"
-                                    placeholder="Address" required />
-                                <label for="description">Description</label> -->
                                 <textarea class="form-control" id="address" rows="2" [(ngModel)]="newCustomer.address"
                                     name="address" placeholder="Enter full Address"></textarea>
                             </div>
@@ -133,9 +65,6 @@
                         <div class="form-group row">
                             <label class="col-sm-3 col-form-label">Country:</label>
                             <div class="col-sm-9">
-                                <!-- <input type="text" [(ngModel)]="newCustomer.country" name="country" class="form-control"
-                                    placeholder="Country" required /> -->
-
                                 <select class="form-control" id="country" [(ngModel)]="newCustomer.countryObj.id"
                                     name="country" required >
                                     <option *ngFor="let country of countryObj" [value]="country.id" >{{
@@ -165,17 +94,16 @@
 
 
     <div class="row mt-5 mb-2 ms-1">
-        <label>Search</label>
         <div class="col-md-12 d-flex justify-content-between align-items-start">
-            <input type="text" class="form-control bg-dark text-white" style="max-width: 250px;"
+            <input type="text" class="border rounded p-2 bg-dark text-white" style="max-width: 250px;"
                 [(ngModel)]="searchTerm" (input)="filterCustomers()" placeholder="Search by name or email..." />
         </div>
     </div>
 
 
     <div class="col-lg-12 grid-margin stretch-card">
-        <div class="card bg-dark text-white">
-            <div class="card-body">
+        <div class="card bg-dark text-white border rounded">
+            <div class="card-body ">
                 <h4 class="card-title">Buyers List</h4>
 
                 <div class="table-responsive">

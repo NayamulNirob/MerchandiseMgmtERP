@@ -41,7 +41,8 @@
 
 
       </div>
-      <button (click)="generatePDF()">Generate PDF</button>
+      <button type="button" class="btn btn-outline-info btn-icon-text btn-sm mt-2" (click)="generatePDF()" > Print <i class="mdi mdi-printer btn-icon-append"></i></button>
+      
     </div>
   </div>
 
@@ -93,7 +94,8 @@
           </tbody>
         </table>
       </div>
-      <button (click)="generatesalePDF()">Generate PDF</button>
+      <!-- <button (click)="generatesalePDF()">Generate PDF</button> -->
+      <button type="button" class="btn btn-outline-primary btn-icon-text btn-sm mt-2" (click)="generatePDF()" > Print <i class="mdi mdi-printer btn-icon-append"></i></button>
     </div>
   </div>
 
@@ -122,7 +124,7 @@
         </table>
       </div>
       <!-- <button printSectionId="print-section" ngxPrint>print</button> -->
-      <button (click)="generateStocksPDF()">Generate PDF</button>
+      <button type="button" class="btn btn-outline-success btn-icon-text btn-sm mt-2" (click)="generatePDF()" > Print <i class="mdi mdi-printer btn-icon-append"></i></button>
     </div>
 
 

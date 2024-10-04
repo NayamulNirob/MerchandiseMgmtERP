@@ -4,6 +4,8 @@ import { CustomerService } from '../../services/customermanagement.service';
 import { ActivatedRoute, Router } from '@angular/router';
 
 import { HttpErrorResponse } from '@angular/common/http';
+import { Country } from '../../model/countrymodel';
+import { CountryService } from '../../services/country.service';
 
 @Component({
   selector: 'app-updatecustomer',
@@ -16,10 +18,13 @@ customerId!:number;
 errorMessage: string = '';
 customer:Customer = new Customer();
 customers:Customer[]=[];
+countryObj:Country[]=[];
+
 constructor(
   private customerService:CustomerService,
   private route:ActivatedRoute,
-  private router:Router
+  private router:Router,
+  private countryService:CountryService
 ){}
 
   ngOnInit(): void {
@@ -32,13 +37,20 @@ constructor(
     this.customerService.getcustomerById(this.customerId).subscribe({
       next: response => {
         this.customer = response;
-        console.log(this.customer);
       },
       error: error => {
         console.log(error)
         this.errorMessage = 'Could not load Customer';
       }
-    })
+    });
+    this.countryService.getCountries().subscribe({
+      next:res=>{
+        this.countryObj=res
+      },
+      error:err=>{
+        console.error(err)
+      }
+    });
   }
 
   updateCustomer(): void {

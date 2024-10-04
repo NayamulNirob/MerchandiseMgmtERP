@@ -1,10 +1,9 @@
 
 <div class="col-12 grid-margin">
-  <div class="card bg-dark text-white">
+  <div class="card bg-dark text-white border rounded">
     <div class="card-body">
-      <h4 class="card-title">Sales Management</h4>
-      <input type="text" [(ngModel)]="searchTerm" (input)="filterSales()" class="form-control mb-4 w-25"
-        placeholder="Search by product or customer name..." />
+      <h4 class="card-title text-center">Sales Management</h4>
+      
 
       <div class="row mb-4">
         <h5>Record New Sale</h5>
@@ -53,15 +52,31 @@
               </div>
             </div>
 
-            <div class="col-md-2 d-flex align-items-end">
+            <div class="col-md-2 d-flex align-items-start">
               <button type="submit" class="btn btn-success mt-3">Record Sale</button>
             </div>
           </div>
         </form>
+
+        
       </div>
 
-      <button (click)="generateSalesReport()" class="btn btn-info mt-2 mb-4">Generate Sales Report</button>
+
+      <div class="d-flex justify-content-between align-items-center mb-4">
+
+        <input type="text" [(ngModel)]="searchTerm" (input)="filterSales()"
+          class="border rounded p-2 bg-dark text-white" placeholder="Search by product or customer name..." />
+       
+        <button (click)="generateSalesReport()" class="btn btn-info">Generate Sales Report</button>
+
+       
+        
+      </div>
+
+      
+
       <div id="print-section">
+
         <div class="table-responsive">
           <table class="table table-dark table-striped">
             <thead>
@@ -96,3 +111,4 @@
     </div>
   </div>
 </div>
+

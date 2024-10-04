@@ -1,7 +1,7 @@
 <div class="row">
    
     <div class="col-md-6 grid-margin stretch-card">
-        <div class="card bg-dark text-white">
+        <div class="card bg-dark text-white border rounded">
             <div class="card-body">
                 <h4 class="card-title">Import Category</h4>
 
@@ -42,7 +42,7 @@
     </div>
     
     <div class="col-md-6 grid-margin stretch-card">
-        <div class="card bg-dark text-white">
+        <div class="card bg-dark text-white border rounded">
             <div class="card-body">
                 <h4 class="card-title">Category List</h4>
 
@@ -50,11 +50,10 @@
                     <table class="table table-dark table-striped">
                         <thead>
                             <tr>
-                                <th>Sl</th>
+                                <th>Cat Icon</th>
                                 <th> Category Name</th>
                                 <th> Description</th>
                                 <th> Code </th>
-                                <th> Attachment</th>
                                 <ng-container *ngIf="userRole=='Admin'">
                                     <th> Action</th>
                                 </ng-container>
@@ -63,15 +62,14 @@
                         <tbody>
 
 
-                            <tr *ngFor="let cat of categories ,let i = index">
-                                <td>{{ i+1 }}</td>
-                                <td>{{ cat.name }}</td>
-                                <td>{{ cat.description }}</td>
-                                <td>{{ cat.categoryCode}}</td>
+                            <tr *ngFor="let cat of categories">
                                 <td class="user-photo">
                                     <img [src]="cat.image ? 'http://localhost:8089/images/' + cat.image : 'static/images/**'"
                                         alt="Profile Photo" class="img-thumbnail" />
                                 </td>
+                                <td>{{ cat.name }}</td>
+                                <td>{{ cat.description }}</td>
+                                <td>{{ cat.categoryCode}}</td>
                                 <ng-container *ngIf="userRole==='Admin'">
                                     <td>
 

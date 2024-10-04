@@ -1,7 +1,7 @@
 <div class="container-fluid mt-4">
     <ng-container *ngIf="userRole=='Admin'">
-        <div class="card bg-dark text-white">
-            <h4 class="text-center mt-2">Stock Management</h4>
+        <div class="card bg-dark text-white border rounded ">
+            <h4 class="text-center mt-4">Stock Management</h4>
             <div class="card-body">
                 <h6 class="card-title">Add New Stock </h6>
                 <form class="form-sample" (ngSubmit)="addStock()">
@@ -43,24 +43,25 @@
         </div>
     </ng-container>
 
-    <div class="card bg-dark text-white mt-4">
+    <div class="card bg-dark text-white mt-4 border rounded ">
         <div class="card-body">
             <div class="d-flex justify-content-between align-items-center">
                 <div class="col-md-4">
                     <div class="form-group row">
                         <div class="col-sm-9">
-                            <label class="col-sm-4 col-form-label">Search</label>
-                            <input type="text" class="form-control bg-dark text-white" [(ngModel)]="searchTerm"
+                           
+                            <input type="text" class="border rounded p-2 bg-dark text-white" [(ngModel)]="searchTerm"
                                 (input)="filterStocks()" placeholder="Search by Product or Warehouse..." />
                         </div>
                     </div>
                 </div>
 
-                <h4>Available Stock</h4>
+                <div class="d-flex align-items-center col-md-4">
+                <h4>Available Stocks</h4>
+                </div>
 
                 <div class="d-flex align-items-center">
-                    <label> SortBy: </label>&nbsp;
-                    <select [(ngModel)]="sortBy" (change)="sortStocks()" class="form-control bg-dark text-white ms-1">
+                    <select [(ngModel)]="sortBy" (change)="sortStocks()" class="border rounded p-2 bg-dark text-white ms-1 ">
                         <option value="product.name">Product Name</option>
                         <option value="wareHouse.name">Warehouse</option>
                         <option value="quantity">Quantity</option>
@@ -108,7 +109,7 @@
 
 
 <div class="container-fluid mt-4">
-    <div class="card bg-dark text-white">
+    <div class="card bg-dark text-white border rounded">
         <div class="card-body">
             <h4 class="card-title text-center">Total List Of Amount and Quantity</h4>
             <table class="table table-dark table-striped mt-4">

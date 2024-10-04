@@ -13,9 +13,9 @@ export class FooterComponent {
   subscribeToNewsletter() {
     if (this.email) {
       console.log('Subscribed with email:', this.email);
-      // Add your logic to subscribe to the newsletter
+      
       alert(`Thanks for subscribing, ${this.email}!`);
-      this.email = ''; // Clear the input after subscription
+      this.email = '';
     }
   }
 }

@@ -1,6 +1,6 @@
 <ng-container *ngIf="userRole=='Admin'">
     <div class="col-12 grid-margin stretch-card">
-        <div class="card bg-dark text-white">
+        <div class="card bg-dark text-white border rounded">
             <div class="card-body">
                 <h4 class="card-title">Add new Country of Bussinesses List </h4>
                 <p class="card-description"> </p>
@@ -38,10 +38,10 @@
 
 
 <input type="text" [(ngModel)]="searchTerm" (input)="filterAndSortCountrys()"
-    placeholder="Search by Country name or bussiness..." class="border rounded p-2 mb-4 ms-3 w-25" />
+    placeholder="Search by Country name or bussiness..." class="border rounded p-2 mb-4 ms-3 w-25 bg-dark text-white"/>
 
 <div class="col-lg-12 grid-margin stretch-card">
-    <div class="card bg-dark text-white">
+    <div class="card bg-dark text-white border rounded">
         <div class="card-body">
             <h4 class="card-title">Country Progress List</h4>
             <div class="table-responsive ">

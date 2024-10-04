@@ -10,6 +10,8 @@ import { Observable, of } from 'rxjs';
 export class UserprofileService {
   private baseUrl="http://localhost:3000/user";
 
+  // private baseUrl="http://localhost:8089/api/user";
+
   constructor(
     private http:HttpClient,
     private authService:AuthService,
@@ -26,4 +28,19 @@ export class UserprofileService {
     return this.http.put<UserModel>(`${this.baseUrl}/${user.id}`,user);
   }
   
+
+
+  getAllUser(): Observable<any> {
+    return this.http.get(this.baseUrl + "/");
+  }
+
+  addUser(user:UserModel,image:File):Observable<any>{
+
+    const fromData= new FormData(); 
+
+    fromData.append('user',new Blob([JSON.stringify(user)],{type:'application/json'}));
+    fromData.append('image',image);
+
+    return this.http.post(this.baseUrl+"/save",fromData);
+  }
 }

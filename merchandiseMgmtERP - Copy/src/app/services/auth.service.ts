@@ -12,13 +12,15 @@ export class AuthService {
 
   private baseUrl: string = "http://localhost:3000/user";
 
+  // private baseUrl="http://localhost:8089/api/user";
+
   private currentUserSubject: BehaviorSubject<UserModel | null>;
   public currentUser$: Observable<UserModel | null>;
 
   constructor(
 
     private http: HttpClient,
-    @Inject(PLATFORM_ID) private platformId: Object  
+    @Inject(PLATFORM_ID) private platformId: Object
   ) {
     const storedUser = this.isBrowser() ? JSON.parse(localStorage.getItem('currentUser') || 'null') : null;
     this.currentUserSubject = new BehaviorSubject<UserModel | null>(storedUser);
@@ -57,12 +59,12 @@ export class AuthService {
             const token = btoa(`${user.email}:${user.password}`);
             this.storeToken(token);
             this.setCurrentUser(user);
-            this.currentUserSubject.next(user); 
+            this.currentUserSubject.next(user);
             return { token, user } as AuthResponse;
           } else {
-            this.currentUserSubject.next(null); 
+            this.currentUserSubject.next(null);
             alert('Invalid Password');
-            throw new Error('Invalid Password'); 
+            throw new Error('Invalid Password');
           }
         } else {
           this.currentUserSubject.next(null)
@@ -86,7 +88,7 @@ export class AuthService {
 
   logout(): void {
     this.clearCurrentuser();
-    if(this.isBrowser()){
+    if (this.isBrowser()) {
       localStorage.removeItem('token');
     }
     this.currentUserSubject.next(null);
@@ -108,22 +110,22 @@ export class AuthService {
     this.currentUserSubject.next(null);
   }
 
-  isAuthenticated():boolean{
+  isAuthenticated(): boolean {
     return !!this.getToken();
   }
 
- 
+
 
   getToken(): string | null {
-    return this.isBrowser()? localStorage.getItem('token'):null;
+    return this.isBrowser() ? localStorage.getItem('token') : null;
   }
 
-  getUserRole():any{
+  getUserRole(): any {
     return this.currentUserValue?.role;
   }
 
   storeToken(token: string): void {
-    if(this.isBrowser()){
+    if (this.isBrowser()) {
       localStorage.setItem('token', token);
     }
   }
@@ -135,15 +137,15 @@ export class AuthService {
   }
 
   getUserProfileFromStore(): UserModel | null {
-    if(this.isBrowser()){
+    if (this.isBrowser()) {
       const userProfile = localStorage.getItem('currentUser');
-    return userProfile ? JSON.parse(userProfile) : null;
+      return userProfile ? JSON.parse(userProfile) : null;
     }
     return null;
   }
 
-  removeUserDetails():void {
-    if(this.isBrowser()){
+  removeUserDetails(): void {
+    if (this.isBrowser()) {
       localStorage.clear();
     }
   }

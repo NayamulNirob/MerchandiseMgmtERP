@@ -1,15 +1,20 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Observable, of } from 'rxjs';
 import { UserModel } from '../model/UserModel.1';
+import { AuthService } from './auth.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class UserService {
+
   baseUrl: string = "http://localhost:8089/api/user"
 
-  constructor(private http: HttpClient) { }
+  constructor(
+    private http: HttpClient,
+    private authService:AuthService,
+  ) { }
 
   getAllUser(): Observable<any> {
     return this.http.get(this.baseUrl + "/");
@@ -23,5 +28,15 @@ export class UserService {
     fromData.append('image',image);
 
     return this.http.post(this.baseUrl+"/save",fromData);
+  }
+
+  
+  getUserProfile():Observable<UserModel|null>{
+    return of(this.authService.getUserProfileFromStore());
+  }
+
+  updateUserProfile(user:UserModel):Observable<UserModel>{
+    localStorage.setItem('userProfile',JSON.stringify(user));
+    return this.http.put<UserModel>(`${this.baseUrl}/${user.id}`,user);
   }
 }

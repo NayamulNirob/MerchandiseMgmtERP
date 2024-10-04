@@ -213,6 +213,13 @@
       "password": "123456789",
       "image": "",
       "role": "user"
+    },
+    {
+      "id": "c03a",
+      "name": "Neyamul Nirob",
+      "email": "1302neyamulislamnirob@gmail.com",
+      "password": "1234",
+      "image": ""
     }
   ],
   "warehouses": [

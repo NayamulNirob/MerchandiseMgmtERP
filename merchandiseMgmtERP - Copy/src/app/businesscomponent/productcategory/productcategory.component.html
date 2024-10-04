@@ -1,4 +1,5 @@
 <div class="row">
+   
     <div class="col-md-6 grid-margin stretch-card">
         <div class="card bg-dark text-white">
             <div class="card-body">
@@ -31,15 +32,15 @@
 
 
                     </div>
-
-                    <button type="submit" class="btn btn-primary mr-2">Submit</button>
-                    <button class="btn btn-dark">Cancel</button>
-                    
+                    <ng-container *ngIf="userRole=='Admin'">
+                        <button type="submit" class="btn btn-primary mr-2">Submit</button>
+                        <button class="btn btn-dark">Cancel</button>
+                    </ng-container>
                 </form>
             </div>
         </div>
     </div>
-
+    
     <div class="col-md-6 grid-margin stretch-card">
         <div class="card bg-dark text-white">
             <div class="card-body">
@@ -54,12 +55,13 @@
                                 <th> Description</th>
                                 <th> Code </th>
                                 <th> Attachment</th>
-                                <th> Action</th>
-
+                                <ng-container *ngIf="userRole=='Admin'">
+                                    <th> Action</th>
+                                </ng-container>
                             </tr>
                         </thead>
                         <tbody>
- 
+
 
                             <tr *ngFor="let cat of categories ,let i = index">
                                 <td>{{ i+1 }}</td>
@@ -67,24 +69,26 @@
                                 <td>{{ cat.description }}</td>
                                 <td>{{ cat.categoryCode}}</td>
                                 <td class="user-photo">
-                                <img [src]="cat.image ? 'http://localhost:8089/images/' + cat.image : 'static/images/**'"
-                                    alt="Profile Photo" class="img-thumbnail" />
+                                    <img [src]="cat.image ? 'http://localhost:8089/images/' + cat.image : 'static/images/**'"
+                                        alt="Profile Photo" class="img-thumbnail" />
                                 </td>
+                                <ng-container *ngIf="userRole==='Admin'">
+                                    <td>
 
-                                <td>
-                           
-    
-                                    <a class="btn text-white" data-toggle="modal" data-target="#exampleModal" onclick="editProductCategory(cat.id)">
-                                        <i class="fa-solid fa-pen-to-square fa-fade" style="color: #66fc72;"></i>
-                                      </a>
-                            
-                                      <a class="btn"  data-toggle="modal" data-target="#exampleModal"><i
-                                          class="fa-solid fa-trash-can fa-fade" style="color: #fd0101;"></i>
-                            
-                            
-                                      </a>
-                                </td>
 
+                                        <a class="btn text-white" data-toggle="modal" data-target="#exampleModal"
+                                            onclick="editProductCategory(cat.id)">
+                                            <i class="fa-solid fa-pen-to-square fa-fade" style="color: #66fc72;"></i>
+                                        </a>
+
+                                        <a class="btn" data-toggle="modal" data-target="#exampleModal"><i
+                                                class="fa-solid fa-trash-can fa-fade" style="color: #fd0101;"></i>
+
+
+                                        </a>
+
+                                    </td>
+                                </ng-container>
                             </tr>
 
                         </tbody>
@@ -99,7 +103,7 @@
 <div class="row justify-content-center ms-1">
 
     <div class="card md-4 m-1" style="width: 18rem;" *ngFor="let u of categories">
-       
+
         <div class="card-body ">
             <img src="http://localhost:8089/images/{{u.image}}" class="card-img-top" alt="{{u.name}}">
             <h5 class="card-title text-dark text-center mt-2">{{u.name}}</h5>
@@ -112,12 +116,3 @@
 
 
 </div>
-
-
-
-
-
-
-
-  
-  

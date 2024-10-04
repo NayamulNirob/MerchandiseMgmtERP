@@ -25,10 +25,12 @@ import { CountryComponent } from './businesscomponent/country/country.component'
 import { StockmanagementComponent } from './businesscomponent/stockmanagement/stockmanagement.component';
 import { TransactionmanagementComponent } from './businesscomponent/transactionmanagement/transactionmanagement.component';
 import { TodotaskComponent } from './businesscomponent/todotask/todotask.component';
+import { DashboarduserComponent } from './dashboarduser/dashboarduser.component';
 
 
 const routes: Routes = [
   {path:'dashbord',component:DashbordComponent},
+  {path:'userdashboard',component:DashboarduserComponent},
   {path:'login',component:LoginComponent},
   {path:'register',component:RegisterComponent},
   {path:'product',component:ProducmanagementComponent,canActivate:[AuthguardGuard]},

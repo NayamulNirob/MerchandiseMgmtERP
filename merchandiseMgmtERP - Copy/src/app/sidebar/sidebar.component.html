@@ -62,14 +62,25 @@
             <span class="nav-link">Navigation</span>
         </li>
         <li class="nav-item menu-items">
+            <ng-container *ngIf="userRole==='Admin'">
+                <a class="nav-link" href="/dashbord">
+                    <span class="menu-icon">
+                        <i class="mdi mdi-speedometer"></i>
+                    </span>
+                    <span class="menu-title">Dashboard</span>
+                </a>
+            </ng-container>
+        </li>
 
-            <a class="nav-link" href="/dashbord">
-                <span class="menu-icon">
-                    <i class="mdi mdi-speedometer"></i>
-                </span>
-                <span class="menu-title">Dashboard</span>
-            </a>
-
+        <li class="nav-item menu-items">
+            <ng-container *ngIf="userRole==='user'">
+                <a class="nav-link" href="/userdashboard">
+                    <span class="menu-icon">
+                        <i class="mdi mdi-speedometer"></i>
+                    </span>
+                    <span class="menu-title">Dashboard</span>
+                </a>
+            </ng-container>
         </li>
 
         <li class="nav-item menu-items">
@@ -97,7 +108,7 @@
             </ng-container>
         </li>
 
-        
+
 
 
         <li class="nav-item menu-items">

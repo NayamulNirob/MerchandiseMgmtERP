@@ -5,6 +5,8 @@ import { Router } from '@angular/router';
 import { CountryService } from '../../services/country.service';
 import { SupplierService } from '../../services/supplier.service';
 import { HttpErrorResponse } from '@angular/common/http';
+import { AuthService } from '../../services/auth.service';
+import { UserModel } from '../../model/UserModel.1';
 
 @Component({
   selector: 'app-country',
@@ -39,9 +41,14 @@ export class CountryComponent {
   suppliers: Supplier[] = [];
 
 
+  userRole: string | null = '';
+  currentUser: UserModel | null = null;
+
+
   constructor(private countryService: CountryService,
     private router: Router,
-    private supplierService: SupplierService) { }
+    private supplierService: SupplierService,
+    private authService:AuthService) { }
 
   ngOnInit(): void {
     this.loadCountries();
@@ -54,7 +61,12 @@ export class CountryComponent {
         console.log(err);
 
       }
-    })
+    });
+    this.authService.currentUser$.subscribe(user => {
+      this.currentUser = user;
+      this.userRole = user?.role || null;
+    });
+  
   }
 
   loadCountries(): void {

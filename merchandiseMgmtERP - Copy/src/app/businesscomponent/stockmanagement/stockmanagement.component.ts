@@ -8,6 +8,8 @@ import {  DatePipe } from '@angular/common';
 import { ProductService } from '../../services/product.service';
 import { WarehouseService } from '../../services/warehouse.service';
 import { Transaction } from '../../model/transactionmodel';
+import { UserModel } from '../../model/UserModel.1';
+import { AuthService } from '../../services/auth.service';
 
 
 
@@ -39,6 +41,15 @@ export class StockmanagementComponent implements OnInit {
   selectedFile: File | null = null;
 
 
+  userRole: string | null = '';
+  currentUser: UserModel | null = null;
+
+ 
+
+ 
+
+  
+  
 
 
   constructor(
@@ -47,6 +58,7 @@ export class StockmanagementComponent implements OnInit {
     private datePipe: DatePipe,
     private productService: ProductService,
     private warehouseservice:WarehouseService,
+    private authService:AuthService
    ) { }
 
 
@@ -73,6 +85,11 @@ export class StockmanagementComponent implements OnInit {
       error:err=>{
         console.log(err)
       }
+    });
+
+    this.authService.currentUser$.subscribe(user => {
+      this.currentUser = user;
+      this.userRole = user?.role || null;
     });
   
 

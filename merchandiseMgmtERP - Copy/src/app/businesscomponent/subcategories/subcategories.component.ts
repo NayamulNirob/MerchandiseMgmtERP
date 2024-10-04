@@ -4,6 +4,8 @@ import { SubcategoryService } from '../../services/subcategory.service';
 import { SubCategories } from '../../model/subcategoriesmodel';
 import { ProductCategory } from '../../model/productcategorymodel';
 import { ProductcategoryService } from '../../services/productcategory.service';
+import { UserModel } from '../../model/UserModel.1';
+import { AuthService } from '../../services/auth.service';
 
 @Component({
   selector: 'app-subcategories',
@@ -18,9 +20,16 @@ export class SubcategoriesComponent implements OnInit{
   categories:ProductCategory = new ProductCategory();
   listCategories:ProductCategory[]=[];
 
+
+
+  userRole: string | null = '';
+  currentUser: UserModel | null = null;
+
+
   constructor(private router:Router,
     private subCategoriesService:SubcategoryService,
-    private categoryService:ProductcategoryService
+    private categoryService:ProductcategoryService,
+    private authService:AuthService
   ){}
 
   ngOnInit(): void {
@@ -28,6 +37,11 @@ export class SubcategoriesComponent implements OnInit{
 
     this.categoryService.getProductCatagories().subscribe(data => {
       this.listCategories = data;
+    });
+    
+    this.authService.currentUser$.subscribe(user => {
+      this.currentUser = user;
+      this.userRole = user?.role || null;
     });
   }
 

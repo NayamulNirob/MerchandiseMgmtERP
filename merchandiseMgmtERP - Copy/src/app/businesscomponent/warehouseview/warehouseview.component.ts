@@ -3,6 +3,8 @@ import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { WarehouseService } from '../../services/warehouse.service';
 import { WareHouse } from '../../model/warehouse.model';
+import { UserModel } from '../../model/UserModel.1';
+import { AuthService } from '../../services/auth.service';
 
 @Component({
   selector: 'app-warehouseview',
@@ -15,12 +17,20 @@ export class WarehouseviewComponent {
   wareHouses: WareHouse[] = [];
   newWareHouse: WareHouse = new WareHouse();
 
+  userRole: string | null = '';
+  currentUser: UserModel | null = null;
+
   constructor(private wareHousetService:WarehouseService,
-    private router: Router
+    private router: Router,
+    private authService:AuthService
   ) { }
 
   ngOnInit(): void {
     this.loadWareHouses();
+    this.authService.currentUser$.subscribe(user => {
+      this.currentUser = user;
+      this.userRole = user?.role || null;
+    });
   }
 
   loadWareHouses(): void {

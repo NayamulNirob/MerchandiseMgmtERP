@@ -20,10 +20,10 @@
                             </option>
                         </select>
                     </div>
-
-                    <button type="submit" class="btn btn-primary mr-2">Submit</button>
-                    <button class="btn btn-dark">Cancel</button>
-
+                    <ng-container *ngIf="userRole=='Admin'">
+                        <button type="submit" class="btn btn-primary mr-2">Submit</button>
+                        <button class="btn btn-dark">Cancel</button>
+                    </ng-container>
                 </form>
             </div>
         </div>
@@ -43,8 +43,9 @@
                                 <th>Category </th>
                                 <th>Category Code</th>
                                 <th>Category logo</th>
-
-                                <th> Action</th>
+                                <ng-container *ngIf="userRole=='Admin'">
+                                    <th> Action</th>
+                                </ng-container>
 
                             </tr>
                         </thead>
@@ -59,25 +60,25 @@
                                 <td class="user-photo">
                                     <img [src]="cat.productCategory.image ? 'http://localhost:8089/images/' + cat.productCategory.image : 'static/images/**'"
                                         alt="Profile Photo" class="img-thumbnail" />
-                                    </td>
-
-
-                                <td>
-
-
-                                    <a class="btn text-white" data-toggle="modal" data-target="#exampleModal"
-                                        onclick="editSubCategories(cat.id)">
-                                        <i class="fa-solid fa-pen-to-square fa-fade" style="color: #66fc72;"></i>
-                                    </a>
-
-                                    <a class="btn" data-toggle="modal" data-target="#exampleModal"
-                                        onclick="deleteSubCategoris(cat.id)"><i class="fa-solid fa-trash-can fa-fade"
-                                            style="color: #fd0101;"></i>
-
-
-                                    </a>
                                 </td>
 
+                                <ng-container *ngIf="userRole=='Admin'">
+                                    <td>
+
+
+                                        <a class="btn text-white" data-toggle="modal" data-target="#exampleModal"
+                                            onclick="editSubCategories(cat.id)">
+                                            <i class="fa-solid fa-pen-to-square fa-fade" style="color: #66fc72;"></i>
+                                        </a>
+
+                                        <a class="btn" data-toggle="modal" data-target="#exampleModal"
+                                            onclick="deleteSubCategoris(cat.id)"><i
+                                                class="fa-solid fa-trash-can fa-fade" style="color: #fd0101;"></i>
+
+
+                                        </a>
+                                    </td>
+                                </ng-container>
                             </tr>
 
                         </tbody>

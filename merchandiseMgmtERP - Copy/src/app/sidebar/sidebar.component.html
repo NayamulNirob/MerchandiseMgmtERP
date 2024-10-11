@@ -93,18 +93,7 @@
             </ng-container>
         </li>
 
-        <li class="nav-item menu-items">
-            <ng-container *ngIf="userRole==='Admin'">
-
-                <a class="nav-link" href="/reports">
-                    <span class="menu-icon">
-                        <i class="fa-solid fa-server fa-beat" style="color: #005eff;"></i>
-                    </span>
-                    <span class="menu-title">Reports & Analytics</span>
-
-                </a>
-            </ng-container>
-        </li>
+        
 
 
 
@@ -220,6 +209,22 @@
                         <i class="fa-solid fa-industry fa-beat-fade" style="color: #B197FC;"></i>
                     </span>
                     <span class="menu-title">Supplier</span>
+                </a>
+            </ng-container>
+        </li>
+
+
+
+
+        <li class="nav-item menu-items">
+            <ng-container *ngIf="userRole==='Admin'">
+
+                <a class="nav-link" href="/reports">
+                    <span class="menu-icon">
+                        <i class="fa-solid fa-server fa-beat" style="color: #005eff;"></i>
+                    </span>
+                    <span class="menu-title">Reports & Analytics</span>
+
                 </a>
             </ng-container>
         </li>

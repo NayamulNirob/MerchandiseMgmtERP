@@ -24,4 +24,6 @@ public class EmailService {
         massage.setFrom("nayamulislam@gmail.com");
         javaMailSender.send(mes);
     }
+
+
 }

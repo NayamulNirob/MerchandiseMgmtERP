@@ -6,6 +6,9 @@ import com.merchandisemgmt.merchandiseMgmtERP.repository.UserRepository;
 
 import jakarta.mail.MessagingException;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.multipart.MultipartFile;
@@ -21,7 +24,7 @@ import java.util.UUID;
 
 
 @Service
-public class UserService {
+public class UserService implements UserDetailsService {
 
     private final UserRepository userRepository;
 
@@ -75,18 +78,27 @@ public class UserService {
         return userRepository.findAll();
     }
 
-    public User findById(int id) {
+    public User findById(long id) {
         return userRepository.findById(id).orElseThrow(
                 () -> new RuntimeException("User with id " + id + " not found")
         );
     }
 
-    public void delete(int id) {
+    public void delete(long id) {
         userRepository.deleteById(id);
     }
 
-    public void update(User user, int id) {
+    public void update(User user, long id) {
         userRepository.save(user);
     }
+
+
+    @Override
+    public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
+        return userRepository.findByEmail(username)
+                .orElseThrow(
+                        ()->  new UsernameNotFoundException("User Not Found With this Email Address"));
+    }
+
 
 }

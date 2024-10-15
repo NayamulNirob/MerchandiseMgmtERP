@@ -69,7 +69,7 @@ export class RegisterComponent {
         next: res => {
           console.log("User Added succesfully", res);
           // alert('User Registration Successfull');
-          this.router.navigate(['/login']);
+          this.router.navigate(['/userview']);
   
         },
         error: err => {
@@ -84,21 +84,7 @@ export class RegisterComponent {
 
   }
 
-  // if (this.selectedFile) {
-  //   this.userService.addUser(this.user, this.selectedFile).subscribe({
-  //     next: res => {
-  //       console.log("User Added succesfully", res);
-  //       this.router.navigate(['/userview']);
-
-  //     },
-  //     error: err => {
-  //       console.error("User Not Added", err)
-  //     }
-  //   });
-  // }
-  // else {
-  //   alert('Please Select an image');
-  // }
+  
 
 }
 

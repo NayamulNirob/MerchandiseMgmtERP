@@ -8,9 +8,9 @@ import { Observable, of } from 'rxjs';
   providedIn: 'root'
 })
 export class UserprofileService {
-  private baseUrl="http://localhost:3000/user";
+  // private baseUrl="http://localhost:3000/user";
 
-  // private baseUrl="http://localhost:8089/api/user";
+  private baseUrl="http://localhost:8089/api/user";
 
   constructor(
     private http:HttpClient,
@@ -43,4 +43,9 @@ export class UserprofileService {
 
     return this.http.post(this.baseUrl+"/save",fromData);
   }
+
+
+
+  
+
 }

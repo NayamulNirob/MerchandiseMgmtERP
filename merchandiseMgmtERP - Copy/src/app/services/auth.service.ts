@@ -10,9 +10,9 @@ import { isPlatformBrowser } from '@angular/common';
 })
 export class AuthService {
 
-  private baseUrl: string = "http://localhost:3000/user";
+  // private baseUrl: string = "http://localhost:3000/user";
 
-  // private baseUrl="http://localhost:8089/api/user";
+  private baseUrl="http://localhost:8089/api/user";
 
   private currentUserSubject: BehaviorSubject<UserModel | null>;
   public currentUser$: Observable<UserModel | null>;

@@ -1,5 +1,6 @@
+
 <div class="col-12 grid-margin">
-    <div class="card bg-dark text-white border rounded ">
+    <div class="card bg-dark text-white border rounded">
         <div class="card-body">
             <h4 class="card-title">Order Management</h4>
 
@@ -11,8 +12,7 @@
                             <div class="col-sm-8">
                                 <select class="form-control" id="customer" [(ngModel)]="newOrder.customer.id"
                                     name="customer" required>
-                                    <option *ngFor="let customers of customers" [value]="customers.id">{{ customers.name
-                                        }}</option>
+                                    <option *ngFor="let customer of customers" [value]="customer.id">{{ customer.name }}</option>
                                 </select>
                             </div>
                         </div>
@@ -24,8 +24,7 @@
                             <div class="col-sm-8">
                                 <select class="form-control" id="product" [(ngModel)]="newOrder.product"
                                     name="productName" required>
-                                    <option *ngFor="let product of products" [ngValue]="product">{{ product.name }}
-                                    </option>
+                                    <option *ngFor="let product of products" [ngValue]="product">{{ product.name }}</option>
                                 </select>
                             </div>
                         </div>
@@ -41,21 +40,17 @@
                         </div>
                     </div>
 
-
                     <div class="col-md-3">
                         <div class="form-group row">
-                            <label for="size" class="col-sm-4 col-form-label">Select Size:</label>
+                            <label class="col-sm-4 col-form-label">Select Size:</label>
                             <div class="col-sm-8">
                                 <select class="form-control" id="sizes" [(ngModel)]="newOrder.product.id" name="sizes"
                                     required>
-                                    <option *ngFor="let product of products" [value]="product.id">{{ product.sizes }}
-                                    </option>
+                                    <option *ngFor="let product of products" [value]="product.id">{{ product.sizes }}</option>
                                 </select>
                             </div>
                         </div>
                     </div>
-
-
 
                     <div class="col-md-3">
                         <div class="form-group row">
@@ -77,7 +72,7 @@
         </div>
     </div>
 
-    <div class="card bg-dark text-white mt-4 border rounded ">
+    <div class="card bg-dark text-white mt-4 border rounded">
         <div class="card-body">
             <h4 class="card-title">Order List</h4>
 
@@ -101,16 +96,16 @@
                             <td>{{ order.customer.name }}</td>
                             <td>{{ order.product.name }}</td>
                             <td>{{ order.quantity }}</td>
-                            <td>{{ order.product.sizes}}</td>
+                            <td>{{ order.product.sizes }}</td>
                             <td>{{ order.status }}</td>
                             <td>{{ order.totalPrice | currency }}</td>
                             <td>{{ order.orderDate | date: 'd MMM, y hh:mm:ss a' }}</td>
                             <td>{{ order.deliveryDate | date }}</td>
                             <td>
-                                <button class="btn btn-success btn-sm"
-                                    (click)="updateOrder(order.id, 'Shipped')">Confarmed</button>
+                                <button class="btn btn-success btn-sm" 
+                                        (click)="updateOrder(order.id, 'Shipped')">Shipped</button>
                                 <button class="btn btn-danger btn-sm ms-1"
-                                    (click)="deleteOrder(order.id)">Delete</button>
+                                        (click)="deleteOrder(order.id)">Delete</button>
                             </td>
                         </tr>
                     </tbody>

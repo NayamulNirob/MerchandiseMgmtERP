@@ -48,4 +48,6 @@ export class SalesService {
   getSales(): Sale[] {  
     return this.sales;  
   }  
+
+
 }

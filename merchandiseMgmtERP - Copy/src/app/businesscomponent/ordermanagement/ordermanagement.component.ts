@@ -22,7 +22,8 @@ export class OrdermanagementComponent {
   products:Product[]=[];
   customers:Customer[]=[];
 
-  constructor(private orderService: OrderService,
+  constructor(
+    private orderService: OrderService,
     private productService:ProductService,
     private customerService:CustomerService
   ) { }
@@ -61,10 +62,27 @@ export class OrdermanagementComponent {
     });
   }
 
+  // updateOrder(orderId: string, status: string) {
+  //   this.orderService.updateOrder(orderId, { status });
+  //   this.updateFilteredOrders();
+  // }
+
+
+  
   updateOrder(orderId: string, status: string) {
-    this.orderService.updateOrder(orderId, { status });
-    this.updateFilteredOrders();
+    if (status === 'Shipped') {
+      this.orderService.updateOrder(orderId, { status }).subscribe({
+        next: () => {
+          this.updateFilteredOrders(); // Refresh the displayed orders
+          alert('Order has been shipped and recorded in sales.');
+        },
+        error: (err) => {
+          console.error('Failed to update order status: ', err); // Handle error
+        }
+      });
+    }
   }
+  
 
   // deleteOrder(orderId: string) {
   //   this.orderService.deleteOrder(orderId);

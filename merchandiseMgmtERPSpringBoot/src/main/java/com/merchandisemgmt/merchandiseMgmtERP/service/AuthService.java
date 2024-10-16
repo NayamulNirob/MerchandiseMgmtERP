@@ -61,7 +61,7 @@ public class AuthService {
 
         // Check if the user already exists
         if (userRepository.findByEmail(user.getUsername()).isPresent()) {
-            return new AuthenticationResponse(null, "User already exists");
+            return new AuthenticationResponse(null, "User already exists", null);
         }
 
         // Create a new user entity and save it to the database
@@ -80,7 +80,7 @@ public class AuthService {
         saveUserToken(jwt, user);
         sendActivationEmail(user);
 
-        return new AuthenticationResponse(jwt, "User registration was successful");
+        return new AuthenticationResponse(jwt, "User registration was successful", null);
     }
 
 
@@ -88,7 +88,7 @@ public class AuthService {
 
         // Check if the user already exists
         if (userRepository.findByEmail(user.getUsername()).isPresent()) {
-            return new AuthenticationResponse(null, "User already exists");
+            return new AuthenticationResponse(null, "User already exists", null);
         }
 
         // Create a new user entity and save it to the database
@@ -107,7 +107,7 @@ public class AuthService {
         saveUserToken(jwt, user);
         sendActivationEmail(user);
 
-        return new AuthenticationResponse(jwt, "User registration was successful");
+        return new AuthenticationResponse(jwt, "User registration was successful", null);
     }
 
 //    public AuthenticationResponse registerHotel(User user) {
@@ -160,7 +160,7 @@ public class AuthService {
         saveUserToken(jwt, user);
 
 
-        return new AuthenticationResponse(jwt, "User login was successful");
+        return new AuthenticationResponse(jwt, "User login was successful", user);
     }
 
 

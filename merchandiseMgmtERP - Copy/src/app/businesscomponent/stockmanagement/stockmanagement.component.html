@@ -1,5 +1,5 @@
 <div class="container-fluid mt-4">
-    <ng-container *ngIf="userRole=='Admin'">
+    <ng-container *ngIf="authService.getUserRole() === 'ADMIN'">
         <div class="card bg-dark text-white border rounded ">
             <h4 class="text-center mt-4">Stock Management</h4>
             <div class="card-body">
@@ -79,7 +79,7 @@
                         <th>Quantity</th>
                         <th>Total Price</th>
                         <th>Date Added</th>
-                        <ng-container *ngIf="userRole=='Admin'">
+                        <ng-container *ngIf="authService.getUserRole() === 'ADMIN'">
                         <th>Actions</th>
                         </ng-container>
                     </tr>
@@ -93,7 +93,7 @@
                         <td>{{ stock.product.quantity }}</td>
                         <td>{{ stock.product.totalPrice| currency }}</td>
                         <td>{{ stock.createdAt| date: 'd MMM, y'}}</td>
-                        <ng-container *ngIf="userRole=='Admin'">
+                        <ng-container *ngIf="authService.getUserRole() === 'ADMIN'">
                             <td>
                                 <button class="btn btn-warning btn-sm"
                                     (click)="editStock(stock.id)">Edit</button>&nbsp;&nbsp;

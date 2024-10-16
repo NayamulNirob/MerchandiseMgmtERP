@@ -45,11 +45,10 @@ export class RegisterComponent {
 
     if (this.regFrom.valid) {
       const user: UserModel = this.regFrom.value;
-      this.authService.regitration(user).subscribe({
+      this.authService.register(user).subscribe({
         next: (res) => {
           console.log('user registration Successfully:', res);
           alert('User Registration Successfull');
-          this.authService.storeToken(res.token);
           this.router.navigate(['/login']);
 
         },

@@ -20,7 +20,7 @@
                             </option>
                         </select>
                     </div>
-                    <ng-container *ngIf="userRole=='Admin'">
+                    <ng-container *ngIf="authService.getUserRole() === 'ADMIN'">
                         <button type="submit" class="btn btn-primary mr-2">Submit</button>
                         <button class="btn btn-dark">Cancel</button>
                     </ng-container>
@@ -43,7 +43,7 @@
                                 <th>Category </th>
                                 <th>Category Code</th>
                                 <th>Category logo</th>
-                                <ng-container *ngIf="userRole=='Admin'">
+                                <ng-container *ngIf="authService.getUserRole() === 'ADMIN'">
                                     <th> Action</th>
                                 </ng-container>
 
@@ -62,7 +62,7 @@
                                         alt="Profile Photo" class="img-thumbnail" />
                                 </td>
 
-                                <ng-container *ngIf="userRole=='Admin'">
+                                <ng-container *ngIf="authService.getUserRole() === 'ADMIN'">
                                     <td>
 
 

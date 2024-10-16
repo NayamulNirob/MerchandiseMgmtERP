@@ -1,4 +1,4 @@
-<ng-container *ngIf="userRole=='Admin'">
+<ng-container *ngIf="authService.getUserRole() === 'ADMIN'">
     <div class="col-12 grid-margin stretch-card">
         <div class="card bg-dark text-white border rounded">
             <div class="card-body">
@@ -54,7 +54,7 @@
                             <th> Progress </th>
                             <th> Yearly Sale </th>
                             <th> Status</th>
-                            <ng-container *ngIf="userRole==='Admin'">
+                            <ng-container *ngIf="authService.getUserRole() === 'ADMIN'">
                             <th> Action</th>
                             </ng-container>
                         </tr>
@@ -85,7 +85,7 @@
                             <td>{{country.sale|currency}}</td>
 
                             <td>{{country.status}}</td>
-                            <ng-container *ngIf="userRole==='Admin'">
+                            <ng-container *ngIf="authService.getUserRole() === 'ADMIN'">
                                 <td>
 
                                     <a class="btn text-white" (click)="editCountry(country.id)" data-toggle="modal"

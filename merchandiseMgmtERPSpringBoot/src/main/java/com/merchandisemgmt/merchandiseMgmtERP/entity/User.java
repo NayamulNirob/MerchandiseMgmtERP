@@ -25,12 +25,14 @@ public class User implements UserDetails {
 
     @Column(nullable = false)
     private Long id;
+
     @Column(nullable = false)
     private String name;
+
     @Column(nullable = false,unique = true)
     private String email;
+
     @Column(nullable = false)
-    @Size(min = 4, max = 20)
     private String password;
 
     private String image;
@@ -41,10 +43,9 @@ public class User implements UserDetails {
 
     @Column(nullable = false)
     private boolean active;
+
     @Column()
     private boolean isLock;
-
-
 
     @OneToMany(mappedBy = "user")
     private List<Token> tokens;

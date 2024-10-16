@@ -38,11 +38,9 @@ export class LoginComponent {
 
     if (this.logInFrom.valid) {
       const credentials = this.logInFrom.value;
-      this.authService.login(credentials).subscribe({
+      this.authService.login(credentials.email, credentials.password).subscribe({
         next: (res) => {
           console.log("user log in successfully:", res);
-          this.authService.storeToken(res.token);
-          const role = this.authService.getUserRole();
           this.router.navigate(['/userProfile']);
         },
         error: (err) => {

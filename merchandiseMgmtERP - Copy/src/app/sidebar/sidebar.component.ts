@@ -1,6 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { UserprofileComponent } from '../userprofile/userprofile.component';
-import { UserModel } from "../model/UserModel.1";
 import { AuthService } from '../services/auth.service';
 
 @Component({
@@ -8,21 +6,11 @@ import { AuthService } from '../services/auth.service';
   templateUrl: './sidebar.component.html',
   styleUrl: './sidebar.component.css'
 })
-export class SidebarComponent implements OnInit{
- 
+export class SidebarComponent {
 
-  userRole: string | null = '';
-  currentUser: UserModel | null = null;
 
-constructor(private authService:AuthService) {
-  
-}
+  constructor(protected authService: AuthService) {
 
-  ngOnInit(): void {
-    this.authService.currentUser$.subscribe(user => {
-      this.currentUser = user;
-      this.userRole = user?.role || null;
-    });
   }
 
 }

@@ -11,7 +11,7 @@ export class UserModel {
 
 export enum role {
   
-  ADMIN = 'Admin',
-  USER = 'user',
+  ADMIN = 'ADMIN',
+  USER = 'USER',
   
 }

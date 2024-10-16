@@ -18,24 +18,15 @@ export class ProductcategoryComponent implements OnInit {
 
   selectedFile: File | null = null;
 
-  userRole: string | null = '';
-  currentUser: UserModel | null = null;
-
-
   constructor(private categoriesService: ProductcategoryService,
     private router: Router,
-    private authService:AuthService
+    protected authService:AuthService
   ) {
 
   }
 
   ngOnInit(): void {
     this.loadCategories();
-    this.authService.currentUser$.subscribe(user => {
-      this.currentUser = user;
-      this.userRole = user?.role || null;
-    });
-
   }
 
   loadCategories(): void {

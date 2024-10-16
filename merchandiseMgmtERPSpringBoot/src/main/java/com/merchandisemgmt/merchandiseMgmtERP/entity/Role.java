@@ -8,7 +8,7 @@ public enum Role {
     public String getFriendlyName() {
         switch (this) {
             case ADMIN: return "Admin";
-            case USER: return "user";
+            case USER: return "User";
             default: throw new IllegalArgumentException();
         }
     }

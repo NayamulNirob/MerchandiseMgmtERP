@@ -17,20 +17,13 @@ export class WarehouseviewComponent {
   wareHouses: WareHouse[] = [];
   newWareHouse: WareHouse = new WareHouse();
 
-  userRole: string | null = '';
-  currentUser: UserModel | null = null;
-
-  constructor(private wareHousetService:WarehouseService,
+  constructor(private wareHousetService: WarehouseService,
     private router: Router,
-    private authService:AuthService
+    protected authService: AuthService
   ) { }
 
   ngOnInit(): void {
     this.loadWareHouses();
-    this.authService.currentUser$.subscribe(user => {
-      this.currentUser = user;
-      this.userRole = user?.role || null;
-    });
   }
 
   loadWareHouses(): void {
@@ -60,9 +53,9 @@ export class WarehouseviewComponent {
   }
 
 
-  editWareHouse(WareHouseId: number ) {
-    this.router.navigate(['updatewarehouse',WareHouseId]);
-  
+  editWareHouse(WareHouseId: number) {
+    this.router.navigate(['updatewarehouse', WareHouseId]);
+
   }
 
 
@@ -70,10 +63,10 @@ export class WarehouseviewComponent {
     if (WareHouseId) {
       this.wareHousetService.deleteWarehouses(WareHouseId).subscribe(success => {
         if (success) {
-          this.wareHouses = this.wareHouses.filter(p => p.id !== WareHouseId); 
+          this.wareHouses = this.wareHouses.filter(p => p.id !== WareHouseId);
           this.router.navigate(['/warehouseview']);
         }
-        else{
+        else {
           this.router.navigate(['/warehouseview']);
         }
       });

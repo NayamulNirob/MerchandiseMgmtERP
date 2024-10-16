@@ -24,7 +24,7 @@ export class UserService {
 
     const fromData= new FormData(); 
 
-    fromData.append('user',new Blob([JSON.stringify(user)],{type:'application/json'}));
+    fromData.append('USER',new Blob([JSON.stringify(user)],{type:'application/json'}));
     fromData.append('image',image);
 
     return this.http.post(this.baseUrl+"/save",fromData);
@@ -32,7 +32,7 @@ export class UserService {
 
   
   getUserProfile():Observable<UserModel|null>{
-    return of(this.authService.getUserProfileFromStore());
+    return of(this.authService.getUser());
   }
 
   updateUserProfile(user:UserModel):Observable<UserModel>{

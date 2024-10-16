@@ -59,7 +59,7 @@ const routes: Routes = [
     path:'userProfile',
     component:UserprofileComponent,
     canActivate:[AuthguardGuard,RoleGuard],
-    data:{role:['Admin','user']}
+    data:{role:['ADMIN','USER']}
   },
 
 ];

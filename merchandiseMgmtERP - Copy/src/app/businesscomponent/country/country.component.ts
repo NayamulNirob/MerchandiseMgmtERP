@@ -40,15 +40,10 @@ export class CountryComponent {
 
   suppliers: Supplier[] = [];
 
-
-  userRole: string | null = '';
-  currentUser: UserModel | null = null;
-
-
   constructor(private countryService: CountryService,
     private router: Router,
     private supplierService: SupplierService,
-    private authService:AuthService) { }
+    protected authService:AuthService) { }
 
   ngOnInit(): void {
     this.loadCountries();
@@ -62,11 +57,6 @@ export class CountryComponent {
 
       }
     });
-    this.authService.currentUser$.subscribe(user => {
-      this.currentUser = user;
-      this.userRole = user?.role || null;
-    });
-  
   }
 
   loadCountries(): void {

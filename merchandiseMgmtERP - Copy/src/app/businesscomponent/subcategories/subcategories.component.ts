@@ -20,16 +20,10 @@ export class SubcategoriesComponent implements OnInit{
   categories:ProductCategory = new ProductCategory();
   listCategories:ProductCategory[]=[];
 
-
-
-  userRole: string | null = '';
-  currentUser: UserModel | null = null;
-
-
   constructor(private router:Router,
     private subCategoriesService:SubcategoryService,
     private categoryService:ProductcategoryService,
-    private authService:AuthService
+    protected authService:AuthService
   ){}
 
   ngOnInit(): void {
@@ -38,11 +32,7 @@ export class SubcategoriesComponent implements OnInit{
     this.categoryService.getProductCatagories().subscribe(data => {
       this.listCategories = data;
     });
-    
-    this.authService.currentUser$.subscribe(user => {
-      this.currentUser = user;
-      this.userRole = user?.role || null;
-    });
+  
   }
 
   loadSubCategories(){

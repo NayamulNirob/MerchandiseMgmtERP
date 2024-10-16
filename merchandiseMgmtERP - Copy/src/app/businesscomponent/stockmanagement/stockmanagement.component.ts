@@ -40,25 +40,13 @@ export class StockmanagementComponent implements OnInit {
 
   selectedFile: File | null = null;
 
-
-  userRole: string | null = '';
-  currentUser: UserModel | null = null;
-
- 
-
- 
-
-  
-  
-
-
   constructor(
     private stockService: StockService,
     private router: Router,
     private datePipe: DatePipe,
     private productService: ProductService,
     private warehouseservice:WarehouseService,
-    private authService:AuthService
+    protected authService:AuthService
    ) { }
 
 
@@ -86,15 +74,7 @@ export class StockmanagementComponent implements OnInit {
         console.log(err)
       }
     });
-
-    this.authService.currentUser$.subscribe(user => {
-      this.currentUser = user;
-      this.userRole = user?.role || null;
-    });
-  
-
    
-
   }
 
   loadStocks(): void {

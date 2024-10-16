@@ -3,7 +3,7 @@
     <div class="card-body">
       <h4 class="card-title">Warehouse Management</h4>
 
-      <ng-container *ngIf="userRole==='Admin'">
+      <ng-container *ngIf="authService.getUserRole() === 'ADMIN'">
         <div class="row mb-4">
           <h5>Add New Warehouse</h5>
           <form class="form-sample" (ngSubmit)="addWareHouse()">
@@ -71,7 +71,7 @@
               <th>Location</th>
               <th>Contact Number</th>
               <th>Capacity</th>
-              <ng-container *ngIf="userRole==='Admin'">
+              <ng-container *ngIf="authService.getUserRole() === 'ADMIN'">
                 <th>Actions</th>
               </ng-container>
             </tr>
@@ -83,7 +83,7 @@
               <td>{{ w.location }}</td>
               <td>{{ w.contact }}</td>
               <td>{{ w.capacity }}</td>
-              <ng-container *ngIf="userRole==='Admin'">
+              <ng-container *ngIf="authService.getUserRole() === 'ADMIN'">
                 <td>
                   <button class="btn btn-warning btn-sm" (click)="editWareHouse(w.id)">Edit</button>&nbsp;&nbsp;
                   <button class="btn btn-danger btn-sm" (click)="deleteWareHouse(w.id)">Delete</button>

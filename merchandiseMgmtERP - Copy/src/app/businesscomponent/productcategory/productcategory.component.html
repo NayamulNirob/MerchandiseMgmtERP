@@ -32,7 +32,7 @@
 
 
                     </div>
-                    <ng-container *ngIf="userRole=='Admin'">
+                    <ng-container *ngIf="authService.getUserRole() === 'ADMIN'">
                         <button type="submit" class="btn btn-primary mr-2">Submit</button>
                         <button class="btn btn-dark">Cancel</button>
                     </ng-container>
@@ -54,7 +54,7 @@
                                 <th> Category Name</th>
                                 <th> Description</th>
                                 <th> Code </th>
-                                <ng-container *ngIf="userRole=='Admin'">
+                                <ng-container *ngIf="authService.getUserRole() === 'ADMIN'">
                                     <th> Action</th>
                                 </ng-container>
                             </tr>
@@ -70,7 +70,7 @@
                                 <td>{{ cat.name }}</td>
                                 <td>{{ cat.description }}</td>
                                 <td>{{ cat.categoryCode}}</td>
-                                <ng-container *ngIf="userRole==='Admin'">
+                                <ng-container *ngIf="authService.getUserRole() === 'ADMIN'">
                                     <td>
 
 

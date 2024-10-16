@@ -29,37 +29,43 @@ import { DashboarduserComponent } from './dashboarduser/dashboarduser.component'
 
 
 const routes: Routes = [
-  {path:'dashbord',component:DashbordComponent},
-  {path:'userdashboard',component:DashboarduserComponent},
-  {path:'login',component:LoginComponent},
-  {path:'register',component:RegisterComponent},
-  {path:'product',component:ProducmanagementComponent,canActivate:[AuthguardGuard]},
-  {path:'inventory',component:InventoryManagementComponent,canActivate:[AuthguardGuard]},
-  {path:'orders',component:OrdermanagementComponent,canActivate:[AuthguardGuard]},
-  {path:'supplier',component:SupplierManagementComponent,canActivate:[AuthguardGuard]},
-  {path:'sales',component:SalesManagementComponent,canActivate:[AuthguardGuard]},
-  {path:'customer',component:CustomerManagementComponent,canActivate:[AuthguardGuard]},
-  {path:'reports',component:ReportsAnalyticsComponent,canActivate:[AuthguardGuard]},
-  {path:'userProfile',component:UserprofileComponent,canActivate:[AuthguardGuard]},
-  {path:'updateproduct/:id',component:UpdateproductmanagementComponent,canActivate:[AuthguardGuard]},
-  {path:'warehouseview',component:WarehouseviewComponent},
-  {path:'updatewarehouse/:id',component:WarehouseupdateComponent},
-  {path:'updatesupplier/:id',component:SupplierUpdateComponent},
-  {path:'Updateinventory/:id',component:UpdateInventoryComponent},
-  {path:'updatecustomer/:id',component:UpdatecustomerComponent},
-  {path:'category',component:ProductcategoryComponent},
-  {path:'subcategory',component:SubcategoriesComponent},
-  {path:'country',component:CountryComponent},
-  {path:'stock',component:StockmanagementComponent},
-  {path:'transaction',component:TransactionmanagementComponent},
-  {path:'task',component:TodotaskComponent},
-  {path:"**", redirectTo:'login' , pathMatch:'full'},
-  
+  { path: 'dashbord', component: DashbordComponent },
+  { path: 'userdashboard', component: DashboarduserComponent },
+  { path: 'login', component: LoginComponent },
+  { path: 'register', component: RegisterComponent },
   {
-    path:'userProfile',
-    component:UserprofileComponent,
-    canActivate:[AuthguardGuard,RoleGuard],
-    data:{role:['ADMIN','USER']}
+    path: 'product',
+    component: ProducmanagementComponent,
+    canActivate: [AuthguardGuard, RoleGuard],
+    data: { roles: ['ADMIN'] }
+  },
+
+  { path: 'inventory', component: InventoryManagementComponent, canActivate: [AuthguardGuard] },
+  { path: 'orders', component: OrdermanagementComponent, canActivate: [AuthguardGuard] },
+  { path: 'supplier', component: SupplierManagementComponent, canActivate: [AuthguardGuard] },
+  { path: 'sales', component: SalesManagementComponent, canActivate: [AuthguardGuard] },
+  { path: 'customer', component: CustomerManagementComponent, canActivate: [AuthguardGuard] },
+  { path: 'reports', component: ReportsAnalyticsComponent, canActivate: [AuthguardGuard] },
+  { path: 'userProfile', component: UserprofileComponent, canActivate: [AuthguardGuard] },
+  { path: 'updateproduct/:id', component: UpdateproductmanagementComponent, canActivate: [AuthguardGuard] },
+  { path: 'warehouseview', component: WarehouseviewComponent },
+  { path: 'updatewarehouse/:id', component: WarehouseupdateComponent },
+  { path: 'updatesupplier/:id', component: SupplierUpdateComponent },
+  { path: 'Updateinventory/:id', component: UpdateInventoryComponent },
+  { path: 'updatecustomer/:id', component: UpdatecustomerComponent },
+  { path: 'category', component: ProductcategoryComponent },
+  { path: 'subcategory', component: SubcategoriesComponent },
+  { path: 'country', component: CountryComponent },
+  { path: 'stock', component: StockmanagementComponent },
+  { path: 'transaction', component: TransactionmanagementComponent },
+  { path: 'task', component: TodotaskComponent },
+  { path: "**", redirectTo: 'login', pathMatch: 'full' },
+
+  {
+    path: 'userProfile',
+    component: UserprofileComponent,
+    canActivate: [AuthguardGuard, RoleGuard],
+    data: { roles: ['ADMIN', 'USER'] }
   },
 
 ];

@@ -29,6 +29,7 @@ export class AuthService {
     if (this.isBrowser()) {
       const storedRole = localStorage.getItem('userRole');
       this.userRoleSubject.next(storedRole);
+      this.currentUserSubject.next(this.getUser());
     }
   }
   private isBrowser(): boolean {
@@ -79,18 +80,28 @@ export class AuthService {
     }
   }
 
-  register(user: UserModel): Observable<AuthResponse> {
-    return this.http.post<AuthResponse>(`${this.apiUrl}/register`,
-      user, { headers: this.headers }).pipe(
-        map((response: AuthResponse) => {
-          if (this.isBrowser() && response.token) {
-            localStorage.setItem('authToken', response.token); // Store JWT token
-            console.log(localStorage.getItem('authToken') + "***********************");
-          }
-          return response;
-        })
-      );
+  register(user: UserModel, image: File | null): Observable<AuthResponse> {
+    const fromData= new FormData(); 
+
+    fromData.append('request',new Blob([JSON.stringify(user)],{type:'application/json'}));
+    if (image != null) {
+      fromData.append('image', image);
+    }
+
+    
+    return this.http.post<AuthResponse>(`${this.apiUrl}/register`, 
+      fromData).pipe(
+      map((response: AuthResponse) => {
+        if (this.isBrowser() && response.token) {
+          localStorage.setItem('authToken', response.token); // Store JWT token
+          console.log(localStorage.getItem('authToken') + "***********************");
+        }
+        return response;
+      })
+    );
   }
+
+
   registerAdmin(user: { firstName: string; lastName: string, email: string; password: string; mobileNo: string; address: string; dob: Date; gender: string; image: string; nid: string }): Observable<AuthResponse> {
     return this.http.post<AuthResponse>(`${this.apiUrl}/register/admin`,
       user, { headers: this.headers }).pipe(

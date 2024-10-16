@@ -100,12 +100,14 @@
 
 
         <li class="nav-item menu-items">
+          
             <a class="nav-link" href="/inventory">
                 <span class="menu-icon">
                     <i class="fa-solid fa-scroll fa-flip" style="--fa-flip-x: 1; --fa-flip-y: 0;"></i>
                 </span>
                 <span class="menu-title">Inventory Mgmt</span>
             </a>
+       
         </li>
 
         <li class="nav-item menu-items">
@@ -166,6 +168,23 @@
                 </a>
             </ng-container>
         </li>
+
+
+        <li class="nav-item menu-items">
+            <ng-container *ngIf="authService.getUserRole() === 'ADMIN'">
+                <a class="nav-link" href="/transaction">
+                    <span class="menu-icon">
+                        <i class="fa-duotone fa-solid fa-money-check-dollar fa-beat-fade fa-2xl" style="--fa-primary-color: #f5ed00; --fa-secondary-color: #49f500;"></i>
+
+                    </span>
+                    <span class="menu-title">Transaction List</span>
+
+                </a>
+            </ng-container>
+        </li>
+
+
+
         <li class="nav-item menu-items">
             <ng-container *ngIf="authService.getUserRole() === 'ADMIN'">
                 <a class="nav-link" href="/customer">
@@ -213,6 +232,21 @@
                 </a>
             </ng-container>
         </li>
+
+
+        <li class="nav-item menu-items">
+            <ng-container *ngIf="authService.getUserRole() === 'ADMIN'">
+                <a class="nav-link" href="/task">
+                    <span class="menu-icon">
+                        <i class="fa-solid fa-circle-check fa-bounce" style="color: #00e1ff;"></i>
+                    </span>
+                    <span class="menu-title">To-Do List</span>
+                </a>
+            </ng-container>
+        </li>
+
+
+       
 
 
 

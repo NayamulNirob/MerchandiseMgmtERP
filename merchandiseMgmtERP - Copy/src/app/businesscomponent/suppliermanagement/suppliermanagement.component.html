@@ -134,12 +134,12 @@
   <div class="col-md-12 d-flex justify-content-between align-items-start ">
 
     <input type="text" class="ms-3 bg-dark text-white border rounded p-2 mb-2" style="max-width: 250px; color: #fff;"
-      [(ngModel)]="searchTerm" (input)="filterSuppliers()" placeholder="Search by supplier name or contact person..."
+      [(ngModel)]="searchTerm" name="search" (input)="filterSuppliers()" placeholder="Search by supplier name or contact person..."
       onfocus="this.placeholder='Search by Suppliers name or contact...'" />
 
     <div class="d-flex align-items-center">
       
-      <select [(ngModel)]="sortBy" (change)="sortSuppliers()" class="form-control  bg-dark text-white border rounded"
+      <select [(ngModel)]="sortBy" name="sort" (change)="sortSuppliers()" class="form-control  bg-dark text-white border rounded"
         style="max-width: 150px;">
         <option value="name">Sort by Name</option>
         <option value="contactPerson">Sort by Contact Person</option>

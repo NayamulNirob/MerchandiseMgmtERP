@@ -2,7 +2,6 @@ import { Component } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthService } from '../services/auth.service';
-import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-login',
@@ -40,7 +39,7 @@ export class LoginComponent {
       const credentials = this.logInFrom.value;
       this.authService.login(credentials.email, credentials.password).subscribe({
         next: (res) => {
-          console.log("user log in successfully:", res);
+          console.log("user log in successfully:");
           this.router.navigate(['/userProfile']);
         },
         error: (err) => {

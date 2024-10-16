@@ -1,4 +1,6 @@
 package com.merchandisemgmt.merchandiseMgmtERP.entity;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Size;
 import lombok.AllArgsConstructor;
@@ -47,7 +49,9 @@ public class User implements UserDetails {
     @Column()
     private boolean isLock;
 
+    @JsonIgnore
     @OneToMany(mappedBy = "user")
+    @JsonManagedReference
     private List<Token> tokens;
 
 

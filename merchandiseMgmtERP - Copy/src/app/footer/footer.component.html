@@ -28,7 +28,7 @@
       <div class="footer-section contact-form">
         <h3>Newsletter</h3>
         <form (submit)="subscribeToNewsletter()">
-          <input type="email" [(ngModel)]="email" placeholder="Your Email" required />
+          <input type="email" [(ngModel)]="email" name="email" placeholder="Your Email" required />
           <button type="submit">Subscribe</button>
         </form>
       </div>

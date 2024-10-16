@@ -5,6 +5,9 @@ import com.merchandisemgmt.merchandiseMgmtERP.service.AuthService;
 import lombok.AllArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
+
+import java.io.IOException;
 
 @RestController
 @AllArgsConstructor
@@ -16,9 +19,10 @@ public class AuthenticationController {
 
     @PostMapping("/register")
     public ResponseEntity<AuthenticationResponse> register(
-            @RequestBody User request
-    ) {
-        return ResponseEntity.ok(authService.register(request));
+            @RequestPart User request,
+            @RequestParam(value = "image", required = false) MultipartFile imageFile
+    ) throws IOException {
+        return ResponseEntity.ok(authService.register(request, imageFile));
     }
 
     @PostMapping("/register/admin")

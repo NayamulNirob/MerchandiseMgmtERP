@@ -17,8 +17,6 @@ export class RegisterComponent {
   user: UserModel = new UserModel();
 
 
-
-
   onFileSelected(event: any) {
     this.selectedFile = event.target.files[0];
   }
@@ -43,9 +41,13 @@ export class RegisterComponent {
 
   onSubmit(): void {
 
+    if (!this.selectedFile) {
+      alert('Please Select an image');
+    }
+
     if (this.regFrom.valid) {
       const user: UserModel = this.regFrom.value;
-      this.authService.register(user).subscribe({
+      this.authService.register(user, this.selectedFile).subscribe({
         next: (res) => {
           console.log('user registration Successfully:', res);
           alert('User Registration Successfull');
@@ -61,24 +63,6 @@ export class RegisterComponent {
     }
     else {
       alert("Complete mandatory Filed");
-    }
-
-    if (this.selectedFile) {
-      this.userService.addUser(this.user, this.selectedFile).subscribe({
-        next: res => {
-          console.log("User Added succesfully", res);
-          // alert('User Registration Successfull');
-          this.router.navigate(['/userview']);
-  
-        },
-        error: err => {
-          // alert('User Registration Unsuccessfull')
-          console.error("User Not Added", err)
-        }
-      });
-    }
-    else {
-      alert('Please Select an image');
     }
 
   }

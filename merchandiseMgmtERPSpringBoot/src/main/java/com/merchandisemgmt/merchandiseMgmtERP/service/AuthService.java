@@ -8,18 +8,26 @@ import com.merchandisemgmt.merchandiseMgmtERP.jwt.JwtService;
 import com.merchandisemgmt.merchandiseMgmtERP.repository.TokenRepository;
 import com.merchandisemgmt.merchandiseMgmtERP.repository.UserRepository;
 import lombok.AllArgsConstructor;
+import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import jakarta.mail.MessagingException;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.web.multipart.MultipartFile;
 
 
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.List;
+import java.util.UUID;
 
 
 @Service
-@AllArgsConstructor
+@RequiredArgsConstructor
 public class AuthService {
 
     private final UserRepository userRepository;
@@ -29,6 +37,9 @@ public class AuthService {
     private final AuthenticationManager authenticationManager;
     private final EmailService emailService;
 
+
+    @Value("${image.upload.dir}")
+    private String uploadDir;
 
     private void saveUserToken(String jwt, User user) {
         Token token = new Token();
@@ -57,11 +68,18 @@ public class AuthService {
     }
 
 
-    public AuthenticationResponse register(User user) {
+    public AuthenticationResponse register(User user, MultipartFile imageFile) throws IOException {
 
         // Check if the user already exists
         if (userRepository.findByEmail(user.getUsername()).isPresent()) {
             return new AuthenticationResponse(null, "User already exists", null);
+        }
+
+        if(imageFile != null && !imageFile.isEmpty()) {
+
+            String imageFileName = saveImage(imageFile);
+
+            user.setImage(imageFileName);
         }
 
         // Create a new user entity and save it to the database
@@ -202,5 +220,22 @@ public class AuthService {
         } else {
             return "Invalid activation token!";
         }
+    }
+
+
+
+    private String saveImage(MultipartFile file) throws IOException {
+        Path uploadPath = Paths.get(uploadDir);
+        if (!Files.exists(uploadPath)) {
+            Files.createDirectories(uploadPath);
+        }
+
+        String fileName = UUID.randomUUID() +"_"+file.getOriginalFilename().toString();
+        Path filePath = uploadPath.resolve(fileName);
+
+
+        Files.copy(file.getInputStream(), filePath);
+
+        return fileName;
     }
 }

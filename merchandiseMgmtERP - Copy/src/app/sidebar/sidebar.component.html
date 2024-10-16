@@ -8,17 +8,23 @@
     <ul class="nav">
         <li class="nav-item profile">
             <div class="profile-desc">
-                <div class="profile-pic">
+                <div class="profile-pic" *ngIf="user">
                     <div class="count-indicator">
-                        <img class="img-xs rounded-circle " src="../../assets/images/faces/face21.jpg" alt=""
+                        <img class="img-xs rounded-circle " src="http://localhost:8089/images/{{user.image}}" alt="{{user.name}}"
                             loading="lazy">
                         <span class="count bg-success"></span>
                     </div>
                     <div class="profile-name">
-                        <h5 class="mb-0 font-weight-normal">Neyamul</h5>
+                        <p class="mb-0 font-weight-normal">{{user.name}}</p>
                         <span>Gold Member</span>
                     </div>
+
+                    <div *ngIf="!user">
+                       <p>Loading user profile...</p>
+                    </div>
+
                 </div>
+
                 <a href="#" id="profile-dropdown" data-toggle="dropdown"><i class="mdi mdi-dots-vertical"></i></a>
                 <div class="dropdown-menu dropdown-menu-right sidebar-dropdown preview-list"
                     aria-labelledby="profile-dropdown">
@@ -100,14 +106,14 @@
 
 
         <li class="nav-item menu-items">
-          
+
             <a class="nav-link" href="/inventory">
                 <span class="menu-icon">
                     <i class="fa-solid fa-scroll fa-flip" style="--fa-flip-x: 1; --fa-flip-y: 0;"></i>
                 </span>
                 <span class="menu-title">Inventory Mgmt</span>
             </a>
-       
+
         </li>
 
         <li class="nav-item menu-items">
@@ -174,7 +180,8 @@
             <ng-container *ngIf="authService.getUserRole() === 'ADMIN'">
                 <a class="nav-link" href="/transaction">
                     <span class="menu-icon">
-                        <i class="fa-duotone fa-solid fa-money-check-dollar fa-beat-fade fa-2xl" style="--fa-primary-color: #f5ed00; --fa-secondary-color: #49f500;"></i>
+                        <i class="fa-duotone fa-solid fa-money-check-dollar fa-beat-fade fa-2xl"
+                            style="--fa-primary-color: #f5ed00; --fa-secondary-color: #49f500;"></i>
 
                     </span>
                     <span class="menu-title">Transaction List</span>
@@ -246,7 +253,7 @@
         </li>
 
 
-       
+
 
 
 

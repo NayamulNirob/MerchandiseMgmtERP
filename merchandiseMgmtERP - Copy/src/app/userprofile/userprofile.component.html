@@ -1,12 +1,32 @@
 <div class="container">
-    <h2>User Profile</h2>
+    <!-- <h2>User Profile</h2>
     <div *ngIf="user">
       <img [src]="'http://localhost:8089/images/' + user.image" alt="{{user.image}}" style="width: 100px; height: auto;">
       <p><strong>Name:</strong> {{ user.name }}</p>
       <p><strong>Email:</strong> {{ user.email}}</p>
       <p><strong>Role:</strong> {{ user.role}}</p>
 
-    </div>
+    </div> -->
+
+    <div class="row justify-content ms-1">
+
+      <div class="card md-4 m-1" style="width: 23rem; height: min-content;" *ngIf="user">
+        <h2 class="text-center mt-2" >User Profile</h2>
+          <div class="card-body ">
+              <img src="http://localhost:8089/images/{{user.image}}" class="card-img-top" alt="{{user.name}}">
+              <h5 class="card-title text-dark text-center mt-2">{{user.name}}</h5>
+              <p class="card-text">Email:{{user.email}}<br>
+                  Role : {{user.role}}<br>
+              </p>
+  
+          </div>
+      </div>
+  
+  
+  </div>
+
+
+
     <div *ngIf="!user">
       <p>Loading user profile...</p>
     </div>

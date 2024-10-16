@@ -11,7 +11,7 @@
         <ul class="navbar-nav">
             <li class="nav-item">
                 <a class="sidebar-brand brand-logo " href="/dashbord"><img src="../../assets/images/logo.svg" alt="logo"
-                    loading="lazy" style="width: 200px; height: auto;"/></a>
+                    loading="eager" style="width: 200px; height: auto;"/></a>
 
             </li>
 
@@ -82,6 +82,9 @@
                         <div class="preview-thumbnail">
                             <img src="../../assets/images/faces/face4.jpg" alt="image"
                                 class="rounded-circle profile-pic" loading="lazy">
+                            
+                                
+                                
                         </div>
                         <div class="preview-item-content">
                             <p class="preview-subject ellipsis mb-1">Mark send you a message</p>
@@ -106,7 +109,7 @@
                                 class="rounded-circle profile-pic" loading="lazy">
                         </div>
                         <div class="preview-item-content">
-                            <p class="preview-subject ellipsis mb-1">Profile picture updated</p>
+                            <p class="preview-subject ellipsis mb-1">Transaction updated</p>
                             <p class="text-muted mb-0"> 18 Minutes ago </p>
                         </div>
                     </a>
@@ -168,11 +171,17 @@
 
             <li class="nav-item dropdown">
                 <a class="nav-link" id="profileDropdown" href="#" data-toggle="dropdown">
-                    <div class="navbar-profile">
-                        <img class="img-xs rounded-circle" src="../../assets/images/faces/face21.jpg" alt=""
+                    <div class="navbar-profile" *ngIf="user">
+                        <img class="img-xs rounded-circle" src="http://localhost:8089/images/{{user.image}}" alt="{{user.name}}"
                             loading="lazy">
-                        <p class="mb-0 d-none d-sm-block navbar-profile-name">Neyamul Islam</p>
+                        <p class="mb-0 d-none d-sm-block navbar-profile-name">{{user.name}}</p>
                         <i class="mdi mdi-menu-down d-none d-sm-block"></i>
+                       
+                          <div *ngIf="!user">
+                            <p>Loading user profile...</p>
+                          </div>
+                      
+
                     </div>
                 </a>
 

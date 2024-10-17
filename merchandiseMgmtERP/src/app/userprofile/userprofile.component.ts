@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { UserModel } from '../model/sale.model';
+import { UserModel } from "../model/UserModel.1";
 import { Subscription } from 'rxjs';
 import { UserprofileService } from '../services/userprofile.service';
 import { Router } from '@angular/router';

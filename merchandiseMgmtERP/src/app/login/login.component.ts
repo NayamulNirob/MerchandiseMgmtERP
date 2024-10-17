@@ -11,34 +11,47 @@ import { Observable } from 'rxjs';
 })
 export class LoginComponent {
 
- logInFrom!:FormGroup;
+  logInFrom!: FormGroup;
 
   constructor(
-    private router:Router,
-    private fromBuilder:FormBuilder,
-    private authService:AuthService
+    private router: Router,
+    private fromBuilder: FormBuilder,
+    private authService: AuthService
 
-  ){
-    this.logInFrom=this.fromBuilder.group({
-      email:[''],
-      password:['']
+  ) {
+    this.logInFrom = this.fromBuilder.group({
+      email: [''],
+      password: ['']
     });
   }
 
-  onSubmit():void{
-    if(this.logInFrom.valid){
-      const credentials=this.logInFrom.value;
-      this.authService.login(credentials).subscribe({
-        next:(res)=>{
-          console.log("user log in successfully:",res);
-          this.authService.storeToken(res.token);
-          const role=this.authService.getUserRole();
+  loginWithFacebook(): void {
+    window.location.href = 'https://www.facebook.com/v10.0/dialog/oauth?client_id=YOUR_FB_APP_ID&redirect_uri=YOUR_REDIRECT_URI&scope=email';
+  }
+
+  loginWithGoogle(): void {
+    window.location.href = 'https://accounts.google.com/o/oauth2/auth?client_id=YOUR_GOOGLE_CLIENT_ID&redirect_uri=YOUR_REDIRECT_URI&response_type=token&scope=email';
+  }
+
+  onSubmit(): void {
+
+
+    if (this.logInFrom.valid) {
+      const credentials = this.logInFrom.value;
+      this.authService.login(credentials.email, credentials.password).subscribe({
+        next: (res) => {
+          console.log("user log in successfully:", res);
           this.router.navigate(['/userProfile']);
         },
-        error:(err)=>{
-          console.error('Error Log In',err);
+        error: (err) => {
+
+          console.error('Error Log In', err);
         }
       });
     }
+    else {
+      alert('Enter a valid username and password If don`t have register now');
+    }
+
   }
 }

@@ -1,62 +1,113 @@
 // customer-management.component.ts  
-import { Component, OnInit } from '@angular/core';  
-import { Customer } from '../../model/sale.model';
+import { Component, OnInit } from '@angular/core';
+import { Customer } from "../../model/Customer";
 import { CustomerService } from '../../services/customermanagement.service';
+import { Router } from '@angular/router';
+import { DatePipe } from '@angular/common';
+import { Country } from '../../model/countrymodel';
+import { CountryService } from '../../services/country.service';
 
 
-@Component({  
-  selector: 'app-customer-management',  
-  templateUrl: './customermanagement.component.html',  
-  styleUrls: ['./customermanagement.component.css']  
-})  
-export class CustomerManagementComponent implements OnInit {  
-  customers: Customer[] = [];  
-  filteredCustomers: Customer[] = [];  
-  searchTerm: string = '';  
-  newCustomer: Customer = new Customer();  
+@Component({
+  selector: 'app-customer-management',
+  templateUrl: './customermanagement.component.html',
+  styleUrls: ['./customermanagement.component.css'],
+  providers: [DatePipe]
+})
+export class CustomerManagementComponent implements OnInit {
+  customers: Customer[] = [];
+  filteredCustomers: Customer[] = [];
+  searchTerm: string = '';
+  newCustomer: Customer = new Customer();
+  countryObj:Country[]=[];
 
-  constructor(private customerService: CustomerService) {}  
+  constructor(private customerService: CustomerService,
+    private router: Router,
+    private datePipe: DatePipe,
+    private countryService:CountryService
+  ) { }
 
-  ngOnInit(): void {  
-    this.customerService.loadCustomers().subscribe(data => {  
-      this.customers = data;  
-      this.filteredCustomers = data; // Initialize filtered customers  
-    });  
-  }  
+  
+  formatDateTime(date: string | Date) {
+    return this.datePipe.transform(date, 'd MMM, y hh:mm:ss a');
+  }
 
-  addCustomer() {  
-    this.newCustomer.id = this.customers.length + 1; // Simple ID generation  
-    this.newCustomer.createdAt = new Date();  
-    this.newCustomer.updatedAt = new Date();  
+  
 
-    this.customerService.addCustomer(this.newCustomer);  
-    this.updateFilteredCustomers();  
-    this.resetNewCustomer();  
-  }  
+  ngOnInit(): void {
+    this.loadCustomer();
+  }
 
-  updateCustomer(customerId: number) {  
-    const updatedCustomer: Partial<Customer> = {  
-      email: 'updated@example.com', // Example update  
-      phone: '+1122334455'  
-    };  
-    this.customerService.updateCustomer(customerId, updatedCustomer);  
-    this.updateFilteredCustomers();  
-  }  
+  loadCustomer() {
+    this.customerService.getCustomers().subscribe(data => {
+      this.customers = data;
+      this.filteredCustomers = data; 
+    });
+    
+    this.countryService.getCountries().subscribe({
+      next:res=>{
+        this.countryObj=res
+      },
+      error:err=>{
+        console.error(err)
+      }
+    });
+  }
 
-  removeCustomer(customerId: number) {  
-    this.customerService.removeCustomer(customerId);  
-    this.updateFilteredCustomers();  
-  }  
 
-  filterCustomers() {  
-    this.filteredCustomers = this.customerService.filterCustomers(this.searchTerm);  
-  }  
 
-  private updateFilteredCustomers() {  
-    this.filteredCustomers = this.customerService.getCustomers();  
-  }  
+  addCustomer() {
 
-  private resetNewCustomer() {  
-    this.newCustomer = new Customer();  
-  }  
+    this.customerService.addCustomer(this.newCustomer).subscribe({
+      next: res => {
+        
+        alert('Customer saved successfully!');
+        this.newCustomer.createdAt = new Date();
+        this.newCustomer.updatedAt = new Date();
+        this.loadCustomer();
+      },
+      error: error => {
+        console.log('Error saving Customer:', error);
+      }
+    });
+    this.updateFilteredCustomers();
+    this.resetNewCustomer();
+  }
+
+
+
+  updateCustomer(customerId: number) {
+
+    this.router.navigate(['updatecustomer',customerId]);
+  }
+
+
+  removeCustomer(customerId: number) {
+    if (confirm('Are you sure you want to delete this customer?')) {
+      this.customerService.removeCustomer(customerId).subscribe({
+        next: (response) => {
+          alert(response); 
+          this.loadCustomer();
+        },
+        error: (error) => {
+          alert('Error deleting customer: ' + error.error);
+          console.log('Error deleting customer:', error);
+        }
+      });
+    }
+  }
+  
+
+
+  filterCustomers() {
+    this.filteredCustomers = this.customerService.filterCustomers(this.searchTerm);
+  }
+
+  private updateFilteredCustomers() {
+    // this.filteredCustomers = this.customerService.getCustomers();  
+  }
+
+  private resetNewCustomer() {
+    this.newCustomer = new Customer();
+  }
 }

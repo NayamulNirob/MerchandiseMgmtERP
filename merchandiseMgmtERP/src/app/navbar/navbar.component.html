@@ -1,25 +1,28 @@
 <nav class="navbar p-0 fixed-top d-flex flex-row ">
-    <div class="navbar-brand-wrapper d-flex d-lg-none align-items-center justify-content-center">
-        <a class="navbar-brand brand-logo-mini" href="#"><img src="../../assets/images/logo-mini.svg" alt="logo"  loading="lazy"/></a>
+    <div class="navbar-brand-wrapper d-flex d-lg-none ">
+        <a class="navbar-brand brand-logo-mini " href="/dashbord"><img src="../../assets/images/logo-mini.svg" alt="logo"
+                loading="lazy" /></a>       
     </div>
     <div class="navbar-menu-wrapper flex-grow d-flex align-items-stretch">
         <button class="navbar-toggler navbar-toggler align-self-center" type="button" data-toggle="minimize">
             <span class="mdi mdi-menu"></span>
         </button>
-        <ul class="navbar-nav w-100 ">
-            <li class="nav-item w-100">
-                <form class="nav-link mt-2 mt-md-0 d-none d-lg-flex search ">
-                    <input type="text" class="form-control" placeholder="Search products">
-                </form>
+
+        <ul class="navbar-nav">
+            <li class="nav-item">
+                <a class="sidebar-brand brand-logo " href="/dashbord"><img src="../../assets/images/logo.svg" alt="logo"
+                    loading="eager" style="width: 200px; height: auto;"/></a>
+
             </li>
+
         </ul>
         <ul class="navbar-nav navbar-nav-right">
             <li class="nav-item dropdown d-none d-lg-block">
                 <a class="nav-link btn btn-success create-new-button" id="createbuttonDropdown" data-toggle="dropdown"
-                    aria-expanded="false" href="#">+ Create New Project</a>
+                    aria-expanded="false" href="#">+ Available Catgories </a>
                 <div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list"
                     aria-labelledby="createbuttonDropdown">
-                    <h6 class="p-3 mb-0">Projects</h6>
+                    <h6 class="p-3 mb-0">Progress</h6>
                     <div class="dropdown-divider"></div>
                     <a class="dropdown-item preview-item">
                         <div class="preview-thumbnail">
@@ -28,7 +31,20 @@
                             </div>
                         </div>
                         <div class="preview-item-content">
-                            <p class="preview-subject ellipsis mb-1">Software Development</p>
+                            <a class="preview-subject ellipsis mb-1" href="/inventory">Available Products</a>
+
+                        </div>
+                    </a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item preview-item">
+                        <div class="preview-thumbnail">
+                            <div class="preview-icon bg-dark rounded-circle">
+                                
+                                <i class="mdi mdi-layers text-danger"></i>
+                            </div>
+                        </div>
+                        <div class="preview-item-content">
+                            <a class="preview-subject ellipsis mb-1" href="/subcategory">Available Catgories</a>
                         </div>
                     </a>
                     <div class="dropdown-divider"></div>
@@ -39,18 +55,8 @@
                             </div>
                         </div>
                         <div class="preview-item-content">
-                            <p class="preview-subject ellipsis mb-1">UI Development</p>
-                        </div>
-                    </a>
-                    <div class="dropdown-divider"></div>
-                    <a class="dropdown-item preview-item">
-                        <div class="preview-thumbnail">
-                            <div class="preview-icon bg-dark rounded-circle">
-                                <i class="mdi mdi-layers text-danger"></i>
-                            </div>
-                        </div>
-                        <div class="preview-item-content">
-                            <p class="preview-subject ellipsis mb-1">Software Testing</p>
+                            <a class="preview-subject ellipsis mb-1" href="/country">Country Progress</a>
+
                         </div>
                     </a>
                     <div class="dropdown-divider"></div>
@@ -58,7 +64,7 @@
                 </div>
             </li>
             <li class="nav-item nav-settings d-none d-lg-block">
-                <a class="nav-link" href="#">
+                <a class="nav-link" href="/inventory">
                     <i class="mdi mdi-view-grid"></i>
                 </a>
             </li>
@@ -75,7 +81,10 @@
                     <a class="dropdown-item preview-item">
                         <div class="preview-thumbnail">
                             <img src="../../assets/images/faces/face4.jpg" alt="image"
-                                class="rounded-circle profile-pic"  loading="lazy">
+                                class="rounded-circle profile-pic" loading="lazy">
+                            
+                                
+                                
                         </div>
                         <div class="preview-item-content">
                             <p class="preview-subject ellipsis mb-1">Mark send you a message</p>
@@ -86,7 +95,7 @@
                     <a class="dropdown-item preview-item">
                         <div class="preview-thumbnail">
                             <img src="../../assets/images/faces/face2.jpg" alt="image"
-                                class="rounded-circle profile-pic"  loading="lazy">
+                                class="rounded-circle profile-pic" loading="lazy">
                         </div>
                         <div class="preview-item-content">
                             <p class="preview-subject ellipsis mb-1">Cregh send you a message</p>
@@ -97,10 +106,10 @@
                     <a class="dropdown-item preview-item">
                         <div class="preview-thumbnail">
                             <img src="../../assets/images/faces/face3.jpg" alt="image"
-                                class="rounded-circle profile-pic"  loading="lazy">
+                                class="rounded-circle profile-pic" loading="lazy">
                         </div>
                         <div class="preview-item-content">
-                            <p class="preview-subject ellipsis mb-1">Profile picture updated</p>
+                            <p class="preview-subject ellipsis mb-1">Transaction updated</p>
                             <p class="text-muted mb-0"> 18 Minutes ago </p>
                         </div>
                     </a>
@@ -125,7 +134,7 @@
                             </div>
                         </div>
                         <div class="preview-item-content">
-                            <p class="preview-subject mb-1">Event today</p>
+                            <a class="preview-subject mb-1 " href="/task">Event today</a>
                             <p class="text-muted ellipsis mb-0"> Just a reminder that you have an event today
                             </p>
                         </div>
@@ -138,7 +147,7 @@
                             </div>
                         </div>
                         <div class="preview-item-content">
-                            <p class="preview-subject mb-1">Settings</p>
+                            <a class="preview-subject mb-1" href="/userProfile">Settings</a>
                             <p class="text-muted ellipsis mb-0"> Update dashboard </p>
                         </div>
                     </a>
@@ -150,21 +159,29 @@
                             </div>
                         </div>
                         <div class="preview-item-content">
-                            <p class="preview-subject mb-1">Launch Admin</p>
+                            <a class="preview-subject mb-1" href="/userProfile">Launch Admin</a>
                             <p class="text-muted ellipsis mb-0"> New admin wow! </p>
                         </div>
                     </a>
                     <div class="dropdown-divider"></div>
+
                     <p class="p-3 mb-0 text-center">See all notifications</p>
                 </div>
             </li>
 
             <li class="nav-item dropdown">
                 <a class="nav-link" id="profileDropdown" href="#" data-toggle="dropdown">
-                    <div class="navbar-profile">
-                        <img class="img-xs rounded-circle" src="../../assets/images/faces/face15.jpg" alt=""  loading="lazy">
-                        <p class="mb-0 d-none d-sm-block navbar-profile-name">Neyamul Islam</p>
+                    <div class="navbar-profile" *ngIf="user">
+                        <img class="img-xs rounded-circle" src="http://localhost:8089/images/{{user.image}}" alt="{{user.name}}"
+                            loading="lazy">
+                        <p class="mb-0 d-none d-sm-block navbar-profile-name">{{user.name}}</p>
                         <i class="mdi mdi-menu-down d-none d-sm-block"></i>
+                       
+                          <div *ngIf="!user">
+                            <p>Loading user profile...</p>
+                          </div>
+                      
+
                     </div>
                 </a>
 
@@ -191,7 +208,7 @@
                             </div>
                         </div>
                         <div class="preview-item-content">
-                            <p class="preview-subject mb-1" >Log In </p>
+                            <p class="preview-subject mb-1">Log In </p>
                         </div>
                     </a>
 
@@ -202,7 +219,7 @@
                             </div>
                         </div>
                         <div class="preview-item-content">
-                            <p class="preview-subject mb-1" >Registration</p>
+                            <p class="preview-subject mb-1">Registration</p>
                         </div>
                     </a>
 

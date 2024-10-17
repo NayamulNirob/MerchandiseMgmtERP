@@ -97,20 +97,11 @@
       "status": "Pending",
       "orderDate": "2024-09-01T12:48:36.799Z",
       "totalPrice": 420
-    },
-    {
-      "id": "2c93",
-      "customerName": "Shabab",
-      "product": "Item A",
-      "quantity": 24,
-      "status": "Pending",
-      "orderDate": "2024-09-01T15:45:13.676Z",
-      "totalPrice": 480
     }
   ],
   "Supplier": [
     {
-      "id": 1,
+      "id": "1",
       "name": "NAYAMUL ISLAM",
       "contactPerson": "NAYAMUL ISLAM",
       "email": "nayamulislam@gmail.com",
@@ -120,7 +111,7 @@
       "updatedAt": "2024-09-03T08:55:29.240Z"
     },
     {
-      "id": 2,
+      "id": "2",
       "name": "MD Neyamul Isalm Nirob",
       "contactPerson": "MD Neyamul Isalm Nirob",
       "email": "1302neyamulislamnirob@gmail.com",
@@ -130,7 +121,7 @@
       "updatedAt": "2024-09-03T08:56:49.247Z"
     },
     {
-      "id": 4,
+      "id": "4",
       "name": "NAYAMUL ISLAM",
       "contactPerson": "NAYAMUL ISLAM",
       "email": "nayamulislam@gmail.com",
@@ -138,26 +129,6 @@
       "address": "7th floor, House 5/C, Road:1, PC Culture Housing Society limited,",
       "createdAt": "2024-09-03T08:56:57.566Z",
       "updatedAt": "2024-09-03T08:56:57.566Z"
-    },
-    {
-      "id": 5,
-      "name": "Shabab Ahamed",
-      "contactPerson": "Shabab Ahamed",
-      "email": "shabab@gamil.com",
-      "phone": "+651566515",
-      "address": "yersyere",
-      "createdAt": "2024-09-03T08:57:50.102Z",
-      "updatedAt": "2024-09-03T08:57:50.102Z"
-    },
-    {
-      "id": 5,
-      "name": "etrtret",
-      "contactPerson": "rewtt",
-      "email": "nayamulislam@gmail.com",
-      "phone": "01323276407",
-      "address": "7th floor, House 5/C, Road:1, PC Culture Housing Society limited,",
-      "createdAt": "2024-09-03T11:44:01.282Z",
-      "updatedAt": "2024-09-03T11:44:01.282Z"
     }
   ],
   "sales": [
@@ -224,7 +195,7 @@
       "name": "Neyamul",
       "email": "nayamulislam@gmail.com",
       "password": "123456",
-      "photo": "",
+      "image": "",
       "role": "Admin"
     },
     {
@@ -232,7 +203,7 @@
       "name": "Nirjash",
       "email": "nirjash@gmail.com",
       "password": "123456",
-      "photo": "",
+      "image": "",
       "role": "user"
     },
     {
@@ -240,8 +211,15 @@
       "name": "Shawon",
       "email": "showon@gmail.com",
       "password": "123456789",
-      "photo": "",
+      "image": "",
       "role": "user"
+    },
+    {
+      "id": "c03a",
+      "name": "Neyamul Nirob",
+      "email": "1302neyamulislamnirob@gmail.com",
+      "password": "1234",
+      "image": ""
     }
   ],
   "warehouses": [

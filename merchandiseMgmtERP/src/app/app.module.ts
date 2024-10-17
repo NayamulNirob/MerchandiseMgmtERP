@@ -7,10 +7,10 @@ import { SidebarComponent } from './sidebar/sidebar.component';
 import { FooterComponent } from './footer/footer.component';
 import { DashbordComponent } from './dashbord/dashbord.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import { HttpClient, HttpClientModule, provideHttpClient, withFetch } from '@angular/common/http';
+import { HttpClientModule, provideHttpClient, withFetch } from '@angular/common/http';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
-import { ProducmanagementComponent } from './businesscomponent/producmanagement/producmanagement.component';
+import { ProducmanagementComponent } from './businesscomponent/productmanagement/producmanagement.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ProductService } from './services/product.service';
 import { InventoryManagementComponent } from './businesscomponent/inventorymanagement/inventorymanagement.component';
@@ -25,7 +25,20 @@ import { ReportsAnalyticsComponent } from './businesscomponent/reports-and-analy
 import { UpdateproductmanagementComponent } from './businesscomponent/updateproductmanagement/updateproductmanagement.component';
 import { LogoutComponent } from './logout/logout.component';
 import { UserprofileComponent } from './userprofile/userprofile.component';
-import { MultiLocationSupportComponent } from './businesscomponent/multi-location-support/multi-location-support.component';
+import { WarehouseviewComponent } from './businesscomponent/warehouseview/warehouseview.component';
+import { WarehouseupdateComponent } from './businesscomponent/warehouseupdate/warehouseupdate.component';
+import { SupplierUpdateComponent } from './businesscomponent/supplier-update/supplier-update.component';
+import { UpdateInventoryComponent } from './businesscomponent/update-inventory/update-inventory.component';
+import { UpdatecustomerComponent } from './businesscomponent/updatecustomer/updatecustomer.component';
+import { ProductcategoryComponent } from './businesscomponent/productcategory/productcategory.component';
+import { SubcategoriesComponent } from './businesscomponent/subcategories/subcategories.component';
+import { CountryComponent } from './businesscomponent/country/country.component';
+import { StockmanagementComponent } from './businesscomponent/stockmanagement/stockmanagement.component';
+import {NgxPrintModule} from 'ngx-print';
+import { TransactionmanagementComponent } from './businesscomponent/transactionmanagement/transactionmanagement.component';
+import { TodotaskComponent } from './businesscomponent/todotask/todotask.component';
+import { DashboarduserComponent } from './dashboarduser/dashboarduser.component';
+
 
 
 
@@ -49,7 +62,18 @@ import { MultiLocationSupportComponent } from './businesscomponent/multi-locatio
     UpdateproductmanagementComponent,
     LogoutComponent,
     UserprofileComponent,
-    MultiLocationSupportComponent
+    WarehouseviewComponent,
+    WarehouseupdateComponent,
+    SupplierUpdateComponent,
+    UpdateInventoryComponent,
+    UpdatecustomerComponent,
+    ProductcategoryComponent,
+    SubcategoriesComponent,
+    CountryComponent,
+    StockmanagementComponent,
+    TransactionmanagementComponent,
+    TodotaskComponent,
+    DashboarduserComponent
   
 
   ],
@@ -61,7 +85,10 @@ import { MultiLocationSupportComponent } from './businesscomponent/multi-locatio
     FormsModule,
     BrowserAnimationsModule,
     MatTableModule,  
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    NgxPrintModule,
+
+  
 
   ],
   providers: [
@@ -69,7 +96,7 @@ import { MultiLocationSupportComponent } from './businesscomponent/multi-locatio
     provideHttpClient(withFetch()),
     ProductService,
     provideAnimationsAsync(),
-    provideClientHydration()
+    provideClientHydration(),
   ],
   bootstrap: [AppComponent]
 })

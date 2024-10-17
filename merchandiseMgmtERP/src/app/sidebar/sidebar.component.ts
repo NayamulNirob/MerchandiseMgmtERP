@@ -1,28 +1,39 @@
 import { Component, OnInit } from '@angular/core';
-import { UserprofileComponent } from '../userprofile/userprofile.component';
-import { UserModel } from '../model/sale.model';
 import { AuthService } from '../services/auth.service';
+import { UserprofileService } from '../services/userprofile.service';
+import { UserModel } from '../model/UserModel.1';
 
 @Component({
   selector: 'app-sidebar',
   templateUrl: './sidebar.component.html',
   styleUrl: './sidebar.component.css'
 })
-export class SidebarComponent implements OnInit{
- 
+export class SidebarComponent {
 
-  userRole: string | null = '';
-  currentUser: UserModel | null = null;
+  user: UserModel |null=null;
 
-constructor(private authService:AuthService) {
-  
-}
+
+  constructor(protected authService: AuthService,private userProfileService: UserprofileService) {
+
+  }
 
   ngOnInit(): void {
-    this.authService.currentUser$.subscribe(user => {
-      this.currentUser = user;
-      this.userRole = user?.role || null;
+    this.loadUserProfile();
+  }
+
+  loadUserProfile(): void {
+    const sub = this.userProfileService.getUserProfile().subscribe({
+
+      next: (user) => {
+        if (user) {
+          this.user = user;
+        }
+      },
+      error: (err) => {
+        console.error('Error Loading User Profile:', err);
+      }
     });
+   
   }
 
 }

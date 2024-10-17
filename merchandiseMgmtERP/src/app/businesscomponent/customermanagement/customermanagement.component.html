@@ -1,73 +1,151 @@
-<!-- customer-management.component.html -->  
-<!-- <div>  
-    <h2>Customer Management</h2>  
-  
-    <input type="text" [(ngModel)]="searchTerm" (input)="filterCustomers()" placeholder="Search by name or email..." />  
-  
-    <h3>Add New Customer</h3>  
-    <form (ngSubmit)="addCustomer()">  
-      <input type="text" [(ngModel)]="newCustomer.name" name="name" placeholder="Name" required />  
-      <input type="email" [(ngModel)]="newCustomer.email" name="email" placeholder="Email" required />  
-      <input type="text" [(ngModel)]="newCustomer.phone" name="phone" placeholder="Phone" required />  
-      <input type="text" [(ngModel)]="newCustomer.address" name="address" placeholder="Address" required />  
-      <button type="submit">Add Customer</button>  
-    </form>  
-  
-    <ul>  
-      <li *ngFor="let customer of filteredCustomers">  
-        <strong>{{ customer.name }}</strong> - Email: {{ customer.email }} - Phone: {{ customer.phone }} - Address: {{ customer.address }}<br />  
-        <em>Created At: {{ customer.createdAt | date }}</em>  
-        <button (click)="updateCustomer(customer.id)">Update</button>  
-        <button (click)="removeCustomer(customer.id)">Remove</button>  
-      </li>  
-    </ul>  
-  </div> -->
+
+<div class="col-12 grid-margin">
+    
+    <div class="card bg-dark text-white border rounded">
+        <div class="card-body">
+            <h4 class="card-title text-center">Buyer Management</h4>
+            <h6 class="card-title">New Buyer Add Form</h6>
+            <form class="form-sample" (ngSubmit)="addCustomer()">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group row">
+                            <label class="col-sm-3 col-form-label">Name:</label>
+                            <div class="col-sm-9">
+                                <input type="text" [(ngModel)]="newCustomer.name" name="name" class="form-control"
+                                    placeholder="Name" required />
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6">
+                        <div class="form-group row">
+                            <label class="col-sm-3 col-form-label">Email:</label>
+                            <div class="col-sm-9">
+                                <input type="email" [(ngModel)]="newCustomer.email" name="email" class="form-control"
+                                    placeholder="Email" required />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group row">
+                            <label class="col-sm-3 col-form-label">Phone:</label>
+                            <div class="col-sm-9">
+                                <input type="text" [(ngModel)]="newCustomer.phone" name="phone" class="form-control"
+                                    placeholder="Phone" required />
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6">
+                        <div class="form-group row">
+                            <label class="col-sm-3 col-form-label">Contact Person:</label>
+                            <div class="col-sm-9">
+                                <input type="text" [(ngModel)]="newCustomer.contactPerson" name="contactPerson"
+                                    class="form-control" placeholder="Contact Person" required />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group row">
+                            <label class="col-sm-3 col-form-label">Address:</label>
+                            <div class="col-sm-9">
+                                <textarea class="form-control" id="address" rows="2" [(ngModel)]="newCustomer.address"
+                                    name="address" placeholder="Enter full Address"></textarea>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6">
+                        <div class="form-group row">
+                            <label class="col-sm-3 col-form-label">Country:</label>
+                            <div class="col-sm-9">
+                                <select class="form-control" id="country" [(ngModel)]="newCustomer.countryObj.id"
+                                    name="country" required >
+                                    <option *ngFor="let country of countryObj" [value]="country.id" >{{
+                                        country.name}}</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group row">
+                            <label class="col-sm-3 col-form-label">Organization:</label>
+                            <div class="col-sm-9">
+                                <input type="text" [(ngModel)]="newCustomer.organigation" name="organigation"
+                                    class="form-control" placeholder="Organization" required />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <button type="submit" class="btn btn-success mt-3">Add Customer</button>
+            </form>
+        </div>
+    </div>
 
 
-  <div>
-    <h2 class="text-xl font-bold mb-4">Customer Management</h2>
+    <div class="row mt-5 mb-2 ms-1">
+        <div class="col-md-12 d-flex justify-content-between align-items-start">
+            <input type="text" class="border rounded p-2 bg-dark text-white" style="max-width: 250px;"
+                [(ngModel)]="searchTerm" name="search" (input)="filterCustomers()" placeholder="Search by name or email..." />
+        </div>
+    </div>
 
-    <input type="text" [(ngModel)]="searchTerm" (input)="filterCustomers()" 
-           placeholder="Search by name or email..." class="border rounded p-2 mb-4" />
 
-    <h3 class="text-lg font-semibold mb-2">Add New Customer</h3>
-    <form (ngSubmit)="addCustomer()" class="mb-4">
-        <input type="text" [(ngModel)]="newCustomer.name" name="name" 
-               placeholder="Name" required class="border rounded p-2 mr-2" />
-        <input type="email" [(ngModel)]="newCustomer.email" name="email" 
-               placeholder="Email" required class="border rounded p-2 mr-2" />
-        <input type="text" [(ngModel)]="newCustomer.phone" name="phone" 
-               placeholder="Phone" required class="border rounded p-2 mr-2" />
-        <input type="text" [(ngModel)]="newCustomer.address" name="address" 
-               placeholder="Address" required class="border rounded p-2 mr-2" />
-        <button type="submit" class="bg-blue-500 text-dark rounded p-2">Add Customer</button>
-    </form>
+    <div class="col-lg-12 grid-margin stretch-card">
+        <div class="card bg-dark text-white border rounded">
+            <div class="card-body ">
+                <h4 class="card-title">Buyers List</h4>
 
-    <table class="min-w-full border">
-        <thead>
-            <tr>
-                <th class="border p-2">Name</th>
-                <th class="border p-2">Email</th>
-                <th class="border p-2">Phone</th>
-                <th class="border p-2">Address</th>
-                <th class="border p-2">Created At</th>
-                <th class="border p-2">Actions</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr *ngFor="let customer of filteredCustomers">
-                <td class="border p-2">{{ customer.name }}</td>
-                <td class="border p-2">{{ customer.email }}</td>
-                <td class="border p-2">{{ customer.phone }}</td>
-                <td class="border p-2">{{ customer.address }}</td>
-                <td class="border p-2">{{ customer.createdAt | date }}</td>
-                <td class="border p-2">
-                    <button (click)="updateCustomer(customer.id)" 
-                            class="bg-yellow-500 text-dark rounded p-1 mr-1">Update</button>
-                    <button (click)="removeCustomer(customer.id)" 
-                            class="bg-red-500 text-dark rounded p-1">Remove</button>
-                </td>
-            </tr>
-        </tbody>
-    </table>
+                <div class="table-responsive">
+                    <table class="table table-dark table-striped">
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Email</th>
+                                <th>Phone</th>
+                                <th>Contact Person</th>
+                                <th>Address</th>
+                                <th>Country</th>
+                                <th>Organization</th>
+                                <th>Created At</th>
+                                <th>Updated At</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let customer of filteredCustomers">
+                                <td>{{ customer.name }}</td>
+                                <td>{{ customer.email }}</td>
+                                <td>{{ customer.phone }}</td>
+                                <td>{{ customer.contactPerson }}</td>
+                                <td>{{ customer.address }}</td>
+                                <td>{{ customer.countryObj.name }}</td>
+                                <td>{{ customer.organigation }}</td>
+                                <td>{{ customer.createdAt | date }}</td>
+                                <td>{{ customer.updatedAt | date: 'd MMM, y hh:mm:ss a' }}</td>
+                                <td>
+                                    <a class="btn text-white" (click)="updateCustomer(customer.id)">
+                                        <i class="fa-solid fa-pen-to-square fa-fade" style="color: #66fc72;"></i>
+                                    </a>
+                                    <a class="btn" (click)="removeCustomer(customer.id)">
+                                        <i class="fa-solid fa-trash-can fa-fade" style="color: #fd0101;"></i>
+                                    </a>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>

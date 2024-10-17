@@ -1,6 +1,10 @@
 import { Component } from '@angular/core';
-import { OrderItem } from '../../model/sale.model';
+import { Product } from "../../model/Product";
+import { OrderItem } from "../../model/OrderItem";
+import { Customer } from "../../model/Customer";
 import { OrderService } from '../../services/ordermanagement.service';
+import { ProductService } from '../../services/product.service';
+import { CustomerService } from '../../services/customermanagement.service';
 
 @Component({
   selector: 'app-ordermanagement',
@@ -15,14 +19,29 @@ export class OrdermanagementComponent {
   searchTerm: string = '';
   sortBy: 'customerName' | 'orderDate' | 'totalPrice' = 'customerName';
   newOrder: OrderItem = new OrderItem();
+  products:Product[]=[];
+  customers:Customer[]=[];
 
-  constructor(private orderService: OrderService) { }
+  constructor(
+    private orderService: OrderService,
+    private productService:ProductService,
+    private customerService:CustomerService
+  ) { }
 
   ngOnInit(): void {
     this.orderService.loadOrders().subscribe(data => {
       this.orders = data;
       this.filteredOrders = data; // Initialize filtered orders  
     });
+    
+    
+  this.productService.getProducts().subscribe(data => {
+    this.products  = data;
+  });
+
+  this.customerService.getCustomers().subscribe(data=>{
+    this.customers=data;
+  });
   }
 
 
@@ -43,10 +62,27 @@ export class OrdermanagementComponent {
     });
   }
 
+  // updateOrder(orderId: string, status: string) {
+  //   this.orderService.updateOrder(orderId, { status });
+  //   this.updateFilteredOrders();
+  // }
+
+
+  
   updateOrder(orderId: string, status: string) {
-    this.orderService.updateOrder(orderId, { status });
-    this.updateFilteredOrders();
+    if (status === 'Shipped') {
+      this.orderService.updateOrder(orderId, { status }).subscribe({
+        next: () => {
+          this.updateFilteredOrders(); // Refresh the displayed orders
+          alert('Order has been shipped and recorded in sales.');
+        },
+        error: (err) => {
+          console.error('Failed to update order status: ', err); // Handle error
+        }
+      });
+    }
   }
+  
 
   // deleteOrder(orderId: string) {
   //   this.orderService.deleteOrder(orderId);
@@ -65,13 +101,13 @@ export class OrdermanagementComponent {
 }
 
 
-  filterOrders() {
-    this.filteredOrders = this.orderService.filterOrders(this.searchTerm);
-  }
+  // filterOrders() {
+  //   this.filteredOrders = this.orderService.filterOrders(this.searchTerm);
+  // }
 
-  sortOrders() {
-    this.filteredOrders = this.orderService.sortOrders(this.sortBy);
-  }
+  // sortOrders() {
+  //   this.filteredOrders = this.orderService.sortOrders(this.sortBy);
+  // }
 
   private updateFilteredOrders() {
     this.filteredOrders = this.orderService.getOrders();
@@ -80,5 +116,18 @@ export class OrdermanagementComponent {
   private resetNewOrder() {
     this.newOrder = new OrderItem();
   }
+
+  
+  // onProductChange() {
+  //   if (this.newOrder.product) {
+  //     const selectedProduct = this.products.find(p => p.id === this.newOrder.product.id);
+  //     if (selectedProduct) {
+  //       this.newOrder.product.price = selectedProduct.price;
+  //     }
+  //   }
+  // }
+
+
+
 }
 

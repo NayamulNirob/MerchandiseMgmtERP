@@ -1,9 +1,9 @@
-<div *ngIf="(authService.currentUser$ | async) as user; else loggedOut" class="container-scroller bg-dark text-white bg-dark">
+<div *ngIf="(authService.currentUser$ | async) as user; else loggedOut" class="container-scroller bg-dark text-white bg-dark ">
   <app-sidebar></app-sidebar>
-  <div class="page-body-wrapper">
+  <div class=" page-body-wrapper ">
     <app-navbar></app-navbar>
     <div class="content-wrapper">
-      <div class="main-panel">
+      <div class="main-panel ">
         <router-outlet></router-outlet>
       </div>
       <app-footer></app-footer>
@@ -16,4 +16,7 @@
     <router-outlet></router-outlet>
   </div>
 </ng-template>
+
+
+
 

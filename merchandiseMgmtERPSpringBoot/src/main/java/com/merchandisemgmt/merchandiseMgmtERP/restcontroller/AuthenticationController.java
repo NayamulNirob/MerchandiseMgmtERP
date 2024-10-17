@@ -32,12 +32,6 @@ public class AuthenticationController {
         return ResponseEntity.ok(authService.registerAdmin(request));
     }
 
-//    @PostMapping("/register/hotel")
-//    public ResponseEntity<AuthenticationResponse> registerHotel(
-//            @RequestBody User request
-//    ) {
-//        return ResponseEntity.ok(authService.registerHotel(request));
-//    }
 
     @PostMapping("/login")
     public ResponseEntity<AuthenticationResponse> login(

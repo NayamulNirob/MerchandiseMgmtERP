@@ -10,6 +10,12 @@ git config --global --get http.postBuffer
 
 git clone https://github.com/NayamulNirob/MerchandiseMgmtERP.git
 
+git clone https://github.com/NayamulNirob/AndroidStudio.git
+
+
+GIT_CURL_VERBOSE=1 GIT_TRACE=1 git clone https://github.com/NayamulNirob/AndroidStudio.git
+
+
 git pull origin main
 
 

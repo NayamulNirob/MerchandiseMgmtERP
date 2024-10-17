@@ -22,6 +22,10 @@ GIT_CURL_VERBOSE=1 GIT_TRACE=1 git clone https://github.com/NayamulNirob/Android
 git pull origin main
 
 
+git clone --filter=blob:none --no-checkout https://github.com/NayamulNirob/AndroidStudio.git
+
+
+
 CODE FOR PC HIDEEN SETTING
 {ED7BA470-8E54-465E-825C-99712043E01C}
 

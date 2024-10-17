@@ -128,31 +128,6 @@ public class AuthService {
         return new AuthenticationResponse(jwt, "User registration was successful", null);
     }
 
-//    public AuthenticationResponse registerHotel(User user) {
-//
-//        // Check if the user already exists
-//        if (userRepository.findByEmail(user.getUsername()).isPresent()) {
-//            return new AuthenticationResponse(null, "User already exists");
-//        }
-//
-//        // Create a new user entity and save it to the database
-//
-//        user.setPassword(passwordEncoder.encode(user.getPassword()));
-//        user.setRole(Role.valueOf("USER"));
-//        user.setLock(false);
-//        user.setActive(false);
-//
-//        userRepository.save(user);
-//
-//        // Generate JWT token for the newly registered user
-//        String jwt = jwtService.generateToken(user);
-//
-//        // Save the token to the token repository
-//        saveUserToken(jwt, user);
-//        sendActivationEmail(user);
-//
-//        return new AuthenticationResponse(jwt, "User registration was successful");
-//    }
 
     // Method to authenticate a user
     public AuthenticationResponse authenticate(User request) {

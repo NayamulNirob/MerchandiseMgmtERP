@@ -11,7 +11,8 @@
                         </div>
                         <div class="col-5 col-sm-7 col-xl-8 p-0">
                             <h4 class="mb-1 mb-sm-0 text-white">Garment Merchandising and Export Procedures</h4>
-                            <b class="mb-0 font-weight-normal d-none d-sm-block text-white ms-3 mt-1">Enterprise Resource Planning
+                            <b class="mb-0 font-weight-normal d-none d-sm-block text-white ms-3 mt-1">Enterprise
+                                Resource Planning
                             </b>
                         </div>
                         <div class="col-3 col-sm-2 col-xl-2 pl-0 text-center">
@@ -364,13 +365,13 @@
                         <h5 class="card-title text-dark mt-1 text-center text-white">{{ selectedProduct?.name }}
                         </h5>
                         <div class="text-white">
-                          
+
                             <p class="card-text text-white" style="grid-auto-flow: column;">
-                                <strong class="h6">Description :</strong>  {{selectedProduct?.description}}<br><br>
-                                <strong class="h6">Product Code :</strong>  {{selectedProduct?.productCode}}<br>  
+                                <strong class="h6">Description :</strong> {{selectedProduct?.description}}<br><br>
+                                <strong class="h6">Product Code :</strong> {{selectedProduct?.productCode}}<br>
                                 <strong class="h6">Price :</strong> {{selectedProduct?.price }}<br>
                                 <strong class="h6">More In Sizes :</strong> {{selectedProduct?.sizes}}
-                              </p>
+                            </p>
                         </div>
                     </div>
                 </div>
@@ -379,31 +380,37 @@
 
         <div class="col-md-12 col-xl-4 grid-margin stretch-card">
             <div class="card bg-dark text-white">
-                <div class="card-body">
+                <div class="card-body" id="todo">
                     <h4 class="card-title">To do list</h4>
                     <div class="add-items d-flex">
                         <input type="text" class="form-control todo-list-input bg-dark text-white"
                             placeholder="enter task.." [(ngModel)]="newTask" name="task">
-                        <button class="add btn btn-primary todo-list-add-btn text-white" (click)="addTask()">Add</button>
+                        <button class="add btn btn-primary todo-list-add-btn text-white"
+                            (click)="addTask()">Add</button>
                     </div>
                     <div class="list-wrapper">
                         <ul class="d-flex flex-column-reverse text-white todo-list todo-list-custom">
-                            <li *ngFor="let task of tasks" [ngClass]="{'completed': task.status === 'COMPLETED'}" class="d-flex justify-content-between align-items-center">
-                        
+                            <li *ngFor="let task of tasks" [ngClass]="{'completed': task.status === 'COMPLETED'}"
+                                class="d-flex justify-content-between align-items-center">
+
                                 <div class="form-check form-check-primary ">
                                     <label class="form-check-label text-white">
-                                        <input class="checkbox bg-dark text-white" type="checkbox" (change)="markAsCompleted(task.id, $event)" [checked]="task.status === 'COMPLETED'">
+                                        <input class="checkbox bg-dark text-white" type="checkbox"
+                                            (change)="markAsCompleted(task.id, $event)"
+                                            [checked]="task.status === 'COMPLETED'">
                                         {{ task.description }}
                                     </label>
                                 </div>
-                               
-                                <i class="remove mdi mdi-close-box" (click)="deleteTask(task.id)" style="cursor: pointer;"></i>
+
+                                <i class="remove mdi mdi-close-box" (click)="deleteTask(task.id)"
+                                    style="cursor: pointer;"></i>
                             </li>
-                            
+
                         </ul>
                     </div>
                 </div>
             </div>
+         
         </div>
     </div>
     <div class="row">
@@ -466,4 +473,3 @@
     </div>
 
 </div>
-

@@ -330,54 +330,57 @@
 
 
         </div>
-        <div class="col-md-6 col-xl-4 grid-margin stretch-card">
-            <div class="card bg-dark text-white">
-
-                <div class="d-flex flex-row justify-content-center">
-                    <h3 class="card-title mb-3 mt-3 ms-2 ">Available Products </h3>
-                </div>
-
-                <div class="card md-2 mb-4  bg-dark text-white  ms-md-3" style="width: 18rem;">
-                    <div class="card-body mat-elevation-z8">
-
-                        <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel"
-                            (slid.bs.carousel)="updateSelectedProduct($event)">
-                            <div class="carousel-inner mat-elevation-z8">
-                                <ng-container *ngFor="let u of product; let i = index">
-                                    <div class="carousel-item" [ngClass]="{'active': i === 0}">
-                                        <img src="http://localhost:8089/images/{{u.image}}" class="d-block w-100"
-                                            alt="{{u.name}}">
-                                    </div>
-                                </ng-container>
-                            </div>
-
-                            <button class="carousel-control-prev" type="button"
-                                data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
-                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                                <span class="visually-hidden">Previous</span>
-                            </button>
-                            <button class="carousel-control-next" type="button"
-                                data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
-                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                                <span class="visually-hidden">Next</span>
-                            </button>
-                        </div>
-
-                        <h5 class="card-title text-dark mt-1 text-center text-white">{{ selectedProduct?.name }}
-                        </h5>
-                        <div class="text-white">
-
-                            <p class="card-text text-white" style="grid-auto-flow: column;">
-                                <strong class="h6">Description :</strong> {{selectedProduct?.description}}<br><br>
-                                <strong class="h6">Product Code :</strong> {{selectedProduct?.productCode}}<br>
-                                <strong class="h6">Price :</strong> {{selectedProduct?.price }}<br>
-                                <strong class="h6">More In Sizes :</strong> {{selectedProduct?.sizes}}
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </div>
+        
+        <div class="col-md-6 col-xl-4 grid-margin stretch-card">  
+            <div class="card bg-dark text-white">  
+        
+                <div class="d-flex flex-row justify-content-center">  
+                    <h3 class="card-title mb-3 mt-3 ms-2">Available Products</h3>  
+                </div>  
+        
+                <div class="card mb-4 bg-dark text-white justify-content-center d-flex">  
+        
+                    <div class="card-body mat-elevation-z8">  
+        
+                        <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel" (slid.bs.carousel)="updateSelectedProduct($event)">  
+                            <div class="carousel-inner mat-elevation-z8">  
+        
+                                <ng-container *ngFor="let u of product; let i = index">  
+                                    <div class="carousel-item" [ngClass]="{'active': i === 0}">  
+                                        <img src="http://localhost:8089/images/{{u.image}}" class="d-block w-100" alt="{{u.name}}">  
+                                    </div>  
+                                </ng-container>  
+        
+                            </div>  
+        
+                            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">  
+                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>  
+                                <span class="visually-hidden">Previous</span>  
+                            </button>  
+                            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">  
+                                <span class="carousel-control-next-icon" aria-hidden="true"></span>  
+                                <span class="visually-hidden">Next</span>  
+                            </button>  
+                        </div>  
+        
+                        <div class="text-center">  
+                            <h5 class="card-title mt-1">{{ selectedProduct?.name }}</h5>  
+                            <div>  
+        
+                                <p class="card-text">  
+                                    <strong>Description:</strong> {{selectedProduct?.description}}<br><br>  
+                                    <strong>Product Code:</strong> {{selectedProduct?.productCode}}<br>  
+                                    <strong>Price:</strong> {{selectedProduct?.price }}<br>  
+                                    <strong>More In Sizes:</strong> {{selectedProduct?.sizes}}  
+                                </p>  
+                            </div>  
+                        </div>  
+                    </div>  
+                </div>  
+            </div>  
         </div>
+
+
 
         <div class="col-md-12 col-xl-4 grid-margin stretch-card">
             <div class="card bg-dark text-white">

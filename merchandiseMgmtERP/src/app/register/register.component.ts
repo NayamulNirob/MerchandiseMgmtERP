@@ -27,13 +27,16 @@ export class RegisterComponent {
   constructor(
     private authService: AuthService,
     private router: Router,
-    private fromBulider: FormBuilder,
-    private userService:UserService
+    private fromBulider: FormBuilder
   ) {
     this.regFrom = this.fromBulider.group({
       name: [''],
       email: [''],
       password: [''],
+      cell:[''],
+      dob:[''],
+      gender:[''],
+      address:[''],
       image: ['']
 
     })
@@ -66,6 +69,15 @@ export class RegisterComponent {
     }
 
   }
+
+  loginWithFacebook(): void {
+    window.location.href = 'https://www.facebook.com/v10.0/dialog/oauth?client_id=YOUR_FB_APP_ID&redirect_uri=YOUR_REDIRECT_URI&scope=email';
+  }
+
+  loginWithGoogle(): void {
+    window.location.href = 'https://accounts.google.com/o/oauth2/auth?client_id=YOUR_GOOGLE_CLIENT_ID&redirect_uri=YOUR_REDIRECT_URI&response_type=token&scope=email';
+  }
+
 
   
 

@@ -22,6 +22,7 @@ export class LoginComponent {
     this.logInFrom = this.fromBuilder.group({
       email: [''],
       password: ['']
+      
     });
   }
 
@@ -50,7 +51,8 @@ export class LoginComponent {
       });
     }
     else {
-      alert('Enter a valid username and password If don`t have register now');
+
+      alert('Enter a valid username and password \nIf don`t have register now \nOr check your email activation');
     }
 
   }

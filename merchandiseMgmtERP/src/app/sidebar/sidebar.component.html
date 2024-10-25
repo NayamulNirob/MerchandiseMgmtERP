@@ -10,8 +10,8 @@
             <div class="profile-desc">
                 <div class="profile-pic" *ngIf="user">
                     <div class="count-indicator">
-                        <img class="img-xs rounded-circle " src="http://localhost:8089/images/{{user.image}}" alt="{{user.name}}"
-                            loading="lazy">
+                        <img class="img-xs rounded-circle " src="http://localhost:8089/images/{{user.image}}"
+                            alt="{{user.name}}" loading="lazy">
                         <span class="count bg-success"></span>
                     </div>
                     <div class="profile-name">
@@ -20,7 +20,7 @@
                     </div>
 
                     <div *ngIf="!user">
-                       <p>Loading user profile...</p>
+                        <p>Loading user profile...</p>
                     </div>
 
                 </div>
@@ -142,15 +142,16 @@
             </div>
         </li>
 
-
-        <li class="nav-item menu-items">
-            <a class="nav-link" href="/stock">
-                <span class="menu-icon">
-                    <i class="fa-regular fa-clone fa-beat" style="color: #005eff;"></i>
-                </span>
-                <span class="menu-title">Stock Management</span>
-            </a>
-        </li>
+        <ng-container *ngIf="authService.getUserRole() === 'ADMIN'">
+            <li class="nav-item menu-items">
+                <a class="nav-link" href="/stock">
+                    <span class="menu-icon">
+                        <i class="fa-regular fa-clone fa-beat" style="color: #005eff;"></i>
+                    </span>
+                    <span class="menu-title">Stock Management</span>
+                </a>
+            </li>
+        </ng-container>
         <li class="nav-item menu-items">
             <ng-container *ngIf="authService.getUserRole() === 'ADMIN'">
 

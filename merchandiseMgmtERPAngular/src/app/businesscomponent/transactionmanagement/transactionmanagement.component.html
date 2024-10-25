@@ -20,7 +20,7 @@
                     </button>
 
                     <h4 class="card-title mt-5 mb-3">Transaction History</h4>
-                    <table class="table table-striped text-muted table-dark ">
+                    <table class=" table table-dark table-striped mt-4 mat-elevation-z8">
                         <thead>
                             <tr>
                                 <th>Id</th>
@@ -56,7 +56,7 @@
     
                 
                 <div *ngFor="let transaction of transactions"
-                    class="bg-gray-dark d-flex d-md-block d-xl-flex flex-row py-3 px-4 px-md-3 px-xl-4 rounded mt-3 bg-dark text-white">
+                    class="bg-gray-dark d-flex d-md-block d-xl-flex flex-row py-3 px-4 px-md-3 px-xl-4 rounded mt-3 bg-dark text-white  mat-elevation-z8">
                     <div class="text-md-center text-xl-left">
                         <h6 class="mb-1">{{ transaction.description }}</h6>
                         <p class="mb-0">{{ transaction.date | date: 'd MMM, y hh:mm:ss a' }}</p>
@@ -69,39 +69,5 @@
         </div>
     </div>
 </div>
-
-
-
-
-
-<!-- <div class="col-md-8 grid-margin stretch-card">
-    <div class="card bg-dark text-white">
-        <div class="card-body">
-            <h4 class="card-title">Transaction Overview</h4>
-            <canvas #transactionChart></canvas> 
-            
-            <h4 class="card-title mt-5">Transaction History</h4>
-            <table class="table table-striped text-muted table-dark">
-                <thead>
-                    <tr>
-                        <th>Id</th>
-                        <th>Description</th>
-                        <th>Amount</th>
-                        <th>Date</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr *ngFor="let t of transactions">
-                        <td>{{ t.id }}</td>
-                        <td>{{ t.description }}</td>
-                        <td>{{ t.amount | currency }}</td>
-                        <td>{{ t.date | date: 'd MMM, y hh:mm:ss a' }}</td>
-                    </tr>
-                </tbody>
-            </table>
-            <h5>Total Transaction: {{ totalAmount | currency }}</h5>
-        </div>
-    </div>
-</div> -->
 
 

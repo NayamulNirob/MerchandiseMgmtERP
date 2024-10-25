@@ -7,6 +7,7 @@ import { OrderItem } from "../model/OrderItem";
 import { ProductCategory } from '../model/productcategorymodel';
 import { Transaction } from '../model/transactionmodel';
 import { TaskStatus, TodoTask } from '../model/todotaskmodel';
+import { TransactionsService } from '../services/transactions.service';
 
 
 @Component({
@@ -30,7 +31,8 @@ export class DashbordComponent implements OnInit {
 
 
   constructor(
-    private adminDashbordService: AdmindashbordserviceService) { }
+    private adminDashbordService: AdmindashbordserviceService,
+    private transactionService: TransactionsService) { }
 
   ngOnInit(): void {
     this.loadCountries();
@@ -40,6 +42,15 @@ export class DashbordComponent implements OnInit {
     this.loadTransactions();
     this.loadTasks();
     this.calculateTotalAmount();
+
+    this.transactionService.getTotalTransactionAmount().subscribe({
+      next:res=>{
+        this.totalAmount=res
+      },
+      error:err=>{
+        console.error(err)
+      }
+    });
 
   }
 
@@ -80,13 +91,16 @@ private calculateTotalAmount(): void {
   }, 0);
 }
 
+
+
   loadTransactions() {
     this.adminDashbordService.loadtransactions().subscribe({
-      next: res => {
-        this.transaction = res
+      next: (res: Transaction[]) => {
+        this.transaction = res;
+        // this.updateChart(); 
       },
-      error:err=>{
-        console.log(err)
+      error: (err) => {
+        console.error('Error loading transactions:', err);
       }
     });
   }
@@ -128,19 +142,7 @@ private calculateTotalAmount(): void {
   }
 
 
-  // loadProducts(): void {
-  //   this.adminDashbordService.loadProducts().subscribe({
-  //     next: res => {
-  //       this.product = res;
-  //     },
-  //     error: error => {
-  //       console.log(error);
-  //       alert(error);
-  //     }
-  //   });
-  // }
-
-  // selectedProduct = this.product[0];
+  
 
 
   loadProducts(): void {

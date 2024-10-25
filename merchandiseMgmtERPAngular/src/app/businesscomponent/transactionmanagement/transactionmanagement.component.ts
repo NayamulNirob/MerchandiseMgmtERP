@@ -68,10 +68,7 @@ export class TransactionmanagementComponent implements OnInit {
     });
   }
 
-  
-  updateTransaction(transaction: Transaction): void {
-  
-  }
+ 
 
   
   removeTransaction(transactionId: number): void {
@@ -96,61 +93,6 @@ export class TransactionmanagementComponent implements OnInit {
       return sum + (transaction.amount || 0); 
     }, 0);
   }
-
-
-
-
-
-
-
-
-  // @ViewChild('transactionChart', { static: true }) transactionChart!: ElementRef;
-
-  // chart: any;
-
-  // updateChart(): void {
-   
-  //   if (this.chart) {
-  //     this.chart.destroy();
-  //   }
-   
-
-  //   const ctx = this.transactionChart.nativeElement.getContext('2d');
-
-  //   if (!ctx) {
-  //     console.error('Canvas context is not available');
-  //     return;
-  //   }
-    
-
-
-
-  //   if (ctx) {
-  //     this.chart = new Chart(ctx, {
-  //       type: 'line', 
-  //       data: {
-  //         labels: this.transactions.map(t => this.formatDateTime(t.date)), 
-  //         datasets: [{
-  //           label: 'Transaction Amount',
-  //           data: this.transactions.map(t => t.amount),
-  //           backgroundColor: 'rgba(54, 162, 235, 0.2)',
-  //           borderColor: 'rgba(54, 162, 235, 1)',
-  //           borderWidth: 1,
-  //           fill: true 
-  //         }]
-  //       },
-  //       options: {
-  //         responsive: true, 
-  //         scales: {
-  //           y: {
-  //             beginAtZero: true 
-  //           }
-  //         }
-  //       }
-  //     });
-  //   }
-  // }
-
 
   
 }

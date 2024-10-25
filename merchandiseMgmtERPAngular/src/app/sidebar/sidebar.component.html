@@ -142,16 +142,18 @@
             </div>
         </li>
 
-        <ng-container *ngIf="authService.getUserRole() === 'ADMIN'">
-            <li class="nav-item menu-items">
+
+        <li class="nav-item menu-items">
+            <ng-container *ngIf="authService.getUserRole() === 'ADMIN'">
                 <a class="nav-link" href="/stock">
                     <span class="menu-icon">
                         <i class="fa-regular fa-clone fa-beat" style="color: #005eff;"></i>
                     </span>
                     <span class="menu-title">Stock Management</span>
                 </a>
-            </li>
-        </ng-container>
+            </ng-container>
+        </li>
+
         <li class="nav-item menu-items">
             <ng-container *ngIf="authService.getUserRole() === 'ADMIN'">
 

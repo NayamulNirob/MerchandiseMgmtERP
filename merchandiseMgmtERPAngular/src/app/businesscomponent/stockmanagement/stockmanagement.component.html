@@ -43,67 +43,67 @@
         </div>
     </ng-container>
 
-    <div class="card bg-dark text-white mt-4 border rounded ">
-        <div class="card-body">
-            <div class="d-flex justify-content-between align-items-center">
-                <div class="col-md-4">
-                    <div class="form-group row">
-                        <div class="col-sm-9">
-                           
-                            <input type="text" class="border rounded p-2 bg-dark text-white" [(ngModel)]="searchTerm" name="search"
-                                (input)="filterStocks()" placeholder="Search by Product or Warehouse..." />
-                        </div>
-                    </div>
-                </div>
-
-                <div class="d-flex align-items-center col-md-4">
-                <h4>Available Stocks</h4>
-                </div>
-
-                <div class="d-flex align-items-center">
-                    <select [(ngModel)]="sortBy" name="sort" (change)="sortStocks()" class="border rounded p-2 bg-dark text-white ms-1 ">
-                        <option value="product.name">Product Name</option>
-                        <option value="wareHouse.name">Warehouse</option>
-                        <option value="quantity">Quantity</option>
-                    </select>
-                </div>
-            </div>
-
-            <table class="table table-dark table-striped mt-4 table-responsive">
-                <thead>
-                    <tr>
-                        <th>#</th>
-                        <th>Product Name</th>
-                        <th>Warehouse</th>
-                        <th>Price</th>
-                        <th>Quantity</th>
-                        <th>Total Price</th>
-                        <th>Date Added</th>
-                        <ng-container *ngIf="authService.getUserRole() === 'ADMIN'">
-                        <th>Actions</th>
-                        </ng-container>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr *ngFor="let stock of filteredStocks; let i = index">
-                        <td>{{ i + 1 }}</td>
-                        <td>{{ stock.product.name }}</td>
-                        <td>{{ stock.wareHouse.name }}</td>
-                        <td>{{ stock.product.price | currency }}</td>
-                        <td>{{ stock.product.quantity }}</td>
-                        <td>{{ stock.product.totalPrice| currency }}</td>
-                        <td>{{ stock.createdAt| date: 'd MMM, y'}}</td>
-                        <ng-container *ngIf="authService.getUserRole() === 'ADMIN'">
-                            <td>
-                                <button class="btn btn-warning btn-sm"
-                                    (click)="editStock(stock.id)">Edit</button>&nbsp;&nbsp;
-                                <button class="btn btn-danger btn-sm" (click)="deleteStock(stock.id)">Delete</button>
-                            </td>
-                        </ng-container>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
+    <div class="card bg-dark text-white mt-4 border rounded ">  
+        <div class="card-body">  
+            <h6 class="card-title">Stock List</h6>  
+            <div class="d-flex flex-column flex-sm-row justify-content-between align-items-center">  
+                <div class="col-12 col-sm-6 col-md-4">  
+                    <div class="form-group">  
+                        <input type="text" class="border rounded p-2 bg-dark text-white" [(ngModel)]="searchTerm"  
+                            name="search" (input)="filterStocks()"  
+                            placeholder="Search by Product or Warehouse..." />  
+                    </div>  
+                </div>  
+    
+                <div class="col-12 col-sm-6 d-none d-sm-block text-center">  
+                    <h6>Stocks</h6>  
+                </div>  
+    
+                <div class="col-12 col-sm-6 d-none d-sm-block">  
+                    <select [(ngModel)]="sortBy" name="sort" (change)="sortStocks()"  
+                        class="border rounded p-2 bg-dark text-white">  
+                        <option value="product.name">Product Name</option>  
+                        <option value="wareHouse.name">Warehouse</option>  
+                        <option value="quantity">Quantity</option>  
+                    </select>  
+                </div>  
+            </div>  
+    
+            <table class="table table-dark table-striped mt-4 table-responsive">  
+                <thead>  
+                    <tr>  
+                        <th>#</th>  
+                        <th>Product Name</th>  
+                        <th>Warehouse</th>  
+                        <th>Price</th>  
+                        <th>Quantity</th>  
+                        <th>Total Price</th>  
+                        <th>Date Added</th>  
+                        <ng-container *ngIf="authService.getUserRole() === 'ADMIN'">  
+                            <th>Actions</th>  
+                        </ng-container>  
+                    </tr>  
+                </thead>  
+                <tbody>  
+                    <tr *ngFor="let stock of filteredStocks; let i = index">  
+                        <td>{{ i + 1 }}</td>  
+                        <td>{{ stock.product.name }}</td>  
+                        <td>{{ stock.wareHouse.name }}</td>  
+                        <td>{{ stock.product.price | currency }}</td>  
+                        <td>{{ stock.product.quantity }}</td>  
+                        <td>{{ stock.product.totalPrice | currency }}</td>  
+                        <td>{{ stock.createdAt | date: 'd MMM, y' }}</td>  
+                        <ng-container *ngIf="authService.getUserRole() === 'ADMIN'">  
+                            <td>  
+                                <button class="btn btn-warning btn-sm"  
+                                    (click)="editStock(stock.id)">Edit</button>&nbsp;&nbsp;  
+                                <button class="btn btn-danger btn-sm" (click)="deleteStock(stock.id)">Delete</button>  
+                            </td>  
+                        </ng-container>  
+                    </tr>  
+                </tbody>  
+            </table>  
+        </div>  
     </div>
 </div>
 
@@ -112,27 +112,32 @@
     <div class="card bg-dark text-white border rounded">
         <div class="card-body">
             <h4 class="card-title text-center">Total List Of Amount and Quantity</h4>
-            <table class="table table-dark table-striped mt-4 mat-elevation-z8">
 
-                <thead>
-                    <tr>
-                        <th>#</th>
-                        <th>Warehouse Name</th>
-                        <th>Total Quantity of Products</th>
-                        <th>Capacity Of Warehouse</th>
-                        <th>Total Price By Warehouse</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr *ngFor="let warehouse of wareHouse; let i = index">
-                        <td>{{ i + 1 }}</td>
-                        <td>{{ warehouse.name }}</td>
-                        <td>{{ calculateTotalWarehouseQuantity(warehouse.id) }}</td>
-                        <td>{{ warehouse.capacity }}</td>
-                        <td>{{ calculateTotalWarehousePrice(warehouse.id) | currency }}</td>
-                    </tr>
-                </tbody>
-            </table>
+            <div class="table-responsive">
+
+                <table class="table table-dark table-striped mt-4 mat-elevation-z8">
+
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Warehouse Name</th>
+                            <th>Total Quantity of Products</th>
+                            <th>Capacity Of Warehouse</th>
+                            <th>Total Price By Warehouse</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let warehouse of wareHouse; let i = index">
+                            <td>{{ i + 1 }}</td>
+                            <td>{{ warehouse.name }}</td>
+                            <td>{{ calculateTotalWarehouseQuantity(warehouse.id) }}</td>
+                            <td>{{ warehouse.capacity }}</td>
+                            <td>{{ calculateTotalWarehousePrice(warehouse.id) | currency }}</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+            </div>
 
 
         </div>

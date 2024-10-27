@@ -36,10 +36,23 @@ export class AuthService {
     return isPlatformBrowser(this.platformId);
   }
 
+  // decodeToken(token: string): any {
+  //   const payload = token.split('.')[1];
+  //   return JSON.parse(atob(payload));
+  // }
+
   decodeToken(token: string): any {
-    const payload = token.split('.')[1];
-    return JSON.parse(atob(payload));
+    try {
+      const payload = token.split('.')[1];
+      return JSON.parse(atob(payload));
+    } catch (error) {
+      console.error("Error decoding token:", error);
+      return null;
+    }
   }
+  
+
+
 
   login(email: string, password: string): Observable<AuthResponse> {
     return this.http
@@ -83,7 +96,7 @@ export class AuthService {
   register(user: UserModel, image: File | null): Observable<AuthResponse> {
     const fromData= new FormData(); 
 
-    fromData.append('request',new Blob([JSON.stringify(user)],{type:'application/json'}));
+    fromData.append('user',new Blob([JSON.stringify(user)],{type:'application/json'}));
     if (image != null) {
       fromData.append('image', image);
     }

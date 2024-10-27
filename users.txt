@@ -13,14 +13,23 @@
     "email": "1302neyamulislamnirob@gmail.com",
     "password": "123456",
     "photo": "",
-    "role": "user"
+    "role": "Admin"
   },
   {
     "id": "c948",
-    "name": "Shawon",
-    "email": "showon@gmail.com",
-    "password": "123456789",
+    "name": "Shabab Ahamed",
+    "email": "shabab@gmail.com",
+    "password": "123456",
+    "photo": "",
+    "role": "user"
+  },
+{
+    "id": "d654",
+    "name": "Arman Biswas",
+    "email": "arman@gmail.com",
+    "password": "123456",
     "photo": "",
     "role": "user"
   }
+
 ]

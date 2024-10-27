@@ -414,13 +414,14 @@ CREATE TABLE `to_do_task` (
   `description` varchar(255) DEFAULT NULL,
   `status` enum('COMPLETED','PENDING','RUNNING') DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=34 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=35 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 /*Data for the table `to_do_task` */
 
 insert  into `to_do_task`(`id`,`description`,`status`) values 
 (32,'make an appointment','PENDING'),
-(33,'Merying with BMG','PENDING');
+(33,'Merying with BMG','PENDING'),
+(34,'check Transaction History','PENDING');
 
 /*Table structure for table `token` */
 
@@ -434,7 +435,7 @@ CREATE TABLE `token` (
   PRIMARY KEY (`id`),
   KEY `FKj8rfw4x0wjjyibfqq566j4qng` (`user_id`),
   CONSTRAINT `FKj8rfw4x0wjjyibfqq566j4qng` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=74 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=83 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 /*Data for the table `token` */
 
@@ -452,7 +453,11 @@ insert  into `token`(`id`,`is_logged_out`,`token`,`user_id`) values
 (70,'','eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJzaGFiYWJAZ21haWwuY29tIiwicm9sZSI6IkFETUlOIiwiaWF0IjoxNzI5ODc0MTY1LCJleHAiOjE3Mjk5NjA1NjV9.pkZ8LBsQz7hQo20RIiY-f9oSxgyIBRKJnRpQCDoKutF3iccXBqKlj37zhRYVQept',26),
 (71,'\0','eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJzaGFiYWJAZ21haWwuY29tIiwicm9sZSI6IlVTRVIiLCJpYXQiOjE3Mjk4NzQyMDEsImV4cCI6MTcyOTk2MDYwMX0.WfUJypsJOFsYknoLzPtY4LJ8QLiyVntoVXiXiUAhiF_-p5gg4-aAEdJWo3xZN0wS',26),
 (72,'\0','eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJhcm1hbkBnbWFpbC5jb20iLCJyb2xlIjoiVVNFUiIsImlhdCI6MTcyOTg3NDU1NCwiZXhwIjoxNzI5OTYwOTU0fQ.xUSLJpiptCq69pe5rtwXQDLgbCe3gh2tgmPliArx0PIGr22-W5Yl9kokIfGOm20u',27),
-(73,'\0','eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJuYXlhbXVsaXNsYW1AZ21haWwuY29tIiwicm9sZSI6IkFETUlOIiwiaWF0IjoxNzI5ODc0NjY4LCJleHAiOjE3Mjk5NjEwNjh9.Rb37gx3jNmVyAblUJKiPWGhDTRh6tpZ8tTuvLThyobJH4oDvTnET7_BakEnPwqEh',25);
+(73,'','eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJuYXlhbXVsaXNsYW1AZ21haWwuY29tIiwicm9sZSI6IkFETUlOIiwiaWF0IjoxNzI5ODc0NjY4LCJleHAiOjE3Mjk5NjEwNjh9.Rb37gx3jNmVyAblUJKiPWGhDTRh6tpZ8tTuvLThyobJH4oDvTnET7_BakEnPwqEh',25),
+(75,'','eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJzaGFydGhvazIxQGdtYWlsLmNvbSIsInJvbGUiOiJVU0VSIiwiaWF0IjoxNzMwMDU0NjA5LCJleHAiOjE3MzAxNDEwMDl9.JPTf922PJ1eY5_s7Q-34ZAZzscgKIk3gPYQH1cUVCSDoC28iLbXszImx0P-Rn3IA',30),
+(76,'\0','eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJzaGFydGhvazIxQGdtYWlsLmNvbSIsInJvbGUiOiJBRE1JTiIsImlhdCI6MTczMDA1NDY4OCwiZXhwIjoxNzMwMTQxMDg4fQ.3vp5EUqDaKauQHZqowVC5ZyoQhe5eFGprzIFlmhWEQ0-Etv5qLpJom-JyimPZKCN',30),
+(79,'','eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJuYXlhbXVsaXNsYW1AZ21haWwuY29tIiwicm9sZSI6IkFETUlOIiwiaWF0IjoxNzMwMDU1OTAwLCJleHAiOjE3MzAxNDIzMDB9.ZGeopDykeD_cFdJdXLrrYDeBHpM9n8HVkXI1aAAHcuv90O5G3gGVkF7YKzGO49US',25),
+(82,'\0','eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJuYXlhbXVsaXNsYW1AZ21haWwuY29tIiwicm9sZSI6IkFETUlOIiwiaWF0IjoxNzMwMDU2NzMxLCJleHAiOjE3MzAxNDMxMzF9.qzVKs1WtTkRBZRnKR2GQho8doRZK2SyhfeofDwvgdVDkznyVh1dZ_YEnm65FMUfi',25);
 
 /*Table structure for table `transaction` */
 
@@ -491,7 +496,7 @@ CREATE TABLE `users` (
   `dob` date DEFAULT NULL,
   `gender` varchar(255) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=29 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=34 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 /*Data for the table `users` */
 
@@ -499,7 +504,8 @@ insert  into `users`(`id`,`email`,`image`,`name`,`password`,`role`,`active`,`is_
 (25,'nayamulislam@gmail.com','99f6e2a0-d236-475d-bb6d-f0a46a444f8d_VIP-33770.jpg','Neyamul Islam','$2a$10$2pFN/68GxCB87g35v/iba.AwgG7cV8V7Alo.KIPw.dvTwv8Wjaf/S','ADMIN','','','+880523123211','Mohammodpur, Dhaka','1994-01-02','Male'),
 (26,'shabab@gmail.com','bfba2630-123a-4d44-9bea-764b4fb297a8_4RQ1v2yp_400x400.jpg','Shabab Ahamed','$2a$10$gRw.9D9jbxrygd8K9mgaa.KB5dI8275w9QbZ0dYnLOkxK32pJyV26','USER','','','+882564115656','kallanpur, Dhaka','1997-09-18','Male'),
 (27,'arman@gmail.com','df115e45-5046-494f-b40e-7843d84e26e6_my-passport-photo.jpg','Arman Biswas','$2a$10$XzQ31DSx1T9cbxlYxVl5XOLRsvNEhBgygGPgdD5V5tfoVqO1WZy3i','USER','','','+88052652414','Framget, Dhaka','2000-12-19','Male'),
-(28,'1302neyamulislamnirob@gmail.com','9cf82698-bea5-49f5-87bf-94832a99a6cd_IMG_20220127_163119.jpg','Neyamul Nirob','$2a$10$LEtcpCFy17ITwZR1LZhpbO8nhxZietfdwpdzdvIJu79/XWexyo/0e','ADMIN','','','+88026356511','Mohammodpur, Dhaka','1995-02-03','Male');
+(28,'1302neyamulislamnirob@gmail.com','9cf82698-bea5-49f5-87bf-94832a99a6cd_IMG_20220127_163119.jpg','Neyamul Nirob','$2a$10$LEtcpCFy17ITwZR1LZhpbO8nhxZietfdwpdzdvIJu79/XWexyo/0e','ADMIN','','','+88026356511','Mohammodpur, Dhaka','1995-02-03','Male'),
+(30,'sharthok21@gmail.com','1d3bf184-49f6-4352-9ded-0a6b16244205_2.png','Arman Biswas Shawon','$2a$10$1sBMhKaermA7Y28EoEfYjO4Xs/IYvp6cAcbwqrDGWFGTrLtejkCR6','ADMIN','','','+8801112222223232','Phultola, Khulna ','1999-12-10','Male');
 
 /*Table structure for table `warehouses` */
 

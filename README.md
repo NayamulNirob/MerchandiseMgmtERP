@@ -4,7 +4,7 @@ A merchandise management system utilizing Spring Boot, Angular, and MySQL is des
 -----------------   ---------------------------------------------
 ## There are 1 user in the system
 
-- Administrator  - User
+- Administrator   - User
 
 ## The Role of Administrator is
 1. Create new Style, TechPack, BOM.

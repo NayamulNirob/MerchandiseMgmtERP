@@ -78,8 +78,8 @@ Project Preview.
 ![ Login page](https://github.com/NayamulNirob/MerchandiseMgmtERP/blob/main/images/Screenshot%202024-10-25%20221633.png)
 :pushpin: Admin Dashboard page 3:
 ![ Login page](https://github.com/NayamulNirob/MerchandiseMgmtERP/blob/main/images/Screenshot%202024-10-25%20221657.png)
-:pushpin: Admin Dashboard page 4:
-![ Login page](https://github.com/fatemazohor/MerchandiseManagement--Angular-Spring-Boot/blob/main/screenshot/tp16.JPG)
+:pushpin:  User Profile Management page 4:
+![ Login page](https://github.com/NayamulNirob/MerchandiseMgmtERP/blob/main/images/Screenshot%202024-10-25%20223716.png)
 :pushpin: Admin Dashboard page 5:
 ![ Login page](https://github.com/NayamulNirob/MerchandiseMgmtERP/blob/main/images/Screenshot%202024-10-25%20221736.png)
 :pushpin: Admin Dashboard page 6:

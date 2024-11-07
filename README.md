@@ -44,7 +44,9 @@ STEP 3: Use MySQL workbench to import data from dump folder, sql file.
 
 Project Preview.
 ---------------------------------------------------------------------
-:pushpin: Login page for Admin:
+:pushpin: Login page for Admin And User:
+![ Login page](https://github.com/NayamulNirob/MerchandiseMgmtERP/blob/main/images/Screenshot%202024-10-25%20222558.png)
+:pushpin: Registration page for Admin and User:
 ![ Login page](https://github.com/NayamulNirob/MerchandiseMgmtERP/blob/main/images/Screenshot%202024-10-25%20222634.png)
 :pushpin: Dashboard page for Admin:
 ![ Login page](https://github.com/fatemazohor/MerchandiseManagement--Angular-Spring-Boot/blob/main/screenshot/tp2.JPG)

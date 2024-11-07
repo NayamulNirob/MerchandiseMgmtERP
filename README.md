@@ -4,7 +4,7 @@ A merchandise management system utilizing Spring Boot, Angular, and MySQL is des
 -----------------   ---------------------------------------------
 ## There are 1 user in the system
 
-- Administrator
+- Administrator  - User
 
 ## The Role of Administrator is
 1. Create new Style, TechPack, BOM.
@@ -32,7 +32,7 @@ A merchandise management system utilizing Spring Boot, Angular, and MySQL is des
 - :  IntelliJ IDEA
 - :  Visual Studio
 - :  Spring Initializer
-- :  Java JDK 17+
+- :  Java JDK 21+
 
 
 **================= Dummy Database Initialization USING QUERY =================**  

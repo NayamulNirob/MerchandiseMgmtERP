@@ -78,8 +78,6 @@ Project Preview.
 ![ Login page](https://github.com/NayamulNirob/MerchandiseMgmtERP/blob/main/images/Screenshot%202024-10-25%20221633.png)
 :pushpin: Admin Dashboard page 3:
 ![ Login page](https://github.com/NayamulNirob/MerchandiseMgmtERP/blob/main/images/Screenshot%202024-10-25%20221657.png)
-:pushpin:  User Profile Management page 4:
-![ Login page](https://github.com/NayamulNirob/MerchandiseMgmtERP/blob/main/images/Screenshot%202024-10-25%20223716.png)
 :pushpin: Admin Dashboard page 5:
 ![ Login page](https://github.com/NayamulNirob/MerchandiseMgmtERP/blob/main/images/Screenshot%202024-10-25%20221736.png)
 :pushpin: Admin Dashboard page 6:
@@ -108,6 +106,8 @@ Project Preview.
 ![ Login page](https://github.com/NayamulNirob/MerchandiseMgmtERP/blob/main/images/Screenshot%202024-10-25%20222420.png)
 :pushpin: Report And Analytics Management page 15 part 3:
 ![ Login page](https://github.com/NayamulNirob/MerchandiseMgmtERP/blob/main/images/Screenshot%202024-10-25%20222439.png)
+:pushpin:  User Profile Management page :
+![ Login page](https://github.com/NayamulNirob/MerchandiseMgmtERP/blob/main/images/Screenshot%202024-10-25%20223716.png)
 :pushpin: User Dashboard page :
 ![ Login page](https://github.com/NayamulNirob/MerchandiseMgmtERP/blob/main/images/Screenshot%202024-10-25%20223831.png)
 :pushpin: User Dashboard page Collapsed :

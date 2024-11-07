@@ -38,9 +38,9 @@ A merchandise management system utilizing Spring Boot, Angular, and MySQL is des
 **================= Dummy Database Initialization USING QUERY =================**  
 STEP 1: Open MySQL Command Prompt or MySQL Workbench
 
-STEP 2: Login to the administrator user as : mysql -u <username> -p (Enter Password if asked)
+STEP 2: Log in to the administrator user as MySQL -u <username> -p (Enter Password if asked)
 
-STEP 3: Use MySQL workbench to import data from dump folder, sql file.
+STEP 3: Use MySQL workbench to import data from the dump folder and SQL file.
 
 Project Preview.
 ---------------------------------------------------------------------
@@ -48,54 +48,72 @@ Project Preview.
 ![ Login page](https://github.com/NayamulNirob/MerchandiseMgmtERP/blob/main/images/Screenshot%202024-10-25%20222558.png)
 :pushpin: Registration page for Admin and User:
 ![ Login page](https://github.com/NayamulNirob/MerchandiseMgmtERP/blob/main/images/Screenshot%202024-10-25%20222634.png)
-:pushpin: Dashboard page for Admin:
-![ Login page](https://github.com/fatemazohor/MerchandiseManagement--Angular-Spring-Boot/blob/main/screenshot/tp2.JPG)
-:pushpin: Dashboard page 2:
-![ Login page](https://github.com/fatemazohor/MerchandiseManagement--Angular-Spring-Boot/blob/main/screenshot/tp3.JPG)
-:pushpin: Dashboard page 2:
-![ Login page](https://github.com/fatemazohor/MerchandiseManagement--Angular-Spring-Boot/blob/main/screenshot/tp4.JPG)
-:pushpin: Dashboard page 2:
-![ Login page](https://github.com/fatemazohor/MerchandiseManagement--Angular-Spring-Boot/blob/main/screenshot/tp5.JPG)
-:pushpin: Dashboard page 2:
-![ Login page](https://github.com/fatemazohor/MerchandiseManagement--Angular-Spring-Boot/blob/main/screenshot/tp6.JPG)
-:pushpin: Dashboard page 2:
-![ Login page](https://github.com/fatemazohor/MerchandiseManagement--Angular-Spring-Boot/blob/main/screenshot/tp7.JPG)
-:pushpin: Dashboard page 2:
-![ Login page](https://github.com/fatemazohor/MerchandiseManagement--Angular-Spring-Boot/blob/main/screenshot/tp8.JPG)
-:pushpin: Dashboard page 2:
-![ Login page](https://github.com/fatemazohor/MerchandiseManagement--Angular-Spring-Boot/blob/main/screenshot/tp9.JPG)
-:pushpin: Dashboard page 2:
-![ Login page](https://github.com/fatemazohor/MerchandiseManagement--Angular-Spring-Boot/blob/main/screenshot/tp10.JPG)
-:pushpin: Dashboard page 2:
-![ Login page](https://github.com/fatemazohor/MerchandiseManagement--Angular-Spring-Boot/blob/main/screenshot/tp11.JPG)
-:pushpin: Dashboard page 2:
-![ Login page](https://github.com/fatemazohor/MerchandiseManagement--Angular-Spring-Boot/blob/main/screenshot/tp12.JPG)
-:pushpin: Dashboard page 2:
-![ Login page](https://github.com/fatemazohor/MerchandiseManagement--Angular-Spring-Boot/blob/main/screenshot/tp13.JPG)
-:pushpin: Dashboard page 2:
-![ Login page](https://github.com/fatemazohor/MerchandiseManagement--Angular-Spring-Boot/blob/main/screenshot/tp14.JPG)
-:pushpin: Dashboard page 2:
-![ Login page](https://github.com/fatemazohor/MerchandiseManagement--Angular-Spring-Boot/blob/main/screenshot/tp15.JPG)
-:pushpin: Dashboard page 2:
+:pushpin: Admin Profile Management page :
+![ Login page](https://github.com/NayamulNirob/MerchandiseMgmtERP/blob/main/images/Screenshot%202024-10-25%20222520.png)
+:pushpin: Dashboard page for Admin part 1:
+![ Login page](https://github.com/NayamulNirob/MerchandiseMgmtERP/blob/main/images/Screenshot%202024-10-25%20220234.png)
+:pushpin: Dashboard page for Admin part 2:
+![ Login page](https://github.com/NayamulNirob/MerchandiseMgmtERP/blob/main/images/Screenshot%202024-10-25%20220325.png)
+:pushpin: Dashboard page  for Admin  part 3:
+![ Login page](https://github.com/NayamulNirob/MerchandiseMgmtERP/blob/main/images/Screenshot%202024-10-25%20220350.png)
+:pushpin: Dashboard page  for Admin part 4:
+![ Login page](https://github.com/NayamulNirob/MerchandiseMgmtERP/blob/main/images/Screenshot%202024-10-25%20220420.png)
+:pushpin: Dashboard page for Admin part 5:
+![ Login page](https://github.com/NayamulNirob/MerchandiseMgmtERP/blob/main/images/Screenshot%202024-10-25%20220448.png)
+:pushpin: Dashboard page for Admin part 6 :
+![ Login page](https://github.com/NayamulNirob/MerchandiseMgmtERP/blob/main/images/Screenshot%202024-10-25%20220541.png)
+:pushpin: Dashboard page collapsed for Admin:
+![ Login page](https://github.com/NayamulNirob/MerchandiseMgmtERP/blob/main/images/Screenshot%202024-10-25%20221316.png)
+:pushpin: Dashboard page collapsed for Admin with Futures:
+![ Login page](https://github.com/NayamulNirob/MerchandiseMgmtERP/blob/main/images/Screenshot%202024-10-25%20221336.png)
+:pushpin: Dashboard page collapsed for Admin with Futures 2:
+![ Login page](https://github.com/NayamulNirob/MerchandiseMgmtERP/blob/main/images/Screenshot%202024-10-25%20221401.png)
+:pushpin: Dashboard page collapsed for Admin with Futures 3:
+![ Login page](https://github.com/NayamulNirob/MerchandiseMgmtERP/blob/main/images/Screenshot%202024-10-25%20221422.png)
+:pushpin: Dashboard page for Admin with Futures 4:
+![ Login page](https://github.com/NayamulNirob/MerchandiseMgmtERP/blob/main/images/Screenshot%202024-10-25%20221445.png)
+:pushpin: Admin Dashboard page 2 part 1:
+![ Login page](https://github.com/NayamulNirob/MerchandiseMgmtERP/blob/main/images/Screenshot%202024-10-25%20221519.png)
+:pushpin: Admin Dashboard page 2 part 2:
+![ Login page](https://github.com/NayamulNirob/MerchandiseMgmtERP/blob/main/images/Screenshot%202024-10-25%20221633.png)
+:pushpin: Admin Dashboard page 3:
+![ Login page](https://github.com/NayamulNirob/MerchandiseMgmtERP/blob/main/images/Screenshot%202024-10-25%20221657.png)
+:pushpin: Admin Dashboard page 4:
 ![ Login page](https://github.com/fatemazohor/MerchandiseManagement--Angular-Spring-Boot/blob/main/screenshot/tp16.JPG)
-:pushpin: Dashboard page 2:
-![ Login page](https://github.com/fatemazohor/MerchandiseManagement--Angular-Spring-Boot/blob/main/screenshot/tp17.JPG)
-:pushpin: Dashboard page 2:
-![ Login page](https://github.com/fatemazohor/MerchandiseManagement--Angular-Spring-Boot/blob/main/screenshot/tp18.JPG)
-:pushpin: Dashboard page 2:
-![ Login page](https://github.com/fatemazohor/MerchandiseManagement--Angular-Spring-Boot/blob/main/screenshot/tp19.JPG)
-:pushpin: Dashboard page 2:
-![ Login page](https://github.com/fatemazohor/MerchandiseManagement--Angular-Spring-Boot/blob/main/screenshot/tp20.JPG)
-:pushpin: Dashboard page 2:
-![ Login page](https://github.com/fatemazohor/MerchandiseManagement--Angular-Spring-Boot/blob/main/screenshot/tp21.JPG)
-:pushpin: Dashboard page 2:
-![ Login page](https://github.com/fatemazohor/MerchandiseManagement--Angular-Spring-Boot/blob/main/screenshot/tp22.JPG)
-:pushpin: Dashboard page 2:
-![ Login page](https://github.com/fatemazohor/MerchandiseManagement--Angular-Spring-Boot/blob/main/screenshot/tp23.JPG)
-:pushpin: Dashboard page 2:
-![ Login page](https://github.com/fatemazohor/MerchandiseManagement--Angular-Spring-Boot/blob/main/screenshot/tp24.JPG)
+:pushpin: Admin Dashboard page 5:
+![ Login page](https://github.com/NayamulNirob/MerchandiseMgmtERP/blob/main/images/Screenshot%202024-10-25%20221736.png)
+:pushpin: Admin Dashboard page 6:
+![ Login page](https://github.com/NayamulNirob/MerchandiseMgmtERP/blob/main/images/Screenshot%202024-10-25%20221754.png)
+:pushpin: Admin Dashboard page 7:
+![ Login page](https://github.com/NayamulNirob/MerchandiseMgmtERP/blob/main/images/Screenshot%202024-10-25%20221919.png)
+:pushpin: Order Management page 8:
+![ Login page](https://github.com/NayamulNirob/MerchandiseMgmtERP/blob/main/images/Screenshot%202024-10-25%20222004.png)
+:pushpin: Sales Management page 9:
+![ Login page](https://github.com/NayamulNirob/MerchandiseMgmtERP/blob/main/images/Screenshot%202024-10-25%20222033.png)
+:pushpin:  Sales Management page 9 part 2:
+![ Login page](https://github.com/NayamulNirob/MerchandiseMgmtERP/blob/main/images/Screenshot%202024-10-25%20222105.png)
+:pushpin: Transaction Management page 10:
+![ Login page](https://github.com/NayamulNirob/MerchandiseMgmtERP/blob/main/images/Screenshot%202024-10-25%20222134.png)
+:pushpin: Buyer Management page 11:
+![ Login page](https://github.com/NayamulNirob/MerchandiseMgmtERP/blob/main/images/Screenshot%202024-10-25%20222156.png)
+:pushpin: Warehouse Management page 12:
+![ Login page](https://github.com/NayamulNirob/MerchandiseMgmtERP/blob/main/images/Screenshot%202024-10-25%20222231.png)
+:pushpin: Country Management page 13:
+![ Login page](https://github.com/NayamulNirob/MerchandiseMgmtERP/blob/main/images/Screenshot%202024-10-25%20222255.png)
+:pushpin: Supplier Management page 14:
+![ Login page](https://github.com/NayamulNirob/MerchandiseMgmtERP/blob/main/images/Screenshot%202024-10-25%20222316.png)
+:pushpin: Report And Analytics Management page 15:
+![ Login page](https://github.com/NayamulNirob/MerchandiseMgmtERP/blob/main/images/Screenshot%202024-10-25%20222403.png)
+:pushpin: Report And Analytics Management page 15 part 2:
+![ Login page](https://github.com/NayamulNirob/MerchandiseMgmtERP/blob/main/images/Screenshot%202024-10-25%20222420.png)
+:pushpin: Report And Analytics Management page 15 part 3:
+![ Login page](https://github.com/NayamulNirob/MerchandiseMgmtERP/blob/main/images/Screenshot%202024-10-25%20222439.png)
+:pushpin: User Dashboard page :
+![ Login page](https://github.com/NayamulNirob/MerchandiseMgmtERP/blob/main/images/Screenshot%202024-10-25%20223831.png)
+:pushpin: User Dashboard page Collapsed :
+![ Login page](https://github.com/NayamulNirob/MerchandiseMgmtERP/blob/main/images/Screenshot%202024-10-25%20223849.png)
 
 **"Suggestions and project Improvements are always Invited!"**  
 Thanks a lot,    
 Project Leader  
-[Fatema Tuz Zohora](https://github.com/fatemazohor)
+[Md Nayamul Islam](https://github.com/NayamulNirob)

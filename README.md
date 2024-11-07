@@ -2,16 +2,17 @@
 
 A merchandise management system utilizing Spring Boot, Angular, and MySQL is designed to handle various aspects of clothing production. It involves the creation of different clothing materials and TechPacks, aligning with the designer's specifications. Customers place orders for specific materials, indicating size and quantity requirements. Subsequently, a Bill of Material (BOM) is generated, detailing the cost of each material by size and labor. Raw materials are procured based on production needs. The system offers a comprehensive view of the business process, displaying order, sales, and revenue data on the dashboard alongside tables for order, procurement, and inventory management.
 -----------------   ---------------------------------------------
-## There are 1 user in the system
+## There are 2 types of user in the system
 
-- Administrator   - User
+- Administrator
+- User
 
 ## The Role of Administrator is
-1. Create new Style, TechPack, BOM.
-2. View all the Style, TechPack, BOM.
-3. Create a new Vendor.
-4. View all the vendors.
-5. Create new Buyers.
+1. Create  new Percheses. 
+2. View all the Products.
+3. Create a new Stock.
+4. View all the Stocks.
+5. Create a new Buyer.
 6. View All the Buyers.
 7. View All the Orders.
 

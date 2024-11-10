@@ -34,7 +34,9 @@ The Merchandise Management ERP System is a comprehensive web application designe
  
 
 ### Back-End Development
-- [<img src="https://github.com/fatemazohor/fatemazohor/blob/main/svg/spring_boot.svg" width="40" height="40">](https://github.com/fatemazohor)- [<img src="https://github.com/fatemazohor/fatemazohor/blob/main/svg/hibernate.png" width="40" height="40">](https://github.com/fatemazohor)- [<img src="https://github.com/fatemazohor/SwingSMEManagement/blob/main/Screenshot/mysql.png" width="40" height="40">](https://github.com/fatemazohor) 
+[<img src="https://spring.io/images/icon-spring-boot-3c4f3a837041b6db42cd31ce041e28ff.svg" width="40" height="40">](https://spring.io/projects/spring-boot)- [<img src="https://img.icons8.com/external-outline-juicy-fish/40/000000/external-rest-api-cloud-computing-outline-outline-juicy-fish.png" width="40" height="40">](https://icons8.com/icon/23840/rest-api)
+- [<img src="https://github.com/fatemazohor/SwingSMEManagement/blob/main/Screenshot/mysql.png" width="40" height="40">](https://github.com/fatemazohor)- [<img src="https://cdn.auth0.com/blog/jwtc/jwt_05.svg" width="40" height="40">](https://jwt.io/)
+
 
 **==== Software And Tools Required ======**
 - :  MySQL

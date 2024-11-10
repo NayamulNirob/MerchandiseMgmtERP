@@ -8,17 +8,30 @@ The Merchandise Management ERP System is a comprehensive web application designe
 - User
 
 ## The Role of Administrator is
-1. Create  new Percheses. 
-2. View all the Products.
-3. Create a new Stock.
-4. View all the Stocks.
-5. Create a new Buyer.
-6. View All the Buyers.
-7. View All the Orders.
+1. Create  a new Purchase. 
+2. View all the Purchases.
+3. Inventory management.
+4. Product Category Management.
+6. Create a new Stock.
+7. View all the Stocks.
+8. Total Quantity of Products	Capacity Of Warehouse	Total Price By Warehouse.
+9. Order Management.
+10. Sales Management.
+11. Transaction Overview.
+12. Warehouse Management.
+13. Country Progress List.
+14. Supplier Management.
+15. To-do Task.
+16. Reports & Analytics Details.
+17. Create a new Buyer.
+18. View All the Buyers.
 
 ## Technologies used:-
+![MMG](https://github.com/user-attachments/assets/a91d3e4d-f5d3-4b19-8a57-5359a102b785)
+
 ### Front-End Development:
-- [<img src="https://github.com/fatemazohor/fatemazohor/blob/main/svg/html5.svg" width="40" height="40">](https://github.com/fatemazohor) - [<img src="https://github.com/fatemazohor/fatemazohor/blob/main/svg/css3.svg" width="40" height="40">](https://github.com/fatemazohor) - [<img src="https://github.com/fatemazohor/fatemazohor/blob/main/svg/bootstrap-logo-shadow.png" width="40" height="40">](https://github.com/fatemazohor)- [<img src="https://github.com/fatemazohor/fatemazohor/blob/main/svg/javascript.svg" width="40" height="40">](https://github.com/fatemazohor)- [<img src="https://github.com/fatemazohor/fatemazohor/blob/main/svg/angular.svg" width="40" height="40">](https://github.com/fatemazohor)
+- [<img src="https://github.com/fatemazohor/fatemazohor/blob/main/svg/html5.svg" width="40" height="40">](https://github.com/fatemazohor) - [<img src="https://github.com/fatemazohor/fatemazohor/blob/main/svg/css3.svg" width="40" height="40">](https://github.com/fatemazohor) - [<img src="https://github.com/fatemazohor/fatemazohor/blob/main/svg/bootstrap-logo-shadow.png" width="40" height="40">](https://github.com/fatemazohor)- [<img src="https://github.com/fatemazohor/fatemazohor/blob/main/svg/javascript.svg" width="40" height="40">](https://github.com/fatemazohor)- [<img src="https://github.com/fatemazohor/fatemazohor/blob/main/svg/angular.svg" width="40" height="40">](https://github.com/fatemazohor) ![Uploading ts.png…]()
+
 ### Back-End Development
 - [<img src="https://github.com/fatemazohor/fatemazohor/blob/main/svg/spring_boot.svg" width="40" height="40">](https://github.com/fatemazohor)- [<img src="https://github.com/fatemazohor/fatemazohor/blob/main/svg/hibernate.png" width="40" height="40">](https://github.com/fatemazohor)- [<img src="https://github.com/fatemazohor/SwingSMEManagement/blob/main/Screenshot/mysql.png" width="40" height="40">](https://github.com/fatemazohor) 
 

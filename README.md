@@ -34,10 +34,8 @@ The Merchandise Management ERP System is a comprehensive web application designe
  
 
 ### Back-End Development
-[<img src="https://spring.io/images/icon-spring-boot-3c4f3a837041b6db42cd31ce041e28ff.svg" width="40" height="40">](https://spring.io/projects/spring-boot)- [<img src="https://img.icons8.com/external-outline-juicy-fish/40/000000/external-rest-api-cloud-computing-outline-outline-juicy-fish.png" width="40" height="40">](https://icons8.com/icon/23840/rest-api)
-- [<img src="https://github.com/fatemazohor/SwingSMEManagement/blob/main/Screenshot/mysql.png" width="40" height="40">](https://github.com/fatemazohor)- [<img src="https://cdn.auth0.com/blog/jwtc/jwt_05.svg" width="40" height="40">](https://jwt.io/)
 
-- [<img src="https://spring.io/images/icon-spring-boot-3c4f3a837041b6db42cd31ce041e28ff.svg" width="40" height="40">](https://spring.io/projects/spring-boot)
+-[<img src="https://spring.io/images/projects/spring-boot.svg" width="40" height="40">](https://spring.io/projects/spring-boot)
 - [<img src="https://img.icons8.com/ios-filled/50/api-settings.png" width="40" height="40">](https://icons8.com/icon/19967/api-settings)
 - [<img src="https://www.mysql.com/common/logos/logo-mysql-170x115.png" width="40" height="40">](https://www.mysql.com/)
 - [<img src="https://jwt.io/img/pic_logo.svg" width="40" height="40">](https://jwt.io/)

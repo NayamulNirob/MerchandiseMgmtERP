@@ -30,16 +30,16 @@ The Merchandise Management ERP System is a comprehensive web application designe
 ![MMG](https://github.com/user-attachments/assets/a91d3e4d-f5d3-4b19-8a57-5359a102b785)
 
 ### Front-End Development:
-- [<img src="https://github.com/fatemazohor/fatemazohor/blob/main/svg/html5.svg" width="40" height="40">](https://github.com/fatemazohor) - [<img src="https://github.com/fatemazohor/fatemazohor/blob/main/svg/css3.svg" width="40" height="40">](https://github.com/fatemazohor) - [<img src="https://github.com/fatemazohor/fatemazohor/blob/main/svg/bootstrap-logo-shadow.png" width="40" height="40">](https://github.com/fatemazohor)- [<img src="https://github.com/fatemazohor/fatemazohor/blob/main/svg/javascript.svg" width="40" height="40">](https://github.com/fatemazohor)- [<img src="https://github.com/fatemazohor/fatemazohor/blob/main/svg/angular.svg" width="40" height="40">](https://github.com/fatemazohor)-[<img src="https://www.typescriptlang.org/icons/icon-48x48.png?v=4" width="40" height="40">](https://www.typescriptlang.org)- [<img src="https://img.icons8.com/windows/32/font-awesome.png" width="40" height="40">](https://fontawesome.com/)
+- [<img src="https://github.com/fatemazohor/fatemazohor/blob/main/svg/html5.svg" width="40" height="40">](https://github.com/NayamulNirob) - [<img src="https://github.com/fatemazohor/fatemazohor/blob/main/svg/css3.svg" width="40" height="40">](https://github.com/NayamulNirob) - [<img src="https://github.com/fatemazohor/fatemazohor/blob/main/svg/bootstrap-logo-shadow.png" width="40" height="40">](https://github.com/NayamulNirob)- [<img src="https://github.com/fatemazohor/fatemazohor/blob/main/svg/javascript.svg" width="40" height="40">](https://github.com/NayamulNirob)- [<img src="https://github.com/fatemazohor/fatemazohor/blob/main/svg/angular.svg" width="40" height="40">](https://github.com/NayamulNirob)-[<img src="https://www.typescriptlang.org/icons/icon-48x48.png?v=4" width="40" height="40">](https://github.com/NayamulNirob)- [<img src="https://img.icons8.com/windows/32/font-awesome.png" width="40" height="40">](https://github.com/NayamulNirob)
  
 
 ### Back-End Development
 
-- [<img src="https://github.com/user-attachments/assets/802876a1-3a54-40a6-bdc3-75f97dfc555b" width="50" height="50">](https://github.com/user-attachments/assets/802876a1-3a54-40a6-bdc3-75f97dfc555b)
-- [<img src="https://img.icons8.com/ios-filled/50/api-settings.png" width="40" height="40">](https://icons8.com/icon/19967/api-settings)
-- [<img src="https://www.mysql.com/common/logos/logo-mysql-170x115.png" width="40" height="40">](https://www.mysql.com/)
-- [<img src="https://jwt.io/img/pic_logo.svg" width="40" height="40">](https://jwt.io/)
-- [<img src="https://www.oracle.com/a/ocom/img/cb71-java-logo.png" width="50" height="50">](https://www.oracle.com/java/)
+- [<img src="https://github.com/user-attachments/assets/802876a1-3a54-40a6-bdc3-75f97dfc555b" width="50" height="50">](https://github.com/NayamulNirob)
+- [<img src="https://img.icons8.com/ios-filled/50/api-settings.png" width="40" height="40">](https://github.com/NayamulNirob)
+- [<img src="https://www.mysql.com/common/logos/logo-mysql-170x115.png" width="40" height="40">](https://github.com/NayamulNirob)
+- [<img src="https://jwt.io/img/pic_logo.svg" width="40" height="40">](https://github.com/NayamulNirob)
+- [<img src="https://www.oracle.com/a/ocom/img/cb71-java-logo.png" width="50" height="50">](https://github.com/NayamulNirob)
 
 
 
@@ -136,45 +136,3 @@ Thanks a lot,
 Project Leader  
 [Md Nayamul Islam](https://github.com/NayamulNirob)
 
-
-# Merchandise Management ERP System  
-
-![Git](https://img.shields.io/badge/version-control-git-yellow?style=flat&logo=git&logoColor=white)  
-![Angular](https://img.shields.io/badge/frontend-angular-red?style=flat&logo=angular&logoColor=white)  
-![TypeScript](https://img.shields.io/badge/language-typescript-blue?style=flat&logo=typescript&logoColor=white)  
-![HTML5](https://img.shields.io/badge/language-html5-e34f26?style=flat&logo=html5&logoColor=white)  
-![CSS3](https://img.shields.io/badge/language-css3-1572B6?style=flat&logo=css3&logoColor=white)  
-![Java](https://img.shields.io/badge/backend-java-red?style=flat&logo=java&logoColor=white)  
-![Spring Boot](https://img.shields.io/badge/framework-spring%20boot-6DB33F?style=flat&logo=spring&logoColor=white)  
-![MySQL](https://img.shields.io/badge/database-mysql-4479A1?style=flat&logo=mysql&logoColor=white)  
-![REST](https://img.shields.io/badge/API-RESTful-brightgreen?style=flat)  
-![JWT](https://img.shields.io/badge/authentication-JWT-orange?style=flat)  
-![Bootstrap](https://img.shields.io/badge/UI-Bootstrap-563D7C?style=flat&logo=bootstrap&logoColor=white)  
-![Angular Material](https://img.shields.io/badge/UI-Angular%20Material-ff4088?style=flat&logo=angular&logoColor=white)  
-
-## Overview  
-The Merchandise Management ERP System is a comprehensive web application designed to manage inventory, orders, and suppliers efficiently. Built with modern technologies, it aims to enhance operational efficiency and improve customer satisfaction.  
-
-## Tech Stack  
-- **Frontend:** Angular, TypeScript, HTML, CSS  
-- **Backend:** Spring Boot (Java)  
-- **Database:** MySQL  
-- **Communication:** RESTful APIs  
-- **Authentication:** JWT (with email verification)  
-- **Version Control:** Git  
-- **UI Libraries:** Bootstrap or Angular Material  
-
-## Key Features  
-- **Inventory Management:** Real-time tracking, product categorization, and barcode scanning.  
-- **Order Management:** Comprehensive order processing and shipping management.  
-- **Supplier Tracking:** Maintain supplier databases and evaluate vendor performance.  
-- **User Management:** Role-based access control and customizable dashboards.  
-- **Reporting & Analytics:** Generate reports and visualize data for informed decision-making.  
-- **Responsive Design:** Fully responsive UI for all devices.  
-
-## Installation  
-To get started, clone this repository and follow the instructions below:  
-
-```bash  
-git clone https://github.com/yourusername/merchandise-management-erp.git  
-cd merchandise-management-erp

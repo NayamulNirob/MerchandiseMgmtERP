@@ -30,14 +30,11 @@ CREATE TABLE `sales` (
   `total_price` double NOT NULL,
   `customer_id` bigint NOT NULL,
   `product_id` bigint NOT NULL,
-  `order_item_id` bigint DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `FKd94vrikapjd2ews1k4lb71sfg` (`customer_id`),
   KEY `FKkxc13g7l4ioljxqyoo15nh051` (`product_id`),
-  KEY `FKmfbspncsart1krrs1y3wfjdvt` (`order_item_id`),
   CONSTRAINT `FKd94vrikapjd2ews1k4lb71sfg` FOREIGN KEY (`customer_id`) REFERENCES `customers` (`id`),
-  CONSTRAINT `FKkxc13g7l4ioljxqyoo15nh051` FOREIGN KEY (`product_id`) REFERENCES `products` (`id`),
-  CONSTRAINT `FKmfbspncsart1krrs1y3wfjdvt` FOREIGN KEY (`order_item_id`) REFERENCES `order_items` (`id`)
+  CONSTRAINT `FKkxc13g7l4ioljxqyoo15nh051` FOREIGN KEY (`product_id`) REFERENCES `products` (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=35 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -47,7 +44,7 @@ CREATE TABLE `sales` (
 
 LOCK TABLES `sales` WRITE;
 /*!40000 ALTER TABLE `sales` DISABLE KEYS */;
-INSERT INTO `sales` VALUES (27,150,150,'2024-10-15',22500,1,4,NULL),(28,150,50,'2024-10-15',7500,2,4,NULL),(29,900,100,'2024-10-15',90000,3,9,NULL),(30,350,50,'2024-10-15',17500,2,6,NULL),(31,460,200,'2024-10-15',92000,3,8,NULL),(32,350,100,'2024-10-15',35000,3,7,NULL),(33,0,100,'2024-10-15',75000,3,13,NULL),(34,1000,150,'2024-10-17',150000,2,14,NULL);
+INSERT INTO `sales` VALUES (27,150,150,'2024-10-15',22500,1,4),(28,150,50,'2024-10-15',7500,2,4),(29,900,100,'2024-10-15',90000,3,9),(30,350,50,'2024-10-15',17500,2,6),(31,460,200,'2024-10-15',92000,3,8),(32,350,100,'2024-10-15',35000,3,7),(33,750,100,'2024-10-15',75000,3,13),(34,1000,150,'2024-10-17',150000,2,14);
 /*!40000 ALTER TABLE `sales` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -60,4 +57,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2024-10-25 22:53:07
+-- Dump completed on 2024-11-10 17:29:44

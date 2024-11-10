@@ -26,7 +26,6 @@ CREATE TABLE `customers` (
   `id` bigint NOT NULL AUTO_INCREMENT,
   `address` varchar(255) DEFAULT NULL,
   `contact_person` varchar(255) DEFAULT NULL,
-  `country` varchar(255) DEFAULT NULL,
   `created_at` datetime(6) DEFAULT NULL,
   `email` varchar(255) NOT NULL,
   `name` varchar(255) NOT NULL,
@@ -47,7 +46,7 @@ CREATE TABLE `customers` (
 
 LOCK TABLES `customers` WRITE;
 /*!40000 ALTER TABLE `customers` DISABLE KEYS */;
-INSERT INTO `customers` VALUES (1,'GARDENA, CA 90248USA','Mr Tony',NULL,'2024-09-30 02:51:15.301067','tony@fang-fashion.com','Mr Tony','FASHION LIFE/FANG','+115423','2024-09-30 02:51:15.301067',8),(2,'KAZUKO OTAKE ','SHO HARASAKI',NULL,'2024-09-30 02:54:39.399578','r.otake@mamafactory.jp','SHO HARASAKI','MAMA FACTORY OTAKE CO.LTD.','+81 90 8496 5344','2024-09-30 02:54:39.399578',12),(3,'House 5/C, Road 01,\nMohammadpur','Nafiz Shahriar Nirjash',NULL,'2024-10-04 23:54:06.481889','nafizshahriar@gmail.com','Nafiz Shahriar Nirjash','IDB','+88021255555','2024-10-04 23:54:06.481889',4);
+INSERT INTO `customers` VALUES (1,'GARDENA, CA 90248USA','Mr Tony','2024-09-30 02:51:15.301067','tony@fang-fashion.com','Mr Tony','FASHION LIFE/FANG','+115423','2024-09-30 02:51:15.301067',8),(2,'KAZUKO OTAKE ','SHO HARASAKI','2024-09-30 02:54:39.399578','r.otake@mamafactory.jp','SHO HARASAKI','MAMA FACTORY OTAKE CO.LTD.','+81 90 8496 5344','2024-09-30 02:54:39.399578',12),(3,'House 5/C, Road 01,\nMohammadpur','Nafiz Shahriar Nirjash','2024-10-04 23:54:06.481889','nafizshahriar@gmail.com','Nafiz Shahriar Nirjash','IDB','+88021255555','2024-10-04 23:54:06.481889',4);
 /*!40000 ALTER TABLE `customers` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -60,4 +59,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2024-10-25 22:53:04
+-- Dump completed on 2024-11-10 17:29:45

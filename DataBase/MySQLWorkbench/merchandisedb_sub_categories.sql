@@ -26,7 +26,6 @@ CREATE TABLE `sub_categories` (
   `id` bigint NOT NULL AUTO_INCREMENT,
   `name` varchar(255) DEFAULT NULL,
   `product_category_id` bigint DEFAULT NULL,
-  `description` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `FKdf169oghv4ymrk63rlxhjed7b` (`product_category_id`),
   CONSTRAINT `FKdf169oghv4ymrk63rlxhjed7b` FOREIGN KEY (`product_category_id`) REFERENCES `categories` (`id`)
@@ -39,7 +38,7 @@ CREATE TABLE `sub_categories` (
 
 LOCK TABLES `sub_categories` WRITE;
 /*!40000 ALTER TABLE `sub_categories` DISABLE KEYS */;
-INSERT INTO `sub_categories` VALUES (2,'Kid\'s Wear',6,NULL),(3,'Men\'s Wear',6,NULL),(4,'Women\'s Wear',6,NULL),(5,'Knitted Fabric',7,NULL),(6,'Nonwoven Fabric',7,NULL),(7,'Woven Fabric',7,NULL),(8,'Blended Yarn',8,NULL);
+INSERT INTO `sub_categories` VALUES (2,'Kid\'s Wear',6),(3,'Men\'s Wear',6),(4,'Women\'s Wear',6),(5,'Knitted Fabric',7),(6,'Nonwoven Fabric',7),(7,'Woven Fabric',7),(8,'Blended Yarn',8);
 /*!40000 ALTER TABLE `sub_categories` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -52,4 +51,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2024-10-25 22:53:05
+-- Dump completed on 2024-11-10 17:29:45

@@ -60,13 +60,13 @@ CREATE TABLE `country` (
 insert  into `country`(`id`,`name`,`bussiness`,`progress`,`sale`,`status`) values 
 (4,'Bangladesh ','Row Metarials&Garment','50',800000,'Rich'),
 (5,'	India','Fabric ','35',400000,'Good'),
-(6,'China','Yarn',NULL,650000,'Rich'),
-(7,'HONG KONG','Row Metarials&Fiber',NULL,380000,'Poor'),
-(8,'USA','Fabric ',NULL,850000,'Rich'),
-(9,'TORONTO','Garment',NULL,450000,'Good'),
-(10,' NEW YORK','Home Textiles',NULL,850000,'Rich'),
-(11,'SECAUCUS','Clothing Accessory',NULL,750000,'Rich'),
-(12,' Japan','Garment',NULL,530000,'Good');
+(6,'China','Yarn','40',650000,'Rich'),
+(7,'HONG KONG','Row Metarials&Fiber','45',380000,'Poor'),
+(8,'USA','Fabric ','50',850000,'Rich'),
+(9,'TORONTO','Garment','55',450000,'Good'),
+(10,' NEW YORK','Home Textiles','60',850000,'Rich'),
+(11,'SECAUCUS','Clothing Accessory','65',750000,'Rich'),
+(12,' Japan','Garment','70',530000,'Good');
 
 /*Table structure for table `customers` */
 
@@ -76,7 +76,6 @@ CREATE TABLE `customers` (
   `id` bigint NOT NULL AUTO_INCREMENT,
   `address` varchar(255) DEFAULT NULL,
   `contact_person` varchar(255) DEFAULT NULL,
-  `country` varchar(255) DEFAULT NULL,
   `created_at` datetime(6) DEFAULT NULL,
   `email` varchar(255) NOT NULL,
   `name` varchar(255) NOT NULL,
@@ -92,10 +91,10 @@ CREATE TABLE `customers` (
 
 /*Data for the table `customers` */
 
-insert  into `customers`(`id`,`address`,`contact_person`,`country`,`created_at`,`email`,`name`,`organigation`,`phone`,`updated_at`,`country_obj_id`) values 
-(1,'GARDENA, CA 90248USA','Mr Tony',NULL,'2024-09-30 02:51:15.301067','tony@fang-fashion.com','Mr Tony','FASHION LIFE/FANG','+115423','2024-09-30 02:51:15.301067',8),
-(2,'KAZUKO OTAKE ','SHO HARASAKI',NULL,'2024-09-30 02:54:39.399578','r.otake@mamafactory.jp','SHO HARASAKI','MAMA FACTORY OTAKE CO.LTD.','+81 90 8496 5344','2024-09-30 02:54:39.399578',12),
-(3,'House 5/C, Road 01,\nMohammadpur','Nafiz Shahriar Nirjash',NULL,'2024-10-04 23:54:06.481889','nafizshahriar@gmail.com','Nafiz Shahriar Nirjash','IDB','+88021255555','2024-10-04 23:54:06.481889',4);
+insert  into `customers`(`id`,`address`,`contact_person`,`created_at`,`email`,`name`,`organigation`,`phone`,`updated_at`,`country_obj_id`) values 
+(1,'GARDENA, CA 90248USA','Mr Tony','2024-09-30 02:51:15.301067','tony@fang-fashion.com','Mr Tony','FASHION LIFE/FANG','+115423','2024-09-30 02:51:15.301067',8),
+(2,'KAZUKO OTAKE ','SHO HARASAKI','2024-09-30 02:54:39.399578','r.otake@mamafactory.jp','SHO HARASAKI','MAMA FACTORY OTAKE CO.LTD.','+81 90 8496 5344','2024-09-30 02:54:39.399578',12),
+(3,'House 5/C, Road 01,\nMohammadpur','Nafiz Shahriar Nirjash','2024-10-04 23:54:06.481889','nafizshahriar@gmail.com','Nafiz Shahriar Nirjash','IDB','+88021255555','2024-10-04 23:54:06.481889',4);
 
 /*Table structure for table `inventory_items` */
 
@@ -104,60 +103,16 @@ DROP TABLE IF EXISTS `inventory_items`;
 CREATE TABLE `inventory_items` (
   `id` bigint NOT NULL AUTO_INCREMENT,
   `stock` bigint NOT NULL,
-  `warehouse_id` bigint DEFAULT NULL,
   `product_id` bigint DEFAULT NULL,
   `ware_house_id` bigint DEFAULT NULL,
-  `country_id` int DEFAULT NULL,
-  `customer_id` bigint DEFAULT NULL,
-  `order_item_id` bigint DEFAULT NULL,
-  `sale_id` bigint DEFAULT NULL,
-  `stock_id` int DEFAULT NULL,
   PRIMARY KEY (`id`),
-  KEY `FKqq1baol3lk2v7ka2ob578l31h` (`warehouse_id`),
   KEY `FK9qhblf3mc4r22jajlv4w6sstt` (`product_id`),
   KEY `FKm75avxhur1gw9guj9tilobrv1` (`ware_house_id`),
-  KEY `FK7fkemo5vo2whnblncvotptlaq` (`country_id`),
-  KEY `FKecrhx7mebf9ox08faxhejleeb` (`customer_id`),
-  KEY `FKlkmw53gec48hel4qlmt56qa54` (`order_item_id`),
-  KEY `FK5107kmw2sbomj9ihbsth8km2i` (`sale_id`),
-  KEY `FKkxk7c974o20i1dx02y09gfotd` (`stock_id`),
-  CONSTRAINT `FK5107kmw2sbomj9ihbsth8km2i` FOREIGN KEY (`sale_id`) REFERENCES `sales` (`id`),
-  CONSTRAINT `FK7fkemo5vo2whnblncvotptlaq` FOREIGN KEY (`country_id`) REFERENCES `country` (`id`),
   CONSTRAINT `FK9qhblf3mc4r22jajlv4w6sstt` FOREIGN KEY (`product_id`) REFERENCES `products` (`id`),
-  CONSTRAINT `FKecrhx7mebf9ox08faxhejleeb` FOREIGN KEY (`customer_id`) REFERENCES `customers` (`id`),
-  CONSTRAINT `FKkxk7c974o20i1dx02y09gfotd` FOREIGN KEY (`stock_id`) REFERENCES `stock` (`id`),
-  CONSTRAINT `FKlkmw53gec48hel4qlmt56qa54` FOREIGN KEY (`order_item_id`) REFERENCES `order_items` (`id`),
-  CONSTRAINT `FKm75avxhur1gw9guj9tilobrv1` FOREIGN KEY (`ware_house_id`) REFERENCES `warehouses` (`id`),
-  CONSTRAINT `FKqq1baol3lk2v7ka2ob578l31h` FOREIGN KEY (`warehouse_id`) REFERENCES `warehouses` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-
-/*Data for the table `inventory_items` */
-
-/*Table structure for table `measurement` */
-
-DROP TABLE IF EXISTS `measurement`;
-
-CREATE TABLE `measurement` (
-  `id` bigint NOT NULL AUTO_INCREMENT,
-  `attachment_description` varchar(255) DEFAULT NULL,
-  `attachment_name` varchar(255) DEFAULT NULL,
-  `code_name` varchar(255) DEFAULT NULL,
-  `large` varchar(255) DEFAULT NULL,
-  `measurement_description` varchar(255) DEFAULT NULL,
-  `measurement_name` varchar(255) DEFAULT NULL,
-  `measurement_tolerance` varchar(255) DEFAULT NULL,
-  `medium` varchar(255) DEFAULT NULL,
-  `small` varchar(255) DEFAULT NULL,
-  `tolerance` varchar(255) DEFAULT NULL,
-  `style_category_id` bigint DEFAULT NULL,
-  `x_large` varchar(255) DEFAULT NULL,
-  `x_small` varchar(255) DEFAULT NULL,
-  `xxlarge` varchar(255) DEFAULT NULL,
-  PRIMARY KEY (`id`),
-  KEY `FKted6rhfi8ufa8klgy50rbomd4` (`style_category_id`)
+  CONSTRAINT `FKm75avxhur1gw9guj9tilobrv1` FOREIGN KEY (`ware_house_id`) REFERENCES `warehouses` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
-/*Data for the table `measurement` */
+/*Data for the table `inventory_items` */
 
 /*Table structure for table `order_items` */
 
@@ -212,55 +167,29 @@ CREATE TABLE `products` (
   `total_price` double NOT NULL,
   `sub_categories_id` bigint DEFAULT NULL,
   `supplier_id` bigint DEFAULT NULL,
-  `measurement_id` bigint DEFAULT NULL,
-  `size` varchar(255) DEFAULT NULL,
   `sizes` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `FKklfbf25x7jf9pg19jhojq5pg2` (`sub_categories_id`),
   KEY `FK6i174ixi9087gcvvut45em7fd` (`supplier_id`),
-  KEY `FKg6eympawq00m1mayfxecs2qvc` (`measurement_id`),
   CONSTRAINT `FK6i174ixi9087gcvvut45em7fd` FOREIGN KEY (`supplier_id`) REFERENCES `suppliers` (`id`),
-  CONSTRAINT `FKg6eympawq00m1mayfxecs2qvc` FOREIGN KEY (`measurement_id`) REFERENCES `measurement` (`id`),
   CONSTRAINT `FKklfbf25x7jf9pg19jhojq5pg2` FOREIGN KEY (`sub_categories_id`) REFERENCES `sub_categories` (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 /*Data for the table `products` */
 
-insert  into `products`(`id`,`dalivary_date`,`description`,`due`,`image`,`name`,`paid`,`price`,`product_code`,`purchase_date`,`quantity`,`tax`,`total_price`,`sub_categories_id`,`supplier_id`,`measurement_id`,`size`,`sizes`) values 
-(3,'2024-10-31','We are a professional manufacturer and exporter and our expertise is in Girl Unicorn Onesie . \nThese Wrap yourself with our exquisite Girl Unicorn...',0,'c2b6bc7d-f820-4756-ac31-3311a2607bf5_24218606_2_girl-unicorn-onesie-supplier.webp','Girl Unicorn Onesie',52500,200,'slqq4','2024-09-27',250,5,52500,NULL,NULL,NULL,NULL,NULL),
-(4,'2024-10-24','We introduce our company as a well renowned maker and exporter of Kid\'s Formal Shorts . We have achieved expertise in catering to the requirements...',0,'5ef636ed-89c5-4616-8edd-b10bd39455b4_24221923_0_twill-short-frt-removebg-preview.webp','Kid\'s Formal Shorts',15900,150,'wwrsw','2024-09-28',100,6,15900,NULL,NULL,NULL,NULL,NULL),
-(5,'2024-11-01','We introduce our self as a pioneer in the field of Women\'s Long Denim Skirt . Our Customizable Women\'s Long Denim Skirt with Front pocket and Slit...',0,'228836dc-5364-4ec6-bc06-76592ff4a039_24220755_0_10.webp','Women\'s Long Denim Skirt',155250,900,'ywjv5','2024-09-28',150,15,155250,4,NULL,NULL,NULL,'Medium,Large,Xlarge'),
-(6,'2024-10-31','We are a top-ranking company which is specialized in Kids Wool Half-Sleeve Knee-Length Dress . A perfect fusion of classic elegance and...',0,'42ac1ffb-93e6-4658-be0f-ee9558ddf223_24218604_0_651d4f60-e205-4d98-a5b2-b632-3d5478a1.webp',' Kids Wool Half-Sleeve Knee-Length Dress',261625,350,'pu67q','2024-09-28',650,15,261625,2,15,NULL,NULL,'Xsmall,Small,Medium'),
-(7,'2024-11-29','We introduce our company as a well renowned maker and exporter of Kids Stylish Sweater . We offer kids\' sweaters made from a variety of materials...',0,'6c62644f-53e7-4cda-92b3-fcfb87121089_24221245_7_kids-stylish-sweater.webp','Kids Stylish Sweater',265650,350,'puujo','2024-09-28',690,10,265650,2,14,NULL,NULL,NULL),
-(8,'2024-11-28','We get huge pleasure and pride in introducing our company as one of the leading manufacturers & exporters of Men\'s Gym Half-sleeve T-shirts.',0,'f4940112-8da9-4c86-bfda-729c6512051d_23217766_1_58.webp','Men\'s Gym Half-sleeve T-shirts Supplier',241500,460,'9vnhv','2024-09-30',500,5,241500,3,15,NULL,NULL,'Xsmall,Small,Medium'),
-(9,'2024-09-30','We take immense pleasure and pride in introducing our company as one of the leading manufacturers &amp; exporters of Men Stylish Sweater . We...',-5000,'39eeb2f9-41f2-4eec-9aaf-ecf4b7265dc3_23217766_1_58_59 (1).webp','Men Stylish Sweater',490000,900,'9vrzq','2024-09-29',500,10,495000,3,14,NULL,NULL,NULL),
-(10,NULL,'Our company excels in the manufacturing of Knitted Jacquard Fabric. Our exquisite Luxury Embroidered Jacquard is a unique weaving technique that integrates intricate patterns directly into the material...',-15000,'114bed77-b439-4426-9dcd-dbd74af21eed_23217916_0_2.webp','Knitted Jacquard Fabric',100000,1000,'xp4th',NULL,100,15,115000,5,15,NULL,NULL,'Large'),
-(11,NULL,'We are considered as one of the most remarkable and renowned manufacturer &amp; exporter of Dyed Warp Polyester Fabric . This enables us to cater...',0,'cb8ac4c8-5058-4317-b446-181249660141_16121030_2_poyerster-fabric-400-gsm-dyed-wrap-supplier.webp','Dyed Warp Polyester Fabric',68750,2.5,'jzup4',NULL,25000,10,68750,5,17,NULL,NULL,'Kg'),
-(12,NULL,'We are reckoned as an established manufacturer and exporter of Woolen Blends for knitting purpose. We would like to sell yarn in dyed pattern...',0,'72d662f5-341d-4513-af56-7dd86f6c7fde_24222610_0_spun-polyester-yarn.webp','Woolen Blends : Dyed, Knitting, 10-80, Wool, Linen, Polyester, Cotton',1058400,900,'poquw','2024-10-04',980,20,1058400,8,17,NULL,NULL,'Kg'),
-(13,NULL,'Riding on unfathomable volumes of industrial expertise, we are providing a broad array of Silk Yarn .',0,'436e7ee6-ec52-4ae8-8d4f-d345c0df5e1a_1361213_1_20131004075055063238_2.webp','Silk Yarn',585000,750,'5ompx','2024-10-04',650,20,585000,8,14,NULL,NULL,'Kg'),
-(14,NULL,'We are manufacturer &amp; exporter of FSC BCI Bamboo Cotton Yarn made out of 70% Bamboo 30% Cotton / 50% Bamboo / 50% Cotton. Can supply these...',0,'8152651e-bada-47fd-baf7-efca6b0d4dc2_20181741_0_bamboo-yarn.webp','FSC BCI Bamboo Cotton Yarn',1008000,1000,'ppvh5','2024-10-04',960,5,1008000,8,15,NULL,NULL,'Kg');
-
-/*Table structure for table `raw_materiaes` */
-
-DROP TABLE IF EXISTS `raw_materiaes`;
-
-CREATE TABLE `raw_materiaes` (
-  `id` bigint NOT NULL AUTO_INCREMENT,
-  `attachment` varchar(255) DEFAULT NULL,
-  `description` varchar(255) DEFAULT NULL,
-  `raw_catagoey_name` varchar(255) DEFAULT NULL,
-  `raw_metarial_name` varchar(255) DEFAULT NULL,
-  `unit_price` double NOT NULL,
-  `customer_id` bigint DEFAULT NULL,
-  `style_categories_id` bigint DEFAULT NULL,
-  PRIMARY KEY (`id`),
-  KEY `FKrejg1ts0cqpvualcdjdka34d6` (`customer_id`),
-  KEY `FKx5gbsqmsd1qugyn2yo2d3vbe` (`style_categories_id`),
-  CONSTRAINT `FKrejg1ts0cqpvualcdjdka34d6` FOREIGN KEY (`customer_id`) REFERENCES `customers` (`id`),
-  CONSTRAINT `FKx5gbsqmsd1qugyn2yo2d3vbe` FOREIGN KEY (`style_categories_id`) REFERENCES `style_categories` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-
-/*Data for the table `raw_materiaes` */
+insert  into `products`(`id`,`dalivary_date`,`description`,`due`,`image`,`name`,`paid`,`price`,`product_code`,`purchase_date`,`quantity`,`tax`,`total_price`,`sub_categories_id`,`supplier_id`,`sizes`) values 
+(3,'2024-10-31','We are a professional manufacturer and exporter and our expertise is in Girl Unicorn Onesie . \nThese Wrap yourself with our exquisite Girl Unicorn...',0,'c2b6bc7d-f820-4756-ac31-3311a2607bf5_24218606_2_girl-unicorn-onesie-supplier.webp','Girl Unicorn Onesie',52500,200,'slqq4','2024-09-27',250,5,52500,3,15,'Xsmall,Small,Medium'),
+(4,'2024-10-24','We introduce our company as a well renowned maker and exporter of Kid\'s Formal Shorts . We have achieved expertise in catering to the requirements...',0,'5ef636ed-89c5-4616-8edd-b10bd39455b4_24221923_0_twill-short-frt-removebg-preview.webp','Kid\'s Formal Shorts',15900,150,'wwrsw','2024-09-28',100,6,15900,2,14,'Xsmall,Small,Medium'),
+(5,'2024-11-01','We introduce our self as a pioneer in the field of Women\'s Long Denim Skirt . Our Customizable Women\'s Long Denim Skirt with Front pocket and Slit...',0,'228836dc-5364-4ec6-bc06-76592ff4a039_24220755_0_10.webp','Women\'s Long Denim Skirt',155250,900,'ywjv5','2024-09-28',150,15,155250,4,17,'Medium,Large,Xlarge'),
+(6,'2024-10-31','We are a top-ranking company which is specialized in Kids Wool Half-Sleeve Knee-Length Dress . A perfect fusion of classic elegance and...',0,'42ac1ffb-93e6-4658-be0f-ee9558ddf223_24218604_0_651d4f60-e205-4d98-a5b2-b632-3d5478a1.webp',' Kids Wool Half-Sleeve Knee-Length Dress',261625,350,'pu67q','2024-09-28',650,15,261625,2,15,'Xsmall,Small,Medium'),
+(7,'2024-11-29','We introduce our company as a well renowned maker and exporter of Kids Stylish Sweater . We offer kids\' sweaters made from a variety of materials...',0,'6c62644f-53e7-4cda-92b3-fcfb87121089_24221245_7_kids-stylish-sweater.webp','Kids Stylish Sweater',265650,350,'puujo','2024-09-28',690,10,265650,2,14,'Xsmall,Small,Medium'),
+(8,'2024-11-28','We get huge pleasure and pride in introducing our company as one of the leading manufacturers & exporters of Men\'s Gym Half-sleeve T-shirts.',0,'f4940112-8da9-4c86-bfda-729c6512051d_23217766_1_58.webp','Men\'s Gym Half-sleeve T-shirts Supplier',241500,460,'9vnhv','2024-09-30',500,5,241500,3,15,'Xsmall,Small,Medium'),
+(9,'2024-09-30','We take immense pleasure and pride in introducing our company as one of the leading manufacturers &amp; exporters of Men Stylish Sweater . We...',-5000,'39eeb2f9-41f2-4eec-9aaf-ecf4b7265dc3_23217766_1_58_59 (1).webp','Men Stylish Sweater',490000,900,'9vrzq','2024-09-29',500,10,495000,3,14,'Xsmall,Small,Medium'),
+(10,'2024-11-01','Our company excels in the manufacturing of Knitted Jacquard Fabric. Our exquisite Luxury Embroidered Jacquard is a unique weaving technique that integrates intricate patterns directly into the material...',-15000,'114bed77-b439-4426-9dcd-dbd74af21eed_23217916_0_2.webp','Knitted Jacquard Fabric',100000,1000,'xp4th',NULL,100,15,115000,5,15,'Large'),
+(11,'2024-11-01','We are considered as one of the most remarkable and renowned manufacturer &amp; exporter of Dyed Warp Polyester Fabric . This enables us to cater...',0,'cb8ac4c8-5058-4317-b446-181249660141_16121030_2_poyerster-fabric-400-gsm-dyed-wrap-supplier.webp','Dyed Warp Polyester Fabric',68750,2.5,'jzup4',NULL,25000,10,68750,5,17,'Kg'),
+(12,'2024-11-01','We are reckoned as an established manufacturer and exporter of Woolen Blends for knitting purpose. We would like to sell yarn in dyed pattern...',0,'72d662f5-341d-4513-af56-7dd86f6c7fde_24222610_0_spun-polyester-yarn.webp','Woolen Blends : Dyed, Knitting, 10-80, Wool, Linen, Polyester, Cotton',1058400,900,'poquw','2024-10-04',980,20,1058400,8,17,'Kg'),
+(13,'2024-11-01','Riding on unfathomable volumes of industrial expertise, we are providing a broad array of Silk Yarn .',0,'436e7ee6-ec52-4ae8-8d4f-d345c0df5e1a_1361213_1_20131004075055063238_2.webp','Silk Yarn',585000,750,'5ompx','2024-10-04',650,20,585000,8,14,'Kg'),
+(14,'2024-11-01','We are manufacturer &amp; exporter of FSC BCI Bamboo Cotton Yarn made out of 70% Bamboo 30% Cotton / 50% Bamboo / 50% Cotton. Can supply these...',0,'8152651e-bada-47fd-baf7-efca6b0d4dc2_20181741_0_bamboo-yarn.webp','FSC BCI Bamboo Cotton Yarn',1008000,1000,'ppvh5','2024-10-04',960,5,1008000,8,15,'Kg');
 
 /*Table structure for table `sales` */
 
@@ -274,27 +203,24 @@ CREATE TABLE `sales` (
   `total_price` double NOT NULL,
   `customer_id` bigint NOT NULL,
   `product_id` bigint NOT NULL,
-  `order_item_id` bigint DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `FKd94vrikapjd2ews1k4lb71sfg` (`customer_id`),
   KEY `FKkxc13g7l4ioljxqyoo15nh051` (`product_id`),
-  KEY `FKmfbspncsart1krrs1y3wfjdvt` (`order_item_id`),
   CONSTRAINT `FKd94vrikapjd2ews1k4lb71sfg` FOREIGN KEY (`customer_id`) REFERENCES `customers` (`id`),
-  CONSTRAINT `FKkxc13g7l4ioljxqyoo15nh051` FOREIGN KEY (`product_id`) REFERENCES `products` (`id`),
-  CONSTRAINT `FKmfbspncsart1krrs1y3wfjdvt` FOREIGN KEY (`order_item_id`) REFERENCES `order_items` (`id`)
+  CONSTRAINT `FKkxc13g7l4ioljxqyoo15nh051` FOREIGN KEY (`product_id`) REFERENCES `products` (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=35 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 /*Data for the table `sales` */
 
-insert  into `sales`(`id`,`price`,`quantity`,`sale_date`,`total_price`,`customer_id`,`product_id`,`order_item_id`) values 
-(27,150,150,'2024-10-15',22500,1,4,NULL),
-(28,150,50,'2024-10-15',7500,2,4,NULL),
-(29,900,100,'2024-10-15',90000,3,9,NULL),
-(30,350,50,'2024-10-15',17500,2,6,NULL),
-(31,460,200,'2024-10-15',92000,3,8,NULL),
-(32,350,100,'2024-10-15',35000,3,7,NULL),
-(33,0,100,'2024-10-15',75000,3,13,NULL),
-(34,1000,150,'2024-10-17',150000,2,14,NULL);
+insert  into `sales`(`id`,`price`,`quantity`,`sale_date`,`total_price`,`customer_id`,`product_id`) values 
+(27,150,150,'2024-10-15',22500,1,4),
+(28,150,50,'2024-10-15',7500,2,4),
+(29,900,100,'2024-10-15',90000,3,9),
+(30,350,50,'2024-10-15',17500,2,6),
+(31,460,200,'2024-10-15',92000,3,8),
+(32,350,100,'2024-10-15',35000,3,7),
+(33,750,100,'2024-10-15',75000,3,13),
+(34,1000,150,'2024-10-17',150000,2,14);
 
 /*Table structure for table `stock` */
 
@@ -302,54 +228,33 @@ DROP TABLE IF EXISTS `stock`;
 
 CREATE TABLE `stock` (
   `id` int NOT NULL AUTO_INCREMENT,
-  `catagory_name` varchar(255) DEFAULT NULL,
   `created_at` datetime(6) DEFAULT NULL,
   `quantity` double NOT NULL,
   `updated_at` datetime(6) DEFAULT NULL,
   `product_id` bigint DEFAULT NULL,
-  `raw_materiaes_id` bigint DEFAULT NULL,
-  `warehouse_id` bigint DEFAULT NULL,
   `ware_house_id` bigint DEFAULT NULL,
-  `measurement_id` bigint DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `FKeuiihog7wq4cu7nvqu7jx57d2` (`product_id`),
-  KEY `FKpq1uuh2afnfqkuy8dqkrkewm5` (`raw_materiaes_id`),
-  KEY `FKpx2sjs5k0wdolrps3puo2skaw` (`warehouse_id`),
   KEY `FK3x8qdgc25qum6we9ot0bhbnb8` (`ware_house_id`),
-  KEY `FKouk4vmv6ojy0kqb17lpv2p3h6` (`measurement_id`),
   CONSTRAINT `FK3x8qdgc25qum6we9ot0bhbnb8` FOREIGN KEY (`ware_house_id`) REFERENCES `warehouses` (`id`),
-  CONSTRAINT `FKeuiihog7wq4cu7nvqu7jx57d2` FOREIGN KEY (`product_id`) REFERENCES `products` (`id`),
-  CONSTRAINT `FKouk4vmv6ojy0kqb17lpv2p3h6` FOREIGN KEY (`measurement_id`) REFERENCES `measurement` (`id`),
-  CONSTRAINT `FKpq1uuh2afnfqkuy8dqkrkewm5` FOREIGN KEY (`raw_materiaes_id`) REFERENCES `raw_materiaes` (`id`),
-  CONSTRAINT `FKpx2sjs5k0wdolrps3puo2skaw` FOREIGN KEY (`warehouse_id`) REFERENCES `warehouses` (`id`)
+  CONSTRAINT `FKeuiihog7wq4cu7nvqu7jx57d2` FOREIGN KEY (`product_id`) REFERENCES `products` (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=26 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 /*Data for the table `stock` */
 
-insert  into `stock`(`id`,`catagory_name`,`created_at`,`quantity`,`updated_at`,`product_id`,`raw_materiaes_id`,`warehouse_id`,`ware_house_id`,`measurement_id`) values 
-(1,NULL,'2024-09-29 00:00:00.000000',0,'2024-09-29 15:37:38.374450',3,NULL,NULL,7,NULL),
-(2,NULL,'2024-09-29 00:00:00.000000',0,'2024-09-29 15:38:18.914262',4,NULL,NULL,7,NULL),
-(3,NULL,'2024-09-29 00:00:00.000000',0,'2024-09-29 15:46:21.692890',5,NULL,NULL,8,NULL),
-(4,NULL,'2024-09-29 00:00:00.000000',0,'2024-09-29 15:47:54.050771',6,NULL,NULL,9,NULL),
-(7,NULL,'2024-09-29 00:00:00.000000',0,'2024-09-29 18:58:21.265558',8,NULL,NULL,10,NULL),
-(15,NULL,'2024-10-01 00:39:47.048089',0,'2024-10-01 00:39:47.048089',10,NULL,NULL,12,NULL),
-(19,NULL,'2024-10-01 00:57:45.006884',0,'2024-10-01 00:57:45.006884',11,NULL,NULL,10,NULL),
-(21,NULL,'2024-10-01 01:09:51.559287',0,'2024-10-01 01:09:51.559287',10,NULL,NULL,12,NULL),
-(22,NULL,'2024-10-01 01:17:09.042165',0,'2024-10-01 01:17:09.042165',11,NULL,NULL,9,NULL),
-(23,NULL,'2024-10-17 01:35:59.240322',0,'2024-10-17 01:35:59.242323',12,NULL,NULL,10,NULL),
-(24,NULL,'2024-10-17 01:36:31.785882',0,'2024-10-17 01:36:31.785882',13,NULL,NULL,8,NULL),
-(25,NULL,'2024-10-17 01:36:53.528819',0,'2024-10-17 01:36:53.528819',14,NULL,NULL,12,NULL);
-
-/*Table structure for table `style_categories` */
-
-DROP TABLE IF EXISTS `style_categories`;
-
-CREATE TABLE `style_categories` (
-  `id` bigint NOT NULL AUTO_INCREMENT,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-
-/*Data for the table `style_categories` */
+insert  into `stock`(`id`,`created_at`,`quantity`,`updated_at`,`product_id`,`ware_house_id`) values 
+(1,'2024-09-29 00:00:00.000000',0,'2024-09-29 15:37:38.374450',3,7),
+(2,'2024-09-29 00:00:00.000000',0,'2024-09-29 15:38:18.914262',4,7),
+(3,'2024-09-29 00:00:00.000000',0,'2024-09-29 15:46:21.692890',5,8),
+(4,'2024-09-29 00:00:00.000000',0,'2024-09-29 15:47:54.050771',6,9),
+(7,'2024-09-29 00:00:00.000000',0,'2024-09-29 18:58:21.265558',8,10),
+(15,'2024-10-01 00:39:47.048089',0,'2024-10-01 00:39:47.048089',10,12),
+(19,'2024-10-01 00:57:45.006884',0,'2024-10-01 00:57:45.006884',11,10),
+(21,'2024-10-01 01:09:51.559287',0,'2024-10-01 01:09:51.559287',10,12),
+(22,'2024-10-01 01:17:09.042165',0,'2024-10-01 01:17:09.042165',11,9),
+(23,'2024-10-17 01:35:59.240322',0,'2024-10-17 01:35:59.242323',12,10),
+(24,'2024-10-17 01:36:31.785882',0,'2024-10-17 01:36:31.785882',13,8),
+(25,'2024-10-17 01:36:53.528819',0,'2024-10-17 01:36:53.528819',14,12);
 
 /*Table structure for table `sub_categories` */
 
@@ -359,7 +264,6 @@ CREATE TABLE `sub_categories` (
   `id` bigint NOT NULL AUTO_INCREMENT,
   `name` varchar(255) DEFAULT NULL,
   `product_category_id` bigint DEFAULT NULL,
-  `description` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `FKdf169oghv4ymrk63rlxhjed7b` (`product_category_id`),
   CONSTRAINT `FKdf169oghv4ymrk63rlxhjed7b` FOREIGN KEY (`product_category_id`) REFERENCES `categories` (`id`)
@@ -367,14 +271,14 @@ CREATE TABLE `sub_categories` (
 
 /*Data for the table `sub_categories` */
 
-insert  into `sub_categories`(`id`,`name`,`product_category_id`,`description`) values 
-(2,'Kid\'s Wear',6,NULL),
-(3,'Men\'s Wear',6,NULL),
-(4,'Women\'s Wear',6,NULL),
-(5,'Knitted Fabric',7,NULL),
-(6,'Nonwoven Fabric',7,NULL),
-(7,'Woven Fabric',7,NULL),
-(8,'Blended Yarn',8,NULL);
+insert  into `sub_categories`(`id`,`name`,`product_category_id`) values 
+(2,'Kid\'s Wear',6),
+(3,'Men\'s Wear',6),
+(4,'Women\'s Wear',6),
+(5,'Knitted Fabric',7),
+(6,'Nonwoven Fabric',7),
+(7,'Woven Fabric',7),
+(8,'Blended Yarn',8);
 
 /*Table structure for table `suppliers` */
 
@@ -414,14 +318,13 @@ CREATE TABLE `to_do_task` (
   `description` varchar(255) DEFAULT NULL,
   `status` enum('COMPLETED','PENDING','RUNNING') DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=35 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=34 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 /*Data for the table `to_do_task` */
 
 insert  into `to_do_task`(`id`,`description`,`status`) values 
 (32,'make an appointment','PENDING'),
-(33,'Merying with BMG','PENDING'),
-(34,'check Transaction History','PENDING');
+(33,'Merying with BMG','PENDING');
 
 /*Table structure for table `token` */
 
@@ -435,7 +338,7 @@ CREATE TABLE `token` (
   PRIMARY KEY (`id`),
   KEY `FKj8rfw4x0wjjyibfqq566j4qng` (`user_id`),
   CONSTRAINT `FKj8rfw4x0wjjyibfqq566j4qng` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=83 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=75 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 /*Data for the table `token` */
 
@@ -454,10 +357,7 @@ insert  into `token`(`id`,`is_logged_out`,`token`,`user_id`) values
 (71,'\0','eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJzaGFiYWJAZ21haWwuY29tIiwicm9sZSI6IlVTRVIiLCJpYXQiOjE3Mjk4NzQyMDEsImV4cCI6MTcyOTk2MDYwMX0.WfUJypsJOFsYknoLzPtY4LJ8QLiyVntoVXiXiUAhiF_-p5gg4-aAEdJWo3xZN0wS',26),
 (72,'\0','eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJhcm1hbkBnbWFpbC5jb20iLCJyb2xlIjoiVVNFUiIsImlhdCI6MTcyOTg3NDU1NCwiZXhwIjoxNzI5OTYwOTU0fQ.xUSLJpiptCq69pe5rtwXQDLgbCe3gh2tgmPliArx0PIGr22-W5Yl9kokIfGOm20u',27),
 (73,'','eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJuYXlhbXVsaXNsYW1AZ21haWwuY29tIiwicm9sZSI6IkFETUlOIiwiaWF0IjoxNzI5ODc0NjY4LCJleHAiOjE3Mjk5NjEwNjh9.Rb37gx3jNmVyAblUJKiPWGhDTRh6tpZ8tTuvLThyobJH4oDvTnET7_BakEnPwqEh',25),
-(75,'','eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJzaGFydGhvazIxQGdtYWlsLmNvbSIsInJvbGUiOiJVU0VSIiwiaWF0IjoxNzMwMDU0NjA5LCJleHAiOjE3MzAxNDEwMDl9.JPTf922PJ1eY5_s7Q-34ZAZzscgKIk3gPYQH1cUVCSDoC28iLbXszImx0P-Rn3IA',30),
-(76,'\0','eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJzaGFydGhvazIxQGdtYWlsLmNvbSIsInJvbGUiOiJBRE1JTiIsImlhdCI6MTczMDA1NDY4OCwiZXhwIjoxNzMwMTQxMDg4fQ.3vp5EUqDaKauQHZqowVC5ZyoQhe5eFGprzIFlmhWEQ0-Etv5qLpJom-JyimPZKCN',30),
-(79,'','eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJuYXlhbXVsaXNsYW1AZ21haWwuY29tIiwicm9sZSI6IkFETUlOIiwiaWF0IjoxNzMwMDU1OTAwLCJleHAiOjE3MzAxNDIzMDB9.ZGeopDykeD_cFdJdXLrrYDeBHpM9n8HVkXI1aAAHcuv90O5G3gGVkF7YKzGO49US',25),
-(82,'\0','eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJuYXlhbXVsaXNsYW1AZ21haWwuY29tIiwicm9sZSI6IkFETUlOIiwiaWF0IjoxNzMwMDU2NzMxLCJleHAiOjE3MzAxNDMxMzF9.qzVKs1WtTkRBZRnKR2GQho8doRZK2SyhfeofDwvgdVDkznyVh1dZ_YEnm65FMUfi',25);
+(74,'\0','eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJuYXlhbXVsaXNsYW1AZ21haWwuY29tIiwicm9sZSI6IkFETUlOIiwiaWF0IjoxNzMxMTUyNDMxLCJleHAiOjE3MzEyMzg4MzF9.XYc1EY5MnWiv1g-si1a94nX1wDfh3rQF_H2n-SLqXLtDsSbD56v6tdQcBYgUnPcD',25);
 
 /*Table structure for table `transaction` */
 
@@ -496,7 +396,7 @@ CREATE TABLE `users` (
   `dob` date DEFAULT NULL,
   `gender` varchar(255) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=34 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=29 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 /*Data for the table `users` */
 
@@ -504,8 +404,7 @@ insert  into `users`(`id`,`email`,`image`,`name`,`password`,`role`,`active`,`is_
 (25,'nayamulislam@gmail.com','99f6e2a0-d236-475d-bb6d-f0a46a444f8d_VIP-33770.jpg','Neyamul Islam','$2a$10$2pFN/68GxCB87g35v/iba.AwgG7cV8V7Alo.KIPw.dvTwv8Wjaf/S','ADMIN','','','+880523123211','Mohammodpur, Dhaka','1994-01-02','Male'),
 (26,'shabab@gmail.com','bfba2630-123a-4d44-9bea-764b4fb297a8_4RQ1v2yp_400x400.jpg','Shabab Ahamed','$2a$10$gRw.9D9jbxrygd8K9mgaa.KB5dI8275w9QbZ0dYnLOkxK32pJyV26','USER','','','+882564115656','kallanpur, Dhaka','1997-09-18','Male'),
 (27,'arman@gmail.com','df115e45-5046-494f-b40e-7843d84e26e6_my-passport-photo.jpg','Arman Biswas','$2a$10$XzQ31DSx1T9cbxlYxVl5XOLRsvNEhBgygGPgdD5V5tfoVqO1WZy3i','USER','','','+88052652414','Framget, Dhaka','2000-12-19','Male'),
-(28,'1302neyamulislamnirob@gmail.com','9cf82698-bea5-49f5-87bf-94832a99a6cd_IMG_20220127_163119.jpg','Neyamul Nirob','$2a$10$LEtcpCFy17ITwZR1LZhpbO8nhxZietfdwpdzdvIJu79/XWexyo/0e','ADMIN','','','+88026356511','Mohammodpur, Dhaka','1995-02-03','Male'),
-(30,'sharthok21@gmail.com','1d3bf184-49f6-4352-9ded-0a6b16244205_2.png','Arman Biswas Shawon','$2a$10$1sBMhKaermA7Y28EoEfYjO4Xs/IYvp6cAcbwqrDGWFGTrLtejkCR6','ADMIN','','','+8801112222223232','Phultola, Khulna ','1999-12-10','Male');
+(28,'1302neyamulislamnirob@gmail.com','9cf82698-bea5-49f5-87bf-94832a99a6cd_IMG_20220127_163119.jpg','Neyamul Nirob','$2a$10$LEtcpCFy17ITwZR1LZhpbO8nhxZietfdwpdzdvIJu79/XWexyo/0e','ADMIN','','','+88026356511','Mohammodpur, Dhaka','1995-02-03','Male');
 
 /*Table structure for table `warehouses` */
 

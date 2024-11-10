@@ -49,6 +49,8 @@ The Merchandise Management ERP System is a comprehensive web application designe
 - :  Visual Studio
 - :  Spring Initializer
 - :  Java JDK 21+
+- :  Git & GitHub
+- :  Postman
 
 
 **================= Dummy Database Initialization USING QUERY =================**  

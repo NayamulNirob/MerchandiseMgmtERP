@@ -372,15 +372,115 @@
                             <div>
 
                                 <p class="card-text">
+                                    <strong>More In Sizes:</strong> {{selectedProduct?.price}}
                                     <strong>Description:</strong> {{selectedProduct?.description}}<br><br>
                                     <strong>Product Code:</strong> {{selectedProduct?.productCode}}<br>
                                     <strong>Price:</strong> {{selectedProduct?.price }}<br>
                                     <strong>More In Sizes:</strong> {{selectedProduct?.sizes}}
+                                    <strong>More In Sizes:</strong> {{selectedProduct?.purchaseDate}}
+                                    
                                 </p>
                             </div>
                         </div>
                     </div>
                 </div>
+
+                <div class="card mb-4 bg-dark text-white justify-content-center d-flex mt-5">
+
+                    <div class="card-body mat-elevation-z8">
+
+                        <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel"
+                            (slid.bs.carousel)="updateSelectedProduct($event)">
+                            <div class="carousel-inner mat-elevation-z8">
+
+                                <ng-container *ngFor="let u of product; let i = index">
+                                    <div class="carousel-item" [ngClass]="{'active': i === 0}">
+                                        <img src="http://localhost:8089/images/{{u.image}}" class="d-block w-100"
+                                            alt="{{u.name}}">
+                                    </div>
+                                </ng-container>
+
+                            </div>
+
+                            <button class="carousel-control-prev" type="button"
+                                data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                <span class="visually-hidden">Previous</span>
+                            </button>
+                            <button class="carousel-control-next" type="button"
+                                data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                <span class="visually-hidden">Next</span>
+                            </button>
+                        </div>
+
+                        <div class="text-center">
+                            <h5 class="card-title mt-1">{{ selectedProduct?.name }}</h5>
+                            <div>
+
+                                <p class="card-text">
+                                    <strong>More In Sizes:</strong> {{selectedProduct?.price}}
+                                    <strong>Description:</strong> {{selectedProduct?.description}}<br><br>
+                                    <strong>Product Code:</strong> {{selectedProduct?.productCode}}<br>
+                                    <strong>Price:</strong> {{selectedProduct?.price }}<br>
+                                    <strong>More In Sizes:</strong> {{selectedProduct?.sizes}}
+                                    <strong>More In Sizes:</strong> {{selectedProduct?.purchaseDate}}
+                                    
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card mb-4 bg-dark text-white justify-content-center d-flex mt-5">
+
+                    <div class="card-body mat-elevation-z8">
+
+                        <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel"
+                            (slid.bs.carousel)="updateSelectedProduct($event)">
+                            <div class="carousel-inner mat-elevation-z8">
+
+                                <ng-container *ngFor="let u of product; let i = index">
+                                    <div class="carousel-item" [ngClass]="{'active': i === 0}">
+                                        <img src="http://localhost:8089/images/{{u.image}}" class="d-block w-100"
+                                            alt="{{u.name}}">
+                                    </div>
+                                </ng-container>
+
+                            </div>
+
+                            <button class="carousel-control-prev" type="button"
+                                data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                <span class="visually-hidden">Previous</span>
+                            </button>
+                            <button class="carousel-control-next" type="button"
+                                data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                <span class="visually-hidden">Next</span>
+                            </button>
+                        </div>
+
+                        <div class="text-center">
+                            <h5 class="card-title mt-1">{{ selectedProduct?.name }}</h5>
+                            <div>
+
+                                <p class="card-text">
+                                    <strong>More In Sizes:</strong> {{selectedProduct?.price}}
+                                    <strong>Description:</strong> {{selectedProduct?.description}}<br><br>
+                                    <strong>Product Code:</strong> {{selectedProduct?.productCode}}<br>
+                                    <strong>Price:</strong> {{selectedProduct?.price }}<br>
+                                    <strong>More In Sizes:</strong> {{selectedProduct?.sizes}}
+                                    <strong>More In Sizes:</strong> {{selectedProduct?.purchaseDate}}
+                                    
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+
             </div>
         </div>
 

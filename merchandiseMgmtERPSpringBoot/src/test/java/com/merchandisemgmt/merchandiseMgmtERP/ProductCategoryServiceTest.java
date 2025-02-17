@@ -31,7 +31,7 @@ public class ProductCategoryServiceTest {
     @BeforeEach
     public void setup() {
         MockitoAnnotations.openMocks(this); // Initialize mocks
-        ReflectionTestUtils.setField(productCategoryService, "uploadDir", "test-uploads/");
+        ReflectionTestUtils.setField(productCategoryService, "uploadDir", "src/main/resources/static/images");
     }
 
     @Test

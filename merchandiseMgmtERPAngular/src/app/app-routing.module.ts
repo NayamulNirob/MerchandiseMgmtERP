@@ -102,7 +102,7 @@ const routes: Routes = [
   { path: 'task', component: TodotaskComponent , 
     canActivate: [AuthguardGuard, RoleGuard],
     data: { roles: ['ADMIN'] }},
-  { path: "**", redirectTo: 'login', pathMatch: 'full' },
+  
 
   {
     path: 'userProfile',
@@ -110,6 +110,8 @@ const routes: Routes = [
     canActivate: [AuthguardGuard, RoleGuard],
     data: { roles: ['ADMIN', 'USER'] }
   },
+
+  { path: "**", redirectTo: 'login', pathMatch: 'full' },
 
 ];
 

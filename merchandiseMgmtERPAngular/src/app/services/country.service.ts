@@ -30,8 +30,7 @@ export class CountryService {
   
 
   removeCountry(CountryId: number) {  
-    return this.http.delete(`${this.baseUrl}/delete/${CountryId}`, { responseType: 'text' });
-       
+    return this.http.delete(`${this.baseUrl}/delete/${CountryId}`, { responseType: 'text' }); 
   }
   
   getCountryById(CountryId: number):Observable<any> {  

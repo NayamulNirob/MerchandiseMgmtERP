@@ -1,8 +1,8 @@
--- MySQL dump 10.13  Distrib 8.0.36, for Win64 (x86_64)
+-- MySQL dump 10.13  Distrib 8.0.40, for Win64 (x86_64)
 --
 -- Host: localhost    Database: merchandisedb
 -- ------------------------------------------------------
--- Server version	8.0.37
+-- Server version	8.0.40
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -29,7 +29,7 @@ CREATE TABLE `sub_categories` (
   PRIMARY KEY (`id`),
   KEY `FKdf169oghv4ymrk63rlxhjed7b` (`product_category_id`),
   CONSTRAINT `FKdf169oghv4ymrk63rlxhjed7b` FOREIGN KEY (`product_category_id`) REFERENCES `categories` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=38 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -38,7 +38,7 @@ CREATE TABLE `sub_categories` (
 
 LOCK TABLES `sub_categories` WRITE;
 /*!40000 ALTER TABLE `sub_categories` DISABLE KEYS */;
-INSERT INTO `sub_categories` VALUES (2,'Kid\'s Wear',6),(3,'Men\'s Wear',6),(4,'Women\'s Wear',6),(5,'Knitted Fabric',7),(6,'Nonwoven Fabric',7),(7,'Woven Fabric',7),(8,'Blended Yarn',8);
+INSERT INTO `sub_categories` VALUES (2,'Kid\'s Wear',6),(3,'Men\'s Wear',6),(4,'Women\'s Wear',6),(5,'Knitted Fabric',7),(6,'Nonwoven Fabric',7),(7,'Woven Fabric',7),(8,'Blended Yarn',8),(23,'Synthetic/Regenerated Yarn',8),(24,'Natural Yarn',8),(25,'Bathroom Furnishing',9),(26,'Bedroom Furnishing',9),(27,'Kitchen Linen',9),(28,'Packaging Trims & Accessories',10),(29,'Sewing Trims & Accessories',10),(30,'FeedStock',11),(31,'Manmade',11),(32,'Natural',11),(33,'Footwear',12),(34,'Raw & Finished Leather',12),(35,'Leather products',12),(36,'Men\'s Accessories ',13),(37,'Women\'s Accessories ',13);
 /*!40000 ALTER TABLE `sub_categories` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -51,4 +51,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2024-11-10 17:29:45
+-- Dump completed on 2025-04-17  1:14:15

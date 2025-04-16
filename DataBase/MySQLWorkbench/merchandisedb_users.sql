@@ -1,8 +1,8 @@
--- MySQL dump 10.13  Distrib 8.0.36, for Win64 (x86_64)
+-- MySQL dump 10.13  Distrib 8.0.40, for Win64 (x86_64)
 --
 -- Host: localhost    Database: merchandisedb
 -- ------------------------------------------------------
--- Server version	8.0.37
+-- Server version	8.0.40
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -36,7 +36,7 @@ CREATE TABLE `users` (
   `dob` date DEFAULT NULL,
   `gender` varchar(255) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=29 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=50 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -45,7 +45,7 @@ CREATE TABLE `users` (
 
 LOCK TABLES `users` WRITE;
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
-INSERT INTO `users` VALUES (25,'nayamulislam@gmail.com','99f6e2a0-d236-475d-bb6d-f0a46a444f8d_VIP-33770.jpg','Neyamul Islam','$2a$10$2pFN/68GxCB87g35v/iba.AwgG7cV8V7Alo.KIPw.dvTwv8Wjaf/S','ADMIN',_binary '',_binary '','+880523123211','Mohammodpur, Dhaka','1994-01-02','Male'),(26,'shabab@gmail.com','bfba2630-123a-4d44-9bea-764b4fb297a8_4RQ1v2yp_400x400.jpg','Shabab Ahamed','$2a$10$gRw.9D9jbxrygd8K9mgaa.KB5dI8275w9QbZ0dYnLOkxK32pJyV26','USER',_binary '',_binary '','+882564115656','kallanpur, Dhaka','1997-09-18','Male'),(27,'arman@gmail.com','df115e45-5046-494f-b40e-7843d84e26e6_my-passport-photo.jpg','Arman Biswas','$2a$10$XzQ31DSx1T9cbxlYxVl5XOLRsvNEhBgygGPgdD5V5tfoVqO1WZy3i','USER',_binary '',_binary '','+88052652414','Framget, Dhaka','2000-12-19','Male'),(28,'1302neyamulislamnirob@gmail.com','9cf82698-bea5-49f5-87bf-94832a99a6cd_IMG_20220127_163119.jpg','Neyamul Nirob','$2a$10$LEtcpCFy17ITwZR1LZhpbO8nhxZietfdwpdzdvIJu79/XWexyo/0e','ADMIN',_binary '',_binary '','+88026356511','Mohammodpur, Dhaka','1995-02-03','Male');
+INSERT INTO `users` VALUES (25,'nayamulislam@gmail.com','99f6e2a0-d236-475d-bb6d-f0a46a444f8d_VIP-33770.jpg','Neyamul Islam','$2a$10$2pFN/68GxCB87g35v/iba.AwgG7cV8V7Alo.KIPw.dvTwv8Wjaf/S','ADMIN',_binary '',_binary '','+880523123211','Mohammodpur, Dhaka','1994-01-02','Male'),(26,'shabab@gmail.com','bfba2630-123a-4d44-9bea-764b4fb297a8_4RQ1v2yp_400x400.jpg','Shabab Ahamed','$2a$10$gRw.9D9jbxrygd8K9mgaa.KB5dI8275w9QbZ0dYnLOkxK32pJyV26','USER',_binary '',_binary '','+882564115656','kallanpur, Dhaka','1997-09-18','Male'),(27,'arman@gmail.com','df115e45-5046-494f-b40e-7843d84e26e6_my-passport-photo.jpg','Arman Biswas','$2a$10$XzQ31DSx1T9cbxlYxVl5XOLRsvNEhBgygGPgdD5V5tfoVqO1WZy3i','USER',_binary '',_binary '','+88052652414','Framget, Dhaka','2000-12-19','Male'),(28,'1302neyamulislamnirob@gmail.com','9cf82698-bea5-49f5-87bf-94832a99a6cd_IMG_20220127_163119.jpg','Neyamul Nirob','$2a$10$LEtcpCFy17ITwZR1LZhpbO8nhxZietfdwpdzdvIJu79/XWexyo/0e','ADMIN',_binary '',_binary '','+88026356511','Mohammodpur, Dhaka','1995-02-03','Male'),(45,'nasim@gmail.com','2a3f455d-c014-48e4-aab3-34f71d0e032f_upload.jpg','Nasimul Islam','$2a$10$dPOL1PlPgqhdLHyqDCBzDuBOelWFdGWxJ/fAPhltTe7X1k.0QGxOC','ADMIN',_binary '',_binary '','+880111122233','Shylet, Bangladesh','2000-03-31','Male'),(46,'raju@gmail.com','ae80cef2-dbb3-4a1c-bfb3-e0e7a7438207_upload.jpg','Raju Ahamed','$2a$10$uU/30LiJioxWxtS2hqzJpOhwLc2FMHQYXQyVguNA3otEh6kHZ83Sq','USER',_binary '',_binary '','+880111222333','Ajimpur, Dhaka, Bangladesh','1995-11-13','Male'),(47,'nasif@gmail.com','13b787e3-384d-4e57-9c23-1031c794828c_upload.jpg','Nasif Shariar','$2a$10$BdUrP1wjX6gapwGlBS.Lq.w9Vz6gCF6nJ3sPSPEJeExupzPP9ZxN6','USER',_binary '\0',_binary '','+88011122233','Framget, Dhaka, Bangladesh','2024-11-13','Male'),(48,'fwekmeffm@bhb.jknds','18416a69-ce8b-45db-b25a-47c2fb1de671_upload.jpg','gvb dn ','$2a$10$u0cdnghwsMrwXtZPVufkf.QMD84qpXNU0GdxeFpTCq50gh6EktqLm','USER',_binary '\0',_binary '','+85222020','fdhfh','1994-11-13','Male'),(49,'abc@gmail.com','676be821-4df3-44b3-b435-1f57f57fc5b0_upload.jpg','ABC','$2a$10$TlQ.O668FcJAgmiApsPJCOwKO0q98Qiv/3XWg3GkXSqruTG6cA7qS','USER',_binary '',_binary '','123456','Abcdefg','2025-02-05','Male');
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -58,4 +58,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2024-11-10 17:29:45
+-- Dump completed on 2025-04-17  1:14:14

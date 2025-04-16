@@ -1,8 +1,8 @@
--- MySQL dump 10.13  Distrib 8.0.36, for Win64 (x86_64)
+-- MySQL dump 10.13  Distrib 8.0.40, for Win64 (x86_64)
 --
 -- Host: localhost    Database: merchandisedb
 -- ------------------------------------------------------
--- Server version	8.0.37
+-- Server version	8.0.40
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -33,11 +33,12 @@ CREATE TABLE `customers` (
   `phone` varchar(255) NOT NULL,
   `updated_at` datetime(6) DEFAULT NULL,
   `country_obj_id` int DEFAULT NULL,
+  `country` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `UKrfbvkrffamfql7cjmen8v976v` (`email`),
   KEY `FKhrruqdhcwnatqblne73cwcb36` (`country_obj_id`),
   CONSTRAINT `FKhrruqdhcwnatqblne73cwcb36` FOREIGN KEY (`country_obj_id`) REFERENCES `country` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -46,7 +47,7 @@ CREATE TABLE `customers` (
 
 LOCK TABLES `customers` WRITE;
 /*!40000 ALTER TABLE `customers` DISABLE KEYS */;
-INSERT INTO `customers` VALUES (1,'GARDENA, CA 90248USA','Mr Tony','2024-09-30 02:51:15.301067','tony@fang-fashion.com','Mr Tony','FASHION LIFE/FANG','+115423','2024-09-30 02:51:15.301067',8),(2,'KAZUKO OTAKE ','SHO HARASAKI','2024-09-30 02:54:39.399578','r.otake@mamafactory.jp','SHO HARASAKI','MAMA FACTORY OTAKE CO.LTD.','+81 90 8496 5344','2024-09-30 02:54:39.399578',12),(3,'House 5/C, Road 01,\nMohammadpur','Nafiz Shahriar Nirjash','2024-10-04 23:54:06.481889','nafizshahriar@gmail.com','Nafiz Shahriar Nirjash','IDB','+88021255555','2024-10-04 23:54:06.481889',4);
+INSERT INTO `customers` VALUES (1,'GARDENA, CA 90248USA','Mr Tony','2024-09-30 02:51:15.301067','tony@fang-fashion.com','Mr Tony','FASHION LIFE/FANG','+115423','2024-09-30 02:51:15.301067',8,NULL),(2,'KAZUKO OTAKE ','SHO HARASAKI','2024-11-22 03:42:25.364519','r.otake@mamafactory.jp','SHO HARASAKI','MAMA FACTORY OTAKE CO.LTD.','+81 90 8496 5344','2024-11-22 03:42:25.366519',12,NULL),(3,'House 5/C, Road 01,\nMohammadpur','Nafiz Shahriar Nirjash','2024-11-22 03:49:40.263631','nafizshahriar@gmail.com','Nafiz Shahriar Nirjash','IDB-BIsEW','+88021255555','2024-11-22 03:49:40.267630',4,NULL);
 /*!40000 ALTER TABLE `customers` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -59,4 +60,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2024-11-10 17:29:45
+-- Dump completed on 2025-04-17  1:14:15

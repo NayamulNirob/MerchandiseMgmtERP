@@ -1,8 +1,8 @@
--- MySQL dump 10.13  Distrib 8.0.36, for Win64 (x86_64)
+-- MySQL dump 10.13  Distrib 8.0.40, for Win64 (x86_64)
 --
 -- Host: localhost    Database: merchandisedb
 -- ------------------------------------------------------
--- Server version	8.0.37
+-- Server version	8.0.40
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -39,7 +39,7 @@ CREATE TABLE `country` (
 
 LOCK TABLES `country` WRITE;
 /*!40000 ALTER TABLE `country` DISABLE KEYS */;
-INSERT INTO `country` VALUES (4,'Bangladesh ','Row Metarials&Garment','50',800000,'Rich'),(5,'	India','Fabric ','35',400000,'Good'),(6,'China','Yarn','40',650000,'Rich'),(7,'HONG KONG','Row Metarials&Fiber','45',380000,'Poor'),(8,'USA','Fabric ','50',850000,'Rich'),(9,'TORONTO','Garment','55',450000,'Good'),(10,' NEW YORK','Home Textiles','60',850000,'Rich'),(11,'SECAUCUS','Clothing Accessory','65',750000,'Rich'),(12,' Japan','Garment','70',530000,'Good');
+INSERT INTO `country` VALUES (4,'Bangladesh ','Row Metarials&Garment','50',800000,'Rich'),(5,'	India','Fabric ','35',400000,'Good'),(6,'China','Yarn','40',650000,'Rich'),(7,'HONG KONG','Row Metarials&Fiber','45',380000,'Rich'),(8,'USA','Fabric ','50',850000,'Rich'),(9,'TORONTO','Garment','55',450000,'Good'),(10,' NEW YORK','Home Textiles','60',850000,'Rich'),(11,'SECAUCUS','Clothing Accessory','65',850000,'Rich'),(12,' Japan','Garment','70',530000,'Good');
 /*!40000 ALTER TABLE `country` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -52,4 +52,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2024-11-10 17:29:45
+-- Dump completed on 2025-04-17  1:14:15

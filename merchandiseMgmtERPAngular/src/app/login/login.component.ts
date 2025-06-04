@@ -22,7 +22,7 @@ export class LoginComponent {
     this.logInFrom = this.fromBuilder.group({
       email: [''],
       password: ['']
-      
+
     });
   }
 
@@ -42,6 +42,7 @@ export class LoginComponent {
       this.authService.login(credentials.email, credentials.password).subscribe({
         next: (res) => {
           console.log("user log in successfully:");
+          localStorage.setItem('authToken', res.token);
           this.router.navigate(['/userProfile']);
         },
         error: (err) => {
